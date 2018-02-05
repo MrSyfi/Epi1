@@ -7,11 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace AccessApp
 {
-    public partial class _Default : Page
+    public partial class Gestion : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void TB_recherhce_TextChanged(object sender, EventArgs e)
+        {
+            Lbl_resultat.Text = TB_recherhce.Text;
         }
     }
 }
