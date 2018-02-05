@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Access", "Access\Access.csproj", "{731F66FB-9996-487A-A976-3A51D1DE6C71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessApp", "AccessApp\AccessApp.csproj", "{DF0CF871-359E-440B-AF68-E1E66908C06C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{731F66FB-9996-487A-A976-3A51D1DE6C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{731F66FB-9996-487A-A976-3A51D1DE6C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{731F66FB-9996-487A-A976-3A51D1DE6C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{731F66FB-9996-487A-A976-3A51D1DE6C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF0CF871-359E-440B-AF68-E1E66908C06C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0CF871-359E-440B-AF68-E1E66908C06C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0CF871-359E-440B-AF68-E1E66908C06C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0CF871-359E-440B-AF68-E1E66908C06C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
