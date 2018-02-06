@@ -21,13 +21,13 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME, USERNAME, PHONE_NBR, PRIV_EMAIL, SERVICE ,RA_DATE, AR_STATUS  FROM {0} WHERE ((UPPER(LAST_NAME) LIKE :search OR UPPER(FIRST_NAME) LIKE :search OR UPPER(USERNAME) LIKE :search OR UPPER(SERVICE) LIKE :search  OR UPPER(AR_STATUS) LIKE:search) AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST), parameters, values);
         }
 
-        public static bool UpdateRequestStatus(int id, string status)
+        public static bool UpdateRequestStatus(string id, string status)
         {
             List<string> parameters = new List<string>();
             List<string> values = new List<string>();
 
             parameters.Add(":status");values.Add(status);
-            parameters.Add(":id");values.Add(id.ToString());
+            parameters.Add(":id");values.Add(id);
 
             return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = :status WHERE ID = :id",Consts.ACCESS_REQUEST), parameters, values);
         }

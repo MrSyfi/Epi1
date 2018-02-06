@@ -43,6 +43,7 @@ namespace AccessApp
         {
             int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
             TextBox1.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
+            TextBox2.Text = GridView1.Rows[currentRowIndex].Cells[1].Text;
 
         }
 
@@ -52,6 +53,11 @@ namespace AccessApp
             {
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
             }
+        }
+
+        protected void Btn_Click(object sender, EventArgs e)
+        {
+            DAL.UpdateRequestStatus(TextBox1.Text, TextBox3.Text);
         }
     }
 }
