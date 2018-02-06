@@ -53,8 +53,6 @@
 
     <asp:Button ID="Btn" CssClass="btn btn-default btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer"/>
 
-        
-
-
+       
 </asp:Content>
 

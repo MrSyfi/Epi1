@@ -84,10 +84,10 @@ namespace AccessApp
             if (currentRowIndex < 10)
             {
                 TB_id.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
-                TB_last_name.Text = GridView1.Rows[currentRowIndex].Cells[1].Text;
-                TB_first_name.Text = GridView1.Rows[currentRowIndex].Cells[2].Text;
-                TB_username.Text = GridView1.Rows[currentRowIndex].Cells[3].Text;
-                TB_service.Text = GridView1.Rows[currentRowIndex].Cells[5].Text;
+                TB_last_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[1].Text);
+                TB_first_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[2].Text);
+                TB_username.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[3].Text);
+                TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
 
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
                 DDL_status.Enabled = true;
