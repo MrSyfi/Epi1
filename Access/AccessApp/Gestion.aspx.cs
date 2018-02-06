@@ -23,7 +23,7 @@ namespace AccessApp
             dt.Columns.Add("data");
             dt.Columns.Add("heading1");
             dt.Columns.Add("heading2");
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 10; i++)
             {
                 dt.Rows.Add(new object[] { i, 123 * i, 4567 * i, 2 * i, });
             }
@@ -35,7 +35,8 @@ namespace AccessApp
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
-            test.Text = GridView1.Rows[currentRowIndex].Cells[1].Text;
+            TextBox1.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
+
         }
 
         protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
