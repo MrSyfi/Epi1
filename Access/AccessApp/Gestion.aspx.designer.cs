@@ -67,6 +67,15 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.TextBox TB_first_name;
         
         /// <summary>
+        /// Contrôle DDL_status.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_status;
+        
+        /// <summary>
         /// Contrôle TextBox3.
         /// </summary>
         /// <remarks>

@@ -13,14 +13,14 @@ namespace AccessApp
 
         private DataTable LoadData(string search = "")
         {
-
+            
             DataTable dt = DAL.SelectFromSearchRequest(search).Tables[0];
             return dt;
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            DDL_status.Items.Add("Dynamically added");
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)

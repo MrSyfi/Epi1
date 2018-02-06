@@ -17,7 +17,7 @@ namespace AccessApp
             _connection = new OracleConnection(_connectionString);
             OpenConnection();
 
-            // Insuficient privileges 
+            // Insuficient Privileges
             //CreateView();
         }
 
@@ -77,7 +77,11 @@ namespace AccessApp
         // Créer les différentes vues pouvant être utilisées.
         private void CreateView()
         {
-            ExecuteNonQuery(string.Format("CREATE VIEW AR_VIEW AS SELECT ID, LAST_NAME, FIRST_NAME, USERNAME FROM {0}", Consts.ACCESS_REQUEST));
+            //All Access Request View 
+            ExecuteNonQuery(string.Format("CREATE OR REPLACE VIEW ACCESS_REQUESTS_VIEW AS SELECT ID, LAST_NAME, FIRST_NAME, USERNAME, PHONE_NBR, PRIV_EMAIL, SERVICE ,RA_DATE, AR_STATUS  FROM {0}", Consts.ACCESS_REQUEST_TABLE));
+
+            // All Status Request View
+            ExecuteNonQuery(string.Format("CREATE OR REPLACE VIEW ACCESS_REQUESTS_STATUS_VIEW AS "));
         }
 
 
