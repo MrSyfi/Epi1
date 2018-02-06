@@ -17,6 +17,8 @@
              <asp:BoundField DataField="USERNAME" HeaderText="Username" />
              <asp:BoundField DataField="PHONE_NBR" HeaderText="Téléphone" />
             <asp:BoundField DataField="SERVICE" HeaderText="Service" />
+            
+            <asp:BoundField DataField="AR_STATUS" HeaderText="Statut" />
          </Columns>
     </asp:GridView>
     <hr />
@@ -50,6 +52,7 @@
         
         <asp:ListItem>test 2</asp:ListItem>
     </asp:DropDownList>
+
 
     <asp:Button ID="Btn" runat="server" OnClick="Btn_Click"/>
 
