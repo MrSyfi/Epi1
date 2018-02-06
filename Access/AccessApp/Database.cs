@@ -9,8 +9,8 @@ namespace AccessApp
 {
     public class Database
     {
-        public static readonly string _connectionString = @"";
-        public OracleConnection _connection;
+        public static readonly string _connectionString = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID=epidesk";
+        public static OracleConnection _connection;
 
         public Database()
         {
@@ -21,7 +21,7 @@ namespace AccessApp
         public bool OpenConnection()
         {
             _connection.Open();
-            return _connection.State == System.Data.ConnectionState.Open ? true : false;
+            return _connection.State == ConnectionState.Open ? true : false;
         }
 
         // lecture des demandes d'accès qui ne sont pas terminées.
@@ -44,7 +44,6 @@ namespace AccessApp
             adapter.Fill(ds);
             return ds;
 
-
         }
         
         // Modification du statut de la demande d'accès.
@@ -63,5 +62,7 @@ namespace AccessApp
             }
             return command.ExecuteNonQuery() != 0;
         }
+
+       
     }
 }
