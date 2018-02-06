@@ -17,7 +17,14 @@ namespace AccessApp
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
         {
+            DataTable dt = new DataTable();
 
+            dt = DAL.SelectFromSearchRequest(TB_recherhce.Text).Tables[0];
+
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+
+            /*
             DataTable dt = new DataTable();
             dt.Columns.Add("Sl");
             dt.Columns.Add("data");
@@ -29,7 +36,7 @@ namespace AccessApp
             }
 
             GridView1.DataSource = dt;
-            GridView1.DataBind();
+            GridView1.DataBind();*/
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
