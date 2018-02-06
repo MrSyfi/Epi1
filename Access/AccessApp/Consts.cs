@@ -8,7 +8,9 @@ namespace AccessApp
     public class Consts
     {
         // DATABASE TABLE OR VIEW
-        public static readonly string ACCESS_REQUEST = "EPIDESK.ACCESS_REQUEST";
-        public static readonly string ACCESS_REQUEST_VIEW = "AR_VIEW";
+        public static readonly string ACCESS_REQUEST_TABLE = "EPIDESK.ACCESS_REQUEST";
+
+        public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
+        public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
     }
 }
