@@ -28,6 +28,9 @@
         </tr>
     </table>
 
+    <asp:TextBox ID="TextBox3" class="form-control" runat="server" ></asp:TextBox>
+    <asp:Button ID="Btn" runat="server" OnClick="Btn_Click"/>
+
 
 </asp:Content>
 
