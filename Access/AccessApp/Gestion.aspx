@@ -9,7 +9,16 @@
 
     <hr />
     <asp:Label runat="server" ID="L_result">Pas de résultat</asp:Label>
-    <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered table-hover" runat="server" AllowPaging="false" OnRowCreated="GridView1_RowCreated" OnRowCommand="GridView1_RowCommand"></asp:GridView>
+    <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnPageIndexChanging="OnPaging" runat="server" AllowPaging="true" PageSize="10" OnRowCreated="GridView1_RowCreated" OnRowCommand="GridView1_RowCommand">
+        <Columns>
+             <asp:BoundField DataField="ID" HeaderText="ID" />
+             <asp:BoundField DataField="LAST_NAME" HeaderText="Nom" />
+             <asp:BoundField DataField="FIRST_NAME" HeaderText="Prénom" />
+             <asp:BoundField DataField="USERNAME" HeaderText="Username" />
+             <asp:BoundField DataField="PHONE_NBR" HeaderText="Téléphone" />
+            <asp:BoundField DataField="SERVICE" HeaderText="Service" />
+         </Columns>
+    </asp:GridView>
     <hr />
     <table>
         <tr>
@@ -24,6 +33,14 @@
             <td> 
                 <label for="TB_first_name">First Name</label>
                 <asp:TextBox ID="TB_first_name" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_first_name"></asp:TextBox>
+            </td>
+            <td> 
+                <label for="TB_username">Username</label>
+                <asp:TextBox ID="TB_username" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_username"></asp:TextBox>
+            </td>
+            <td> 
+                <label for="TB_service">Service</label>
+                <asp:TextBox ID="TB_service" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_service"></asp:TextBox>
             </td>
         </tr>
     </table>

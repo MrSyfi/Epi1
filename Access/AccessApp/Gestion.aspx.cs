@@ -11,8 +11,6 @@ namespace AccessApp
     public partial class Gestion : System.Web.UI.Page
     {
 
-        
-
         private DataTable LoadData(string search = "")
         {
             
@@ -22,16 +20,17 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet ds = DAL.SelectAllStatus();
-            DDL_status.DataSource = ds.Tables[0];
-            DDL_status.DataValueField = ds.Tables[0].Columns["AR_STATUS"].ToString();
-            DDL_status.DataBind();
+            DDL_status.Items.Add("Dynamically added");
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
         {
-           
+            GridView1.PageIndex = 0;
+            LoadTable();
+        }
 
+        public void LoadTable()
+        {
             DataTable dt = LoadData(TB_recherche.Text);
             if (dt.Rows.Count == 0)
             {
@@ -45,19 +44,37 @@ namespace AccessApp
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
             }
+            if (TB_recherche.Text == "")
+            {
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
 
-            
+            Reset();
         }
+
+        protected void OnPaging(object sender, GridViewPageEventArgs e)
+        {
+            
+            GridView1.PageIndex = e.NewPageIndex;
+            LoadTable();
+
+        }
+
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            
             int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
             
-            TB_id.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
-            TB_last_name.Text = GridView1.Rows[currentRowIndex].Cells[1].Text;
-            TB_first_name.Text = GridView1.Rows[currentRowIndex].Cells[2].Text;
-            DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[8].Text;
-
+            if (currentRowIndex < 10)
+            {
+                TB_id.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
+                TB_last_name.Text = GridView1.Rows[currentRowIndex].Cells[1].Text;
+                TB_first_name.Text = GridView1.Rows[currentRowIndex].Cells[2].Text;
+                TB_username.Text = GridView1.Rows[currentRowIndex].Cells[3].Text;
+                TB_service.Text = GridView1.Rows[currentRowIndex].Cells[5].Text;
+            }
         }
 
         protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
@@ -70,10 +87,20 @@ namespace AccessApp
 
         protected void Btn_Click(object sender, EventArgs e)
         {
-            DAL.UpdateRequestStatus(TB_id.Text, DDL_status.SelectedValue);
+            DAL.UpdateRequestStatus(TB_id.Text, TextBox3.Text);
 
             GridView1.DataSource = LoadData(TB_recherche.Text);
             GridView1.DataBind();
+        }
+
+        public void Reset()
+        {
+            TB_id.Text = "";
+            TB_last_name.Text = "";
+            TB_first_name.Text = "";
+            TB_first_name.Text = "";
+            TB_username.Text = "";
+            TB_service.Text = "";
         }
     }
 }
