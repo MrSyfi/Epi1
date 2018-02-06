@@ -34,8 +34,6 @@
         <asp:ListItem>test 2</asp:ListItem>
     </asp:DropDownList>
 
-    
-    <asp:TextBox ID="TextBox3" Cssclass="form-control input-lg" runat="server" ></asp:TextBox>
     <asp:Button ID="Btn" runat="server" OnClick="Btn_Click"/>
 
         

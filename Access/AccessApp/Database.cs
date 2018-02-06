@@ -31,6 +31,16 @@ namespace AccessApp
 
         // lecture des demandes d'accès qui ne sont pas terminées.
         // select * from table where .. like %search% or .. like %search% and .. NOT LIKE "terminated"
+
+        public DataSet ExecuteQuery(string query)
+        {
+            DataSet ds = new DataSet();
+            OracleCommand command = new OracleCommand(query, _connection);
+            OracleDataAdapter adapter = new OracleDataAdapter(command);
+            adapter.Fill(ds);
+            return ds;
+        }
+        
         public DataSet ExecuteQuery(string query, List<string> parameters,List<string> values)
         {
             DataSet ds = new DataSet();
@@ -80,8 +90,7 @@ namespace AccessApp
             //All Access Request View 
             ExecuteNonQuery(string.Format("CREATE OR REPLACE VIEW ACCESS_REQUESTS_VIEW AS SELECT ID, LAST_NAME, FIRST_NAME, USERNAME, PHONE_NBR, PRIV_EMAIL, SERVICE ,RA_DATE, AR_STATUS  FROM {0}", Consts.ACCESS_REQUEST_TABLE));
 
-            // All Status Request View
-            ExecuteNonQuery(string.Format("CREATE OR REPLACE VIEW ACCESS_REQUESTS_STATUS_VIEW AS "));
+            
         }
 
 
