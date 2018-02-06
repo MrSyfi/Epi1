@@ -87,7 +87,7 @@ namespace AccessApp
 
         protected void Btn_Click(object sender, EventArgs e)
         {
-            DAL.UpdateRequestStatus(TB_id.Text, TextBox3.Text);
+            DAL.UpdateRequestStatus(TB_id.Text, DDL_status.Text);
 
             GridView1.DataSource = LoadData(TB_recherche.Text);
             GridView1.DataBind();
