@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,12 +12,37 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void TB_recherhce_TextChanged(object sender, EventArgs e)
         {
-            Lbl_resultat.Text = TB_recherhce.Text;
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Sl");
+            dt.Columns.Add("data");
+            dt.Columns.Add("heading1");
+            dt.Columns.Add("heading2");
+            for (int i = 0; i < 40; i++)
+            {
+                dt.Rows.Add(new object[] { i, 123 * i, 4567 * i, 2 * i, });
+            }
+
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            test.Text = "coucou";
+        }
+
+        protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
+            }
         }
     }
 }
