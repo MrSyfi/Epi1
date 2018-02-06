@@ -37,28 +37,42 @@ namespace AccessApp
                 L_result.Text = "Pas de résultat";
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
+                
             }
             else
             {
                 L_result.Text = "";
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
+                
+
+                LoadStatus();
             }
             if (TB_recherche.Text == "")
             {
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
+                
             }
-
+            DDL_status.Enabled = false;
             Reset();
         }
 
         protected void OnPaging(object sender, GridViewPageEventArgs e)
         {
-            
+            LoadStatus();
+
             GridView1.PageIndex = e.NewPageIndex;
             LoadTable();
 
+        }
+
+        public void LoadStatus()
+        {
+            DataSet ds = DAL.SelectAllStatus();
+            DDL_status.DataSource = ds.Tables[0];
+            DDL_status.DataValueField = ds.Tables[0].Columns["AR_STATUS"].ToString();
+            DDL_status.DataBind();
         }
 
 
@@ -75,12 +89,8 @@ namespace AccessApp
                 TB_username.Text = GridView1.Rows[currentRowIndex].Cells[3].Text;
                 TB_service.Text = GridView1.Rows[currentRowIndex].Cells[5].Text;
 
-                DataSet ds = DAL.SelectAllStatus();
-                DDL_status.DataSource = ds.Tables[0];
-                DDL_status.DataValueField = ds.Tables[0].Columns["AR_STATUS"].ToString();
-                DDL_status.DataBind();
-
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
+                DDL_status.Enabled = true;
             }
         }
 

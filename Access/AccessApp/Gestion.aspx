@@ -47,14 +47,11 @@
         </tr>
     </table>
 
-    <asp:DropDownList runat="server" ID="DDL_status">
-        <asp:ListItem>test 1</asp:ListItem>
-        
-        <asp:ListItem>test 2</asp:ListItem>
+    <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false">
     </asp:DropDownList>
 
 
-    <asp:Button ID="Btn" runat="server" OnClick="Btn_Click"/>
+    <asp:Button ID="Btn" CssClass="btn btn-default btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer"/>
 
         
 
