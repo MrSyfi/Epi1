@@ -22,13 +22,13 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.TextBox TB_recherche;
         
         /// <summary>
-        /// Contrôle test.
+        /// Contrôle GridView1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label test;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
         /// Contrôle TextBox1.
@@ -38,14 +38,5 @@ namespace AccessApp {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
-        /// Contrôle GridView1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }
