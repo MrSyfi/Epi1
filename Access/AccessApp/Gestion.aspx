@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gestion" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Gestion.aspx.cs" Inherits="AccessApp.Gestion" EnableEventValidation="false" %>
+﻿<%@ Page Title="Gestion" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Gestion.aspx.cs" Inherits="AccessApp.Gestion" enableEventValidation="false"%>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -45,16 +45,16 @@
                 <asp:TextBox ID="TB_service" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_service"></asp:TextBox>
             </td>
         </tr>
+        <tr>
+            <td>
+                <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false"></asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer"/>
+            </td>
+        </tr>
     </table>
-
-    <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false">
-    </asp:DropDownList>
-
-
-    <asp:Button ID="Btn" CssClass="btn btn-default btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer"/>
-
-        
-
-
 </asp:Content>
 
