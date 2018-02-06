@@ -22,6 +22,15 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.TextBox TB_recherche;
         
         /// <summary>
+        /// Contrôle L_result.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label L_result;
+        
+        /// <summary>
         /// Contrôle GridView1.
         /// </summary>
         /// <remarks>
@@ -31,12 +40,30 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Contrôle TextBox1.
+        /// Contrôle TB_id.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox TB_id;
+        
+        /// <summary>
+        /// Contrôle TB_last_name.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_last_name;
+        
+        /// <summary>
+        /// Contrôle TB_first_name.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_first_name;
     }
 }

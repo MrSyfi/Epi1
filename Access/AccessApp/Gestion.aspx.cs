@@ -19,30 +19,30 @@ namespace AccessApp
         {
             DataTable dt = new DataTable();
 
-            dt = DAL.SelectFromSearchRequest(TB_recherhce.Text).Tables[0];
-
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-
-            /*
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Sl");
-            dt.Columns.Add("data");
-            dt.Columns.Add("heading1");
-            dt.Columns.Add("heading2");
-            for (int i = 0; i < 10; i++)
+            dt = DAL.SelectFromSearchRequest(TB_recherche.Text).Tables[0];
+            if (dt.Rows.Count == 0)
             {
-                dt.Rows.Add(new object[] { i, 123 * i, 4567 * i, 2 * i, });
+                L_result.Text = "Pas de résultat";
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            else
+            {
+                L_result.Text = "";
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
             }
 
-            GridView1.DataSource = dt;
-            GridView1.DataBind();*/
+            
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
-            TextBox1.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
+            
+            TB_id.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
+            TB_last_name.Text = GridView1.Rows[currentRowIndex].Cells[1].Text;
+            TB_first_name.Text = GridView1.Rows[currentRowIndex].Cells[2].Text;
 
         }
 
