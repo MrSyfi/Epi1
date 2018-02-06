@@ -16,7 +16,12 @@ namespace AccessApp
         {
             _connection = new OracleConnection(_connectionString);
             OpenConnection();
+
+            // Insuficient privileges 
+            //CreateView();
         }
+
+        
 
         public bool OpenConnection()
         {
@@ -63,6 +68,18 @@ namespace AccessApp
             return command.ExecuteNonQuery() != 0;
         }
 
-       
+        public bool ExecuteNonQuery(string query)
+        {
+            OracleCommand command = new OracleCommand(query, _connection);
+            return command.ExecuteNonQuery() != 0;
+        }
+
+        // Créer les différentes vues pouvant être utilisées.
+        private void CreateView()
+        {
+            ExecuteNonQuery(string.Format("CREATE VIEW AR_VIEW AS SELECT ID, LAST_NAME, FIRST_NAME, USERNAME FROM {0}", Consts.ACCESS_REQUEST));
+        }
+
+
     }
 }
