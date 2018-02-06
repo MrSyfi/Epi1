@@ -13,13 +13,13 @@ namespace AccessApp {
     public partial class Gestion {
         
         /// <summary>
-        /// Contrôle TB_recherhce.
+        /// Contrôle TB_recherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_recherhce;
+        protected global::System.Web.UI.WebControls.TextBox TB_recherche;
         
         /// <summary>
         /// Contrôle test.
