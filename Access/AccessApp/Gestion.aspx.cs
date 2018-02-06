@@ -19,7 +19,7 @@ namespace AccessApp
         {
             DataTable dt = new DataTable();
 
-            dt = DAL.SelectFromSearchRequest(TB_recherhce.Text).Tables[0];
+            dt = DAL.SelectFromSearchRequest(TB_recherche.Text).Tables[0];
 
             GridView1.DataSource = dt;
             GridView1.DataBind();
