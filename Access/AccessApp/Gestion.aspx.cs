@@ -15,7 +15,7 @@ namespace AccessApp
             
         }
 
-        protected void TB_recherhce_TextChanged(object sender, EventArgs e)
+        protected void TB_recherche_TextChanged(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
 
@@ -41,7 +41,8 @@ namespace AccessApp
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            test.Text = "coucou";
+            int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
+            test.Text = GridView1.Rows[currentRowIndex].Cells[1].Text;
         }
 
         protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
