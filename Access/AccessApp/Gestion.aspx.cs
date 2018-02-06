@@ -54,6 +54,7 @@ namespace AccessApp
                 GridView1.DataBind();
                 
             }
+            Btn.Enabled = false;
             DDL_status.Enabled = false;
             Reset();
         }
@@ -91,6 +92,7 @@ namespace AccessApp
 
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
                 DDL_status.Enabled = true;
+                Btn.Enabled = true;
             }
         }
 

@@ -51,7 +51,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer"/>
+                <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer" Enabled="false"/>
             </td>
         </tr>
     </table>
