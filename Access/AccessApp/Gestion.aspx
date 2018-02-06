@@ -3,10 +3,24 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <label for="Recherche">Recherche</label>
-    <asp:TextBox ID="TB_recherche" CssClass="form-control input-lg" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="Nom, prénom, Service..." name="Recherche" AutoPostBack="true"></asp:TextBox>
- 
-
+    <table>
+        <tr>
+            <td>
+                <label for="Recherche">Recherche</label>
+                <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="Nom, prénom, Service..." name="Recherche" AutoPostBack="true"></asp:TextBox>
+            </td>
+            <td>
+                <label for="Nb_element">Nombre d'élément par page</label>
+                <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_nb_page" OnSelectedIndexChanged="DDL_nb_page_SelectedIndexChanged" AutoPostBack="true" name="Nb_element">
+                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>10</asp:ListItem>
+                    <asp:ListItem>25</asp:ListItem>
+                    <asp:ListItem>50</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+    </table>
+    
     <hr />
     <h3><asp:Label runat="server" ID="L_result">Pas de résultat</asp:Label></h3>
     <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnPageIndexChanging="OnPaging" runat="server" AllowPaging="true" PageSize="10" OnRowCreated="GridView1_RowCreated" OnRowCommand="GridView1_RowCommand">

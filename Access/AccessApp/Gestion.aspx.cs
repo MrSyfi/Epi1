@@ -31,8 +31,13 @@ namespace AccessApp
 
         public void LoadTable()
         {
-            DataTable dt = LoadData(TB_recherche.Text);
-            if (dt.Rows.Count == 0)
+            DataTable dt = null;
+            if (TB_recherche.Text != "")
+            {
+                 dt = LoadData(TB_recherche.Text);
+            }
+             
+            if (dt == null)
             {
                 L_result.Text = "Pas de résultat";
                 GridView1.DataSource = dt;
@@ -74,6 +79,8 @@ namespace AccessApp
             DDL_status.DataSource = ds.Tables[0];
             DDL_status.DataValueField = ds.Tables[0].Columns["AR_STATUS"].ToString();
             DDL_status.DataBind();
+
+
         }
 
 
@@ -91,6 +98,7 @@ namespace AccessApp
                 TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
 
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
+                
                 DDL_status.Enabled = true;
                 Btn.Enabled = true;
             }
@@ -119,6 +127,12 @@ namespace AccessApp
             TB_first_name.Text = "";
             TB_username.Text = "";
             TB_service.Text = "";
+        }
+
+        protected void DDL_nb_page_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridView1.PageSize =  Int32.Parse(DDL_nb_page.SelectedValue);
+            LoadTable();
         }
     }
 }
