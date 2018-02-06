@@ -20,7 +20,10 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DDL_status.Items.Add("Dynamically added");
+            DataSet ds = DAL.SelectAllStatus();
+            DDL_status.DataSource = ds.Tables[0];
+            DDL_status.DataValueField = ds.Tables[0].Columns["AR_STATUS"].ToString();
+            DDL_status.DataBind();
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
@@ -74,6 +77,8 @@ namespace AccessApp
                 TB_first_name.Text = GridView1.Rows[currentRowIndex].Cells[2].Text;
                 TB_username.Text = GridView1.Rows[currentRowIndex].Cells[3].Text;
                 TB_service.Text = GridView1.Rows[currentRowIndex].Cells[5].Text;
+
+                DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
             }
         }
 
@@ -87,7 +92,7 @@ namespace AccessApp
 
         protected void Btn_Click(object sender, EventArgs e)
         {
-            DAL.UpdateRequestStatus(TB_id.Text, TextBox3.Text);
+            DAL.UpdateRequestStatus(TB_id.Text, DDL_status.SelectedValue);
 
             GridView1.DataSource = LoadData(TB_recherche.Text);
             GridView1.DataBind();
