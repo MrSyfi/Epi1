@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-header">
-        <h1>Gestionnaire du statut des demandes d'accès</h1>
+        <h2>Gestion des demandes d'accès | EpiACCESS</h2>
     </div>
     
     <br />
