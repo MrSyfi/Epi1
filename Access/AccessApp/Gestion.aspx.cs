@@ -37,7 +37,7 @@ namespace AccessApp
                  dt = LoadData(TB_recherche.Text);
             }
              
-            if (dt == null)
+            if (dt == null || dt.Rows.Count == 0)
             {
                 L_result.Visible = true;
                 GridView1.DataSource = dt;
