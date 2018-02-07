@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" style="width:100%" placeholder="Nom, prénom..." name="Recherche" AutoPostBack="true"></asp:TextBox>
+                <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="Nom, prénom, service,..." name="Recherche" AutoPostBack="true"></asp:TextBox>
             </td>
             <td>
                 <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_nb_page" OnSelectedIndexChanged="DDL_nb_page_SelectedIndexChanged" AutoPostBack="true" name="Nb_element">
