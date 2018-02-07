@@ -13,7 +13,7 @@
                 <label for="Nb_element">Nombre d'élément par page</label>
                 <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_nb_page" OnSelectedIndexChanged="DDL_nb_page_SelectedIndexChanged" AutoPostBack="true" name="Nb_element">
                     <asp:ListItem>5</asp:ListItem>
-                    <asp:ListItem>10</asp:ListItem>
+                    <asp:ListItem Selected="True">10</asp:ListItem>
                     <asp:ListItem>25</asp:ListItem>
                     <asp:ListItem>50</asp:ListItem>
                 </asp:DropDownList>
