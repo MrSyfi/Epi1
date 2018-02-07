@@ -40,6 +40,7 @@ namespace AccessApp
              
             if (dt == null || dt.Rows.Count == 0)
             {
+                L_result.Text = "Pas de résultat";
                 L_result.Visible = true;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
@@ -47,7 +48,8 @@ namespace AccessApp
             }
             else
             {
-                L_result.Visible = false;
+                L_result.Text = "correspondances : " +dt.Rows.Count;
+                L_result.Visible = true;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
 
@@ -58,6 +60,7 @@ namespace AccessApp
                 GridView1.DataBind();
                 
             }
+
             Btn.Enabled = false;
             DDL_status.Enabled = false;
             Reset();
@@ -108,10 +111,12 @@ namespace AccessApp
                 
                 LoadStatus();
                 TB_id.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
+            
                 TB_last_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[1].Text);
                 TB_first_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[2].Text);
                 TB_username.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[3].Text);
                 TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
+                //
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
                 ChangeStatus(DDL_status.SelectedIndex);
                 DDL_status.Enabled = true;
