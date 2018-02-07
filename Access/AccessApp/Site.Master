@@ -39,7 +39,7 @@
                 <%--Scripts de site--%>
             </Scripts>
         </asp:ScriptManager>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse bg-primary navbar-light navbar-fixed-top" style="background-color:#00f3fc">
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand"><img src="http://confluence.epicura.be/s/fr_FR/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.37/_/images/logo/confluence-logo.png" style="width:70%;height:70%;" ></a>
@@ -56,7 +56,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

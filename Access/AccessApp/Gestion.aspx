@@ -29,7 +29,7 @@
     
     <hr />
     <h3><i><asp:Label runat="server" ID="L_result">Pas de résultat...</asp:Label></i></h3>
-    <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnPageIndexChanging="OnPaging" runat="server" AllowPaging="true" PageSize="10" OnRowCreated="GridView1_RowCreated" OnRowCommand="GridView1_RowCommand">
+    <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnPageIndexChanging="OnPaging" runat="server" AllowPaging="true" PageSize="10" OnRowCreated="GridView1_RowCreated" OnRowCommand="GridView1_RowCommand" >
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="ID" />
             <asp:BoundField DataField="LAST_NAME" HeaderText="Nom" />
@@ -41,7 +41,7 @@
          </Columns>
     </asp:GridView>
     <hr />
-    <table>
+    <table id="update">
         <tr>
             <th>ID</th>
             <th>Nom</th>

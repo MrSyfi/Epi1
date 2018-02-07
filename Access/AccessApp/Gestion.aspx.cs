@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -104,17 +105,18 @@ namespace AccessApp
             
             if (currentRowIndex < GridView1.PageSize)
             {
+                
                 LoadStatus();
                 TB_id.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
                 TB_last_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[1].Text);
                 TB_first_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[2].Text);
                 TB_username.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[3].Text);
                 TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
-
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
                 ChangeStatus(DDL_status.SelectedIndex);
                 DDL_status.Enabled = true;
                 Btn.Enabled = true;
+                
             }
         }
 
