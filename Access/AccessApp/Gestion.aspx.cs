@@ -86,7 +86,7 @@ namespace AccessApp
             
             int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
             
-            if (currentRowIndex < 10)
+            if (currentRowIndex < GridView1.PageSize)
             {
                 TB_id.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
                 TB_last_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[1].Text);
