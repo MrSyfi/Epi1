@@ -48,7 +48,7 @@ namespace AccessApp
             }
             else
             {
-                L_result.Text = "correspondances : " +dt.Rows.Count;
+                L_result.Text = "Correspondances : " +dt.Rows.Count;
                 L_result.Visible = true;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
