@@ -10,6 +10,7 @@ namespace AccessApp
 {
     public partial class Gestion : System.Web.UI.Page
     {
+        String[] tab_status = new String[] { "UNAPPROVED", "RESP_MAILED", "PART_APPROVED", "USER_MAILED", "APPROVED", "CLOSED", "REFUSED", "USER_MAILED_2X", "ERROR", "UNKNOW", "USER_READY", "OP_READY", "OP_READYF" };
         private DataTable LoadData(string search = "")
         {
             
@@ -74,9 +75,7 @@ namespace AccessApp
 
         public void LoadStatus()
         {
-            DataSet ds = DAL.SelectAllStatus();
-            DDL_status.DataSource = ds.Tables[0];
-            DDL_status.DataValueField = ds.Tables[0].Columns["AR_STATUS"].ToString();
+            DDL_status.DataSource = tab_status;
             DDL_status.DataBind();
         }
 
