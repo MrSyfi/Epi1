@@ -33,7 +33,7 @@ namespace AccessApp
         public void LoadTable()
         {
             DataTable dt = null;
-            if (TB_recherche.Text != "")
+            if (TB_recherche.Text != String.Empty)
             {
                  dt = LoadData(TB_recherche.Text);
             }
@@ -52,7 +52,7 @@ namespace AccessApp
                 GridView1.DataBind();
 
             }
-            if (TB_recherche.Text == "")
+            if (TB_recherche.Text == String.Empty)
             {
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
@@ -139,12 +139,12 @@ namespace AccessApp
 
         public void Reset()
         {
-            TB_id.Text = "";
-            TB_last_name.Text = "";
-            TB_first_name.Text = "";
-            TB_first_name.Text = "";
-            TB_username.Text = "";
-            TB_service.Text = "";
+            TB_id.Text = String.Empty;
+            TB_last_name.Text = String.Empty;
+            TB_first_name.Text = String.Empty;
+            TB_first_name.Text = String.Empty;
+            TB_username.Text = String.Empty;
+            TB_service.Text = String.Empty;
         }
 
         protected void DDL_nb_page_SelectedIndexChanged(object sender, EventArgs e)
