@@ -20,7 +20,7 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadStatus();
+            
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
@@ -71,8 +71,22 @@ namespace AccessApp
 
         public void LoadStatus()
         {
+           
             DDL_status.DataSource = tab_status;
             DDL_status.DataBind();
+        }
+
+        public void ChangeStatus(int index)
+        {
+            if (index > 2 && index <7)
+            {
+                List<String> listtmp = new List<string>();
+                for (int i = (index - 2); i < tab_status.Length; i++)
+                    listtmp.Add(tab_status[i]);
+
+                DDL_status.DataSource = listtmp;
+                DDL_status.DataBind();
+            }
         }
 
 
@@ -83,6 +97,7 @@ namespace AccessApp
             
             if (currentRowIndex < GridView1.PageSize)
             {
+                LoadStatus();
                 TB_id.Text = GridView1.Rows[currentRowIndex].Cells[0].Text;
                 TB_last_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[1].Text);
                 TB_first_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[2].Text);
@@ -90,9 +105,7 @@ namespace AccessApp
                 TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
 
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
-
-                int tmp = DDL_status.SelectedIndex;
-                
+                ChangeStatus(DDL_status.SelectedIndex);
                 DDL_status.Enabled = true;
                 Btn.Enabled = true;
             }
@@ -108,7 +121,7 @@ namespace AccessApp
 
         protected void Btn_Click(object sender, EventArgs e)
         { 
-            DAL.UpdateRequestStatus(TB_id.Text, DDL_status.SelectedValue);
+            DAL.UpdateRequestStatus(TB_id.Text, DDL_status.SelectedItem.Text);
 
             LoadTable();
         }
