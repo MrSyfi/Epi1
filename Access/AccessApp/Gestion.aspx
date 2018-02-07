@@ -64,11 +64,8 @@
                 <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false"></asp:DropDownList>
             </td>
         </tr>
-        <tr>
-            <td>
-                <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer" Enabled="false"/>
-            </td>
-        </tr>
     </table>
+    <hr />
+    <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer" Enabled="false"/>
 </asp:Content>
 
