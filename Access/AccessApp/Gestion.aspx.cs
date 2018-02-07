@@ -104,7 +104,7 @@ namespace AccessApp
             
             int currentRowIndex = Convert.ToInt32(e.CommandArgument) % GridView1.PageSize;
             
-            if (currentRowIndex < GridView1.PageSize)
+            if (currentRowIndex < GridView1.Rows.Count)
             {
                 
                 LoadStatus();
