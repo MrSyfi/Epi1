@@ -2,7 +2,10 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><b>Gestionnaire du status des demandes d'accès</b></h2>
+    <div class="page-header">
+        <h1>Gestionnaire du status des demandes d'accès</h1>
+    </div>
+    
     <br />
     <table>
         <tr>
