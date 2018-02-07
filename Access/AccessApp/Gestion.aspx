@@ -7,7 +7,7 @@
         <tr>
             <td>
                 <label for="Recherche">Recherche</label>
-                <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="Nom, prénom, Service..." name="Recherche" AutoPostBack="true"></asp:TextBox>
+                <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="Nom, prénom..." name="Recherche" AutoPostBack="true"></asp:TextBox>
             </td>
             <td>
                 <label for="Nb_element">Nombre d'élément par page</label>
@@ -60,6 +60,7 @@
         </tr>
         <tr>
             <td>
+                <label for="TB_status">Status</label>
                 <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false"></asp:DropDownList>
             </td>
         </tr>
