@@ -41,7 +41,6 @@ namespace AccessApp
             if (dt == null || dt.Rows.Count == 0)
             {
                 L_result.Text = "Pas de résultat";
-                L_result.Visible = true;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
                 
@@ -49,7 +48,6 @@ namespace AccessApp
             else
             {
                 L_result.Text = "correspondances : " +dt.Rows.Count;
-                L_result.Visible = true;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
 
@@ -104,7 +102,7 @@ namespace AccessApp
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             
-            int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
+            int currentRowIndex = Convert.ToInt32(e.CommandArgument) % GridView1.PageSize;
             
             if (currentRowIndex < GridView1.PageSize)
             {
@@ -116,7 +114,6 @@ namespace AccessApp
                 TB_first_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[2].Text);
                 TB_username.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[3].Text);
                 TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
-                //
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
                 ChangeStatus(DDL_status.SelectedIndex);
                 DDL_status.Enabled = true;
