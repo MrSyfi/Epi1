@@ -10,7 +10,7 @@
                 <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="Nom, prénom..." name="Recherche" AutoPostBack="true"></asp:TextBox>
             </td>
             <td>
-                <label for="Nb_element">Nombre d'élément par page</label>
+                <label>Nombre d'élément par page</label>
                 <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_nb_page" OnSelectedIndexChanged="DDL_nb_page_SelectedIndexChanged" AutoPostBack="true" name="Nb_element">
                     <asp:ListItem>5</asp:ListItem>
                     <asp:ListItem Selected="True">10</asp:ListItem>

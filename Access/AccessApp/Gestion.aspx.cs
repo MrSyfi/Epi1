@@ -39,14 +39,14 @@ namespace AccessApp
              
             if (dt == null)
             {
-                L_result.Text = "Pas de résultat";
+                L_result.Visible = true;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
                 
             }
             else
             {
-                L_result.Text = "";
+                L_result.Visible = false;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
 
