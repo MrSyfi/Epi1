@@ -78,11 +78,18 @@ namespace AccessApp
 
         public void ChangeStatus(int index)
         {
-            if (index > 1)
+            if (index >= 1)
             {
                 List<String> listtmp = new List<string>();
-                for (int i = (index - 1); i <= index; i++)
-                    listtmp.Add(tab_status[i]);
+                listtmp.Add(tab_status[index-1]);
+                listtmp.Add(tab_status[index]);
+
+                DDL_status.DataSource = listtmp;
+                DDL_status.DataBind();
+            }else if (index == 0)
+            {
+                List<String> listtmp = new List<string>();
+                listtmp.Add(tab_status[index]);
 
                 DDL_status.DataSource = listtmp;
                 DDL_status.DataBind();
