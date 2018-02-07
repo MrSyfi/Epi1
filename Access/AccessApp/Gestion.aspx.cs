@@ -20,7 +20,7 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            LoadStatus();
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
@@ -49,9 +49,7 @@ namespace AccessApp
                 L_result.Text = "";
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
-                
 
-                LoadStatus();
             }
             if (TB_recherche.Text == "")
             {
@@ -66,8 +64,6 @@ namespace AccessApp
 
         protected void OnPaging(object sender, GridViewPageEventArgs e)
         {
-            LoadStatus();
-
             GridView1.PageIndex = e.NewPageIndex;
             LoadTable();
 
