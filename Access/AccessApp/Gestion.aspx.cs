@@ -10,7 +10,7 @@ namespace AccessApp
 {
     public partial class Gestion : System.Web.UI.Page
     {
-        String[] tab_status = new String[] { "UNAPPROVED", "RESP_MAILED", "PART_APPROVED", "OP_READY", "USER_MAILED", "USER_READY", "OP_READYF", "CLOSED", "REFUSED", "APPROVED", "ERROR", "UNKNOW", };
+        String[] tab_status = new String[] { "UNAPPROVED", "RESP_MAILED", "PART_APPROVED", "OP_READY", "USER_MAILED", "USER_READY", "OP_READYF", "CLOSED"};
         private DataTable LoadData(string search = "")
         {
             
@@ -78,10 +78,10 @@ namespace AccessApp
 
         public void ChangeStatus(int index)
         {
-            if (index > 2 && index <7)
+            if (index > 1)
             {
                 List<String> listtmp = new List<string>();
-                for (int i = (index - 2); i < tab_status.Length; i++)
+                for (int i = (index - 1); i <= index; i++)
                     listtmp.Add(tab_status[i]);
 
                 DDL_status.DataSource = listtmp;
