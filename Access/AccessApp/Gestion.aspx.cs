@@ -10,7 +10,6 @@ namespace AccessApp
 {
     public partial class Gestion : System.Web.UI.Page
     {
-
         private DataTable LoadData(string search = "")
         {
             
@@ -79,8 +78,6 @@ namespace AccessApp
             DDL_status.DataSource = ds.Tables[0];
             DDL_status.DataValueField = ds.Tables[0].Columns["AR_STATUS"].ToString();
             DDL_status.DataBind();
-
-
         }
 
 
@@ -98,6 +95,8 @@ namespace AccessApp
                 TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
 
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
+
+                int tmp = DDL_status.SelectedIndex;
                 
                 DDL_status.Enabled = true;
                 Btn.Enabled = true;
