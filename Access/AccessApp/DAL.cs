@@ -10,10 +10,11 @@ namespace AccessApp
     {
         private static Database _db = new Database();
 
-        public static DataSet SelectAllStatus()
+
+        /*public static DataSet SelectAllStatus()
         {
             return _db.ExecuteQuery(string.Format("SELECT DISTINCT AR_STATUS FROM {0}", Consts.ACCESS_REQUEST_TABLE));
-        }
+        }*/
 
         public static DataSet SelectAll(string id)
         {
