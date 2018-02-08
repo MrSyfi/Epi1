@@ -57,7 +57,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container body-content" style="background-color:#ffffff; padding: 20px; padding-top:10px;">
+        <div class="container body-content" style="background-color:#ffffff; padding: 20px; padding-top:0px;">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
