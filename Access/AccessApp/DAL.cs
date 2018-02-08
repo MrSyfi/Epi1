@@ -29,7 +29,11 @@ namespace AccessApp
         public static DataSet SelectFromSearchRequest(string search)
         {
             // %search% in request for the LIKE Condition
-            search = "%" + search.ToUpper() + "%";
+            if (search.ToUpper() != "OP_READY")
+                search = "%" + search.ToUpper() + "%";
+            else
+                // By doing this, we only take the OP_READY (and not OP_READYF) REQUESTS.
+                search = "%" + search.ToUpper();
             List<string> parameters = new List<string>();
             List<string> values = new List<string>();
 
