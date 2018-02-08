@@ -46,7 +46,7 @@
         <tr>
             <th>ID</th>
             <th>Nom</th>
-            <th>Prenom</th>
+            <th>Prénom</th>
             <th>Nom d'utilisateur</th>
             <th>Service</th>
         </tr>
