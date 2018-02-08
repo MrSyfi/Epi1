@@ -11,7 +11,7 @@ namespace AccessApp
 {
     public partial class Gestion : System.Web.UI.Page
     {
-        String[] tab_status = new String[] { "UNAPPROVED", "RESP_MAILED", "PART_APPROVED", "OP_READY", "USER_MAILED", "USER_READY", "OP_READYF", "CLOSED"};
+        String[] tab_status = new String[] { "UNAPPROVED", "RESP_MAILED", "PART_APPROVED", "OP_READY", "USER_READY", "USER_MAILED", "OP_READYF", "CLOSED"};
         private DataTable LoadData(string search = "")
         {
             
