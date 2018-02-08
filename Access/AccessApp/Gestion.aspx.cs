@@ -82,16 +82,17 @@ namespace AccessApp
         {
             if (index >= 1)
             {
-                List<String> listtmp = new List<string>();
-                listtmp.Add(tab_status[index-1]);
-                listtmp.Add(tab_status[index]);
+                String[] listtmp = new String[2];
+                listtmp[0] = tab_status[index - 1];
+                listtmp[1] = tab_status[index];
 
                 DDL_status.DataSource = listtmp;
                 DDL_status.DataBind();
             }else if (index == 0)
             {
-                List<String> listtmp = new List<string>();
-                listtmp.Add(tab_status[index]);
+
+                String[] listtmp = new String[1];
+                listtmp[0] = tab_status[index];
 
                 DDL_status.DataSource = listtmp;
                 DDL_status.DataBind();
