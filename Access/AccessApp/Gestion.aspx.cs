@@ -132,6 +132,7 @@ namespace AccessApp
                 TB_first_name.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[2].Text);
                 TB_username.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[3].Text);
                 TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
+                TB_resp_mail.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[7].Text);
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
                 ChangeStatus(DDL_status.SelectedIndex);
                 DDL_status.Enabled = true;
@@ -163,6 +164,7 @@ namespace AccessApp
             TB_first_name.Text = String.Empty;
             TB_username.Text = String.Empty;
             TB_service.Text = String.Empty;
+            TB_resp_mail.Text = String.Empty;
         }
 
         protected void DDL_nb_page_SelectedIndexChanged(object sender, EventArgs e)
