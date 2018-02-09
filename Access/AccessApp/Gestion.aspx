@@ -68,7 +68,7 @@
             </td>
              <td colspan="2"> 
                 <label for="TB_resp_mail">Mail du responsable</label>
-                <asp:TextBox ID="TB_resp_mail" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_resp_mail"></asp:TextBox>
+                <asp:TextBox ID="TB_resp_mail" CssClass="form-control" runat="server" Enabled="false" name="TB_resp_mail"></asp:TextBox>
             </td>
         </tr>
     </table>
