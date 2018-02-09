@@ -61,6 +61,7 @@ namespace AccessApp
 
             Btn.Enabled = false;
             DDL_status.Enabled = false;
+            TB_resp_mail.Enabled = false;
             Reset();
         }
 
@@ -80,26 +81,38 @@ namespace AccessApp
 
         public void ChangeStatus(int index)
         {
-            if (index >= 1)
+            if (index == 5)
             {
                 string[] listtmp = new string[2];
                 listtmp[0] = tab_status[index - 1];
                 listtmp[1] = tab_status[index];
 
-                
+                DDL_status.DataSource = listtmp;
+                DDL_status.DataBind();
+
+                TB_resp_mail.Enabled = false;
+            }
+            else if (index == 1)
+            {
+                string[] listtmp = new string[2];
+                listtmp[0] = tab_status[index - 1];
+                listtmp[1] = tab_status[index];
 
                 DDL_status.DataSource = listtmp;
                 DDL_status.DataBind();
-            }else if (index == 0)
+
+                TB_resp_mail.Enabled = true;
+            }
+            else
             {
 
                 string[] listtmp = new string[1];
                 listtmp[0] = tab_status[index];
-                
-               
 
                 DDL_status.DataSource = listtmp;
                 DDL_status.DataBind();
+
+                TB_resp_mail.Enabled = false;
             }
         }
 

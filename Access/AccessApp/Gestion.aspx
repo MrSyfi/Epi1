@@ -61,6 +61,10 @@
             </td>
         </tr>
         <tr>
+            <td> 
+                <label for="TB_resp_mail">Mail du responsable</label>
+                <asp:TextBox ID="TB_resp_mail" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_resp_mail"></asp:TextBox>
+            </td>
             <td>
                 <label for="TB_status">Statut</label>
                 <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false"></asp:DropDownList>
