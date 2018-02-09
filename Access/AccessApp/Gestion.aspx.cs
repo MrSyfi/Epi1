@@ -152,7 +152,7 @@ namespace AccessApp
         protected void Btn_Click(object sender, EventArgs e)
         { 
             DAL.UpdateRequestStatus(TB_id.Text, DDL_status.SelectedItem.Text);
-
+            if (TB_resp_mail.Enabled && TB_resp_mail.Text != string.Empty) DAL.UpdateRespEmail(TB_id.Text, TB_resp_mail.Text);
             LoadTable();
         }
 

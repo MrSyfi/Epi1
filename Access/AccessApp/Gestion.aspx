@@ -68,11 +68,11 @@
             </td>
              <td colspan="2"> 
                 <label for="TB_resp_mail">Mail du responsable</label>
-                <asp:TextBox ID="TB_resp_mail" CssClass="form-control" runat="server" Enabled="false" name="TB_resp_mail"></asp:TextBox>
+                <asp:TextBox ID="TB_resp_mail" CssClass="form-control" runat="server" Enabled="false" name="TB_resp_mail" TextMode="Email"></asp:TextBox>
             </td>
         </tr>
     </table>
     <hr />
-    <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer" Enabled="false"/>
+    <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Update"  Enabled="false"/>
 </asp:Content>
 
