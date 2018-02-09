@@ -92,6 +92,8 @@ namespace AccessApp
                 DDL_status.DataSource = listtmp;
                 DDL_status.DataBind();
 
+                DDL_status.Enabled = true;
+                Btn.Enabled = true;
                 TB_resp_mail.Enabled = false;
             }
             else if (index == 1)
@@ -103,6 +105,8 @@ namespace AccessApp
                 DDL_status.DataSource = listtmp;
                 DDL_status.DataBind();
 
+                DDL_status.Enabled = true;
+                Btn.Enabled = true;
                 TB_resp_mail.Enabled = true;
             }
             else
@@ -114,6 +118,8 @@ namespace AccessApp
                 DDL_status.DataSource = listtmp;
                 DDL_status.DataBind();
 
+                DDL_status.Enabled = false;
+                Btn.Enabled = false;
                 TB_resp_mail.Enabled = false;
             }
         }
@@ -137,9 +143,6 @@ namespace AccessApp
                 TB_resp_mail.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[7].Text);
                 DDL_status.SelectedValue = GridView1.Rows[currentRowIndex].Cells[6].Text;
                 ChangeStatus(DDL_status.SelectedIndex);
-                DDL_status.Enabled = true;
-                Btn.Enabled = true;
-                
             }
         }
 
