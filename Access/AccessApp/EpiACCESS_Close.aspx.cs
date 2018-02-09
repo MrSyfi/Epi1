@@ -91,6 +91,13 @@ namespace AccessApp
                 TB_ticket.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[8].Text);
 
                 B_apply.Enabled = true;
+                // Generate Preview
+                L_to.Text = "TO : " + TB_resp_mail.Text;
+                // get the text from sendemail
+                L_mail.Text = "BODY: " + Server.HtmlDecode(MailSender.SendEmailToView(PasswordGenerator.Generate(6), TB_username.Text));
+                B_apply.Visible = true;
+
+                L_preview.Visible = true;
             }
         }
 
@@ -104,13 +111,15 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            // Generate Preview
-            L_to.Text = "TO : " + TB_resp_mail.Text;
-            // get the text from sendemail
-            L_mail.Text = "BODY: " + Server.HtmlDecode(MailSender.SendEmailToView(PasswordGenerator.Generate(6), TB_username.Text));
-            B_valid.Visible = true;
 
-            
+            // Close tickets
+            // DAL.CloseAccessRequest(TB_id.Text, TB_ticket.Text);
+
+            // Email au responsable
+            MailSender.SendPwdPerEmail(PasswordGenerator.Generate(6), "a", TB_resp_mail.Text, TB_username.Text, "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
+
+            // Email à l'opérateur (copie)
+
 
         }
 
@@ -125,17 +134,9 @@ namespace AccessApp
             TB_ticket.Text = string.Empty;
             L_to.Text = string.Empty;
             L_mail.Text = string.Empty;
+            L_preview.Visible = false;
         }
 
-        protected void B_valid_Click(object sender, EventArgs e)
-        {
-            // Close tickets
-            // DAL.CloseAccessRequest(TB_id.Text, TB_ticket.Text);
-
-            // Email au responsable
-             MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6) , "a", TB_resp_mail.Text, "a", TB_username.Text , "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
-             
-            // Email à l'opérateur (copie)
-        }
+        
     }
 }
