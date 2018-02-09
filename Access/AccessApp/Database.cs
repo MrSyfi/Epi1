@@ -11,6 +11,7 @@ namespace AccessApp
     {
         public static readonly string _connectionString = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID=epidesk";
         public static OracleConnection _connection;
+        
 
         public Database()
         {

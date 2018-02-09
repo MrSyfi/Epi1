@@ -38,7 +38,7 @@ namespace AccessApp
             List<string> values = new List<string>();
 
             parameters.Add(":search");values.Add(search);
-            return _db.ExecuteQuery(string.Format("SELECT ID, LAST_NAME AS NOM, FIRST_NAME AS PRENOM, USERNAME AS NOM_UTILISATEUR, PHONE_NBR AS TELEPHONE, SERVICE AS SERVICE , AR_STATUS AS STATUT FROM {0} WHERE ((UPPER(LAST_NAME) LIKE :search OR UPPER(FIRST_NAME) LIKE :search OR UPPER(USERNAME) LIKE :search OR UPPER(SERVICE) LIKE :search  OR UPPER(AR_STATUS) LIKE:search) AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE), parameters, values);
+            return _db.ExecuteQuery(string.Format("SELECT ID, LAST_NAME AS NOM, FIRST_NAME AS PRENOM, USERNAME AS NOM_UTILISATEUR, PHONE_NBR AS TELEPHONE, SERVICE AS SERVICE , AR_STATUS AS STATUT, RESP_EMAIL AS RESP_EMAIL FROM {0} WHERE ((UPPER(LAST_NAME) LIKE :search OR UPPER(FIRST_NAME) LIKE :search OR UPPER(USERNAME) LIKE :search OR UPPER(SERVICE) LIKE :search  OR UPPER(AR_STATUS) LIKE:search) AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
         public static bool UpdateRequestStatus(string id, string status)
@@ -50,6 +50,17 @@ namespace AccessApp
             parameters.Add(":id");values.Add(id);
 
             return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = :status WHERE ID = :id",Consts.ACCESS_REQUEST_TABLE), parameters, values);
+        }
+
+        public static bool UpdateRespEmail(string id, string email)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":email"); values.Add(email);
+            parameters.Add(":id"); values.Add(id);
+
+            return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET RESP_EMAIL = :email WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
     }
 }
