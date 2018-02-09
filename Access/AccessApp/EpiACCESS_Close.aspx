@@ -83,4 +83,16 @@
     </table>
     <hr />
     <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Close"  Enabled="false"/>
+    <hr />
+    <table>
+         <tr>
+             <td><asp:Literal runat="server" ID="L_to"></asp:Literal></td>
+         </tr>
+        <tr>
+            <td><asp:Literal runat="server" ID="L_mail"></asp:Literal></td>
+        </tr>
+        <tr>
+            <td><asp:Button runat="server" Visible="false" ID="B_valid" Text="Confirmer la fermeture du ticket." CssClass="btn" OnClick="B_valid_Click"/></td>
+        </tr>
+    </table>
 </asp:Content>

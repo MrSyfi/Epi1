@@ -104,8 +104,13 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
+            // Generate Preview
+            L_to.Text = "TO : " + TB_resp_mail.Text;
+            // get the text from sendemail
+            L_mail.Text = "BODY: " + MailSender.SendEmailToView();
+            B_valid.Visible = true;
 
-            MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6) , "a", "a", "a", TB_username.Text , "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
+            
 
         }
 
@@ -118,6 +123,17 @@ namespace AccessApp
             TB_service.Text = String.Empty;
             TB_resp_mail.Text = String.Empty;
             TB_ticket.Text = String.Empty;
+        }
+
+        protected void B_valid_Click(object sender, EventArgs e)
+        {
+            // Close tickets
+            // DAL.CloseAccessRequest(TB_id.Text, TB_ticket.Text);
+
+            // Email au responsable
+             MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6) , "a", TB_resp_mail.Text, "a", TB_username.Text , "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
+             
+            // Email à l'opérateur (copie)
         }
     }
 }
