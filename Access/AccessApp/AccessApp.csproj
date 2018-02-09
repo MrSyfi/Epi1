@@ -131,6 +131,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="EpiACCESS_Close.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Gestion.aspx" />
@@ -182,6 +183,13 @@
     <Compile Include="Consts.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="EpiACCESS_Close.aspx.cs">
+      <DependentUpon>EpiACCESS_Close.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EpiACCESS_Close.aspx.designer.cs">
+      <DependentUpon>EpiACCESS_Close.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Gestion.aspx.cs">
       <DependentUpon>Gestion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
