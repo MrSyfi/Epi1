@@ -27,7 +27,7 @@ namespace AccessApp
                 "Site internet       : http://support.epicura.lan/ </p>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
-                "<p>Cordialment.</p>");
+                "<p>Cordialement.</p>");
         }
 
         public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string user, string newUserName, string usermail, string fullNameUser, string refTicket)
@@ -67,7 +67,7 @@ namespace AccessApp
                 "Site internet       : http://support.epicura.lan/ </p>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
-                "<p>Cordialment.</p>",
+                "<p>Cordialement.</p>",
                 IsBodyHtml = true,
                
             })
