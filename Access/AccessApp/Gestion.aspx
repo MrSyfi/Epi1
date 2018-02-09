@@ -42,6 +42,7 @@
             <asp:BoundField DataField="SERVICE" HeaderText="Service" />
             <asp:BoundField DataField="AR_STATUS" HeaderText="Statut" />
             <asp:BoundField DataField="RESP_EMAIL" HeaderText="Email Resp." />
+            <asp:BoundField DataField="TICKET_ID" HeaderText="ID Ticket" />
          </Columns>
 
     </asp:GridView>
