@@ -52,7 +52,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Gestion" style="color: aliceblue;"><b>Gestion EpiACCESS</b></a></li>
+                        <li><a runat="server" href="~/" style="color: aliceblue;"><b>Gestion EpiACCESS</b></a></li>
                     </ul>
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/EpiACCESS_Close" style="color: aliceblue;"><b>EpiACCESS Close</b></a></li>

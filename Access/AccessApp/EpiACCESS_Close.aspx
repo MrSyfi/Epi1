@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-header" style="text-align:center;">
-        <h2>Gestion des demandes d'accès | EpiACCESS</h2>
+        <h2>Fermeture EpiACCESS</h2>
     </div>
         
     <br />
@@ -14,10 +14,10 @@
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="Nom, prénom, service,..." name="Recherche" AutoPostBack="true" TextMode="Search"></asp:TextBox>
+                <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="Nom, prénom, service,..." name="Recherche" AutoPostBack="true" TextMode="Search"></asp:TextBox>
             </td>
             <td>
-                <asp:DropDownList runat="server" CssClass="form-control" ID="DropDownList1" OnSelectedIndexChanged="DDL_nb_page_SelectedIndexChanged" AutoPostBack="true" name="Nb_element">
+                <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_nb_page" OnSelectedIndexChanged="DDL_nb_page_SelectedIndexChanged" AutoPostBack="true" name="Nb_element">
                     <asp:ListItem>5</asp:ListItem>
                     <asp:ListItem Selected="True">10</asp:ListItem>
                     <asp:ListItem>25</asp:ListItem>
