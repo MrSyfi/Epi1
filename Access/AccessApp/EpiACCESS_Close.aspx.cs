@@ -104,7 +104,9 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            MailSender.SendPwdPerEmail("a", "a", "a", "a", TB_username.Text , "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
+
+            MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6) , "a", "a", "a", TB_username.Text , "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
+
         }
 
         public void Reset()
