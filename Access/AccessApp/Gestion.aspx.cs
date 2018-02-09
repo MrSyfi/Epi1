@@ -40,7 +40,7 @@ namespace AccessApp
              
             if (dt == null || dt.Rows.Count == 0)
             {
-                L_result.Text = "Pas de résultat";
+                L_result.Text = "Pas de résultat...";
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
                 
