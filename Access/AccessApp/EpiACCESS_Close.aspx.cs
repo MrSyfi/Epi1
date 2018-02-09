@@ -136,6 +136,8 @@ namespace AccessApp
             TB_ticket.Text = string.Empty;
             L_to.Text = string.Empty;
             L_mail.Text = string.Empty;
+
+
         }
     }
 }
