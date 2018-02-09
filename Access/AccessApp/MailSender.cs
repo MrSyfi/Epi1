@@ -15,7 +15,7 @@ namespace AccessApp
              return System.Net.WebUtility.HtmlEncode("<b>Test</b><br /> Test email");
         }
 
-        public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string user, string newUserName, string usermail, string fullNameUser, string refTicket)
+        public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string newUserName, string usermail, string fullNameUser, string refTicket)
         {
             var from = new MailAddress("yorick.lepape@epicura.be");
             var to = new MailAddress("yorick-1996@hotmail.com");
@@ -52,7 +52,7 @@ namespace AccessApp
                 "Site internet       : http://support.epicura.lan/ </p>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
-                "<p>Cordialment.</p>" + destination,
+                "<p>Cordialment.</p>",
                 IsBodyHtml = true,
                
             })

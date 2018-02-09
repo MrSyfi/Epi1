@@ -105,15 +105,23 @@ namespace AccessApp
         protected void B_apply_Click(object sender, EventArgs e)
         {
             DataSet ds = DAL.SelectAll(TB_id.Text);
-            DataSet dsAgent = DAL.SelectAgentIdPerTicketID(""+ds.Tables[0].Rows[0]["TICKET_ID"]);
-            DataSet dsContact = DAL.SelectAgentEmail(""+dsAgent.Tables[0].Rows[0]["AGENT_ID"]);
-            
+            string mailResp = (string)ds.Tables[0].Rows[0]["RESP_EMAIL"];
+            string username = (string)ds.Tables[0].Rows[0]["USERNAME"];
+            string fullName = TB_first_name.Text + " " + TB_last_name.Text;
 
+            DataSet dsTicket = DAL.SelectRef(TB_ticket.Text);
+            string reff = (string)dsTicket.Tables[0].Rows[0]["REFERENCE"];
+
+            DataSet dsContactUser = DAL.SelectUserEmail(TB_username.Text);
+            string mailUser = "";//(string)dsContactUser.Tables[0].Rows[0]["EMAIL"];
+
+            DataSet dsContactResp =  DAL.SelectAgentEmail(TB_ticket.Text);
+            string mailAgent = (string)dsContactResp.Tables[0].Rows[0]["EMAIL"];
 
             //MAIL TO AGENT
-            MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6), "exp", (string)dsContact.Tables[0].Rows[0]["EMAIL"], "a", (string)ds.Tables[0].Rows[0]["USERNAME"], (string)ds.Tables[0].Rows[0]["USERNAME"], TB_first_name.Text + " " + TB_last_name.Text, "a");
+            MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6), "exp", mailAgent, username, mailUser, fullName, reff);
             //MAIL TO RESP
-            MailSender.SendPwdPerEmail(PasswordGenerator.Generate(6), "exp", (string)ds.Tables[0].Rows[0]["RESP_EMAIL"], "a", (string)ds.Tables[0].Rows[0]["USERNAME"], (string)ds.Tables[0].Rows[0]["USERNAME"], TB_first_name.Text + " " + TB_last_name.Text, "a");
+            MailSender.SendPwdPerEmail(PasswordGenerator.Generate(6), "exp", mailResp, username, mailUser, fullName, reff);
 
         }
 
@@ -127,5 +135,7 @@ namespace AccessApp
             TB_resp_mail.Text = String.Empty;
             TB_ticket.Text = String.Empty;
         }
+
+
     }
 }
