@@ -91,6 +91,12 @@ namespace AccessApp
                 TB_ticket.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[8].Text);
 
                 B_apply.Enabled = true;
+                L_to.Text = "TO : " + TB_resp_mail.Text;
+                // get the text from sendemail
+                L_mail.Text = "BODY: " + Server.HtmlDecode(MailSender.SendEmailToView(PasswordGenerator.Generate(6), TB_username.Text));
+                B_apply.Visible = true;
+
+                L_preview.Visible = true;
             }
         }
 
@@ -136,6 +142,7 @@ namespace AccessApp
             TB_ticket.Text = string.Empty;
             L_to.Text = string.Empty;
             L_mail.Text = string.Empty;
+            L_preview.Visible = false;
 
 
         }
