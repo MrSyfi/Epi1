@@ -91,8 +91,5 @@
         <tr>
             <td><asp:Literal runat="server" ID="L_mail" Mode="PassThrough"></asp:Literal></td>
         </tr>
-        <tr>
-            <td><asp:Button runat="server" Visible="false" ID="B_valid" Text="Confirmer la fermeture du ticket."  CssClass="btn" OnClick="B_valid_Click"/></td>
-        </tr>
     </table>
 </asp:Content>

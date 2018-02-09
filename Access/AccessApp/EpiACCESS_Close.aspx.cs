@@ -104,14 +104,25 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            // Generate Preview
-            L_to.Text = "TO : " + TB_resp_mail.Text;
-            // get the text from sendemail
-            L_mail.Text = "BODY: " + Server.HtmlDecode(MailSender.SendEmailToView(PasswordGenerator.Generate(6), TB_username.Text));
-            B_valid.Visible = true;
-
             
+            string username = TB_username.Text;
+            string mailresp = TB_resp_mail.Text;
+            string fullUserName = TB_first_name.Text + " " + TB_last_name.Text;
 
+           ///DataSet dsUser = DAL.SelectUserEmail(username);
+            string userMail = "";//(string)dsUser.Tables[0].Rows[0]["EMAIL"]
+
+            DataSet dsAgent = DAL.SelectAgentEmail(TB_ticket.Text);
+            string mailAgent = (string)dsAgent.Tables[0].Rows[0]["EMAIL"];
+
+            DataSet dsReff = DAL.SelectRef(TB_ticket.Text);
+            string reff = (string)dsReff.Tables[0].Rows[0]["REFERENCE"];
+
+
+            //MAIL TO AGENT
+            MailSender.SendPwdPerEmail(PasswordGenerator.Generate(6), "dest", mailAgent, username, userMail, fullUserName, reff);
+            //MAIL TO RESP
+            MailSender.SendPwdPerEmail(PasswordGenerator.Generate(6), "dest", mailresp, username, userMail, fullUserName, reff);
         }
 
         public void Reset()
@@ -125,17 +136,6 @@ namespace AccessApp
             TB_ticket.Text = string.Empty;
             L_to.Text = string.Empty;
             L_mail.Text = string.Empty;
-        }
-
-        protected void B_valid_Click(object sender, EventArgs e)
-        {
-            // Close tickets
-            // DAL.CloseAccessRequest(TB_id.Text, TB_ticket.Text);
-
-            // Email au responsable
-             MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6) , "a", TB_resp_mail.Text, "a", TB_username.Text , "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
-             
-            // Email à l'opérateur (copie)
         }
     }
 }
