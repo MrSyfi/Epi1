@@ -430,17 +430,17 @@ Sys.WebForms.Menu._domHelper = {
     appendCssClass: function(element, value) {
         this.updateClassName('append', element, name, value);
     },
-    appendString: function(getString, setString, value) {
-        var currentValue = getString();
+    appendstring: function(getstring, setstring, value) {
+        var currentValue = getstring();
         if (!currentValue) {
-            setString(value);
+            setstring(value);
             return;
         }
         var regex = this._regexes.getRegex('(^| )' + value + '($| )');
         if (regex.test(currentValue)) {
             return;
         }
-        setString(currentValue + ' ' + value);
+        setstring(currentValue + ' ' + value);
     },
     cancelEvent: function(e) {
         var event = e || window.event;
@@ -506,11 +506,11 @@ Sys.WebForms.Menu._domHelper = {
         }
         element['on' + eventName] = null;
     },
-    removeString: function(getString, setString, valueToRemove) {
-        var currentValue = getString();
+    removestring: function(getstring, setstring, valueToRemove) {
+        var currentValue = getstring();
         if (currentValue) {
             var regex = this._regexes.getRegex('(\\s|\\b)' + valueToRemove + '$|\\b' + valueToRemove + '\\s+');
-            setString(currentValue.replace(regex, ''));
+            setstring(currentValue.replace(regex, ''));
         }
     },
     setFloat: function(element, direction) {
@@ -518,7 +518,7 @@ Sys.WebForms.Menu._domHelper = {
         element.style.cssFloat = direction;
     },
     updateAttributeValue: function(operation, element, name, value) {
-        this[operation + 'String'](
+        this[operation + 'string'](
                 function() {
                     return element.getAttribute(name);
                 },
@@ -529,7 +529,7 @@ Sys.WebForms.Menu._domHelper = {
             );
     },
     updateClassName: function(operation, element, name, value) {
-        this[operation + 'String'](
+        this[operation + 'string'](
                 function() {
                     return element.className;
                 },

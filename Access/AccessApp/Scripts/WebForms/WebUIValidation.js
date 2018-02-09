@@ -82,7 +82,7 @@ function ValidatorHookupControl(control, val) {
 function ValidatorHookupEvent(control, eventType, functionPrefix) {
     var ev = control[eventType];
     if (typeof(ev) == "function") {
-        ev = ev.toString();
+        ev = ev.tostring();
         ev = ev.substring(ev.indexOf("{") + 1, ev.lastIndexOf("}"));
     }
     else {
@@ -389,7 +389,7 @@ function ValidatorConvert(op, dataType, val) {
         return (typeof(date) == "object" && year == date.getFullYear() && month == date.getMonth() && day == date.getDate()) ? date.valueOf() : null;
     }
     else {
-        return op.toString();
+        return op.tostring();
     }
 }
 function ValidatorCompare(operand1, operand2, operator, val) {

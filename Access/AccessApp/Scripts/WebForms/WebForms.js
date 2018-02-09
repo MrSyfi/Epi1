@@ -433,23 +433,23 @@ function WebForm_TextBoxKeyHandler(event) {
     }
     return true;
 }
-function WebForm_TrimString(value) {
+function WebForm_Trimstring(value) {
     return value.replace(/^\s+|\s+$/g, '')
 }
 function WebForm_AppendToClassName(element, className) {
-    var currentClassName = ' ' + WebForm_TrimString(element.className) + ' ';
-    className = WebForm_TrimString(className);
+    var currentClassName = ' ' + WebForm_Trimstring(element.className) + ' ';
+    className = WebForm_Trimstring(className);
     var index = currentClassName.indexOf(' ' + className + ' ');
     if (index === -1) {
         element.className = (element.className === '') ? className : element.className + ' ' + className;
     }
 }
 function WebForm_RemoveClassName(element, className) {
-    var currentClassName = ' ' + WebForm_TrimString(element.className) + ' ';
-    className = WebForm_TrimString(className);
+    var currentClassName = ' ' + WebForm_Trimstring(element.className) + ' ';
+    className = WebForm_Trimstring(className);
     var index = currentClassName.indexOf(' ' + className + ' ');
     if (index >= 0) {
-        element.className = WebForm_TrimString(currentClassName.substring(0, index) + ' ' +
+        element.className = WebForm_Trimstring(currentClassName.substring(0, index) + ' ' +
             currentClassName.substring(index + className.length + 1, currentClassName.length));
     }
 }
