@@ -24,7 +24,7 @@ namespace AccessApp
         public void LoadTable()
         {
             DataTable dt = null;
-            if (TB_recherche.Text != String.Empty)
+            if (TB_recherche.Text != string.Empty)
             {
                 dt = LoadData(TB_recherche.Text);
             }
@@ -45,7 +45,7 @@ namespace AccessApp
                 GridView1.Columns[7].Visible = false;
 
             }
-            if (TB_recherche.Text == String.Empty)
+            if (TB_recherche.Text == string.Empty)
             {
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
@@ -107,7 +107,7 @@ namespace AccessApp
             // Generate Preview
             L_to.Text = "TO : " + TB_resp_mail.Text;
             // get the text from sendemail
-            L_mail.Text = "BODY: " + MailSender.SendEmailToView();
+            L_mail.Text = "BODY: " + Server.HtmlDecode(MailSender.SendEmailToView(PasswordGenerator.Generate(6), TB_username.Text));
             B_valid.Visible = true;
 
             
@@ -116,13 +116,15 @@ namespace AccessApp
 
         public void Reset()
         {
-            TB_id.Text = String.Empty;
-            TB_last_name.Text = String.Empty;
-            TB_first_name.Text = String.Empty;
-            TB_username.Text = String.Empty;
-            TB_service.Text = String.Empty;
-            TB_resp_mail.Text = String.Empty;
-            TB_ticket.Text = String.Empty;
+            TB_id.Text = string.Empty;
+            TB_last_name.Text = string.Empty;
+            TB_first_name.Text = string.Empty;
+            TB_username.Text = string.Empty;
+            TB_service.Text = string.Empty;
+            TB_resp_mail.Text = string.Empty;
+            TB_ticket.Text = string.Empty;
+            L_to.Text = string.Empty;
+            L_mail.Text = string.Empty;
         }
 
         protected void B_valid_Click(object sender, EventArgs e)

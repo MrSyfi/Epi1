@@ -82,7 +82,7 @@ namespace AccessApp
         }
 
         /// <summary>
-        /// get the agent's email from its ID
+        /// get the agent's email from a ticket ID
         /// </summary>
         /// <param name="agentID"></param>
         /// <returns></returns>
@@ -93,7 +93,7 @@ namespace AccessApp
 
             parameters.Add(":id"); values.Add(ticketID);
 
-            return _db.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID INNER JOIN {2} ON {2}.TICKET_ID = {1}.ID WHERE {1}.AGENT_ID LIKE :id ",Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
+            return _db.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID INNER JOIN {2} ON {2}.TICKET_ID = {1}.ID WHERE {2}.TICKET_ID LIKE :id ",Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
         /// <summary>
@@ -109,7 +109,8 @@ namespace AccessApp
 
             parameters.Add(":username"); values.Add(username);
 
-            return _db.ExecuteQuery(string.Format("SELECT DISTINCT({0}.EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.CONTACT_ID INNER JOIN {2} ON {1}.USERNAME = {2}.USERNAME WHERE UPPER({1}.USERNAME) LIKE :username", Consts.CONTACTS_TABLE, Consts.USERS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
+            return _db.ExecuteQuery(string.Format("select DISTINCT(EPIDESK.CONTACTS.EMAIL) FROM EPIDESK.CONTACTS INNER JOIN EPIDESK.USERS ON EPIDESK.CONTACTS.ID = EPIDESK.USERS.CONTACT_ID WHERE EPIDESK.USERS.ID = (select ID FROM EPIDESK.USERS WHERE USERNAME LIKE :username);", Consts.CONTACTS_TABLE, Consts.USERS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
+            
         }
 
         /// <summary>

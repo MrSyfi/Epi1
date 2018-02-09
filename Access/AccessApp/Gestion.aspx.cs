@@ -11,7 +11,7 @@ namespace AccessApp
 {
     public partial class Gestion : System.Web.UI.Page
     {
-        String[] tab_status = new String[] { "UNAPPROVED", "RESP_MAILED", "PART_APPROVED", "OP_READY", "USER_READY", "USER_MAILED", "OP_READYF", "CLOSED"};
+        string[] tab_status = new string[] { "UNAPPROVED", "RESP_MAILED", "PART_APPROVED", "OP_READY", "USER_READY", "USER_MAILED", "OP_READYF", "CLOSED"};
         private DataTable LoadData(string search = "")
         {
             
@@ -33,7 +33,7 @@ namespace AccessApp
         public void LoadTable()
         {
             DataTable dt = null;
-            if (TB_recherche.Text != String.Empty)
+            if (TB_recherche.Text != string.Empty)
             {
                  dt = LoadData(TB_recherche.Text);
             }
@@ -54,7 +54,7 @@ namespace AccessApp
                 GridView1.Columns[7].Visible = false;
 
             }
-            if (TB_recherche.Text == String.Empty)
+            if (TB_recherche.Text == string.Empty)
             {
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
@@ -164,13 +164,13 @@ namespace AccessApp
 
         public void Reset()
         {
-            TB_id.Text = String.Empty;
-            TB_last_name.Text = String.Empty;
-            TB_first_name.Text = String.Empty;
-            TB_first_name.Text = String.Empty;
-            TB_username.Text = String.Empty;
-            TB_service.Text = String.Empty;
-            TB_resp_mail.Text = String.Empty;
+            TB_id.Text = string.Empty;
+            TB_last_name.Text = string.Empty;
+            TB_first_name.Text = string.Empty;
+            TB_first_name.Text = string.Empty;
+            TB_username.Text = string.Empty;
+            TB_service.Text = string.Empty;
+            TB_resp_mail.Text = string.Empty;
         }
 
         protected void DDL_nb_page_SelectedIndexChanged(object sender, EventArgs e)
