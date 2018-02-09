@@ -83,6 +83,6 @@
         </tr>
     </table>
     <hr />
-    <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Update"  Enabled="false"/>
+    <asp:Button ID="Btn" CssClass="btn btn-primary btn-lg" runat="server" OnClick="Btn_Click" Text="Confirmer"  Enabled="false"/>
 </asp:Content>
 
