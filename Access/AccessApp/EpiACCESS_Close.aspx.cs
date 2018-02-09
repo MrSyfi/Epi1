@@ -104,14 +104,13 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            MailSender.SendPwdPerEmail("a", "a", "a", "a", "a", "a");
+            MailSender.SendPwdPerEmail("a", "a", "a", "a", TB_username.Text , "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
         }
 
         public void Reset()
         {
             TB_id.Text = String.Empty;
             TB_last_name.Text = String.Empty;
-            TB_first_name.Text = String.Empty;
             TB_first_name.Text = String.Empty;
             TB_username.Text = String.Empty;
             TB_service.Text = String.Empty;
