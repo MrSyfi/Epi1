@@ -13,7 +13,7 @@ namespace AccessApp
         {
             var from = new MailAddress("yorick.lepape@epicura.be");
             var to = new MailAddress("yorick-1996@hotmail.com");
-            const string passwordFrom = "";
+            const string passwordFrom = "xahtran030";
 
             string subject = refTicket + " - Information de compte : " + fullNameUser;
 
@@ -36,7 +36,7 @@ namespace AccessApp
                 "Nous sommes heureux de vous accueillir  dans notre infrastructure informatique et nous vous communiquons ci-dessous les informations pratique concernant votre accès : <br/>"+
                 "<p><b>Nom d'utilisateur : </b>" + newUserName + "</br>"+
                 "<b>Mot de passe      : </b>" + pwd + "</br>" +
-                "<b>Adresse mail      : </b>" + newUserName + "</p>" +
+                "<b>Adresse mail      : </b>" + usermail + "</p>" +
                 "<p>Lors de votre première entrèe  en session, le système vous invitera à changer immédiatement votre mot de passe, ceci afin de garantir la confidentialité de celui-ci ainsi que vos document. Votre nouveau mot de passe doit comporter au minimum 6 caractères.</p>"+
                 "<p style='color:red;'><b><i>N'oubliez pas de valider la charte en cliquant sur le lien reçu dans votre nouvelle boite mail EpiCURA pour finaliser votre demande d'accès.</b></i></p>"+
                 "<p><u>Gardez votre mot de passe secret et n'autorisez personne à travailler sous votre identité.</u></p>"+
@@ -46,7 +46,7 @@ namespace AccessApp
                 "Site internet       : http://support.epicura.lan/ </p>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
-                "<p>Cordialment.</p>",
+                "<p>Cordialment.</p>" + destination,
                 IsBodyHtml = true,
 
             })

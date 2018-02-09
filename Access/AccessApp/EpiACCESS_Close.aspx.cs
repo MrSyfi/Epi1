@@ -104,8 +104,16 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
+            DataSet ds = DAL.SelectAll(TB_id.Text);
+            DataSet dsAgent = DAL.SelectAgentIdPerTicketID(""+ds.Tables[0].Rows[0]["TICKET_ID"]);
+            DataSet dsContact = DAL.SelectAgentEmail(""+dsAgent.Tables[0].Rows[0]["AGENT_ID"]);
+            
 
-            MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6) , "a", "a", "a", TB_username.Text , "a", TB_first_name.Text + " " + TB_last_name.Text, "a");
+
+            //MAIL TO AGENT
+            MailSender.SendPwdPerEmail( PasswordGenerator.Generate(6), "exp", (string)dsContact.Tables[0].Rows[0]["EMAIL"], "a", (string)ds.Tables[0].Rows[0]["USERNAME"], (string)ds.Tables[0].Rows[0]["USERNAME"], TB_first_name.Text + " " + TB_last_name.Text, "a");
+            //MAIL TO RESP
+            MailSender.SendPwdPerEmail(PasswordGenerator.Generate(6), "exp", (string)ds.Tables[0].Rows[0]["RESP_EMAIL"], "a", (string)ds.Tables[0].Rows[0]["USERNAME"], (string)ds.Tables[0].Rows[0]["USERNAME"], TB_first_name.Text + " " + TB_last_name.Text, "a");
 
         }
 
