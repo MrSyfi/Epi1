@@ -16,6 +16,11 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT DISTINCT AR_STATUS FROM {0}", Consts.ACCESS_REQUEST_TABLE));
         }*/
 
+        /// <summary>
+        /// Get All the information about a specific access request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static DataSet SelectAll(string id)
         {
             List<string> parameters = new List<string>();
@@ -26,6 +31,11 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
+        /// <summary>
+        /// Get some informations about an access request filtered by an user's search
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
         public static DataSet SelectFromSearchRequest(string search)
         {
             // %search% in request for the LIKE Condition
@@ -41,6 +51,11 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE :search OR UPPER(FIRST_NAME) LIKE :search OR UPPER(USERNAME) LIKE :search OR UPPER(SERVICE) LIKE :search  OR UPPER(AR_STATUS) LIKE:search OR UPPER(TICKET_ID) LIKE :search) AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
+        /// <summary>
+        /// Get the username from an access request.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static DataSet SelectUsernameFromId(string id)
         {
             List<string> parameters = new List<string>();
@@ -51,6 +66,11 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT USERNAME FROM {0} WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
+        /// <summary>
+        /// Get the agent from a ticket's id
+        /// </summary>
+        /// <param name="ticketId"></param>
+        /// <returns></returns>
         public static DataSet SelectAgentIdPerTicketID(string ticketId)
         {
             List<string> parameters = new List<string>();
@@ -61,17 +81,26 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT AGENT_ID FROM {0} WHERE ID = :id",Consts.TICKETS_TABLE), parameters,values);
         }
 
-        public static DataSet SelectAgentEmail(string agentID)
+        /// <summary>
+        /// get the agent's email from its ID
+        /// </summary>
+        /// <param name="agentID"></param>
+        /// <returns></returns>
+        public static DataSet SelectAgentEmail(string ticketID)
         {
             List<string> parameters = new List<string>();
             List<string> values = new List<string>();
 
-            parameters.Add(":id"); values.Add(agentID);
+            parameters.Add(":id"); values.Add(ticketID);
 
-            return _db.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID WHERE {1}.AGENT_ID LIKE :id ",Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE), parameters, values);
+            return _db.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID INNER JOIN {2} ON {2}.TICKET_ID = {1}.ID WHERE {1}.AGENT_ID LIKE :id ",Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
-
+        /// <summary>
+        /// Get an user's email from its username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public static DataSet SelectUserEmail(string username)
         {
             username = username.ToUpper();
@@ -83,6 +112,12 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT DISTINCT({0}.EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.CONTACT_ID INNER JOIN {2} ON {1}.USERNAME = {2}.USERNAME WHERE UPPER({1}.USERNAME) LIKE :username", Consts.CONTACTS_TABLE, Consts.USERS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
+        /// <summary>
+        /// Update the status of a specific access request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public static bool UpdateRequestStatus(string id, string status)
         {
             List<string> parameters = new List<string>();
@@ -94,6 +129,12 @@ namespace AccessApp
             return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = :status WHERE ID = :id",Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
+        /// <summary>
+        /// Update the mail of responsible by request id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public static bool UpdateRespEmail(string id, string email)
         {
             List<string> parameters = new List<string>();
