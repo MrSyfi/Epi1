@@ -1,4 +1,4 @@
-﻿<%@ Page Title="EpiACCESS Close" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiACCESS_Close.aspx.cs" Inherits="AccessApp.EpiACCESS_Close" %>
+﻿<%@ Page Title="EpiACCESS Close" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiACCESS_Close.aspx.cs" Inherits="AccessApp.EpiACCESS_Close" enableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -70,17 +70,17 @@
                 <asp:TextBox ID="TB_service" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_service"></asp:TextBox>
             </td>
         </tr>
-        <tr>      
-            <td>
-                <label for="TB_status">Statut</label>
-                <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false"></asp:DropDownList>
+        <tr>    
+            <td> 
+                <label for="TB_ticket">ID Ticket</label>
+                <asp:TextBox ID="TB_ticket" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_ticket"></asp:TextBox>
             </td>
              <td colspan="2"> 
                 <label for="TB_resp_mail">Mail du responsable</label>
-                <asp:TextBox ID="TB_resp_mail" CssClass="form-control" runat="server" Enabled="false" name="TB_resp_mail" TextMode="Email"></asp:TextBox>
+                <asp:TextBox ID="TB_resp_mail" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_resp_mail" TextMode="Email"></asp:TextBox>
             </td>
         </tr>
     </table>
     <hr />
-    <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer"  Enabled="false"/>
+    <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Close"  Enabled="false"/>
 </asp:Content>
