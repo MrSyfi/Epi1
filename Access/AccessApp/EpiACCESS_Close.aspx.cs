@@ -89,6 +89,8 @@ namespace AccessApp
                 TB_service.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[5].Text);
                 TB_resp_mail.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[7].Text);
                 TB_ticket.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[8].Text);
+
+                B_apply.Enabled = true;
             }
         }
 
@@ -102,7 +104,7 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-
+            MailSender.SendPwdPerEmail("a", "a", "a", "a", "a", "a");
         }
 
         public void Reset()
