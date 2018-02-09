@@ -68,7 +68,19 @@ namespace AccessApp
 
             parameters.Add(":id"); values.Add(agentID);
 
-            return _db.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID WHERE {1}.AGENT_ID LIKE :id",Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE), parameters, values);
+            return _db.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID WHERE {1}.AGENT_ID LIKE :id ",Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE), parameters, values);
+        }
+
+
+        public static DataSet SelectUserEmail(string username)
+        {
+            username = username.ToUpper();
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":username"); values.Add(username);
+
+            return _db.ExecuteQuery(string.Format("SELECT DISTINCT({0}.EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.CONTACT_ID INNER JOIN {2} ON {1}.USERNAME = {2}.USERNAME WHERE UPPER({1}.USERNAME) LIKE :username", Consts.CONTACTS_TABLE, Consts.USERS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
         public static bool UpdateRequestStatus(string id, string status)

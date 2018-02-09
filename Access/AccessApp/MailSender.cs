@@ -9,6 +9,12 @@ namespace AccessApp
 {
     public static class MailSender
     {
+
+        public static string SendEmailToView()
+        {
+             return System.Net.WebUtility.HtmlEncode("<b>Test</b><br /> Test email");
+        }
+
         public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string user, string newUserName, string usermail, string fullNameUser, string refTicket)
         {
             var from = new MailAddress("yorick.lepape@epicura.be");
@@ -48,11 +54,12 @@ namespace AccessApp
                 "<p align='right'>Le service informatique</p>" +
                 "<p>Cordialment.</p>" + destination,
                 IsBodyHtml = true,
-
+               
             })
             {
                 smtp.Send(message);
             }
         }
+        
     }
 }
