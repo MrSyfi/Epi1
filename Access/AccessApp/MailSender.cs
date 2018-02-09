@@ -9,7 +9,7 @@ namespace AccessApp
 {
     public static class MailSender
     {
-        public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string user, string newUserName, string refTicket)
+        public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string user, string newUserName, string usermail, string refTicket)
         {
             var from = new MailAddress("yorick.lepape@epicura.be");
             var to = new MailAddress("yorick-1996@hotmail.com");
