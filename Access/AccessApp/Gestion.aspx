@@ -32,8 +32,18 @@
     
     <hr />
     <h4><i><asp:Label runat="server" ID="L_result">Pas de résultat...</asp:Label></i></h4>
-    <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="True" OnPageIndexChanging="OnPaging" runat="server" AllowPaging="true" PageSize="10" OnRowCreated="GridView1_RowCreated" OnRowCommand="GridView1_RowCommand" AutoPostBack="false">
-        
+    <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnPageIndexChanging="OnPaging" runat="server" AllowPaging="true" PageSize="10" OnRowCreated="GridView1_RowCreated" OnRowCommand="GridView1_RowCommand" AutoPostBack="false">
+        <Columns>
+            <asp:BoundField DataField="ID" HeaderText="ID" />
+            <asp:BoundField DataField="LAST_NAME" HeaderText="Nom" />
+            <asp:BoundField DataField="FIRST_NAME" HeaderText="Prénom" />
+            <asp:BoundField DataField="USERNAME" HeaderText="Nom d'utilisateur" />
+            <asp:BoundField DataField="PHONE_NBR" HeaderText="Téléphone" />
+            <asp:BoundField DataField="SERVICE" HeaderText="Service" />
+            <asp:BoundField DataField="AR_STATUS" HeaderText="Statut" />
+            <asp:BoundField DataField="RESP_EMAIL" HeaderText="Email Resp." />
+         </Columns>
+
     </asp:GridView>
     <hr />
     <table id="update">
