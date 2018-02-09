@@ -47,9 +47,11 @@ namespace AccessApp
             }
             else
             {
+                GridView1.Columns[7].Visible = true;
                 L_result.Text = "Correspondances : " +dt.Rows.Count;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
+                GridView1.Columns[7].Visible = false;
 
             }
             if (TB_recherche.Text == String.Empty)
