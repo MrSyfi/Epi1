@@ -51,6 +51,26 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT USERNAME FROM {0} WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
+        public static DataSet SelectAgentIdPerTicketID(string ticketId)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":id"); values.Add(id);
+
+            return _db.ExecuteQuery(string.Format("SELECT AGENT_ID FROM {0} WHERE ID = :id",Consts.TICKETS_TABLE), parameters,values);
+        }
+
+        public static DataSet SelectAgentEmail(string agentID)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":id"); values.Add(id);
+
+            return _db.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID WHERE {1}.AGENT_ID LIKE :id",Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE), parameters, values);
+        }
+
         public static bool UpdateRequestStatus(string id, string status)
         {
             List<string> parameters = new List<string>();
