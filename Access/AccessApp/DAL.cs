@@ -176,6 +176,8 @@ namespace AccessApp
             
             parameters.Add(":id"); values.Add(ticketID);
 
+            
+
             return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED' WHERE ID = :id", Consts.TICKETS_TABLE), parameters, values);
         }
     }

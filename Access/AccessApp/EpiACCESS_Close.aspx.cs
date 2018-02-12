@@ -123,11 +123,11 @@ namespace AccessApp
             DataSet dsReff = DAL.SelectRef(TB_ticket.Text);
             string reff = (string)dsReff.Tables[0].Rows[0]["REFERENCE"];
 
-
+            string pwd = PasswordGenerator.Generate(6);
             //MAIL TO AGENT
-            MailSender.SendPwdPerEmail(PasswordGenerator.Generate(6), "dest", mailAgent, username, userMail, fullUserName, reff);
+            MailSender.SendPwdPerEmail(pwd, "dest", mailAgent, username, userMail, fullUserName, reff);
             //MAIL TO RESP
-            MailSender.SendPwdPerEmail(PasswordGenerator.Generate(6), "dest", mailresp, username, userMail, fullUserName, reff);
+            MailSender.SendPwdPerEmail(pwd, "dest", mailresp, username, userMail, fullUserName, reff);
         }
 
         public void Reset()
