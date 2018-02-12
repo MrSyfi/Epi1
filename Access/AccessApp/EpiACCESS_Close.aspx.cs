@@ -92,7 +92,9 @@ namespace AccessApp
 
                 B_apply.Enabled = true;
 
-                Consts.MOT_DE_PASSE = PasswordGenerator.Generate(6); 
+                Consts.MOT_DE_PASSE = PasswordGenerator.Generate(6);
+                MailSender.FirstName = TB_first_name.Text;
+                MailSender.LastName = TB_last_name.Text;
                 // get the text from sendemail
                 L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text));
                 B_apply.Visible = true;
@@ -117,7 +119,7 @@ namespace AccessApp
             string fullUserName = TB_first_name.Text + " " + TB_last_name.Text;
 
            ///DataSet dsUser = DAL.SelectUserEmail(username);
-            string userMail = "";//(string)dsUser.Tables[0].Rows[0]["EMAIL"]
+            //(string)dsUser.Tables[0].Rows[0]["EMAIL"]
 
             DataSet ds = DAL.SelectAgentEmail(TB_ticket.Text);
             string mailAgent = (string)ds.Tables[0].Rows[0]["EMAIL"];
@@ -127,12 +129,12 @@ namespace AccessApp
 
 
             //MAIL TO AGENT
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailAgent, username, userMail, fullUserName, reff);
+            //MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailAgent, username, fullUserName, reff);
             //MAIL TO RESP
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailresp, username, userMail, fullUserName, reff);
+            //MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailresp, username, fullUserName, reff);
 
-            DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
-            DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
+            //DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
+            //DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
             // Refresh the table
             LoadTable();
         }
