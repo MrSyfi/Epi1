@@ -130,7 +130,7 @@ namespace AccessApp
             MailSender.SendPwdPerEmail(motDePasse, "dest", mailresp, username, userMail, fullUserName, reff);
 
             DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
-            DAL.CloseTicket(TB_ticket);
+            DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(motDePasse, TB_username.Text)));
         }
 
         public void Reset()

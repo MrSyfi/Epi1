@@ -179,7 +179,7 @@ namespace AccessApp
             
         }
 
-        private static bool CloseTicket(string ticketID, string gen)
+        public static bool CloseTicket(string ticketID, string gen)
         {
             List<string> parameters = new List<string>();
             List<string> values = new List<string>();
