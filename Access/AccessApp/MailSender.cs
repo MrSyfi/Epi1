@@ -31,7 +31,7 @@ namespace AccessApp
             EpiService.UsrZimbra zimbra = new EpiService.UsrZimbra();
             try {
                 zimbra = client.RtvUsrZimbra(username).iRet;
-                return zimbra.mail[0];
+                return zimbra.mail[0].Replace("'","");
             } catch (Exception e)
             {
                 // utilisé pour les tests.

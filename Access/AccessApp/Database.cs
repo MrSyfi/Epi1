@@ -20,9 +20,7 @@ namespace AccessApp
 
             // Insuficient Privileges
             //CreateView();
-        }
-
-        
+        } 
 
         public bool OpenConnection()
         {
@@ -89,7 +87,7 @@ namespace AccessApp
         private void CreateView()
         {
             //All Access Request View 
-            ExecuteNonQuery(string.Format("CREATE OR REPLACE VIEW ACCESS_REQUESTS_VIEW AS SELECT ID, LAST_NAME, FIRST_NAME, USERNAME, PHONE_NBR, PRIV_EMAIL, SERVICE ,RA_DATE, AR_STATUS  FROM {0}", Consts.ACCESS_REQUEST_TABLE));
+            ExecuteNonQuery(string.Format("CREATE OR REPLACE VIEW ACCESS_REQUESTS_VIEW AS SELECT ID, LAST_NAME, FIRST_NAME, USERNAME, PHONE_NBR, PRIV_EMAIL, SERVICE ,RA_DATE, AR_STATUS FROM {0}", Consts.ACCESS_REQUEST_TABLE));
 
             
         }
