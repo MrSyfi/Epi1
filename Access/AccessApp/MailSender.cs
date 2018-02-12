@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Web;
 
 namespace AccessApp
@@ -46,33 +47,24 @@ namespace AccessApp
 
         public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string newUserName, string fullNameUser, string refTicket)
         {
-            var from = new MailAddress("sylvain.fissiaux@epicura.be");
-            var to = new MailAddress("sylvain.fissiaux@epicura.be");
-            const string passwordFrom = "";
 
-            string subject = refTicket + " - Information de compte : " + fullNameUser;
+            System.Net.Mail.MailMessage _EMail = new System.Net.Mail.MailMessage();
+            System.Net.Mail.SmtpClient _smtpServer = new System.Net.Mail.SmtpClient(Consts.CONST_EMAIL_SMTP_SERVER_HOST);
 
-            var smtp = new SmtpClient
-            {
-                Host = "mail.epicura.be",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(from.Address, passwordFrom)
-            };
+            _EMail.BodyEncoding = System.Text.Encoding.Default;
+            _EMail.From = new System.Net.Mail.MailAddress(expediteur, expediteur);
+            _EMail.Priority = System.Net.Mail.MailPriority.Normal;
 
-            using (var message = new MailMessage(from, to)
-            {
-                Subject = subject,
+            _EMail.Subject = refTicket + " - Information de compte : " + fullNameUser;
 
-                Body = System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName)),
-                IsBodyHtml = true,
-               
-            })
-            {
-                smtp.Send(message);
-            }
+            ContentType mimeType = new System.Net.Mime.ContentType("text/html");
+            AlternateView alternate = AlternateView.CreateAlternateViewFromString(System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName)), mimeType);
+            _EMail.AlternateViews.Add(alternate);
+
+            //_EMail.To.Add(destination);
+            _EMail.To.Add("yorick-1996@hotmail.com");
+
+            _smtpServer.Send(_EMail);
         }
         
     }

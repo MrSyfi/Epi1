@@ -16,5 +16,9 @@ namespace AccessApp
 
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
         public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
+
+        public static readonly string CONST_EMAIL_SMTP_SERVER_HOST = "mail.epicura.be";
+
+        
     }
 }
