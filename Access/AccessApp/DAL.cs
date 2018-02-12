@@ -17,21 +17,6 @@ namespace AccessApp
         }*/
 
         /// <summary>
-        /// Get All the information about a specific access request
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public static DataSet SelectAll(string id)
-        {
-            List<string> parameters = new List<string>();
-            List<string> values = new List<string>();
-
-            parameters.Add(":id");values.Add(id);
-
-            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
-        }
-
-        /// <summary>
         /// Get some informations about an access request filtered by an user's search
         /// </summary>
         /// <param name="search"></param>
@@ -61,35 +46,6 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE :search OR UPPER(FIRST_NAME) LIKE :search OR UPPER(USERNAME) LIKE :search OR UPPER(SERVICE) LIKE :search  OR UPPER(AR_STATUS) LIKE:search OR UPPER(TICKET_ID) LIKE :search) AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS LIKE 'OP_READY')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
-        /// <summary>
-        /// Get the username from an access request.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public static DataSet SelectUsernameFromId(string id)
-        {
-            List<string> parameters = new List<string>();
-            List<string> values = new List<string>();
-
-            parameters.Add(":id"); values.Add(id);
-
-            return _db.ExecuteQuery(string.Format("SELECT USERNAME FROM {0} WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
-        }
-
-        /// <summary>
-        /// Get the agent from a ticket's id
-        /// </summary>
-        /// <param name="ticketId"></param>
-        /// <returns></returns>
-        public static DataSet SelectAgentIdPerTicketID(string ticketId)
-        {
-            List<string> parameters = new List<string>();
-            List<string> values = new List<string>();
-
-            parameters.Add(":id"); values.Add(ticketId);
-
-            return _db.ExecuteQuery(string.Format("SELECT AGENT_ID FROM {0} WHERE ID = :id",Consts.TICKETS_TABLE), parameters,values);
-        }
 
         /// <summary>
         /// get the agent's email from a ticket ID
@@ -104,23 +60,6 @@ namespace AccessApp
             parameters.Add(":id"); values.Add(ticketID);
 
             return _db.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID INNER JOIN {2} ON {2}.TICKET_ID = {1}.ID WHERE {2}.TICKET_ID LIKE :id ",Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
-        }
-
-        /// <summary>
-        /// Get an user's email from its username
-        /// </summary>
-        /// <param name="username"></param>
-        /// <returns></returns>
-        public static DataSet SelectUserEmail(string username)
-        {
-            username = username.ToUpper();
-            List<string> parameters = new List<string>();
-            List<string> values = new List<string>();
-
-            parameters.Add(":username"); values.Add(username);
-
-            return _db.ExecuteQuery(string.Format("select DISTINCT(EPIDESK.CONTACTS.EMAIL) FROM EPIDESK.CONTACTS INNER JOIN EPIDESK.USERS ON EPIDESK.CONTACTS.ID = EPIDESK.USERS.CONTACT_ID WHERE EPIDESK.USERS.ID = (select ID FROM EPIDESK.USERS WHERE USERNAME LIKE :username);", Consts.CONTACTS_TABLE, Consts.USERS_TABLE, Consts.ACCESS_REQUEST_TABLE), parameters, values);
-            
         }
 
         public static DataSet SelectRef(string ticketID)
