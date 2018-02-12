@@ -10,28 +10,15 @@ namespace AccessApp
 {
     public static class MailSender
     {
-        public static string FirstName { get; set; }
-        public static string LastName { get; set; }
-        public static string UserMail
-        {
-            get
-            {
-                // Certains noms contiennent des ' ou des espaces => suppression pour l'email.
-                string str = FirstName.ToLower() + "." + LastName.Replace("'", "").Replace(" ","").ToLower() + "@epicura.be";
-                // Certains noms ou prénoms contiennents des accents. => Encodage en ASCII
-                // https://www.developpez.net/forums/d285643/dotnet/general-dotnet/framework-net/performance-regex-net/ (StormmimOn)
-                byte[] tab = System.Text.Encoding.GetEncoding(1251).GetBytes(str);
-                return System.Text.Encoding.ASCII.GetString(tab);
-            }
-        }
 
+        // Utilisation du WebService.
         public static string GetUserEmail(string username)
         {
             EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
             EpiService.UsrZimbra zimbra = new EpiService.UsrZimbra();
             try {
                 zimbra = client.RtvUsrZimbra(username).iRet;
-                return zimbra.mail[0].Replace("'","");
+                return zimbra.mail[0].Replace("'",""); // ? // 
             } catch (Exception e)
             {
                 // utilisé pour les tests.
@@ -73,12 +60,17 @@ namespace AccessApp
 
             _EMail.Subject = refTicket + " - Information de compte : " + fullNameUser;
 
-            ContentType mimeType = new System.Net.Mime.ContentType("text/html");
-            AlternateView alternate = AlternateView.CreateAlternateViewFromString(System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName)), mimeType);
-            _EMail.AlternateViews.Add(alternate);
+
+            //_EMail.BodyEncoding = System.Text.Encoding.GetEncoding("UTF-8");
+            //ContentType mimeType = new System.Net.Mime.ContentType("text/html");
+            //AlternateView alternate = AlternateView.CreateAlternateViewFromString(System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName)), mimeType);
+            _EMail.IsBodyHtml = true;
+            _EMail.Body = System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName));
+            //_EMail.AlternateViews.Add(alternate);
 
             //_EMail.To.Add(destination);
             _EMail.To.Add("sylvain.fissiaux@epicura.be");
+
 
             _smtpServer.Send(_EMail);
         }
