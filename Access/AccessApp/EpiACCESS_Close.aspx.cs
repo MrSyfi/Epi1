@@ -23,6 +23,7 @@ namespace AccessApp
 
         public void LoadTable()
         {
+            
             DataTable dt = null;
             if (TB_recherche.Text != string.Empty)
             {
@@ -51,7 +52,7 @@ namespace AccessApp
                 GridView1.DataBind();
 
             }
-
+            
             B_apply.Enabled = false;
             TB_resp_mail.Enabled = false;
             Reset();
@@ -151,7 +152,16 @@ namespace AccessApp
             L_mail.Text = string.Empty;
             L_preview.Visible = false;
 
-
+           
+            
         }
+
+        /* EXAMPLE 
+         * USE SERVICE : 
+         * public void foo(){
+         *       var client = new EpiService.MyServicesSoapClient();
+         *       client.someMethod(someArgument);
+         * }
     }
 }
+ 
