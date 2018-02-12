@@ -134,8 +134,9 @@ namespace AccessApp
 
             //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
-            //DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
-            //DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
+            DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
+            
+            DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
             // Refresh the table
             LoadTable();
         }

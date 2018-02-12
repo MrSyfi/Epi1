@@ -106,27 +106,17 @@ namespace AccessApp
             return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET RESP_EMAIL = :email WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
-        public static bool CloseAccessRequest(string ar_ID, string ticketID)
-        {
-            List<string> parameters = new List<string>();
-            List<string> values = new List<string>();
-
-            parameters.Add(":id"); values.Add(ar_ID);
-
-            bool ret = _db.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = 'CLOSED' WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
-            return CloseTicket(ticketID,"") && ret;
-            
-        }
-
         public static bool CloseTicket(string ticketID, string gen)
         {
             List<string> parameters = new List<string>();
             List<string> values = new List<string>();
             
-            parameters.Add(":id"); values.Add(ticketID);
             parameters.Add(":gen");values.Add(gen);
+            parameters.Add(":res");values.Add(DateTime.Now.ToString());
+            parameters.Add(":lastUpdate"); values.Add(DateTime.Now.ToString());
+            parameters.Add(":id"); values.Add(ticketID);
 
-            return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen WHERE ID = :id", Consts.TICKETS_TABLE), parameters, values);
+            return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = :res, LAST_UPDATE_TS = :lastUpdate WHERE ID = :id", Consts.TICKETS_TABLE), parameters, values);
         }
     }
 }
