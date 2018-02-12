@@ -29,7 +29,7 @@ namespace AccessApp
              return System.Net.WebUtility.HtmlEncode(@"<p align='right'>Epicura, " + DateTime.Now.ToString("dd/MM/yyyy") + "</p>" +
                 "<p>Madame, Monsieur, </p> " +
                 "<p>Nous sommes heureux de vous accueillir  dans notre infrastructure informatique et nous vous communiquons ci-dessous les informations pratique concernant votre accès :</p> <br/>" +
-                "<div style='padding-left:50px;'><table><tr><td width=20%><b>Nom d'utilisateur</td><td>:</b></td><td> " + userName + "</td></tr>" +
+                "<div style='padding-left:50px;'><table><tr><td width=15%><b>Nom d'utilisateur</td><td>:</b></td><td> " + userName + "</td></tr>" +
                 "<tr><td><b>Mot de passe </td><td>:</td></b><td>" + pwd + "</td></tr>" +
                 "<tr><td><b>Adresse mail   </td><td>   : </b></td><td>" + UserMail + "</td></tr></table></div><br/>" +
                 "<p>Lors de votre première entrèe  en session, le système vous invitera à changer immédiatement votre mot de passe, ceci afin de garantir la confidentialité de celui-ci ainsi que vos document. Votre nouveau mot de passe doit comporter au minimum 6 caractères.</p>" +
