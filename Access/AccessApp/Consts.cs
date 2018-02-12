@@ -7,6 +7,7 @@ namespace AccessApp
 {
     public class Consts
     {
+        public static string MOT_DE_PASSE;
         // DATABASE TABLE OR VIEW
         public static readonly string ACCESS_REQUEST_TABLE = "EPIDESK.ACCESS_REQUEST";
         public static readonly string CONTACTS_TABLE = "EPIDESK.CONTACTS";

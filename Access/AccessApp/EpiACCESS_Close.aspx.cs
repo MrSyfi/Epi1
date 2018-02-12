@@ -10,7 +10,6 @@ namespace AccessApp
 {
     public partial class EpiACCESS_Close : System.Web.UI.Page
     {
-        string motDePasse = PasswordGenerator.Generate(6);
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -92,8 +91,10 @@ namespace AccessApp
                 TB_ticket.Text = System.Web.HttpUtility.HtmlDecode(GridView1.Rows[currentRowIndex].Cells[8].Text);
 
                 B_apply.Enabled = true;
+
+                Consts.MOT_DE_PASSE = PasswordGenerator.Generate(6); 
                 // get the text from sendemail
-                L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(motDePasse, TB_username.Text));
+                L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text));
                 B_apply.Visible = true;
 
                 L_preview.Visible = true;
@@ -126,12 +127,12 @@ namespace AccessApp
 
 
             //MAIL TO AGENT
-            MailSender.SendPwdPerEmail(motDePasse, "dest", mailAgent, username, userMail, fullUserName, reff);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailAgent, username, userMail, fullUserName, reff);
             //MAIL TO RESP
-            MailSender.SendPwdPerEmail(motDePasse, "dest", mailresp, username, userMail, fullUserName, reff);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailresp, username, userMail, fullUserName, reff);
 
             DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
-            DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(motDePasse, TB_username.Text)));
+            DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
         }
 
         public void Reset()
