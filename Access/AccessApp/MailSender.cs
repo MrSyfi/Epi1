@@ -24,7 +24,7 @@ namespace AccessApp
                 "<p>Nous profitons également de la présente pour vous informer que nous mettons un support à votre disposition accessible via les informations de 7h15 à 16h30 :<p><br/>" +
                 "<table><tr><td>Hornu</td><td> :</td><td> 065 71 39 05 </td></tr>" +
                 "<tr><td>Baudour/Ath/Beloeil</td><td> :</td><td> 065 76 81 95 </td></tr>" +
-                "<tr><td>Site internet</td><td> : </td><td> http://support.epicura.lan/ </td></tr></table><br/>" +
+                "<tr><td>Site internet</td><td> : </td><td><a href='http://support.epicura.lan/'>http://support.epicura.lan/</a>  </td></tr></table><br/>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
                 "<p>Cordialement.</p><hr/>");
@@ -64,7 +64,7 @@ namespace AccessApp
                 "<p>Nous profitons également de la présente pour vous informer que nous mettons un support à votre disposition accessible via les informations de 7h15 à 16h30 :<p><br/>"+
                 "<table><tr><td>Hornu</td><td> :</td><td> 065 71 39 05 </td></tr>" +
                 "<tr><td>Baudour/Ath/Beloeil</td><td> :</td><td> 065 76 81 95 </td></tr>" +
-                "<tr><td>Site internet</td><td> : </td><td> http://support.epicura.lan/ </td></tr></table></br>" +
+                "<tr><td>Site internet</td><td> : </td><td><a href='http://support.epicura.lan/'>http://support.epicura.lan/</a> </td></tr></table></br>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
                 "<p>Cordialement.</p>",
