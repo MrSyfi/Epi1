@@ -15,7 +15,12 @@ namespace AccessApp
         {
             get
             {
-                return FirstName.ToLower() + "." + LastName.Replace("'", "").ToLower() + "@epicura.be";
+                // Certains noms contiennent des ' ou des espaces => suppression pour l'email.
+                string str = FirstName.ToLower() + "." + LastName.Replace("'", "").Replace(" ","").ToLower() + "@epicura.be";
+                // Certains noms ou prénoms contiennents des accents. => Encodage en ASCII
+                // https://www.developpez.net/forums/d285643/dotnet/general-dotnet/framework-net/performance-regex-net/ (StormmimOn)
+                byte[] tab = System.Text.Encoding.GetEncoding(1251).GetBytes(str);
+                return System.Text.Encoding.ASCII.GetString(tab);
             }
         }
 
