@@ -36,10 +36,10 @@ namespace AccessApp
                 "<div style='padding-left:50px;'><table><tr><td><b>Nom d'utilisateur</td><td>:</b></td><td> " + userName + "</td></tr>" +
                 "<tr><td><b>Mot de passe </td><td>:</td></b><td>" + pwd + "</td></tr>" +
                 "<tr><td><b>Adresse mail   </td><td>   : </b></td><td>" + GetUserEmail(userName) + "</td></tr></table></div><br/>" +
-                "<p>Lors de votre première entrèe  en session, le système vous invitera à changer immédiatement votre mot de passe, ceci afin de garantir la confidentialité de celui-ci ainsi que vos document. Votre nouveau mot de passe doit comporter au minimum 6 caractères.</p>" +
+                "<p>Lors de votre première entrèe  en session, le système vous invitera à changer immédiatement votre mot de passe, ceci afin de garantir la confidentialité de celui-ci ainsi que vos documents. Votre nouveau mot de passe doit comporter au minimum 6 caractères.</p>" +
                 "<p style='color:red;'><b><i>N'oubliez pas de valider la charte en cliquant sur le lien reçu dans votre nouvelle boite mail EpiCURA pour finaliser votre demande d'accès.</b></i></p>" +
                 "<p><u>Gardez votre mot de passe secret et n'autorisez personne à travailler sous votre identité.</u></p>" +
-                "<p>Nous profitons également de la présente pour vous informer que nous mettons un support à votre disposition accessible via les informations de 7h15 à 16h30 :<p><br/>" +
+                "<p>Nous profitons également de la présente pour vous informer que nous mettons un support à votre disposition accessible via les informations suivantes de 7h15 à 16h30 :<p><br/>" +
                 "<div style='padding-left:50px;'><table><tr><td>Hornu</td><td> :</td><td> 065 71 39 05 </td></tr>" +
                 "<tr><td>Baudour/Ath/Beloeil</td><td> :</td><td> 065 76 81 95 </td></tr>" +
                 "<tr><td>Site internet</td><td> : </td><td><a href='http://support.epicura.lan/'>http://support.epicura.lan/</a>  </td></tr></table></div><br/>" +

@@ -143,7 +143,7 @@ namespace AccessApp
         public void ChangePassword(string username, string motDePasse)
         {
             EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
-            client.ChgPwdWindows("domainName??", username, "", motDePasse, motDePasse, true, true);
+            client.ChgPwdWindows("domainName??", username, String.Empty, motDePasse, motDePasse, true, true);
         }
 
         public void Reset()
