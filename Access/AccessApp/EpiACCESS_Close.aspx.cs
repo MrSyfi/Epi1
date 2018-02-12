@@ -133,6 +133,8 @@ namespace AccessApp
 
             DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
             DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
+            // Refresh the table
+            LoadTable();
         }
 
         public void Reset()
