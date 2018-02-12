@@ -134,10 +134,18 @@ namespace AccessApp
             //MAIL TO RESP
             MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff);
 
+            //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+
             //DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
             //DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
             // Refresh the table
             LoadTable();
+        }
+
+        public static void ChangePassword(string username, string motDePasse)
+        {
+            EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
+            client.ChgPwdWindows("domainName??", username, "", motDePasse, motDePasse, true, true);
         }
 
         public void Reset()
