@@ -10,6 +10,7 @@ namespace AccessApp
 {
     public partial class EpiACCESS_Close : System.Web.UI.Page
     {
+        string motDePasse = PasswordGenerator.Generate(6);
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -92,7 +93,7 @@ namespace AccessApp
 
                 B_apply.Enabled = true;
                 // get the text from sendemail
-                L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(PasswordGenerator.Generate(6), TB_username.Text));
+                L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(motDePasse, TB_username.Text));
                 B_apply.Visible = true;
 
                 L_preview.Visible = true;
@@ -109,7 +110,7 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            string motDePasse = PasswordGenerator.Generate(6);
+            
             string username = TB_username.Text;
             string mailresp = TB_resp_mail.Text;
             string fullUserName = TB_first_name.Text + " " + TB_last_name.Text;
