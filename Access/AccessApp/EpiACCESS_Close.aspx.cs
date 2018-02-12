@@ -127,9 +127,9 @@ namespace AccessApp
 
 
             //MAIL TO AGENT
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailAgent, username, userMail, fullUserName, reff);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "exp", mailAgent, username, userMail, fullUserName, reff);
             //MAIL TO RESP
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailresp, username, userMail, fullUserName, reff);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "exp", mailresp, username, userMail, fullUserName, reff);
 
             DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
             DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
