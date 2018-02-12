@@ -51,6 +51,16 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE :search OR UPPER(FIRST_NAME) LIKE :search OR UPPER(USERNAME) LIKE :search OR UPPER(SERVICE) LIKE :search  OR UPPER(AR_STATUS) LIKE:search OR UPPER(TICKET_ID) LIKE :search) AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
+        public static DataSet SelectOPReadyFromSearchRequest(string search)
+        {
+            search ="%" + search.ToUpper() + "%";
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":search"); values.Add(search);
+            return _db.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE :search OR UPPER(FIRST_NAME) LIKE :search OR UPPER(USERNAME) LIKE :search OR UPPER(SERVICE) LIKE :search  OR UPPER(AR_STATUS) LIKE:search OR UPPER(TICKET_ID) LIKE :search) AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS LIKE 'OP_READY')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE), parameters, values);
+        }
+
         /// <summary>
         /// Get the username from an access request.
         /// </summary>
@@ -165,11 +175,11 @@ namespace AccessApp
             parameters.Add(":id"); values.Add(ar_ID);
 
             bool ret = _db.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = 'CLOSED' WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
-            return CloseTicket(ticketID) && ret;
+            return CloseTicket(ticketID,"") && ret;
             
         }
 
-        private static bool CloseTicket(string ticketID)
+        private static bool CloseTicket(string ticketID, string gen)
         {
             List<string> parameters = new List<string>();
             List<string> values = new List<string>();

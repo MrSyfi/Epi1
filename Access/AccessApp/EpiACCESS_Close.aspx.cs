@@ -17,7 +17,7 @@ namespace AccessApp
 
         private DataTable LoadData(string search = "")
         {
-            DataTable dt = DAL.SelectFromSearchRequest("OP_READY").Tables[0];
+            DataTable dt = DAL.SelectOPReadyFromSearchRequest(search).Tables[0];
             return dt;
         }
 
