@@ -94,8 +94,7 @@ namespace AccessApp
                 B_apply.Enabled = true;
 
                 Consts.MOT_DE_PASSE = PasswordGenerator.Generate(6);
-                MailSender.FirstName = TB_first_name.Text;
-                MailSender.LastName = TB_last_name.Text;
+                
                 // get the text from sendemail
                 L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text));
                 B_apply.Visible = true;
@@ -128,6 +127,7 @@ namespace AccessApp
             ds = DAL.SelectRef(TB_ticket.Text);
             string reff = (string)ds.Tables[0].Rows[0]["REFERENCE"];
 
+            
 
             //MAIL TO AGENT
             MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailAgent, username, fullUserName, reff);

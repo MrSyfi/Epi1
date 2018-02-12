@@ -25,6 +25,22 @@ namespace AccessApp
             }
         }
 
+        public static string GetUserEmail(string username)
+        {
+            EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
+            EpiService.UsrZimbra zimbra = new EpiService.UsrZimbra();
+            try {
+                zimbra = client.RtvUsrZimbra(username).iRet;
+                return zimbra.mail[0];
+            } catch (Exception e)
+            {
+                // utilisé pour les tests.
+                return "";
+            }
+
+
+        }
+
         public static string SendEmailToView(string pwd, string userName)
         {
              return System.Net.WebUtility.HtmlEncode(@"<p align='right'>Epicura, " + DateTime.Now.ToString("dd/MM/yyyy") + "</p>" +
@@ -32,7 +48,7 @@ namespace AccessApp
                 "<p>Nous sommes heureux de vous accueillir  dans notre infrastructure informatique et nous vous communiquons ci-dessous les informations pratique concernant votre accès :</p> <br/>" +
                 "<div style='padding-left:50px;'><table><tr><td><b>Nom d'utilisateur</td><td>:</b></td><td> " + userName + "</td></tr>" +
                 "<tr><td><b>Mot de passe </td><td>:</td></b><td>" + pwd + "</td></tr>" +
-                "<tr><td><b>Adresse mail   </td><td>   : </b></td><td>" + UserMail + "</td></tr></table></div><br/>" +
+                "<tr><td><b>Adresse mail   </td><td>   : </b></td><td>" + GetUserEmail(userName) + "</td></tr></table></div><br/>" +
                 "<p>Lors de votre première entrèe  en session, le système vous invitera à changer immédiatement votre mot de passe, ceci afin de garantir la confidentialité de celui-ci ainsi que vos document. Votre nouveau mot de passe doit comporter au minimum 6 caractères.</p>" +
                 "<p style='color:red;'><b><i>N'oubliez pas de valider la charte en cliquant sur le lien reçu dans votre nouvelle boite mail EpiCURA pour finaliser votre demande d'accès.</b></i></p>" +
                 "<p><u>Gardez votre mot de passe secret et n'autorisez personne à travailler sous votre identité.</u></p>" +
@@ -62,7 +78,7 @@ namespace AccessApp
             _EMail.AlternateViews.Add(alternate);
 
             //_EMail.To.Add(destination);
-            _EMail.To.Add("yorick-1996@hotmail.com");
+            _EMail.To.Add("sylvain.fissiaux@epicura.be");
 
             _smtpServer.Send(_EMail);
         }
