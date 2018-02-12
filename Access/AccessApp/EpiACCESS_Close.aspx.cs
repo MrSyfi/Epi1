@@ -109,7 +109,7 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            
+            string motDePasse = PasswordGenerator.Generate(6);
             string username = TB_username.Text;
             string mailresp = TB_resp_mail.Text;
             string fullUserName = TB_first_name.Text + " " + TB_last_name.Text;
@@ -117,17 +117,20 @@ namespace AccessApp
            ///DataSet dsUser = DAL.SelectUserEmail(username);
             string userMail = "";//(string)dsUser.Tables[0].Rows[0]["EMAIL"]
 
-            DataSet dsAgent = DAL.SelectAgentEmail(TB_ticket.Text);
-            string mailAgent = (string)dsAgent.Tables[0].Rows[0]["EMAIL"];
+            DataSet ds = DAL.SelectAgentEmail(TB_ticket.Text);
+            string mailAgent = (string)ds.Tables[0].Rows[0]["EMAIL"];
 
-            DataSet dsReff = DAL.SelectRef(TB_ticket.Text);
-            string reff = (string)dsReff.Tables[0].Rows[0]["REFERENCE"];
+            ds = DAL.SelectRef(TB_ticket.Text);
+            string reff = (string)ds.Tables[0].Rows[0]["REFERENCE"];
 
-            string pwd = PasswordGenerator.Generate(6);
+
             //MAIL TO AGENT
-            MailSender.SendPwdPerEmail(pwd, "dest", mailAgent, username, userMail, fullUserName, reff);
+            MailSender.SendPwdPerEmail(motDePasse, "dest", mailAgent, username, userMail, fullUserName, reff);
             //MAIL TO RESP
-            MailSender.SendPwdPerEmail(pwd, "dest", mailresp, username, userMail, fullUserName, reff);
+            MailSender.SendPwdPerEmail(motDePasse, "dest", mailresp, username, userMail, fullUserName, reff);
+
+            DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
+            DAL.CloseTicket(TB_ticket.Text);
         }
 
         public void Reset()
