@@ -82,7 +82,7 @@
         </tr>
     </table>
     <hr />
-    <h4><asp:Label runat="server" Text="Preview de l'email généré : " ID="L_preview" Visible="false"></asp:Label></h4>
+    <h4><asp:Label runat="server" Text="Preview de l'émail généré : " ID="L_preview" Visible="false"></asp:Label></h4>
     <br />
     <asp:Literal runat="server" ID="L_mail" Mode="PassThrough"></asp:Literal>
 
