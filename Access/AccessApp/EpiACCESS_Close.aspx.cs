@@ -130,9 +130,9 @@ namespace AccessApp
 
 
             //MAIL TO AGENT
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailAgent, username, fullUserName, reff);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailAgent, username, fullUserName, reff);
             //MAIL TO RESP
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, "dest", mailresp, username, fullUserName, reff);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff);
 
             //DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
             //DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
@@ -162,7 +162,7 @@ namespace AccessApp
          * public void foo(){
          *       var client = new EpiService.MyServicesSoapClient();
          *       client.someMethod(someArgument);
-         * }
+         * }*/
     }
 }
  
