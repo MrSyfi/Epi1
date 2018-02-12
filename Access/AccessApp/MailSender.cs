@@ -71,6 +71,7 @@ namespace AccessApp
             //_EMail.To.Add(destAgent);
             //_EMail.To.Add(destResp);
             _EMail.To.Add("yorick.lepape@epicura.be");
+            
 
             _smtpServer.Send(_EMail);
         }

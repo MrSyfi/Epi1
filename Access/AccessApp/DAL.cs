@@ -124,10 +124,9 @@ namespace AccessApp
             List<string> values = new List<string>();
             
             parameters.Add(":id"); values.Add(ticketID);
+            parameters.Add(":gen");values.Add(gen);
 
-            
-
-            return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED' WHERE ID = :id", Consts.TICKETS_TABLE), parameters, values);
+            return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen WHERE ID = :id", Consts.TICKETS_TABLE), parameters, values);
         }
     }
 }
