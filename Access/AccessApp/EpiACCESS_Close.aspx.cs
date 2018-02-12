@@ -158,6 +158,7 @@ namespace AccessApp
 
         /* EXAMPLE 
          * USE SERVICE : 
+         * ATTENTION : DB EN PROD
          * public void foo(){
          *       var client = new EpiService.MyServicesSoapClient();
          *       client.someMethod(someArgument);
