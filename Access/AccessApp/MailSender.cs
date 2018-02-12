@@ -12,7 +12,7 @@ namespace AccessApp
 
         public static string SendEmailToView(string pwd, string userName)
         {
-             return System.Net.WebUtility.HtmlEncode(@"<p align='right'>Epicura, " + string.Format("{0:dd/MM/yyyy}", DateTime.Now) + "</p>" +
+             return System.Net.WebUtility.HtmlEncode(@"<p align='right'>Epicura, " + DateTime.Now.ToString("dd/MM/yyyy") + "</p>" +
                 "<p>Madame, Monsieur, </p> " +
                 "Nous sommes heureux de vous accueillir  dans notre infrastructure informatique et nous vous communiquons ci-dessous les informations pratique concernant votre accès : <br/>" +
                 "<p><b>Nom d'utilisateur : </b>" + userName + "</br>" +
@@ -27,7 +27,7 @@ namespace AccessApp
                 "Site internet       : http://support.epicura.lan/ </p>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
-                "<p>Cordialement.</p>");
+                "<p>Cordialement.</p><hr/>");
         }
 
         public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string newUserName, string usermail, string fullNameUser, string refTicket)
@@ -52,7 +52,7 @@ namespace AccessApp
             {
                 Subject = subject,
 
-                Body = @"<p align='right'>Epicura, " + string.Format("{0:MM/dd/yyyy}", DateTime.Now)+ "</p>"+
+                Body = @"<p align='right'>Epicura, " + DateTime.Now.ToString("dd/MM/yyyy") + "</p>" +
                 "<p>Madame, Monsieur, </p> " +
                 "Nous sommes heureux de vous accueillir  dans notre infrastructure informatique et nous vous communiquons ci-dessous les informations pratique concernant votre accès : <br/>"+
                 "<p><b>Nom d'utilisateur : </b>" + newUserName + "</br>"+

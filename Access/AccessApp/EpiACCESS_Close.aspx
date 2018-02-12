@@ -82,17 +82,10 @@
         </tr>
     </table>
     <hr />
-    <asp:Label runat="server" Text="preview de l'émail généré : " ID="L_preview" Visible="false"></asp:Label>
-    <table>
-         <tr>
-             <td><asp:Literal runat="server" ID="L_to"></asp:Literal></td>
-         </tr>
-        <tr>
-            <td><asp:Literal runat="server" ID="L_mail" Mode="PassThrough"></asp:Literal></td>
-        </tr>
-        <tr>
-        </tr>
-    </table>
+    <h4><asp:Label runat="server" Text="Preview de l'émail généré : " ID="L_preview" Visible="false"></asp:Label></h4>
+    <br />
+    <asp:Literal runat="server" ID="L_mail" Mode="PassThrough"></asp:Literal>
+
     <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Fermer la demande d'accès"  Visible="false"/>
 
 
