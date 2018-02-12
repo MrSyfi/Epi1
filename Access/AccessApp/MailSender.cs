@@ -33,7 +33,7 @@ namespace AccessApp
         public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string newUserName, string usermail, string fullNameUser, string refTicket)
         {
             var from = new MailAddress("sylvain.fissiaux@epicura.be");
-            var to = new MailAddress("sylvain.fissiaux@epicura.be");
+            var to = new MailAddress("yorick-1996@hotmail.com");
             const string passwordFrom = "";
 
             string subject = refTicket + " - Information de compte : " + fullNameUser;
