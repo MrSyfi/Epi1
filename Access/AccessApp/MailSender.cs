@@ -48,7 +48,7 @@ namespace AccessApp
                 "<p>Cordialement.</p><hr/>");
         }
 
-        public static void SendPwdPerEmail(string pwd, string expediteur, string destination, string newUserName, string fullNameUser, string refTicket)
+        public static void SendPwdPerEmail(string pwd, string expediteur, string destAgent, string destResp, string newUserName, string fullNameUser, string refTicket)
         {
 
             System.Net.Mail.MailMessage _EMail = new System.Net.Mail.MailMessage();
@@ -68,9 +68,9 @@ namespace AccessApp
             _EMail.Body = System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName));
             //_EMail.AlternateViews.Add(alternate);
 
-            //_EMail.To.Add(destination);
-            _EMail.To.Add("sylvain.fissiaux@epicura.be");
-
+            //_EMail.To.Add(destAgent);
+            //_EMail.To.Add(destResp);
+            _EMail.To.Add("yorick.lepape@epicura.be");
 
             _smtpServer.Send(_EMail);
         }

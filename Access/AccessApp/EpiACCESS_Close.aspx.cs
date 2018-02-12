@@ -129,10 +129,8 @@ namespace AccessApp
 
             
 
-            //MAIL TO AGENT
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailAgent, username, fullUserName, reff);
-            //MAIL TO RESP
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff);
+            //MAIL TO AGENT / RESP
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailAgent, mailresp, username, fullUserName, reff);
 
             //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
@@ -158,10 +156,7 @@ namespace AccessApp
             TB_resp_mail.Text = string.Empty;
             TB_ticket.Text = string.Empty;
             L_mail.Text = string.Empty;
-            L_preview.Visible = false;
-
-           
-            
+            L_preview.Visible = false;  
         }
 
         /* EXAMPLE 
