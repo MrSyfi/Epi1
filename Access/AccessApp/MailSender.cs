@@ -34,7 +34,7 @@ namespace AccessApp
         {
             var from = new MailAddress("sylvain.fissiaux@epicura.be");
             var to = new MailAddress("sylvain.fissiaux@epicura.be");
-            const string passwordFrom = "Quaregnon7390";
+            const string passwordFrom = "";
 
             string subject = refTicket + " - Information de compte : " + fullNameUser;
 
