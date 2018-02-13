@@ -136,10 +136,10 @@ namespace AccessApp
             LoadTable();
         }
 
-        public void ChangePassword(string username, string motDePasse)
+        public void ChangePassword(string username, string motDePasse, bool ResetPassword = true, bool Restreint = true)
         {
             EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
-            client.ChgPwdWindows("EPICURA", username, String.Empty, motDePasse, motDePasse, true, true);
+            client.ChgPwdWindows("EPICURA", username, String.Empty, motDePasse, motDePasse, ResetPassword, Restreint);
         }
 
         public void Reset()
@@ -154,6 +154,8 @@ namespace AccessApp
             L_mail.Text = string.Empty;
             L_preview.Visible = false;  
         }
+
+        //
     }
 }
  
