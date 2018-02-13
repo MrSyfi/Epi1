@@ -127,10 +127,12 @@ namespace AccessApp
             //MAIL TO AGENT / RESP
             MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff, out bool sended);
 
-            //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+            
             if (sended)
             {
-               // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
+                //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+
+                // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
 
                 //DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
                 // Refresh the table
