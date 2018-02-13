@@ -84,7 +84,7 @@
     <hr />
     <h4><asp:Label runat="server" Text="Preview de l'émail généré : " ID="L_preview" Visible="false"></asp:Label></h4>
     <br />
-    <asp:Literal runat="server" ID="L_mail" Mode="PassThrough"></asp:Literal>
+    <asp:Literal runat="server" ID="L_mail" Mode="Transform"></asp:Literal>
 
     <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Fermer la demande d'accès"  Visible="false"/>
 
