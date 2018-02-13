@@ -125,15 +125,17 @@ namespace AccessApp
             string reff = (string)ds.Tables[0].Rows[0]["REFERENCE"];
 
             //MAIL TO AGENT / RESP
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff, out bool sended);
 
             //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+            if (sended)
+            {
+               // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
 
-            DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
-            
-            DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
-            // Refresh the table
-            LoadTable();
+                //DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
+                // Refresh the table
+                LoadTable();
+            }
         }
 
         public void ChangePassword(string username, string motDePasse, bool ResetPassword = true, bool Restreint = true)
