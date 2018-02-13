@@ -60,14 +60,9 @@ namespace AccessApp
 
             _EMail.Subject = refTicket + " - Information de compte : " + fullNameUser;
 
-
-            //_EMail.BodyEncoding = System.Text.Encoding.GetEncoding("UTF-8");
-            //ContentType mimeType = new System.Net.Mime.ContentType("text/html");
-            //AlternateView alternate = AlternateView.CreateAlternateViewFromString(System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName)), mimeType);
             _EMail.IsBodyHtml = true;
             _EMail.Body = System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName));
-            //_EMail.AlternateViews.Add(alternate);
-
+            
             //_EMail.To.Add(mailAgent);
             //_EMail.To.Add(destResp);
             _EMail.To.Add("sylvain.fissiaux@epicura.be");
