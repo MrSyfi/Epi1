@@ -118,16 +118,11 @@ namespace AccessApp
             string mailresp = TB_resp_mail.Text;
             string fullUserName = TB_first_name.Text + " " + TB_last_name.Text;
 
-           ///DataSet dsUser = DAL.SelectUserEmail(username);
-            //(string)dsUser.Tables[0].Rows[0]["EMAIL"]
-
             DataSet ds = DAL.SelectAgentEmail(TB_ticket.Text);
             string mailAgent = (string)ds.Tables[0].Rows[0]["EMAIL"];
 
             ds = DAL.SelectRef(TB_ticket.Text);
             string reff = (string)ds.Tables[0].Rows[0]["REFERENCE"];
-
-            
 
             //MAIL TO AGENT / RESP
             MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailAgent, mailresp, username, fullUserName, reff);
@@ -159,14 +154,6 @@ namespace AccessApp
             L_mail.Text = string.Empty;
             L_preview.Visible = false;  
         }
-
-        /* EXAMPLE 
-         * USE SERVICE : 
-         * ATTENTION : DB EN PROD
-         * public void foo(){
-         *       var client = new EpiService.MyServicesSoapClient();
-         *       client.someMethod(someArgument);
-         * }*/
     }
 }
  
