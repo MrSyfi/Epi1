@@ -97,9 +97,11 @@ namespace AccessApp
                 
                 // get the text from sendemail
                 L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text));
+                L_preview.Text = "Preview de l'email";
                 B_apply.Visible = true;
 
                 L_preview.Visible = true;
+                L_mail.Visible = true;
             }
         }
 
@@ -137,7 +139,13 @@ namespace AccessApp
                 //DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
                 // Refresh the table
                 LoadTable();
+                
+            } else {
+                L_preview.Text = "<p  style='color:red;'> Erreur lors de l'envoi de l'email. </p>";
+                L_mail.Visible = false;
+                
             }
+            
         }
 
         public void ChangePassword(string username, string motDePasse, bool ResetPassword = true, bool Restreint = true)
