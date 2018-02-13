@@ -125,7 +125,7 @@ namespace AccessApp
             string reff = (string)ds.Tables[0].Rows[0]["REFERENCE"];
 
             //MAIL TO AGENT / RESP
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailAgent, mailresp, username, fullUserName, reff);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff);
 
             //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 

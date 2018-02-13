@@ -48,14 +48,14 @@ namespace AccessApp
                 "<p>Cordialement.</p><hr/>");
         }
 
-        public static void SendPwdPerEmail(string pwd, string expediteur, string destAgent, string destResp, string newUserName, string fullNameUser, string refTicket)
+        public static void SendPwdPerEmail(string pwd, string mailAgent, string destResp, string newUserName, string fullNameUser, string refTicket)
         {
 
             System.Net.Mail.MailMessage _EMail = new System.Net.Mail.MailMessage();
             System.Net.Mail.SmtpClient _smtpServer = new System.Net.Mail.SmtpClient(Consts.CONST_EMAIL_SMTP_SERVER_HOST);
 
             _EMail.BodyEncoding = System.Text.Encoding.Default;
-            _EMail.From = new System.Net.Mail.MailAddress(expediteur, expediteur);
+            _EMail.From = new System.Net.Mail.MailAddress(mailAgent, mailAgent);
             _EMail.Priority = System.Net.Mail.MailPriority.Normal;
 
             _EMail.Subject = refTicket + " - Information de compte : " + fullNameUser;
@@ -68,7 +68,7 @@ namespace AccessApp
             _EMail.Body = System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName));
             //_EMail.AlternateViews.Add(alternate);
 
-            //_EMail.To.Add(destAgent);
+            //_EMail.To.Add(mailAgent);
             //_EMail.To.Add(destResp);
             _EMail.To.Add("sylvain.fissiaux@epicura.be");
             
