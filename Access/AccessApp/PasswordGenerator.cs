@@ -39,9 +39,7 @@ namespace AccessApp
                 }
                 voyelle = !voyelle;
             }
-            string pwd = new string(password);
-           // MailSender.SendPwdPerEmail(pwd,"sylvain.fissiaux@epicura.be","fissS1512");
-            return pwd;
+            return new string(password);
         }
   
        
