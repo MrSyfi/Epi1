@@ -19,9 +19,9 @@ namespace AccessApp
             try {
                 zimbra = client.RtvUsrZimbra(username).iRet;
                 return zimbra.mail[0].Replace("'",""); // ? // 
-            } catch (Exception e)
+            } catch
             {
-                // utilisé pour les tests.
+                // ne sera pas réel en prod...
                 return "";
             }
 

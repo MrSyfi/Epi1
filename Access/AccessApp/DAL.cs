@@ -10,17 +10,6 @@ namespace AccessApp
     {
         private static Database _db = new Database();
 
-
-        /*public static DataSet SelectAllStatus()
-        {
-            return _db.ExecuteQuery(string.Format("SELECT DISTINCT AR_STATUS FROM {0}", Consts.ACCESS_REQUEST_TABLE));
-        }*/
-
-        /// <summary>
-        /// Get some informations about an access request filtered by an user's search
-        /// </summary>
-        /// <param name="search"></param>
-        /// <returns></returns>
         public static DataSet SelectFromSearchRequest(string search)
         {
             // %search% in request for the LIKE Condition
@@ -46,12 +35,6 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE :search OR UPPER(FIRST_NAME) LIKE :search OR UPPER(USERNAME) LIKE :search OR UPPER(SERVICE) LIKE :search  OR UPPER(AR_STATUS) LIKE:search OR UPPER(TICKET_ID) LIKE :search) AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS LIKE 'OP_READY')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
-
-        /// <summary>
-        /// get the agent's email from a ticket ID
-        /// </summary>
-        /// <param name="agentID"></param>
-        /// <returns></returns>
         public static DataSet SelectAgentEmail(string ticketID)
         {
             List<string> parameters = new List<string>();
@@ -72,12 +55,7 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT DISTINCT({0}.REFERENCE) FROM {0}  WHERE {0}.ID LIKE :id", Consts.TICKETS_TABLE), parameters, values);
         }
 
-        /// <summary>
-        /// Update the status of a specific access request
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="status"></param>
-        /// <returns></returns>
+       
         public static bool UpdateRequestStatus(string id, string status)
         {
             List<string> parameters = new List<string>();
@@ -89,12 +67,6 @@ namespace AccessApp
             return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = :status WHERE ID = :id",Consts.ACCESS_REQUEST_TABLE), parameters, values);
         }
 
-        /// <summary>
-        /// Update the mail of responsible by request id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="email"></param>
-        /// <returns></returns>
         public static bool UpdateRespEmail(string id, string email)
         {
             List<string> parameters = new List<string>();
