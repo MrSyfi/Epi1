@@ -93,7 +93,7 @@ namespace AccessApp
 
                 B_apply.Enabled = true;
 
-                Consts.MOT_DE_PASSE = PasswordGenerator.Generate(6);
+                Consts.MOT_DE_PASSE = PasswordGenerator.Generate(8);
                 
                 // get the text from sendemail
                 L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text));
@@ -132,7 +132,7 @@ namespace AccessApp
             
             if (sended)
             {
-                //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+                ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
                 // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
 
