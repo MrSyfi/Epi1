@@ -30,12 +30,12 @@ namespace AccessApp
 
         public static string SendEmailToView(string pwd, string userName)
         {
-             return System.Net.WebUtility.HtmlEncode(@"<p align='right'>Epicura, " + DateTime.Now.ToString("dd/MM/yyyy") + "</p>" +
+             return System.Net.WebUtility.HtmlEncode(string.Format(@"<p align='right'>Epicura, {0} </p>" +
                 "<p>Madame, Monsieur, </p> " +
                 "<p>Nous sommes heureux de vous accueillir  dans notre infrastructure informatique et nous vous communiquons ci-dessous les informations pratique concernant votre accès :</p> <br/>" +
-                "<div style='padding-left:50px;'><table><tr><td><b>Nom d'utilisateur</td><td>:</b></td><td> " + userName + "</td></tr>" +
-                "<tr><td><b>Mot de passe </td><td>:</td></b><td>" + pwd + "</td></tr>" +
-                "<tr><td><b>Adresse mail   </td><td>   : </b></td><td>" + GetUserEmail(userName) + "</td></tr></table></div><br/>" +
+                "<div style='padding-left:50px;'><table><tr><td><b>Nom d'utilisateur</td><td>:</b></td><td> {1} </td></tr>" +
+                "<tr><td><b>Mot de passe </td><td>:</td></b><td> {2} </td></tr>" +
+                "<tr><td><b>Adresse mail   </td><td>   : </b></td><td> {3} </td></tr></table></div><br/>" +
                 "<p>Lors de votre première entrèe  en session, le système vous invitera à changer immédiatement votre mot de passe, ceci afin de garantir la confidentialité de celui-ci ainsi que vos documents. Votre nouveau mot de passe doit comporter au minimum 6 caractères.</p>" +
                 "<p style='color:red;'><b><i>N'oubliez pas de valider la charte en cliquant sur le lien reçu dans votre nouvelle boite mail EpiCURA pour finaliser votre demande d'accès.</b></i></p>" +
                 "<p><u>Gardez votre mot de passe secret et n'autorisez personne à travailler sous votre identité.</u></p>" +
@@ -45,7 +45,7 @@ namespace AccessApp
                 "<tr><td>Site internet</td><td> : </td><td><a href='http://support.epicura.lan/'>http://support.epicura.lan/</a>  </td></tr></table></div><br/>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
-                "<p>Cordialement.</p><hr/>");
+                "<p>Cordialement.</p><hr/>", DateTime.Now.ToString("dd/MM/yyyy"), userName, pwd, GetUserEmail(userName)));
         }
 
         public static void SendPwdPerEmail(string pwd, string mailAgent, string destResp, string newUserName, string fullNameUser, string refTicket, out bool sended)
@@ -65,7 +65,7 @@ namespace AccessApp
             
             //_EMail.To.Add(mailAgent);
             //_EMail.To.Add(destResp);
-            _EMail.To.Add("sylvain.fissiaux@epicura.be");
+            _EMail.To.Add("yorick.lepape@epicura.be");
 
             try
             {
