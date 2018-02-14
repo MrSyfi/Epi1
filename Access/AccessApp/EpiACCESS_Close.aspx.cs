@@ -93,7 +93,7 @@ namespace AccessApp
 
                 B_apply.Enabled = true;
 
-                Consts.MOT_DE_PASSE = PasswordGenerator.Generate(8);
+                Consts.MOT_DE_PASSE = PasswordGenerator.Generate();
                 
                 // get the text from sendemail
                 L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text));
