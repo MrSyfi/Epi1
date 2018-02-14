@@ -132,7 +132,7 @@ namespace AccessApp
             
             if (sended)
             {
-                ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+               // ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
                 // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
 
