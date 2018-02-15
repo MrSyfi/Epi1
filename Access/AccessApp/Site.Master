@@ -16,7 +16,7 @@
 
     <!-- TIME LINE -->
 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="Content/style.css">
     
     <script type="text/javascript">
         function showMenu() {
