@@ -13,5 +13,4 @@
     
     <asp:Literal runat="server" ID="L_Body" ></asp:Literal>
 
-    <hr />
 </asp:Content>
