@@ -1,4 +1,4 @@
-﻿<%@ Page Title="EpiACCESS Close" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="GestionMateriel.aspx.cs" Inherits="AccessApp.GestionMateriel" enableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="EpiCMBD" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="GestionMateriel.aspx.cs" Inherits="AccessApp.GestionMateriel" enableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -27,27 +27,27 @@
 	            </tr>
 	            <tr>
 	                <td data-title="Droit">Marque et modèle</td>
-	                <td data-title="Valeur alphanumérique">--x</td>
+	                <td data-title="Valeur alphanumérique">---</td>
 	            </tr>
 	            <tr>
 	                <td data-title="Droit">Numéro de série (S/N)</td>
-	                <td data-title="Valeur alphanumérique">-w-</td>
+	                <td data-title="Valeur alphanumérique">---</td>
 	            </tr>
 	            <tr>
 	                <td data-title="Droit">Statut</td>
-	                <td data-title="Valeur alphanumérique">-wx</td>
+	                <td data-title="Valeur alphanumérique">---</td>
 	            </tr>
 	            <tr>
 	                <td data-title="Droit">Localisation actuelle</td>
-	                <td data-title="Valeur alphanumérique">r--</td>
+	                <td data-title="Valeur alphanumérique">---</td>
 	            </tr>
 	            <tr>
 	                <td data-title="Droit">Stocké par</td>
-	                <td data-title="Valeur alphanumérique">r-x</td>
+	                <td data-title="Valeur alphanumérique">---</td>
 	            </tr>
 	            <tr>
 	                <td data-title="Droit">Stocké le</td>
-	                <td data-title="Valeur alphanumérique">rw-</td>
+	                <td data-title="Valeur alphanumérique">---</td>
 	            </tr>
 	        </tbody>
 	    </table>
