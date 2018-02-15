@@ -11,34 +11,7 @@
 
     <hr />
     
+    <asp:Literal runat="server" ID="L_Body" ></asp:Literal>
 
-    <div class="responsive-table-line" style="margin:0px auto;max-width:700px;">
-	    <table class="table table-bordered table-condensed table-body-center" >
-
-	        <tbody>
-	            <tr>
-	                <td data-title="EpiID"><asp:label runat="server" ID="L_EpiID">/</asp:label></td>
-	            </tr>
-	            <tr>
-	                <td data-title="Marque et modèle"><asp:label runat="server" ID="L_Marque">/</asp:label></td>
-	            </tr>
-	            <tr>
-	                <td data-title="Numéro de série (S/N)"><asp:label runat="server" ID="L_NumSe">/</asp:label></td>
-	            </tr>
-	            <tr>
-	                <td data-title="Statut"><asp:label runat="server" ID="L_Statut">/</asp:label></td>
-	            </tr>
-	            <tr>
-	                <td data-title="Localisation actuelle"><asp:label runat="server" ID="L_Loc">/</asp:label></td>
-	            </tr>
-	            <tr>
-	                <td data-title="Stocké par"><asp:label runat="server" ID="L_Agent">/</asp:label></td>
-	            </tr>
-	            <tr>
-	                <td data-title="Stocké le"><asp:label runat="server" ID="L_Date">/</asp:label></td>
-	            </tr>
-	        </tbody>
-	    </table>
-	</div>
     <hr />
 </asp:Content>
