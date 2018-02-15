@@ -75,11 +75,13 @@ namespace AccessApp
 
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<h2> EN STOCK </h2>"; break;
-                    case "TRANSIT": L_Histo.Text += "<h2> EN TRANSIT </h2>"; break;
-                    case "INSTALLED": L_Histo.Text += "<h2> INSTALLÉ au " + row["LOCALISATION_ID"].ToString(); break;
-                    case "UNDER_REPAIR": L_Histo.Text += "<h2> EN RÉPARATION "; break;
+                    case "STOCKED": L_Histo.Text += "<h4> EN STOCK </h4>"; break;
+                    case "TRANSIT": L_Histo.Text += "<h4> EN TRANSIT </h4>"; break;
+                    case "INSTALLED": L_Histo.Text += "<h4> INSTALLÉ </h4>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<h4> EN RÉPARATION </h4>"; break;
                 }
+
+                L_Histo.Text += "<p>" + row["LOCALISATION_ID"].ToString() + "</p>";
 
                 L_Histo.Text += "<h2>" + row["NAME"] + " " + row["MODELE"].ToString() + " </h2>";
 
