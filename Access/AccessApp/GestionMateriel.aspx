@@ -7,7 +7,7 @@
         <h2>EpiCMBD</h2>
     </div> 
    
-    <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EPIiD..." name="Recherche" AutoPostBack="true" TextMode="Search" style="margin: auto"></asp:TextBox>
+    <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EpiID..." name="Recherche" AutoPostBack="true" TextMode="Search" style="margin: auto"></asp:TextBox>
 
     <hr />
     
@@ -18,17 +18,16 @@
 		<div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-picture">
 				<img src="img/cd-icon-picture.svg" alt="Picture">
-			</div> <!-- cd-timeline-img -->
+			</div> 
 
 			<div class="cd-timeline-content">
 				<h2>Title of section 1</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+				<p></p>
 				<a href="#0" class="cd-read-more">Read more</a>
 				<span class="cd-date">Jan 14</span>
-			</div> <!-- cd-timeline-content -->
-		</div> <!-- cd-timeline-block -->
+			</div> 
+		</div> 
 
-		
-	</section> <!-- cd-timeline -->
+	</section> 
 
 </asp:Content>
