@@ -264,6 +264,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Gestion.aspx" />
+    <Content Include="GestionMateriel.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -331,6 +332,13 @@
     </Compile>
     <Compile Include="Gestion.aspx.designer.cs">
       <DependentUpon>Gestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMateriel.aspx.cs">
+      <DependentUpon>GestionMateriel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionMateriel.aspx.designer.cs">
+      <DependentUpon>GestionMateriel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

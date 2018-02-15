@@ -2,9 +2,10 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+   
     <div class="page-header" style="text-align:center;">
         <h2>Fermeture EpiACCESS</h2>
-    </div>
+    </div>  
         
     <br />
     <table>

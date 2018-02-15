@@ -11,7 +11,7 @@ namespace AccessApp
     public static class PasswordGenerator
     {
 
-        public static string Generate(int lenght)
+        public static string Generate(int lenght = 8)
         {
             // Certaines lettres ont été retirées car pouvant rendre le mot de passe difficile à prononcer ou pouvant être confondues (l et I)
             char[] voyellesArray = "aeuioAEUO".ToCharArray();
