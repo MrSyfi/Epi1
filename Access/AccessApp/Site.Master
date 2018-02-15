@@ -13,6 +13,13 @@
     </asp:PlaceHolder>      
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <!-- <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
+
+    <!-- TIME LINE -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/modernizr.js"></script> 
+
     <style>
 
         body{
@@ -100,7 +107,7 @@
             font-weight: bold;
          } 
     </style>
-
+    
     <script type="text/javascript">
         function showMenu() {
             
