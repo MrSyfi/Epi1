@@ -18,5 +18,38 @@
     </table>
     <hr />
 
-
+    <div class="responsive-table-line" style="margin:0px auto;max-width:700px;">
+	    <table class="table table-bordered table-condensed table-body-center" >
+	        <tbody>
+	            <tr>
+	                <td data-title="Droit">EpiID</td>
+	                <td data-title="Valeur alphanumérique">---</td>
+	            </tr>
+	            <tr>
+	                <td data-title="Droit">Marque et modèle</td>
+	                <td data-title="Valeur alphanumérique">--x</td>
+	            </tr>
+	            <tr>
+	                <td data-title="Droit">Numéro de série (S/N)</td>
+	                <td data-title="Valeur alphanumérique">-w-</td>
+	            </tr>
+	            <tr>
+	                <td data-title="Droit">Statut</td>
+	                <td data-title="Valeur alphanumérique">-wx</td>
+	            </tr>
+	            <tr>
+	                <td data-title="Droit">Localisation actuelle</td>
+	                <td data-title="Valeur alphanumérique">r--</td>
+	            </tr>
+	            <tr>
+	                <td data-title="Droit">Stocké par</td>
+	                <td data-title="Valeur alphanumérique">r-x</td>
+	            </tr>
+	            <tr>
+	                <td data-title="Droit">Stocké le</td>
+	                <td data-title="Valeur alphanumérique">rw-</td>
+	            </tr>
+	        </tbody>
+	    </table>
+	</div>
 </asp:Content>
