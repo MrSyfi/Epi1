@@ -20,34 +20,38 @@
 
     <div class="responsive-table-line" style="margin:0px auto;max-width:700px;">
 	    <table class="table table-bordered table-condensed table-body-center" >
+            <thead>
+                <tr>
+                    <th>EpiID</th>
+                    <th>Marque et modèle</th>
+                    <th>Numéro de série (S/N)</th>
+                    <th>Statut</th>
+                    <th>Localisation actuelle</th>
+                    <th>Stocké par</th>
+                    <th>Stocké le</th>
+                </tr>
+            </thead>
 	        <tbody>
 	            <tr>
-	                <td data-title="Droit">EpiID</td>
-	                <td data-title="Valeur alphanumérique">---</td>
+	                <td data-title="EpiID">---</td>
 	            </tr>
 	            <tr>
-	                <td data-title="Droit">Marque et modèle</td>
-	                <td data-title="Valeur alphanumérique">---</td>
+	                <td data-title="Marque et modèleoit">---</td>
 	            </tr>
 	            <tr>
-	                <td data-title="Droit">Numéro de série (S/N)</td>
-	                <td data-title="Valeur alphanumérique">---</td>
+	                <td data-title="Numéro de série (S/N)">---</td>
 	            </tr>
 	            <tr>
-	                <td data-title="Droit">Statut</td>
-	                <td data-title="Valeur alphanumérique">---</td>
+	                <td data-title="Statut">---</td>
 	            </tr>
 	            <tr>
-	                <td data-title="Droit">Localisation actuelle</td>
-	                <td data-title="Valeur alphanumérique">---</td>
+	                <td data-title="Localisation actuelle">---</td>
 	            </tr>
 	            <tr>
-	                <td data-title="Droit">Stocké par</td>
-	                <td data-title="Valeur alphanumérique">---</td>
+	                <td data-title="Stocké par">---</td>
 	            </tr>
 	            <tr>
-	                <td data-title="Droit">Stocké le</td>
-	                <td data-title="Valeur alphanumérique">---</td>
+	                <td data-title="Stocké le">---</td>
 	            </tr>
 	        </tbody>
 	    </table>
