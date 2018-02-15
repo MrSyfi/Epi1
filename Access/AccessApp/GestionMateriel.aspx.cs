@@ -53,6 +53,7 @@ namespace AccessApp
         private void PopulateHisto(DataTable dt)
         {
             L_Histo.Text = "";
+            L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE - " + dt.Rows[0]["NAME"].ToString() + " " + dt.Rows[0]["MODELE"].ToString() + " (S/N : " + dt.Rows[0]["SERIAL_NUMBER"].ToString() + ")</h2>";
             L_Histo.Text += "<section id = 'cd-timeline' class='cd-container'>";
             foreach(DataRow row in dt.Rows)
             {
@@ -60,14 +61,26 @@ namespace AccessApp
                +  "<div class='cd-timeline-img cd-picture'>";
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<img src='tick_green.png' alt='picture'>";break;
-                    case "TRANSIT": L_Histo.Text += "<img src='error.png' alt='picture'>"; break;
+                    case "STOCKED": L_Histo.Text += "<img src='green_tick.png' alt='picture'>";break;
+                    case "TRANSIT": L_Histo.Text += "<img src='error.png' alt='picture'>";break;
+                    case "INSTALLED": L_Histo.Text += "<img src='green_tick.png' alt='picture'>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<img src='repair.png' alt='picture'>"; break;
                 }
                 L_Histo.Text += "</div>";
 
                 
                 L_Histo.Text += "<div class='cd-timeline-content'>";
                 // Content
+
+
+                switch (row["STATUS_TO"].ToString())
+                {
+                    case "STOCKED": L_Histo.Text += "<h2> EN STOCK </h2>"; break;
+                    case "TRANSIT": L_Histo.Text += "<h2> EN TRANSIT </h2>"; break;
+                    case "INSTALLED": L_Histo.Text += "<h2> INSTALLÉ au " + row["LOCALISATION_ID"].ToString(); break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<h2> EN RÉPARATION "; break;
+                }
+
                 L_Histo.Text += "<h2>" + row["NAME"] + " " + row["MODELE"].ToString() + " </h2>";
 
                 L_Histo.Text += "<span class='cd-date'> " + row["OPERATION_DATE"].ToString() + "</span>";
