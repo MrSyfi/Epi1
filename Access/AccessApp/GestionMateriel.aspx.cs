@@ -40,7 +40,7 @@ namespace AccessApp
             }
             else
             {
-                L_Body.Text = "<h2><i>Pas de résultat...</i></h2>";
+                L_Body.Text = "<center><h2><i>Pas de résultat...</i></h2><center>";
             }
         }
     }
