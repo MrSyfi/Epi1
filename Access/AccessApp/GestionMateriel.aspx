@@ -7,10 +7,16 @@
         <h2>EpiCMBD</h2>
     </div> 
 
-    <div>
-        <label for="TB_recherche">EPIiD</label>
-        <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EPIiD..." name="Recherche" AutoPostBack="true" TextMode="Search"></asp:TextBox>
-    </div>    
-    
-     <hr />
+
+    <table style="margin: auto;">
+        <tr>
+            <td><label>EPIiD</label></td>
+        </tr>
+        <tr>
+            <td><asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EPIiD..." name="Recherche" AutoPostBack="true" TextMode="Search"></asp:TextBox></td>
+        </tr>
+    </table>
+    <hr />
+
+
 </asp:Content>
