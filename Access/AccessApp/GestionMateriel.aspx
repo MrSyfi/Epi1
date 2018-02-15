@@ -20,22 +20,22 @@
 	                <td data-title="EpiID"><asp:label runat="server" ID="L_EpiID">/</asp:label></td>
 	            </tr>
 	            <tr>
-	                <td data-title="Marque et modèleo"><asp:label runat="server" ID="Label1">/</asp:label></td>
+	                <td data-title="Marque et modèle"><asp:label runat="server" ID="L_Marque">/</asp:label></td>
 	            </tr>
 	            <tr>
-	                <td data-title="Numéro de série (S/N)"><asp:label runat="server" ID="Label2">/</asp:label></td>
+	                <td data-title="Numéro de série (S/N)"><asp:label runat="server" ID="L_NumSe">/</asp:label></td>
 	            </tr>
 	            <tr>
-	                <td data-title="Statut"><asp:label runat="server" ID="Label3">/</asp:label></td>
+	                <td data-title="Statut"><asp:label runat="server" ID="L_Statut">/</asp:label></td>
 	            </tr>
 	            <tr>
-	                <td data-title="Localisation actuelle"><asp:label runat="server" ID="Label4">/</asp:label></td>
+	                <td data-title="Localisation actuelle"><asp:label runat="server" ID="L_Loc">/</asp:label></td>
 	            </tr>
 	            <tr>
-	                <td data-title="Stocké par"><asp:label runat="server" ID="Label5">/</asp:label></td>
+	                <td data-title="Stocké par"><asp:label runat="server" ID="L_Agent">/</asp:label></td>
 	            </tr>
 	            <tr>
-	                <td data-title="Stocké le"><asp:label runat="server" ID="Label6">/</asp:label></td>
+	                <td data-title="Stocké le"><asp:label runat="server" ID="L_Date">/</asp:label></td>
 	            </tr>
 	        </tbody>
 	    </table>
