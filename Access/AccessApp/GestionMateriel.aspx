@@ -6,9 +6,9 @@
     <div class="page-header" style="text-align:center;">
         <h2>EpiCMBD</h2>
     </div> 
-    <center>
-        <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EPIiD..." name="Recherche" AutoPostBack="true" TextMode="Search"></asp:TextBox>
-    </center>
+   
+        <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EPIiD..." name="Recherche" AutoPostBack="true" TextMode="Search" style="margin: auto"></asp:TextBox>
+
     <hr />
 
     <div class="responsive-table-line" style="margin:0px auto;max-width:700px;">
