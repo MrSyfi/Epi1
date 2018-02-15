@@ -13,6 +13,28 @@
     </asp:PlaceHolder>      
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <!-- <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
+    <style>
+        @media (min-width: 768px) {
+            .sidebar-nav .navbar .navbar-collapse {
+                padding: 0;
+                max-height: none;
+            }
+            .sidebar-nav .navbar ul {
+                float: none;
+            }
+            .sidebar-nav .navbar ul:not {
+                display: block;
+            }
+            .sidebar-nav .navbar li {
+                float: none;
+                display: block;
+            }
+            .sidebar-nav .navbar li a {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+        }
+    </style>
 </head>
 
     
@@ -39,29 +61,37 @@
             </Scripts>
         </asp:ScriptManager>
     
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="sidebar-nav">
+              <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand"><img src="http://confluence.epicura.be/s/fr_FR/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.37/_/images/logo/confluence-logo.png" style="width:70%;height:70%;" ></a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>     
-                </div>  
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Gestion EpiACCESS</a></li>
-                        <li><a runat="server"><b>|</b></a></li>
-                        <li><a runat="server" href="~/EpiACCESS_Close" >EpiACCESS Close</a></li>
-                    </ul>
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <span class="visible-xs navbar-brand">Sidebar menu</span>
                 </div>
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a runat="server" href="~/">Gestion EpiACCESS</a></li>
+                    <li><a runat="server" href="~/EpiACCESS_Close" >EpiACCESS Close</a></li>
+                    <li><a runat="server" href="~/GestionMateriel" >EpiCMBD</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
             </div>
-        </nav>  
-        <div class="container body-content" style="background-color:#ffffff; padding: 20px; padding-top:0px;">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+          </div>
+          <div class="col-sm-9">
+            <div class="container body-content" style="background-color:#ffffff; padding: 20px; padding-top:0px;">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+          </div>
         </div>
+        
     </form>
 </body>
 </html>
