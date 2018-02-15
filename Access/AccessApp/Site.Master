@@ -141,7 +141,7 @@
             <div class="sidebar-nav">
               <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <a><img class="navbar-brand" src="Epicura.png"></a>
+                    <img class="navbar-brand" src="Epicura.png">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse" onclick="showMenu();">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>

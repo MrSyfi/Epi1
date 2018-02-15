@@ -7,29 +7,19 @@
         <h2>EpiCMBD</h2>
     </div> 
    
-        <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EPIiD..." name="Recherche" AutoPostBack="true" TextMode="Search" style="margin: auto"></asp:TextBox>
+    <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EPIiD..." name="Recherche" AutoPostBack="true" TextMode="Search" style="margin: auto"></asp:TextBox>
 
     <hr />
 
     <div class="responsive-table-line" style="margin:0px auto;max-width:700px;">
 	    <table class="table table-bordered table-condensed table-body-center" >
-            <thead>
-                <tr>
-                    <th>EpiID</th>
-                    <th>Marque et modèle</th>
-                    <th>Numéro de série (S/N)</th>
-                    <th>Statut</th>
-                    <th>Localisation actuelle</th>
-                    <th>Stocké par</th>
-                    <th>Stocké le</th>
-                </tr>
-            </thead>
+
 	        <tbody>
 	            <tr>
 	                <td data-title="EpiID">---</td>
 	            </tr>
 	            <tr>
-	                <td data-title="Marque et modèleoit">---</td>
+	                <td data-title="Marque et modèleo">---</td>
 	            </tr>
 	            <tr>
 	                <td data-title="Numéro de série (S/N)">---</td>
