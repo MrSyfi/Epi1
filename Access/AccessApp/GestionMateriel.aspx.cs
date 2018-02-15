@@ -11,7 +11,7 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            TB_recherche.Focus();
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
