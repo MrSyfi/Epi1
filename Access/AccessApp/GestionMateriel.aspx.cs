@@ -72,20 +72,20 @@ namespace AccessApp
                 L_Histo.Text += "</div>";
 
                 
-                L_Histo.Text += "<div class='cd-timeline-content'><b>";
+                L_Histo.Text += "<div class='cd-timeline-content'>";
                 // Content
 
 
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<h4> EN STOCK </h4>"; break;
-                    case "TRANSIT": L_Histo.Text += "<h4> EN TRANSIT </h4>"; break;
-                    case "INSTALLED": L_Histo.Text += "<h4> INSTALLÉ </h4>"; break;
-                    case "UNDER_REPAIR": L_Histo.Text += "<h4> EN RÉPARATION </h4>"; break;
-                    case "OBSOLETE": L_Histo.Text += "<h4> OBSOLÈTE </h4>"; break;
+                    case "STOCKED": L_Histo.Text += "<b><h3> EN STOCK </h3></b>"; break;
+                    case "TRANSIT": L_Histo.Text += "<b><h3> EN TRANSIT </h3></b>"; break;
+                    case "INSTALLED": L_Histo.Text += "<b><h3> INSTALLÉ </h3></b>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<b><h3> EN RÉPARATION </h3></b>"; break;
+                    case "OBSOLETE": L_Histo.Text += "<b><h3> OBSOLÈTE </h3></b>"; break;
                 }
 
-                L_Histo.Text += "</b><h4>"+ row["LOCALISATION_ID"].ToString()+"</h4>";
+                L_Histo.Text += "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4>";
 
                 L_Histo.Text += "<h5>Déplacé par " + row["FIRST_NAME"].ToString() + " " + row["LAST_NAME"].ToString() +" (CONTACT_ID : " + row["ID"].ToString() + ")</h5>";
 
