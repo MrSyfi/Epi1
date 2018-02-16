@@ -58,7 +58,7 @@ namespace AccessApp
             else
                 L_Body.Text += "<tr><td data-title='Solution'><font color='#c03b44'><b>Pas de solution</b></font></td></tr>";
 
-            L_Body.Text += "</tbody></table></div><hr/>";
+            L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaire</h3><hr/>";
         }
     }
 }
