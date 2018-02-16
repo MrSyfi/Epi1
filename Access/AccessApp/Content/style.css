@@ -52,7 +52,7 @@ body {
     .sidebar-nav .navbar li a {
         padding-top: 12px;
         padding-bottom: 12px;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #dcecf7;
     }
 
     .navbar-brand {
