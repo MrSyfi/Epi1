@@ -65,7 +65,8 @@ namespace AccessApp
 
             foreach (DataRow row in dt.Rows)
             {
-                L_Body.Text +=  "< div class='jumbotron'>"+ row["LOG"].ToString() + "</div>";
+                L_Body.Text += "< div class='jumbotron'>" + row["LOG"].ToString() + "</div>";
+            }
         }
     }
 }
