@@ -129,6 +129,27 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE :id", Consts.TICKETS_TABLE), parameters, values);
         }
 
+        public static DataSet SelectAgentIdentity(string ticketID)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":id"); values.Add(ticketID);
+
+            return _db.ExecuteQuery(string.Format("SELECT FIRST_NAME, LAST_NAME FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID WHERE {1}.ID = :id ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE), parameters, values);
+        }
+
+        public static DataSet SelectCallerIdentity(string ticketID)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":id"); values.Add(ticketID);
+
+            return _db.ExecuteQuery(string.Format("SELECT FIRST_NAME, LAST_NAME FROM {0} INNER JOIN {1} ON {0}.ID = {1}.CALLER_ID WHERE {1}.ID = :id ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE), parameters, values);
+        
+        }
+
     }
 }
  
