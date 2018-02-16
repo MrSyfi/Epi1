@@ -53,7 +53,7 @@
         </asp:ScriptManager>
     
         <div class="row">
-          <div class="col-sm-2 col-lg-2">
+          <div class="col-md-2 col-lg-2">
             <div class="sidebar-nav">
               <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
@@ -66,8 +66,8 @@
                     </button>
                     <span class="visible-xs navbar-brand">Epi...</span>
                 </div>
-                <div class="navbar-collapse collapse sidebar-navbar-collapse" id="toShow">
-                  <img class="visible-lg" src="Epicura.png">
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                  <img class="visible-lg visible-md" src="Epicura.png">
                   <ul class="nav navbar-nav">
                     <li><a runat="server" href="~/">Gestion EpiACCESS</a></li>
                     <li><a runat="server" href="~/EpiACCESS_Close" >EpiACCESS Close</a></li>
@@ -77,7 +77,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-10 col-lg-10">
+          <div class="col-md-10 col-lg-10">
             <div class="container body-content" style="background-color:#ffffff; padding: 20px; padding-top:0px;">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
