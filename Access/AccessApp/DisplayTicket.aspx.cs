@@ -65,7 +65,7 @@ namespace AccessApp
 
             foreach (DataRow row in dt.Rows)
             {
-                L_Body.Text += "<div class='jumbotron'><table width=100%><tr><td align='left' width=50%>" + row["CONTACT_ID"].ToString() + "</td><td align='right'>" + row["TIMESTAMP"].ToString() +"</td></tr></table>" +
+                L_Body.Text += "<div class='jumbotron'><p><table width=100% style='border-bottom: 2px solid #a5a1a1'><tr><td align='left' width=50%>" + row["CONTACT_ID"].ToString() + "</td><td align='right'>" + row["TIMESTAMP"].ToString() +"</td></tr></table></p>" +
                     "<p align='justify'>" + row["LOG"].ToString() + "</p></div>";
             }
         }
