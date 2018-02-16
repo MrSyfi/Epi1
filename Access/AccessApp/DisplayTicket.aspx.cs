@@ -23,7 +23,6 @@ namespace AccessApp
                 else
                 {
                     LoadData(Request.QueryString["tId"]);
-                    Param.Text = Request.QueryString["tId"];
                 }
             } else
             {
@@ -35,8 +34,28 @@ namespace AccessApp
         private void LoadData(string id)
         {
             DataSet ds = DAL.SelectAllFromTicketId(id);
+
+
             L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
-                "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["ID"].ToString() + "</td></tr></tbody></table></div><hr/>";
+                "<tr><td data-title='Référence'>" + ds.Tables[0].Rows[0]["REFERENCE"].ToString() + "</td></tr>" +
+                "<tr><td data-title='Date de création de ticket'>" + ds.Tables[0].Rows[0]["START_TS"].ToString() + "</td></tr>" +
+                "<tr><td data-title='Date de dernière mise à jour'>" + ds.Tables[0].Rows[0]["LAST_UPDATE_TS"].ToString() + "</td></tr>";
+
+            if (ds.Tables[0].Rows[0]["RESOLUTION_TS"].ToString() == string.Empty)
+                L_Body.Text += "<tr><td data-title='Date de cloture du ticket'>Ticket non encore cloturé.</td></tr>";
+            else
+                L_Body.Text += "<tr><td data-title='Date de cloture du ticket'>" + ds.Tables[0].Rows[0]["RESOLUTION_TS"].ToString() + "</td></tr>";
+
+            L_Body.Text += "<tr><td data-title='Titre'>" + ds.Tables[0].Rows[0]["TITLE"].ToString() + "</td></tr>" +
+                "<tr><td data-title='Nom de la machine'>/</td></tr>" +
+                "<tr><td data-title='Description'><p align='justify'>" + ds.Tables[0].Rows[0]["DESCRIPTION"].ToString() + "</p></td></tr>";
+
+            if (ds.Tables[0].Rows[0]["RESOLUTION"].ToString() == string.Empty)
+                L_Body.Text += "<tr><td data-title='Solution'><font color='#1A7F09'" + ds.Tables[0].Rows[0]["RESOLUTION"].ToString() + "</font></td></tr>";
+            else
+                L_Body.Text += "<tr><td data-title='Solution'><font color='#1A7F09'>Pas de solution</font></td></tr>";
+
+            L_Body.Text += "</tbody></table></div><hr/>";
         }
     }
 }
