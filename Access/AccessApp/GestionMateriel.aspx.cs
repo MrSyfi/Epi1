@@ -53,7 +53,7 @@ namespace AccessApp
         private void PopulateHisto(DataTable dt)
         {
             L_Histo.Text = "";
-            L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE - " + dt.Rows[0]["NAME"].ToString() + " " + dt.Rows[0]["MODELE"].ToString() + " (S/N : " + dt.Rows[0]["SERIAL_NUMBER"].ToString() + ")</h2>";
+            L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE - " + dt.Rows[0]["NAME"].ToString() + " " + dt.Rows[0]["MODELE"].ToString() + " (S/N : " + dt.Rows[0]["SERIAL_NUMBER"].ToString() + ")</h2><hr/>";
             L_Histo.Text += "<section id = 'cd-timeline' class='cd-container'>";
             foreach(DataRow row in dt.Rows)
             {
@@ -87,7 +87,7 @@ namespace AccessApp
 
                 L_Histo.Text += "<br />Déplacé par " + row["LAST_NAME"].ToString() + " " + row["FIRST_NAME"].ToString();
 
-                L_Histo.Text += "<span class='cd-date'> " + row["OPERATION_DATE"].ToString() + "</span>";
+                L_Histo.Text += "<span class='cd-date'> <h5>" + row["OPERATION_DATE"].ToString() + "</h5></span>";
 
                 L_Histo.Text += "</div></div>";
             }
