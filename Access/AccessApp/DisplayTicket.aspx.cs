@@ -11,8 +11,23 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string testParam = Request.QueryString["tId"];
-            Param.Text = testParam;
+            // Check if tId exists
+            if (Request.QueryString.AllKeys.Contains("tId"))
+            {
+                // Check if tId is not null
+                if(Request.QueryString["tId"] == string.Empty)
+                {
+                    Server.Transfer("GestionMateriel.aspx", true);
+                }
+                else
+                {
+                    Param.Text = Request.QueryString["tId"];
+                }
+            } else
+            {
+                Server.Transfer("GestionMateriel.aspx", true);
+            }
+
         }
     }
 }
