@@ -17,7 +17,7 @@ namespace AccessApp
                 // Check if tId is not null
                 if(Request.QueryString["tId"] == string.Empty)
                 {
-                    Server.Transfer("GestionMateriel.aspx", true);
+                    Response.Redirect("GestionMateriel.aspx", true);
                 }
                 else
                 {
@@ -25,7 +25,7 @@ namespace AccessApp
                 }
             } else
             {
-                Server.Transfer("GestionMateriel.aspx", true);
+                Response.Redirect("GestionMateriel.aspx", true);
             }
 
         }
