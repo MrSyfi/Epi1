@@ -38,13 +38,13 @@ namespace AccessApp
 
             L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                 "<tr><td data-title='Référence'>" + ds.Tables[0].Rows[0]["REFERENCE"].ToString() + "</td></tr>" +
-                "<tr><td data-title='Date de création de ticket'>" + ds.Tables[0].Rows[0]["START_TS"].ToString() + "</td></tr>" +
-                "<tr><td data-title='Date de dernière mise à jour'>" + ds.Tables[0].Rows[0]["LAST_UPDATE_TS"].ToString() + "</td></tr>";
+                "<tr><td data-title='Création de ticket'>" + ds.Tables[0].Rows[0]["START_TS"].ToString() + "</td></tr>" +
+                "<tr><td data-title='Dernière mise à jour'>" + ds.Tables[0].Rows[0]["LAST_UPDATE_TS"].ToString() + "</td></tr>";
 
             if (ds.Tables[0].Rows[0]["RESOLUTION_TS"].ToString() == string.Empty)
-                L_Body.Text += "<tr><td data-title='Date de cloture du ticket'>Ticket non encore cloturé.</td></tr>";
+                L_Body.Text += "<tr><td data-title='cloture du ticket'>Ticket NON cloturé.</td></tr>";
             else
-                L_Body.Text += "<tr><td data-title='Date de cloture du ticket'>" + ds.Tables[0].Rows[0]["RESOLUTION_TS"].ToString() + "</td></tr>";
+                L_Body.Text += "<tr><td data-title='Cloture du ticket'>" + ds.Tables[0].Rows[0]["RESOLUTION_TS"].ToString() + "</td></tr>";
 
             L_Body.Text += "<tr><td data-title='Titre'>" + ds.Tables[0].Rows[0]["TITLE"].ToString() + "</td></tr>" +
                 "<tr><td data-title='Nom de la machine'>/</td></tr>" +
