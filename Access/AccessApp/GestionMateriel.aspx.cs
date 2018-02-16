@@ -21,7 +21,7 @@ namespace AccessApp
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
         {
             string tmp="";
-            if (TB_recherche.Text.Length > 3 && TB_recherche.Text.StartsWith("EPI"))
+            if (TB_recherche.Text.Length > 3 && (TB_recherche.Text.StartsWith("EPI") || TB_recherche.Text.StartsWith("epi")))
                 tmp = TB_recherche.Text.Substring(3);
             else if (TB_recherche.Text.Length > 0)
                 tmp = TB_recherche.Text;
