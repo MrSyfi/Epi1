@@ -35,6 +35,8 @@ namespace AccessApp
             {
                 // LOCALISATION_ID CAN BE NULL (OBSOLETE OBJECTS)
                 ds.Tables[0].Rows[0]["LOCALISATION_ID"] = ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString();
+                ds.Tables[0].Rows[0]["NAME"] = ds.Tables[0].Rows[0]["NAME"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["NAME"].ToString();
+                ds.Tables[0].Rows[0]["SERIAL_NUMBER"] = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
                 L_Body.Text ="<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                     "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
