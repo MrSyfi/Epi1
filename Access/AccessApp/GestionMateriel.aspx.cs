@@ -34,7 +34,7 @@ namespace AccessApp
             if (ds.Tables[0].Rows.Count > 0)
             {
                 // LOCALISATION_ID CAN BE NULL (OBSOLETE OBJECTS)
-                ds.Tables[0].Rows[0]["LOCALISATION_ID"] = ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString();
+                ds.Tables[0].Rows[0]["LOCALISATION_ID"] = ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString() == string.Empty ? Consts.EMPTY_STRING : ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString();
                 ds.Tables[0].Rows[0]["NAME"] = ds.Tables[0].Rows[0]["NAME"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["NAME"].ToString();
                 ds.Tables[0].Rows[0]["SERIAL_NUMBER"] = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
                 L_Body.Text ="<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
@@ -56,6 +56,7 @@ namespace AccessApp
 
         private void PopulateHisto(DataTable dt)
         {
+            
             L_Histo.Text = "";
             L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE</h2><hr/>";
             L_Histo.Text += "<section id = 'cd-timeline' class='cd-container'>";
@@ -85,10 +86,10 @@ namespace AccessApp
                     case "INSTALLED": L_Histo.Text += "<b><h3> INSTALLÉ </h3></b>"; break;
                     case "UNDER_REPAIR": L_Histo.Text += "<b><h3> MIS EN RÉPARATION </h3></b>"; break;
                     case "OBSOLETE": L_Histo.Text += "<b><h3> DECLASSEMENT</h3></b>"; break;
-                    case "COPY_LBL": L_Histo.Text += "<b><h3> COPIE D ÉTIQUETTES</h3></b>"; break;
+                    case "COPY_LBL": L_Histo.Text += "<b><h3> COPIE D'ÉTIQUETTES</h3></b>"; break;
                 }
 
-                L_Histo.Text += "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4><br/>";
+                L_Histo.Text += row["LOCALISATION_ID"].ToString() == Consts.EMPTY_STRING ? "" : "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4><br/>";
 
                 L_Histo.Text += "<h5>Déplacé par " + row["FIRST_NAME"].ToString() + " " + row["LAST_NAME"].ToString() +" (CONTACT_ID : " + row["ID"].ToString() + ")</h5>";
 

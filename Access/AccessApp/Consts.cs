@@ -27,6 +27,8 @@ namespace AccessApp
 
         public static readonly string CONST_EMAIL_SMTP_SERVER_HOST = "mail.epicura.be";
 
+        public static readonly string EMPTY_STRING = " - ";
+
         
     }
 }
