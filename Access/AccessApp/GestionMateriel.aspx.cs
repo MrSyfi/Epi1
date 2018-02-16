@@ -63,11 +63,11 @@ namespace AccessApp
                +  "<div class='cd-timeline-img cd-picture'>";
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<img src='green_tick.png' alt='picture'>";break;
-                    case "TRANSIT": L_Histo.Text += "<img src='transit.svg' alt='picture'>";break;
-                    case "INSTALLED": L_Histo.Text += "<img src='green_tick.png' alt='picture'>"; break;
-                    case "UNDER_REPAIR": L_Histo.Text += "<img src='repair.png' alt='picture'>"; break;
-                    case "OBSOLETE": L_Histo.Text += "<img src='expired.png' alt='picture'>"; break;
+                    case "STOCKED": L_Histo.Text += "<img src='green_tick.png' alt='stocked'>";break;
+                    case "TRANSIT": L_Histo.Text += "<img src='transit.svg' alt='transit'>";break;
+                    case "INSTALLED": L_Histo.Text += "<img src='green_tick.png' alt='installed'>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<img src='repair.png' alt='repairing'>"; break;
+                    case "OBSOLETE": L_Histo.Text += "<img src='expired.png' alt='obsolete'>"; break;
                 }
                 L_Histo.Text += "</div>";
 
