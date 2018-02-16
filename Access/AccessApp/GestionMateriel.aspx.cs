@@ -77,11 +77,11 @@ namespace AccessApp
 
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<b><h3> EN STOCK </h3></b>"; break;
-                    case "TRANSIT": L_Histo.Text += "<a href='DisplayTicket?tId=" + row["TICKET_ID"] + "'><h4> EN TRANSIT </h4></a>"; break;
+                    case "STOCKED": L_Histo.Text += "<b><h3> MIS EN STOCK </h3></b>"; break;
+                    case "TRANSIT": L_Histo.Text += "<a href='DisplayTicket?tId=" + row["TICKET_ID"] + "'><h4> SORTI DU STOCK (TICKET: " +row["TICKET_ID"].ToString() + " )</h4></a>"; break;
                     case "INSTALLED": L_Histo.Text += "<b><h3> INSTALLÉ </h3></b>"; break;
-                    case "UNDER_REPAIR": L_Histo.Text += "<b><h3> EN RÉPARATION </h3></b>"; break;
-                    case "OBSOLETE": L_Histo.Text += "<b><h3> OBSOLÈTE </h3></b>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<b><h3> MIS EN RÉPARATION </h3></b>"; break;
+                    case "OBSOLETE": L_Histo.Text += "<b><h3> EST OBSOLÈTE </h3></b>"; break;
                 }
 
                 L_Histo.Text += "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4><br/>";
