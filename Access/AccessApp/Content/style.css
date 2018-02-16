@@ -163,19 +163,19 @@ Main components
     margin: 2em 0;
 }
 
-    .cd-timeline-block:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+.cd-timeline-block:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
-    .cd-timeline-block:first-child {
-        margin-top: 0;
-    }
+.cd-timeline-block:first-child {
+    margin-top: 0;
+}
 
-    .cd-timeline-block:last-child {
-        margin-bottom: 0;
-    }
+.cd-timeline-block:last-child {
+    margin-bottom: 0;
+}
 
 @media only screen and (min-width: 1170px) {
     .cd-timeline-block {
