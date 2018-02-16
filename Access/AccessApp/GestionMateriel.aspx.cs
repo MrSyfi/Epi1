@@ -85,6 +85,7 @@ namespace AccessApp
                     case "INSTALLED": L_Histo.Text += "<b><h3> INSTALLÉ </h3></b>"; break;
                     case "UNDER_REPAIR": L_Histo.Text += "<b><h3> MIS EN RÉPARATION </h3></b>"; break;
                     case "OBSOLETE": L_Histo.Text += "<b><h3> DECLASSEMENT</h3></b>"; break;
+                    case "COPY_LBL": L_Histo.Text += "<b><h3> COPIE D ÉTIQUETTES</h3></b>"; break;
                 }
 
                 L_Histo.Text += "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4><br/>";
