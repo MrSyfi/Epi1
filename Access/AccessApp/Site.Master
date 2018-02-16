@@ -53,7 +53,7 @@
         </asp:ScriptManager>
     
         <div class="row">
-          <div class="col-sm-2">
+          <div class="col-sm-2 col-lg-2">
             <div class="sidebar-nav">
               <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
@@ -64,7 +64,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <span class="visible-xs navbar-brand">EpiACCESS</span>
+                    <span class="visible-xs navbar-brand">Epi...</span>
                 </div>
                 <div class="navbar-collapse collapse sidebar-navbar-collapse" id="toShow">
                   <ul class="nav navbar-nav">
@@ -76,7 +76,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-10">
+          <div class="col-sm-10 col-lg-10">
             <div class="container body-content" style="background-color:#ffffff; padding: 20px; padding-top:0px;">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>

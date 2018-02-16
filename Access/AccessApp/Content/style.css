@@ -30,10 +30,9 @@ body {
 
 @media (min-width: 768px) {
 
-
     .sidebar-nav .navbar .navbar-collapse {
-        padding: 0;
-        max-height: none;
+        padding-bottom: 50px;
+        max-height: 100%;
     }
 
     .sidebar-nav .navbar ul {
