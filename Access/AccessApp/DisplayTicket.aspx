@@ -6,6 +6,5 @@
         <h2>Informations du ticket</h2>
     </div> 
     <asp:Literal runat="server" ID="L_Body" ></asp:Literal>
-    <asp:TextBox runat="server" ID="Param"></asp:TextBox>
     
 </asp:Content>
