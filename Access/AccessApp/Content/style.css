@@ -148,6 +148,10 @@ Main components
     margin-bottom: 2em;
 }
 
+.cd-timeline-content h3 {
+    color: #303e49;
+}
+
 #cd-timeline::before {
     /* this is the vertical line */
     content: '';
