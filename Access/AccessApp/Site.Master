@@ -12,17 +12,9 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>      
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <!-- <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
-
-    <!-- TIME LINE -->
 
 	<link rel="stylesheet" href="Content/style.css">
-    
-    <script type="text/javascript">
-        $('#bt').click(function () {
-            $('.navbar-toggle').toggle();
-        });
-    </script>
+    <script src="Scripts/Script.js"></script>
     <script src="Scripts/jquery.min.js"></script>
 </head>
 
@@ -51,6 +43,7 @@
         </asp:ScriptManager>
     
         <div class="row">
+            <!-- NAVBAR -->
           <div class="col-md-2 col-lg-2">
             <div class="sidebar-nav">
               <div class="navbar navbar-default" role="navigation">
@@ -75,6 +68,7 @@
               </div>
             </div>
           </div>
+            <!-- PAGE / BODY -->
           <div class="col-md-10 col-lg-10">
             <div class="container body-content" style="background-color:#ffffff; padding: 20px; padding-top:0px;">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
