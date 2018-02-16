@@ -35,6 +35,8 @@ namespace AccessApp
             {
                 // LOCALISATION_ID CAN BE NULL (OBSOLETE OBJECTS)
                 ds.Tables[0].Rows[0]["LOCALISATION_ID"] = ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString();
+                ds.Tables[0].Rows[0]["NAME"] = ds.Tables[0].Rows[0]["NAME"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["NAME"].ToString();
+                ds.Tables[0].Rows[0]["SERIAL_NUMBER"] = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() == string.Empty ? " - " : ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
                 L_Body.Text ="<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                     "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
@@ -77,11 +79,11 @@ namespace AccessApp
 
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<b><h3> EN STOCK </h3></b>"; break;
-                    case "TRANSIT": L_Histo.Text += "<a href='DisplayTicket?tId=" + row["TICKET_ID"] + "'><h4> EN TRANSIT </h4></a>"; break;
+                    case "STOCKED": L_Histo.Text += "<b><h3> MIS EN STOCK </h3></b>"; break;
+                    case "TRANSIT": L_Histo.Text += "<a href='DisplayTicket?tId=" + row["TICKET_ID"] + "'><h4> SORTI DU STOCK (TICKET: " +row["TICKET_ID"].ToString() + " )</h4></a>"; break;
                     case "INSTALLED": L_Histo.Text += "<b><h3> INSTALLÉ </h3></b>"; break;
-                    case "UNDER_REPAIR": L_Histo.Text += "<b><h3> EN RÉPARATION </h3></b>"; break;
-                    case "OBSOLETE": L_Histo.Text += "<b><h3> OBSOLÈTE </h3></b>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<b><h3> MIS EN RÉPARATION </h3></b>"; break;
+                    case "OBSOLETE": L_Histo.Text += "<b><h3> EST OBSOLÈTE </h3></b>"; break;
                 }
 
                 L_Histo.Text += "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4><br/>";
