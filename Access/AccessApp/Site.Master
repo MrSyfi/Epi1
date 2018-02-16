@@ -20,8 +20,15 @@
     
     <script type="text/javascript">
 
-        $('#bt').click(function () {
-            $('.navbar-toggle').toggle();
+        $(document).ready(function() {
+            $('window').scroll(function() {
+                var posy = $('window').scrollTop();
+                $('#nav').css('top' , posy);
+            });
+
+            $('#bt').click(function () {
+                $('.navbar-toggle').toggle();
+            });
         });
 
     </script>
@@ -54,7 +61,7 @@
     
         <div class="row">
           <div class="col-sm-2 col-lg-2">
-            <div class="sidebar-nav">
+            <div class="sidebar-nav" id="nav">
               <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
                     
@@ -67,7 +74,7 @@
                     <span class="visible-xs navbar-brand">Epi...</span>
                 </div>
                 <div class="navbar-collapse collapse sidebar-navbar-collapse" id="toShow">
-                  <img class="visible-lg" src="Epicura.png">
+                  <img class="visible-xl visible-lg visible-md" src="Epicura.png">
                   <ul class="nav navbar-nav">
                     <li><a runat="server" href="~/">Gestion EpiACCESS</a></li>
                     <li><a runat="server" href="~/EpiACCESS_Close" >EpiACCESS Close</a></li>

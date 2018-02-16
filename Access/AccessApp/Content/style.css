@@ -28,15 +28,22 @@ body {
     height: auto;
 }
 
-.navabr {
-    position: fixed;
-    top: 0;
-}
+
 
 
 @media (min-width: 768px) {
 
+    .navbar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 15%;
+    }
+
     .sidebar-nav .navbar .navbar-collapse {
+        
         padding-bottom: 50px;
         max-height: 100%;
     }
