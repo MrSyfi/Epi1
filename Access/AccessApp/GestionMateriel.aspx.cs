@@ -69,6 +69,7 @@ namespace AccessApp
                     case "INSTALLED": L_Histo.Text += "<div class='cd-timeline-img cd-installed'><img src='installed.png' alt='installed'></div>"; break;
                     case "UNDER_REPAIR": L_Histo.Text += "<div class='cd-timeline-img cd-repairing'><img src='repair.png' alt='repairing'></div>"; break;
                     case "OBSOLETE": L_Histo.Text += "<div class='cd-timeline-img cd-obsolete'><img src='deleteobsolete.png' alt='obsolete'></div>"; break;
+                    case "COPY_LBL": L_Histo.Text += "<div class='cd-timeline-img cd-label'><img src='label.png' alt='label'></div>"; break;
                 }
                 
 
