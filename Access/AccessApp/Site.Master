@@ -57,7 +57,7 @@
             <div class="sidebar-nav">
               <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <img class="navbar-brand" src="Epicura.png">
+                    
                     <button id ="bt" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -67,6 +67,7 @@
                     <span class="visible-xs navbar-brand">Epi...</span>
                 </div>
                 <div class="navbar-collapse collapse sidebar-navbar-collapse" id="toShow">
+                  <img class="visible-lg" src="Epicura.png">
                   <ul class="nav navbar-nav">
                     <li><a runat="server" href="~/">Gestion EpiACCESS</a></li>
                     <li><a runat="server" href="~/EpiACCESS_Close" >EpiACCESS Close</a></li>
