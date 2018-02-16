@@ -47,6 +47,7 @@ namespace AccessApp
                 L_Body.Text += "<tr><td data-title='Date de cloture du ticket'>" + ds.Tables[0].Rows[0]["RESOLUTION_TS"].ToString() + "</td></tr>";
 
             L_Body.Text += "<tr><td data-title='Titre'>" + ds.Tables[0].Rows[0]["TITLE"].ToString() + "</td></tr>" +
+                "<tr><td data-title='Nom de la machine'>/</td></tr>" +
                 "<tr><td data-title='Description'><p align='justify'>" + ds.Tables[0].Rows[0]["DESCRIPTION"].ToString() + "</p></td></tr>";
 
             if (ds.Tables[0].Rows[0]["RESOLUTION"].ToString() == string.Empty)
