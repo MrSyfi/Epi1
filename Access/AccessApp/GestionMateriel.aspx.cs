@@ -91,7 +91,7 @@ namespace AccessApp
 
                 L_Histo.Text += row["LOCALISATION_ID"].ToString() == Consts.EMPTY_STRING ? "" : "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4><br/>";
 
-                L_Histo.Text += "<h5>Déplacé par " + row["FIRST_NAME"].ToString() + " " + row["LAST_NAME"].ToString() +" (CONTACT_ID : " + row["ID"].ToString() + ")</h5>";
+                L_Histo.Text += "<h5>Opération effectuée par " + row["FIRST_NAME"].ToString() + " " + row["LAST_NAME"].ToString() +" (CONTACT_ID : " + row["ID"].ToString() + ")</h5>";
 
                 L_Histo.Text += "<span class='cd-date'> <h5>" + row["OPERATION_DATE"].ToString() + "</h5></span>";
 
