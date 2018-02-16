@@ -59,6 +59,14 @@ namespace AccessApp
                 L_Body.Text += "<tr><td data-title='Solution'><font color='#c03b44'><b>Pas de solution</b></font></td></tr>";
 
             L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaire</h3><hr/>";
+
+            ds = DAL.SelectAllFromCommentaire(id);
+            DataTable dt = ds.Tables[0];
+
+            foreach (DataRow row in dt.Rows)
+            {
+                L_Body.Text += "< div class='jumbotron'>" + row["LOG"].ToString() + "</div>";
+            }
         }
     }
 }

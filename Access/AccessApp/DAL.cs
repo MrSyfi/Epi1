@@ -150,6 +150,16 @@ namespace AccessApp
         
         }
 
+        public static DataSet SelectAllFromCommentaire(string ticketID)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":id"); values.Add(ticketID);
+
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.TICKET_ID LIKE :id", Consts.COMMENTAIRE_TABLE), parameters, values);
+        }
+
     }
 }
  
