@@ -83,7 +83,7 @@ namespace AccessApp
                     case "OBSOLETE": L_Histo.Text += "<h2> OBSOLÈTE "; break;
                 }
 
-                L_Histo.Text += "<br />Déplacé par " + row["LAST_NAME"].ToString() + " " + row["FIRST_NAME"].ToString();
+                L_Histo.Text += "<br /><p>Déplacé par " + row["LAST_NAME"].ToString() + " " + row["FIRST_NAME"].ToString() + "</p>" ;
 
                 L_Histo.Text += "<span class='cd-date'> " + row["OPERATION_DATE"].ToString() + "</span>";
 
