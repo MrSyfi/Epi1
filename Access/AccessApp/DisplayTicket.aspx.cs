@@ -35,6 +35,8 @@ namespace AccessApp
         private void LoadData(string id)
         {
             DataSet ds = DAL.SelectAllFromTicketId(id);
+            L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
+                "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["ID"].ToString() + "</td></tr></tbody></table></div><hr/>";
         }
     }
 }
