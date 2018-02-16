@@ -65,6 +65,7 @@ namespace AccessApp
                     case "TRANSIT": L_Histo.Text += "<img src='error.png' alt='picture'>";break;
                     case "INSTALLED": L_Histo.Text += "<img src='green_tick.png' alt='picture'>"; break;
                     case "UNDER_REPAIR": L_Histo.Text += "<img src='repair.png' alt='picture'>"; break;
+                    case "OBSOLETE": L_Histo.Text += "<img src='expired.png' alt='picture'>"; break;
                 }
                 L_Histo.Text += "</div>";
 
@@ -75,15 +76,14 @@ namespace AccessApp
 
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<h4> EN STOCK </h4>"; break;
-                    case "TRANSIT": L_Histo.Text += "<h4> EN TRANSIT </h4>"; break;
-                    case "INSTALLED": L_Histo.Text += "<h4> INSTALLÉ </h4>"; break;
-                    case "UNDER_REPAIR": L_Histo.Text += "<h4> EN RÉPARATION </h4>"; break;
+                    case "STOCKED": L_Histo.Text += "<h2> EN STOCK </h2>"; break;
+                    case "TRANSIT": L_Histo.Text += "<h2> EN TRANSIT </h2>"; break;
+                    case "INSTALLED": L_Histo.Text += "<h2> INSTALLÉ au/a/chez <b>" + row["LOCALISATION_ID"].ToString() + "</b>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<h2> EN RÉPARATION "; break;
+                    case "OBSOLETE": L_Histo.Text += "<h2> OBSOLÈTE "; break;
                 }
 
-                L_Histo.Text += "<p>" + row["LOCALISATION_ID"].ToString() + "</p>";
-
-                L_Histo.Text += "<h2>" + row["NAME"] + " " + row["MODELE"].ToString() + " </h2>";
+                L_Histo.Text += "<br />Déplacé par " + row["LAST_NAME"].ToString() + " " + row["FIRST_NAME"].ToString();
 
                 L_Histo.Text += "<span class='cd-date'> " + row["OPERATION_DATE"].ToString() + "</span>";
 
