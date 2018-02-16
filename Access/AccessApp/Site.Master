@@ -55,7 +55,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <span class="visible-xs navbar-brand">Epi...</span>
+                    <span class="visible-xs navbar-brand">EpiDESK</span>
                 </div>
                 <div class="navbar-collapse collapse sidebar-navbar-collapse">
                   <img class="visible-lg visible-md" src="Epicura.png">
