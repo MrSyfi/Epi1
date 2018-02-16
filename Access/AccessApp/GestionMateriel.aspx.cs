@@ -36,7 +36,7 @@ namespace AccessApp
                 L_Body.Text ="<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                     "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
-                    "<tr><td data-title='Numéro de série (S/N)'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr>" +
+                    "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Statut'>" + ds.Tables[0].Rows[0]["STATUS_TO"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Localisation actuelle'>" + ds.Tables[0].Rows[0]["LOCALISATION_ID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Stocké par'>" + ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString() + "</td></tr>" +
@@ -53,7 +53,7 @@ namespace AccessApp
         private void PopulateHisto(DataTable dt)
         {
             L_Histo.Text = "";
-            L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE - " + dt.Rows[0]["NAME"].ToString() + " " + dt.Rows[0]["MODELE"].ToString() + " (S/N : " + dt.Rows[0]["SERIAL_NUMBER"].ToString() + ")</h2><hr/>";
+            L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE</h2><hr/>";
             L_Histo.Text += "<section id = 'cd-timeline' class='cd-container'>";
             foreach(DataRow row in dt.Rows)
             {
