@@ -163,19 +163,19 @@ Main components
     margin: 2em 0;
 }
 
-    .cd-timeline-block:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+.cd-timeline-block:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
-    .cd-timeline-block:first-child {
-        margin-top: 0;
-    }
+.cd-timeline-block:first-child {
+    margin-top: 0;
+}
 
-    .cd-timeline-block:last-child {
-        margin-bottom: 0;
-    }
+.cd-timeline-block:last-child {
+    margin-bottom: 0;
+}
 
 @media only screen and (min-width: 1170px) {
     .cd-timeline-block {
@@ -313,7 +313,7 @@ Main components
     background: #e9f0f5;
     border-radius: 0.25em;
     padding: 1em;
-    box-shadow: 0 3px 0 #d7e4ed;
+    box-shadow: 0 3px 0 #b3bec5;
 }
 
 .cd-timeline-content:after {

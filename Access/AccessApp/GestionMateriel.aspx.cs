@@ -53,7 +53,7 @@ namespace AccessApp
         private void PopulateHisto(DataTable dt)
         {
             L_Histo.Text = "";
-            L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE - " + dt.Rows[0]["NAME"].ToString() + " " + dt.Rows[0]["MODELE"].ToString() + " (S/N : " + dt.Rows[0]["SERIAL_NUMBER"].ToString() + ")</h2>";
+            L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE - " + dt.Rows[0]["NAME"].ToString() + " " + dt.Rows[0]["MODELE"].ToString() + " (S/N : " + dt.Rows[0]["SERIAL_NUMBER"].ToString() + ")</h2><hr/>";
             L_Histo.Text += "<section id = 'cd-timeline' class='cd-container'>";
             foreach(DataRow row in dt.Rows)
             {
@@ -76,16 +76,18 @@ namespace AccessApp
 
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<h2> EN STOCK </h2>"; break;
-                    case "TRANSIT": L_Histo.Text += "<h2> EN TRANSIT </h2>"; break;
-                    case "INSTALLED": L_Histo.Text += "<h2> INSTALLÉ au/a/chez <b>" + row["LOCALISATION_ID"].ToString() + "</b>"; break;
-                    case "UNDER_REPAIR": L_Histo.Text += "<h2> EN RÉPARATION "; break;
-                    case "OBSOLETE": L_Histo.Text += "<h2> OBSOLÈTE "; break;
+                    case "STOCKED": L_Histo.Text += "<h4> EN STOCK </h4>"; break;
+                    case "TRANSIT": L_Histo.Text += "<h4> EN TRANSIT </h4>"; break;
+                    case "INSTALLED": L_Histo.Text += "<h4> INSTALLÉ </h4>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<h4> EN RÉPARATION </h4>"; break;
+                    case "OBSOLETE": L_Histo.Text += "<h4> OBSOLÈTE </h4>"; break;
                 }
 
-                L_Histo.Text += "<br /><p>Déplacé par " + row["LAST_NAME"].ToString() + " " + row["FIRST_NAME"].ToString() + "</p>" ;
+                L_Histo.Text += "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4>";
 
-                L_Histo.Text += "<span class='cd-date'> " + row["OPERATION_DATE"].ToString() + "</span>";
+                L_Histo.Text += "<br />Déplacé par " + row["LAST_NAME"].ToString() + " " + row["FIRST_NAME"].ToString();
+
+                L_Histo.Text += "<span class='cd-date'> <h5>" + row["OPERATION_DATE"].ToString() + "</h5></span>";
 
                 L_Histo.Text += "</div></div>";
             }
