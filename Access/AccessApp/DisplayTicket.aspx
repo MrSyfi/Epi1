@@ -2,6 +2,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
    
+    <div class="page-header" style="text-align:center;">
+        <h2>Informations du ticket</h2>
+    </div> 
     <asp:TextBox runat="server" ID="Param"></asp:TextBox>
     
 </asp:Content>
