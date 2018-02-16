@@ -203,8 +203,8 @@ Main components
 
 .cd-timeline-img img {
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     position: relative;
     left: 50%;
     top: 50%;
@@ -226,8 +226,8 @@ Main components
 
 @media only screen and (min-width: 1170px) {
     .cd-timeline-img {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
         left: 50%;
         margin-left: -30px;
         /* Force Hardware Acceleration in WebKit */
