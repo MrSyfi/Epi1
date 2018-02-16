@@ -261,6 +261,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="DisplayTicket.aspx" />
     <Content Include="EpiACCESS_Close.aspx" />
     <Content Include="Epicura.png" />
     <Content Include="favicon.ico" />
@@ -323,6 +324,13 @@
     <Compile Include="Consts.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="DisplayTicket.aspx.cs">
+      <DependentUpon>DisplayTicket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayTicket.aspx.designer.cs">
+      <DependentUpon>DisplayTicket.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EpiACCESS_Close.aspx.cs">
       <DependentUpon>EpiACCESS_Close.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
