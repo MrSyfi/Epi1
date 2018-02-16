@@ -20,7 +20,7 @@
     
     <script type="text/javascript">
 
-        $('button').click(function () {
+        $('#bt').click(function () {
             $('.navbar-toggle').toggle();
         });
 
@@ -58,7 +58,7 @@
               <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
                     <img class="navbar-brand" src="Epicura.png">
-                    <button id ="bt" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse" onclick="showMenu();">
+                    <button id ="bt" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
