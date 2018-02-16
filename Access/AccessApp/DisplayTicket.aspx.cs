@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,6 +22,7 @@ namespace AccessApp
                 }
                 else
                 {
+                    LoadData(Request.QueryString["tId"]);
                     Param.Text = Request.QueryString["tId"];
                 }
             } else
@@ -28,6 +30,11 @@ namespace AccessApp
                 Response.Redirect("GestionMateriel.aspx", true);
             }
 
+        }
+
+        private void LoadData(string id)
+        {
+            DataSet ds = DAL.SelectAllFromTicketId(id);
         }
     }
 }
