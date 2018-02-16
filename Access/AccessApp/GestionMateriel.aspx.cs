@@ -72,7 +72,7 @@ namespace AccessApp
                 L_Histo.Text += "</div>";
 
                 
-                L_Histo.Text += "<div class='cd-timeline-content'>";
+                L_Histo.Text += "<div class='cd-timeline-content'><b>";
                 // Content
 
 
@@ -85,7 +85,7 @@ namespace AccessApp
                     case "OBSOLETE": L_Histo.Text += "<h4> OBSOLÈTE </h4>"; break;
                 }
 
-                L_Histo.Text += "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4>";
+                L_Histo.Text += "</b><h4>"+ row["LOCALISATION_ID"].ToString()+"</h4>";
 
                 L_Histo.Text += "<h5>Déplacé par " + row["FIRST_NAME"].ToString() + " " + row["LAST_NAME"].ToString() +" (CONTACT_ID : " + row["ID"].ToString() + ")</h5>";
 
