@@ -95,7 +95,7 @@ namespace AccessApp
         }
 
         /* EPI_CMDB */
-        public static DataSet getProductPerEpiId(string EpiId)
+        public static DataSet GetProductPerEpiId(string EpiId)
         {
             List<string> parameters = new List<string>();
             List<string> values = new List<string>();

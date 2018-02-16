@@ -28,6 +28,12 @@ body {
     height: auto;
 }
 
+.navabr {
+    position: fixed;
+    top: 0;
+}
+
+
 @media (min-width: 768px) {
 
 
@@ -58,6 +64,7 @@ body {
     .navbar-brand {
         width: 100%;
         height: auto;
+        text-align: center;
     }
 }
 

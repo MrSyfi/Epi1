@@ -30,7 +30,7 @@ namespace AccessApp
 
         private void LoadData(string id)
         {
-            DataSet ds = DAL.getProductPerEpiId(id);            
+            DataSet ds = DAL.GetProductPerEpiId(id);            
             if (ds.Tables[0].Rows.Count > 0)
             {
                 // LOCALISATION_ID CAN BE NULL (OBSOLETE OBJECTS)
@@ -87,7 +87,7 @@ namespace AccessApp
 
                 L_Histo.Text += "<h4>"+ row["LOCALISATION_ID"].ToString()+"</h4>";
 
-                L_Histo.Text += "<h5>Déplacé par " + row["LAST_NAME"].ToString() + " " + row["FIRST_NAME"].ToString() + "</h5>";
+                L_Histo.Text += "<h5>Déplacé par " + row["FIRST_NAME"].ToString() + " " + row["LAST_NAME"].ToString() + "</h5>";
 
                 L_Histo.Text += "<span class='cd-date'> <h5>" + row["OPERATION_DATE"].ToString() + "</h5></span>";
 
