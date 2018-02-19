@@ -22,7 +22,7 @@ namespace AccessApp
                 }
                 else
                 {
-                    LoadData(Request.QueryString["tId"]);
+                    LoadData(Request.QueryString["tId"], Request.QueryString["epiId"]);
                 }
             } else
             {
@@ -31,12 +31,12 @@ namespace AccessApp
 
         }
 
-        private void LoadData(string id)
+        private void LoadData(string id, string epiId)
         {
             DataSet ds = DAL.SelectAllFromTicketId(id);
             DataSet dsAgent = DAL.SelectAgentIdentity(id);
             DataSet dsCaller = DAL.SelectCallerIdentity(id);
-            DataSet dsBiosGuid = DAL.SelectBiopsGuid(id);
+            DataSet dsBiosGuid = DAL.SelectBiopsGuid(epiId);
             string machineName = GetMachineName(dsBiosGuid.Tables[0].Rows[0]["CONNECTION"].ToString());
 
 
