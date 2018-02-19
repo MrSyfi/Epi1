@@ -37,7 +37,17 @@ namespace AccessApp
             DataSet dsAgent = DAL.SelectAgentIdentity(id);
             DataSet dsCaller = DAL.SelectCallerIdentity(id);
             DataSet dsBiosGuid = DAL.SelectBiopsGuid(epiId);
-            string machineName = GetMachineName(dsBiosGuid.Tables[0].Rows[0]["CONNECTION"].ToString());
+
+            string machineName = string.Empty;
+
+            if (dsBiosGuid.Tables[0].Rows.Count > 0)
+            {
+                machineName = GetMachineName(dsBiosGuid.Tables[0].Rows[0]["CONNECTION"].ToString());
+            }
+            else
+            {
+                machineName = "<i>Pas de nom</i>";
+            }
 
 
             L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
@@ -70,7 +80,7 @@ namespace AccessApp
             {
                 ds = DAL.SelectContact(row["CONTACT_ID"].ToString());
                 L_Body.Text += "<div class='jumbotron'><p><table width=100% style='border-bottom: 2px solid #a5a1a1'><tr><td align='left' width=50%>" + ds.Tables[0].Rows[0]["LAST_NAME"].ToString() +" "+ ds.Tables[0].Rows[0]["FIRST_NAME"].ToString() + "</td><td align='right'>" + row["TIMESTAMP"].ToString() +"</td></tr></table></p>" +
-                    "<p align='justify'>" + row["LOG"].ToString() + "</p></div>";
+                    "<p align='justify' style='font-size: 15px'> " + row["LOG"].ToString() + "</p></div>";
             }
 
         }
