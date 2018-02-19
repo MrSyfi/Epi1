@@ -81,7 +81,7 @@ namespace AccessApp
             foreach (DataRow row in dt.Rows)
             {
                 ds = DAL.SelectContact(row["CONTACT_ID"].ToString());
-                L_Body.Text += "<div class='jumbotron'><p><table width=100% style='border-bottom: 2px solid #a5a1a1'><tr><td align='left' width=50%>" + ds.Tables[0].Rows[0]["LAST_NAME"].ToString() +" "+ ds.Tables[0].Rows[0]["FIRST_NAME"].ToString() + "</td><td align='right'>" + row["TIMESTAMP"].ToString() +"</td></tr></table></p>" +
+                L_Body.Text += "<div class='jumbotron'><p><table width=100% style='border-bottom: 2px solid #a5a1a1; font-size: 18px;'><tr><td align='left' width=50%>" + ds.Tables[0].Rows[0]["LAST_NAME"].ToString() +" "+ ds.Tables[0].Rows[0]["FIRST_NAME"].ToString() + "</td><td align='right'>" + row["TIMESTAMP"].ToString() +"</td></tr></table></p>" +
                     "<p align='justify' style='font-size: 15px'> " + row["LOG"].ToString() + "</p></div>";
             }
 
