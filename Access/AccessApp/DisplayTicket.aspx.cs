@@ -39,15 +39,12 @@ namespace AccessApp
             DataSet dsBiosGuid = DAL.SelectBiopsGuid(epiId);
 
             string machineName = string.Empty;
-
+            
             if (dsBiosGuid.Tables[0].Rows.Count > 0)
-            {
                 machineName = GetMachineName(dsBiosGuid.Tables[0].Rows[0]["CONNECTION"].ToString());
-            }
             else
-            {
                 machineName = "<i>Pas de nom</i>";
-            }
+            
 
             //AFFICHAGE DU TABLEAU D'INFORMATIONS
             L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
@@ -69,7 +66,7 @@ namespace AccessApp
             if (ds.Tables[0].Rows[0]["RESOLUTION"].ToString() == string.Empty)
                 L_Body.Text += "<tr><td data-title='Solution'><font color='#c03b44'><b>Pas de solution</b></font></td></tr>";
             else
-                L_Body.Text += "<tr><td data-title='Solution'><font color='#1A7F09'><b>" + ds.Tables[0].Rows[0]["RESOLUTION"].ToString() + "</b></font></td></tr>";
+                L_Body.Text += "<tr><td data-title='Solution'><p align='justify'><font color='#1A7F09'><b>" + ds.Tables[0].Rows[0]["RESOLUTION"].ToString() + "</b></font></p></td></tr>";
 
             L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaire</h3><hr/>";
 
@@ -91,7 +88,7 @@ namespace AccessApp
         public string GetMachineName(string sSMBIOSGUID, bool swsMembers = false)
         {
             EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
-            return client.GetObjectSCCMByBIOSGUID(sSMBIOSGUID, string.Empty, swsMembers).Name.ToString();
+            return client.GetObjectSCCMByBIOSGUID(sSMBIOSGUID, string.Empty, swsMembers).Name;
         }
     }
 }
