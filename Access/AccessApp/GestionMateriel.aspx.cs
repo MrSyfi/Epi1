@@ -15,7 +15,13 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            I_loader.Visible = false;
             TB_recherche.Focus();
+        }
+
+        protected void Page_Unload(object sender, EventArgs e)
+        {
+            I_loader.Visible = true;
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
@@ -99,5 +105,7 @@ namespace AccessApp
             }
             L_Histo.Text += "</div>";
         }
+
+        
     }
 }

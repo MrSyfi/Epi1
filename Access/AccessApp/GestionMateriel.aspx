@@ -3,6 +3,8 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
    
+    <asp:Image runat="server" ID="I_loader" ImageUrl="~/wait.gif"/>
+
     <div class="page-header" style="text-align:center;">
         <h2>EpiCMBD</h2>
     </div> 
