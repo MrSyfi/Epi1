@@ -170,6 +170,16 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE :id", Consts.CONTACTS_TABLE), parameters, values);
         }
 
+        public static DataSet SelectBiopsGuid(string epiId)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":id"); values.Add(epiId);
+
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID LIKE :id", Consts.BIOS_GUID_TABLE), parameters, values);
+        }
+
     }
 }
  

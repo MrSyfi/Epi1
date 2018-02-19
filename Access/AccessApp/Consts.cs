@@ -20,6 +20,7 @@ namespace AccessApp
         public static readonly string MODEL_TABLE = "EPIDESK.MODEL";
         public static readonly string STOCK_TABLE = "EPIDESK.STOCK";
         public static readonly string COMMENTAIRE_TABLE = "EPIDESK.TICKETS_COMMENTS";
+        public static readonly string BIOS_GUID_TABLE = "EPIDESK.BIOS_GUID";
 
 
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";

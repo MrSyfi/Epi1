@@ -36,6 +36,9 @@ namespace AccessApp
             DataSet ds = DAL.SelectAllFromTicketId(id);
             DataSet dsAgent = DAL.SelectAgentIdentity(id);
             DataSet dsCaller = DAL.SelectCallerIdentity(id);
+            DataSet dsBiosGuid = DAL.SelectBiopsGuid(id);
+            string machineName = GetMachineName(dsBiosGuid.Tables[0].Rows[0]["CONNECTION"].ToString());
+
 
             L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                 "<tr><td data-title='Référence'>" + ds.Tables[0].Rows[0]["REFERENCE"].ToString() + "</td></tr>" +
@@ -50,7 +53,7 @@ namespace AccessApp
             L_Body.Text += "<tr><td data-title='Appelant'> " + dsCaller.Tables[0].Rows[0]["FIRST_NAME"].ToString() + " " + dsCaller.Tables[0].Rows[0]["LAST_NAME"].ToString() + " </td></tr>" +
                 "<tr><td data-title='Agent'> " + dsAgent.Tables[0].Rows[0]["FIRST_NAME"].ToString() + " " + dsAgent.Tables[0].Rows[0]["LAST_NAME"].ToString() + "</td></tr>"+
                 "<tr><td data-title='Titre'>" + ds.Tables[0].Rows[0]["TITLE"].ToString() + "</td></tr>" +
-                "<tr><td data-title='Nom de la machine'> ??? </td></tr>" +
+                "<tr><td data-title='Nom de la machine'>"+ machineName + " </td></tr>" +
                 "<tr><td data-title='Description'><p align='justify'>" + ds.Tables[0].Rows[0]["DESCRIPTION"].ToString() + "</p></td></tr>";
 
             if (ds.Tables[0].Rows[0]["RESOLUTION"].ToString() == string.Empty)
@@ -69,6 +72,13 @@ namespace AccessApp
                 L_Body.Text += "<div class='jumbotron'><p><table width=100% style='border-bottom: 2px solid #a5a1a1'><tr><td align='left' width=50%>" + ds.Tables[0].Rows[0]["LAST_NAME"].ToString() +" "+ ds.Tables[0].Rows[0]["FIRST_NAME"].ToString() + "</td><td align='right'>" + row["TIMESTAMP"].ToString() +"</td></tr></table></p>" +
                     "<p align='justify'>" + row["LOG"].ToString() + "</p></div>";
             }
+
+        }
+
+        public string GetMachineName(string sSMBIOSGUID, bool swsMembers = false)
+        {
+            EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
+            return client.GetObjectSCCMByBIOSGUID(sSMBIOSGUID, string.Empty, swsMembers).Name.ToString();
         }
     }
 }
