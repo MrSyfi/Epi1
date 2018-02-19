@@ -57,9 +57,9 @@ namespace AccessApp
                 "<tr><td data-title='Description'><p align='justify'>" + ds.Tables[0].Rows[0]["DESCRIPTION"].ToString() + "</p></td></tr>";
 
             if (ds.Tables[0].Rows[0]["RESOLUTION"].ToString() == string.Empty)
-                L_Body.Text += "<tr><td data-title='Solution'><font color='#1A7F09'><b>" + ds.Tables[0].Rows[0]["RESOLUTION"].ToString() + "</b></font></td></tr>";
-            else
                 L_Body.Text += "<tr><td data-title='Solution'><font color='#c03b44'><b>Pas de solution</b></font></td></tr>";
+            else
+                L_Body.Text += "<tr><td data-title='Solution'><font color='#1A7F09'><b>" + ds.Tables[0].Rows[0]["RESOLUTION"].ToString() + "</b></font></td></tr>";
 
             L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaire</h3><hr/>";
 
