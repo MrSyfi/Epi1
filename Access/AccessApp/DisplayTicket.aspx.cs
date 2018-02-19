@@ -49,7 +49,7 @@ namespace AccessApp
                 machineName = "<i>Pas de nom</i>";
             }
 
-
+            //AFFICHAGE DU TABLEAU D'INFORMATIONS
             L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                 "<tr><td data-title='Référence'>" + ds.Tables[0].Rows[0]["REFERENCE"].ToString() + "</td></tr>" +
                 "<tr><td data-title='Création de ticket'>" + ds.Tables[0].Rows[0]["START_TS"].ToString() + "</td></tr>" +
@@ -73,6 +73,8 @@ namespace AccessApp
 
             L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaire</h3><hr/>";
 
+
+            //AFFICHAGE DES COMMENTAIRES
             ds = DAL.SelectAllFromCommentaire(id);
             DataTable dt = ds.Tables[0];
 
@@ -85,6 +87,7 @@ namespace AccessApp
 
         }
 
+        //Permet de récupérer le nom d'une machine grâce à son BIOS_GUID
         public string GetMachineName(string sSMBIOSGUID, bool swsMembers = false)
         {
             EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();

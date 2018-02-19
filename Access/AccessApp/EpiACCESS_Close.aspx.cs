@@ -15,12 +15,14 @@ namespace AccessApp
             
         }
 
+        //Récupére les données de la base de données
         private DataTable LoadData(string search = "")
         {
             DataTable dt = DAL.SelectOPReadyFromSearchRequest(search).Tables[0];
             return dt;
         }
 
+        //Charge les données du tableau
         public void LoadTable()
         {
             
@@ -76,6 +78,7 @@ namespace AccessApp
             LoadTable();
         }
 
+        //Permet de charger les éléments quand on click sur une ligne du tableau
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int currentRowIndex = Convert.ToInt32(e.CommandArgument) % GridView1.PageSize;
@@ -103,6 +106,7 @@ namespace AccessApp
             }
         }
 
+        //Rajoute un 'onclick' sur chaque élément du tableau
         protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -130,6 +134,7 @@ namespace AccessApp
             
             if (sended)
             {
+           
                // ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
                 // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
@@ -140,6 +145,7 @@ namespace AccessApp
             }
         }
 
+        //Permet de changer un mot de passe 
         public void ChangePassword(string username, string motDePasse, bool ResetPassword = true, bool Restreint = true)
         {
             EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
