@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gestion EpiACCESS" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Gestion.aspx.cs" Inherits="AccessApp.Gestion" enableEventValidation="false" MaintainScrollPositionOnPostback="true"%>
+﻿<%@ Page Title="Gestion EpiACCESS" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Gestion_EpiACCESS.aspx.cs" Inherits="AccessApp.Gestion_EpiACCESS" enableEventValidation="false" MaintainScrollPositionOnPostback="true"%>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">

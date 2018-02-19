@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace AccessApp
 {
-    public partial class Gestion : System.Web.UI.Page
+    public partial class Gestion_EpiACCESS : System.Web.UI.Page
     {
         string[] tab_status = new string[] { "UNAPPROVED", "RESP_MAILED", "PART_APPROVED", "OP_READY", "USER_READY", "USER_MAILED", "OP_READYF", "CLOSED"};
         private DataTable LoadData(string search = "")

@@ -266,7 +266,7 @@
     <Content Include="Epicura.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Gestion.aspx" />
+    <Content Include="Gestion_EpiACCESS.aspx" />
     <Content Include="GestionMateriel.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -338,12 +338,12 @@
     <Compile Include="EpiACCESS_Close.aspx.designer.cs">
       <DependentUpon>EpiACCESS_Close.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Gestion.aspx.cs">
-      <DependentUpon>Gestion.aspx</DependentUpon>
+    <Compile Include="Gestion_EpiACCESS.aspx.cs">
+      <DependentUpon>Gestion_EpiACCESS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Gestion.aspx.designer.cs">
-      <DependentUpon>Gestion.aspx</DependentUpon>
+    <Compile Include="Gestion_EpiACCESS.aspx.designer.cs">
+      <DependentUpon>Gestion_EpiACCESS.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionMateriel.aspx.cs">
       <DependentUpon>GestionMateriel.aspx</DependentUpon>

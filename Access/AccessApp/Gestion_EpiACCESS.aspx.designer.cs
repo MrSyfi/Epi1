@@ -10,7 +10,7 @@
 namespace AccessApp {
     
     
-    public partial class Gestion {
+    public partial class Gestion_EpiACCESS {
         
         /// <summary>
         /// Contrôle TB_recherche.
