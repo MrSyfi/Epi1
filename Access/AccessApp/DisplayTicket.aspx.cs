@@ -13,10 +13,10 @@ namespace AccessApp
         protected void Page_Load(object sender, EventArgs e)
         {
             // Check if tId exists
-            if (Request.QueryString.AllKeys.Contains("tId"))
+            if (Request.QueryString.AllKeys.Contains("tId") && Request.QueryString.AllKeys.Contains("epiId"))
             {
                 // Check if tId is not null
-                if(Request.QueryString["tId"] == string.Empty)
+                if(Request.QueryString["tId"] == string.Empty || Request.QueryString["epiId"] == string.Empty)
                 {
                     Response.Redirect("GestionMateriel.aspx", true);
                 }
