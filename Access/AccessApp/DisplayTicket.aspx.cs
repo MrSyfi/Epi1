@@ -10,8 +10,11 @@ namespace AccessApp
 {
     public partial class DisplayTicket : System.Web.UI.Page
     {
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             // Check if tId exists
             if (Request.QueryString.AllKeys.Contains("tId") && Request.QueryString.AllKeys.Contains("epiId"))
             {
