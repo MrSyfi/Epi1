@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AccessApp.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AccessApp.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -12,20 +12,11 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>      
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <!-- <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
-
-    <!-- TIME LINE -->
-
-	<link rel="stylesheet" href="Content/style.css">
     
-    <script type="text/javascript">
-
-        $('#bt').click(function () {
-            $('.navbar-toggle').toggle();
-        });
-
-    </script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" href="Content/style.css">
+    <script src="Scripts/Script.js"></script>
+    <script src="Scripts/jquery.min.js"></script>
+    <link rel="icon" href="EpiDESK_Ico_8.ico" />
 </head>
 
     
@@ -64,7 +55,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <span class="visible-xs navbar-brand">Epi...</span>
+                    <span class="visible-xs navbar-brand">EpiDESK</span>
                 </div>
                 <div class="navbar-collapse collapse sidebar-navbar-collapse">
                   <img class="visible-lg visible-md" src="Epicura.png">
