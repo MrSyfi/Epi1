@@ -14,7 +14,12 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            TB_id_resp.Focus();
+            if (TB_id_resp.Text == string.Empty)
+                TB_id_resp.Focus();
+            else if (TB_id_materiel.Text == string.Empty)
+                TB_id_materiel.Focus();
+            else if (TB_id_local.Text == string.Empty)
+                TB_id_local.Focus();
         }
 
         protected void B_apply_Click(object sender, EventArgs e)
