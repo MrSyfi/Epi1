@@ -58,25 +58,32 @@ namespace AccessApp
 
             DataSet ds = DAL.GetProduct(tmp);
 
-            string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
-            if (statut == "STOCKED") {
-                string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
-                DDL_status.DataSource = tab_status;
-                DDL_status.DataBind();
-            }
-            else if (statut == "INSTALLED")
+            if (ds.Tables[0].Rows.Count != 0)
             {
-                string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
-                DDL_status.DataSource = tab_status;
-                DDL_status.DataBind();
-            }
-            else
+                string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
+                if (statut == "STOCKED")
+                {
+                    string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
+                    DDL_status.DataSource = tab_status;
+                    DDL_status.DataBind();
+                }
+                else if (statut == "INSTALLED")
+                {
+                    string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
+                    DDL_status.DataSource = tab_status;
+                    DDL_status.DataBind();
+                }
+                else
+                {
+                    string[] tab_status = new string[] { "STOCKED", "INSTALLED" };
+                    DDL_status.DataSource = tab_status;
+                    DDL_status.DataBind();
+                }
+                DDL_status.Enabled = true;
+            } else
             {
-                string[] tab_status = new string[] { "STOCKED", "INSTALLED" };
-                DDL_status.DataSource = tab_status;
-                DDL_status.DataBind();
+
             }
-            DDL_status.Enabled = true;
         }
 
         public void Reset()
