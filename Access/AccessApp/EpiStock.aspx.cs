@@ -21,10 +21,12 @@ namespace AccessApp
         {
             if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vide !')</SCRIPT>");
+                L_Body.Text = "<font color='#c03b44'><p>Champs vide !</p></font>";
             }
             else
             {
+                L_Body.Text = string.Empty;
+
                 // Check the localisation before insert in historic..
                 string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
                 if (locId == string.Empty)
@@ -60,6 +62,11 @@ namespace AccessApp
 
             if (ds.Tables[0].Rows.Count != 0)
             {
+
+                B_apply.Enabled = true;
+                DDL_status.Enabled = true;
+                L_Body.Text = string.Empty;
+
                 string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
                 if (statut == "STOCKED")
                 {
@@ -82,7 +89,9 @@ namespace AccessApp
                 DDL_status.Enabled = true;
             } else
             {
-
+                B_apply.Enabled = false;
+                DDL_status.Enabled = false;
+                L_Body.Text = "<font color='#c03b44'><p>EpiID incorrect !</p></font>";
             }
         }
 
