@@ -229,7 +229,7 @@ namespace AccessApp
 
             parameters.Add(":id"); values.Add(EpiId);
 
-            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID = :id", Consts.STOCK_TABLE), parameters, values);
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID LIKE :id", Consts.STOCK_TABLE), parameters, values);
         }
     }
 }
