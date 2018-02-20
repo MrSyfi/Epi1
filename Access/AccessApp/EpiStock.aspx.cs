@@ -141,6 +141,7 @@ namespace AccessApp
             {
                 // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
                 DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
+                locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
             }
 
             Consts.ID_LOCALISATION = locId;

@@ -244,7 +244,7 @@ namespace AccessApp
             parameters.Add(":statut"); values.Add(statut);
             parameters.Add(":id");values.Add(epiid);
 
-            return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET STOCK_STATUS = :statut WHERE {0}.EPIID LIKE :id",Consts.STOCK_TABLE), parameters, values);
+            return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET {0}.STOCK_STATUS = :statut WHERE {0}.EPIID LIKE :id",Consts.STOCK_TABLE), parameters, values);
         }
 
         public static DataSet GetProduct(string EpiId)
