@@ -19,26 +19,14 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            // Check if an input is null
-            if(TB_id_resp.Text != string.Empty && TB_id_materiel.Text != string.Empty && TB_id_local.Text != string.Empty)
+            if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
+            {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vide !')</SCRIPT>");
+            }
+            else
             {
 
-                // Check the localisation before insert in historic..
-                string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-                if(locId == string.Empty)
-                {
-                    // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
-                    DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
-                }
-
-                // Inserted -> Recheck LocId
-                //locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-                // And insert in historic
-                //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, locId);
-
             }
-
-
             // Get the localisation id;
             //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
             //if (locId == string.Empty)
@@ -77,6 +65,12 @@ namespace AccessApp
                 DDL_status.DataBind();
             }
             DDL_status.Enabled = true;
+        }
+
+        public void Reset()
+        {
+            TB_id_materiel.Text = string.Empty;
+            TB_note.Text = string.Empty;
         }
     }
 }

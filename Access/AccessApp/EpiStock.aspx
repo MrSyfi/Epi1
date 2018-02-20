@@ -26,12 +26,12 @@
     </p>
 
     <p>
-        <label for="TB_id_local">Note (optionnel)</label>
-        <asp:TextBox id="TextArea1" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" />
+        <label for="TB_note">Note (optionnel)</label>
+        <asp:TextBox id="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" />
     </p>
 
     <p>
-        <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="false"/>
+        <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true"/>
     </p>
 
 </asp:Content>

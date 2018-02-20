@@ -49,13 +49,13 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.TextBox TB_id_local;
         
         /// <summary>
-        /// Contrôle TextArea1.
+        /// Contrôle TB_note.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextArea1;
+        protected global::System.Web.UI.WebControls.TextBox TB_note;
         
         /// <summary>
         /// Contrôle B_apply.
