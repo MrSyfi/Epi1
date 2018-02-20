@@ -7,7 +7,7 @@
     </div> 
     <p>
         <label for="TB_id_resp">Id de l'opérateur</label>
-        <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" TextMode="Number" OnTextChanged="TB_id_resp_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" TextMode="Number" OnTextChanged="TB_id_resp_TextChanged" AutoPostBack="true"></asp:TextBox>
     </p>
     
     <p>
@@ -22,12 +22,12 @@
     
     <p>
         <label for="TB_id_local">Localisation</label>
-        <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local" OnTextChanged="TB_id_local_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local" OnTextChanged="TB_id_local_TextChanged" AutoPostBack="true"></asp:TextBox>
     </p>
 
     <p>
         <label for="TB_note">Note (optionnel)</label>
-        <asp:TextBox id="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" />
+        <asp:TextBox id="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" AutoPostBack="true" />
     </p>
 
     <p>

@@ -14,7 +14,7 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            TB_id_resp.Focus();
+            SetFocus();
         }
 
         protected void B_apply_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace AccessApp
                     DDL_status.DataBind();
                 }
                 DDL_status.Enabled = true;
-                DDL_status.Focus();
+                SetFocus();
             } else
             {
                 B_apply.Enabled = false;
@@ -92,9 +92,19 @@ namespace AccessApp
             TB_note.Text = string.Empty;
         }
 
+        public void SetFocus()
+        {
+            if (TB_id_resp.Text == string.Empty)
+                TB_id_resp.Focus();
+            else if (TB_id_materiel.Text == string.Empty)
+                TB_id_materiel.Focus();
+            else if (TB_id_local.Text == string.Empty)
+                TB_id_local.Focus();
+        }
+
         protected void TB_id_resp_TextChanged(object sender, EventArgs e)
         {
-            TB_id_materiel.Focus();
+            SetFocus();
         }
 
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
@@ -116,7 +126,8 @@ namespace AccessApp
             // Change the text of id_local by its id
             TB_id_local.Text += " (" + locId + ")";
             TB_id_local.Enabled = false;
-            TB_note.Focus();
+
+            SetFocus();
         }
     }
 }
