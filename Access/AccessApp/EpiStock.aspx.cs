@@ -14,13 +14,7 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (TB_id_resp.Text == string.Empty)
-                TB_id_resp.Focus();
-            else if (TB_id_materiel.Text == string.Empty)
-                TB_id_materiel.Focus();
-            else if (TB_id_local.Text == string.Empty)
-                TB_id_local.Focus();
-            
+            TB_id_resp.Focus();
         }
 
         protected void B_apply_Click(object sender, EventArgs e)
@@ -32,19 +26,9 @@ namespace AccessApp
             else
             {
                 L_Body.Text = string.Empty;
-
-                // Check the localisation before insert in historic..
-                string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-                if (locId == string.Empty)
-                {
-                    // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
-                    DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
-                }
-
-                // Inserted -> Recheck LocId
-                //locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-                // And insert in historic
-                //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, locId);
+                
+            
+               // DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_id_local.Text, TB_Note.Text);
 
             }
             // Get the localisation id;
@@ -93,6 +77,7 @@ namespace AccessApp
                     DDL_status.DataBind();
                 }
                 DDL_status.Enabled = true;
+                DDL_status.Focus();
             } else
             {
                 B_apply.Enabled = false;
@@ -105,6 +90,31 @@ namespace AccessApp
         {
             TB_id_materiel.Text = string.Empty;
             TB_note.Text = string.Empty;
+        }
+
+        protected void TB_id_resp_TextChanged(object sender, EventArgs e)
+        {
+            TB_id_materiel.Focus();
+        }
+
+        protected void TB_id_local_TextChanged(object sender, EventArgs e)
+        {
+            // Checking if location exists
+            string locId = string.Empty;
+            try
+            {
+                locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+            } catch
+            { }
+
+            if (locId == string.Empty)
+            {
+                // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
+                DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
+            }
+            TB_id_local.Text = locId;
+            TB_id_local.Enabled = false;
+            TB_note.Focus();
         }
     }
 }
