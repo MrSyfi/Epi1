@@ -120,7 +120,7 @@ namespace AccessApp
             if (locId == string.Empty)
             {
                 // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
-                DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
+                //DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
             }
 
             // Change the text of id_local by its id
