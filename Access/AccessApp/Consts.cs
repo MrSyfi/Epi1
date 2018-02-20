@@ -9,6 +9,7 @@ namespace AccessApp
     {
         public static bool isAffiche = false;
         public static string MOT_DE_PASSE;
+        public static string ID_LOCALISATION;
         // DATABASE TABLE OR VIEW
         public static readonly string ACCESS_REQUEST_TABLE = "EPIDESK.ACCESS_REQUEST";
         public static readonly string CONTACTS_TABLE = "EPIDESK.CONTACTS";

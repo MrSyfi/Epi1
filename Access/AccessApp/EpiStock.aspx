@@ -25,9 +25,7 @@
         <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local" OnTextChanged="TB_id_local_TextChanged" AutoPostBack="true"></asp:TextBox>
     </p>
 
-    <p>
-        <asp:TextBox ID="TB_L_ID" CssClass="form-control input-lg" runat="server" name="TB_id_local" AutoPostBack="true" Visible="false"></asp:TextBox>
-    </p>
+    
 
     <p>
         <label for="TB_note">Note (optionnel)</label>

@@ -27,9 +27,12 @@ namespace AccessApp
             else
             {
 
-                // We get the room Id, between () in TB_ID_local
-                //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_id_local.Text.Split('(',')')[1]);
+                // We get the room Id, between () in TB_ID_local 
+                DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text,Consts.ID_LOCALISATION);
+                DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
+
                 Reset();
+                SetFocus();
             }
             // Get the localisation id;
             //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
@@ -108,7 +111,7 @@ namespace AccessApp
 
         protected void TB_id_resp_TextChanged(object sender, EventArgs e)
         {
-            DataSet ds = DAL.SelectUser(TB_id_resp.Text);
+            DataSet ds = DAL.SelectUsernameFromUsers(TB_id_resp.Text);
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -137,12 +140,10 @@ namespace AccessApp
             if (locId == string.Empty)
             {
                 // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
-                //DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
+                DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
             }
 
-            // Change the text of id_local by its id
-            TB_id_local.Text += " (" + locId + ")";
-            TB_id_local.Enabled = false;
+            Consts.ID_LOCALISATION = locId;
 
             SetFocus();
         }
