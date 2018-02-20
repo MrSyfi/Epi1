@@ -21,11 +21,11 @@ namespace AccessApp
         {
             if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
-                L_Body.Text = "<font color='#c03b44'><p>Champs vide !</p></font>";
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vide !')</SCRIPT>");
+
             }
             else
             {
-                L_Body.Text = string.Empty;
                 
                 // We get the room Id, between () in TB_ID_local
                 //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_id_local.Text.Split('(',')')[1]);
@@ -55,7 +55,6 @@ namespace AccessApp
 
                 B_apply.Enabled = true;
                 DDL_status.Enabled = true;
-                L_Body.Text = string.Empty;
 
                 string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
                 if (statut == "STOCKED")
@@ -82,7 +81,9 @@ namespace AccessApp
             {
                 B_apply.Enabled = false;
                 DDL_status.Enabled = false;
-                L_Body.Text = "<font color='#c03b44'><p>EpiID incorrect !</p></font>";
+                TB_id_materiel.Text = string.Empty;
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('EpiID incorrect !')</SCRIPT>");
+                SetFocus();
             }
         }
 
