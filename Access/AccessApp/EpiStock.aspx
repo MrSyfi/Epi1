@@ -7,7 +7,7 @@
     </div> 
     <p>
         <label for="TB_id_resp">Id de l'opérateur</label>
-        <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp"></asp:TextBox>
+        <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" TextMode="Number"></asp:TextBox>
     </p>
     
     <p>
