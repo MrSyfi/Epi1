@@ -11,6 +11,8 @@ namespace AccessApp
     {
         //http://support.epicura.lan/epicmdb/main.php
 
+        string[] tab_status = new string[] { "STOCKED", "INSTALLED", "REPARED"};
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
