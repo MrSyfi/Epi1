@@ -45,6 +45,7 @@ namespace AccessApp
 
         protected void TB_id_materiel_TextChanged(object sender, EventArgs e)
         {
+            
             string tmp = "";
             if (TB_id_materiel.Text.Length > 3 && (TB_id_materiel.Text.ToUpper().StartsWith("EPI")))
                 tmp = TB_id_materiel.Text.Substring(3);
@@ -135,18 +136,17 @@ namespace AccessApp
             {
                 locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
             } catch
-            { }
-
-            if (locId == string.Empty)
             {
-                // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
-                DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
-                locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+                    // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
+                    DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
+                    locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+               
+
             }
-
             Consts.ID_LOCALISATION = locId;
-
             SetFocus();
+
+
         }
 
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
