@@ -180,6 +180,51 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID LIKE :id", Consts.BIOS_GUID_TABLE), parameters, values);
         }
 
+        /* EPISTOCK */
+
+        public static DataSet SelectLocalisationId(string localisation)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":loc"); values.Add(localisation);
+
+            return _db.ExecuteQuery(string.Format("SELECT ID FROM {0} WHERE {0}.LOCALISATION_ID LIKE :loc", Consts.LOCALISATION_TABLE), parameters, values);
+        }
+
+        /// <summary>
+        /// Insert an unknown localisation in Database.
+        /// </summary>
+        /// <param name="localisation"></param>
+        /// <returns></returns>
+        public static bool InsertLocalisationId(string localisation)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":loc"); values.Add(localisation);
+
+            return _db.ExecuteNonQuery(string.Format("INSERT INTO {0}(LOCALISATION_ID) VALUES (:loc)", Consts.LOCALISATION_TABLE), parameters, values);
+        }
+
+        public static bool InsertInHistoric(string idOp,string statut, string epiid, string localisationId,string note = "")
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":epiid");values.Add(epiid);
+            parameters.Add(":opid");values.Add(idOp);
+            parameters.Add(":dateOp");values.Add(DateTime.Now.ToString());
+            parameters.Add(":status");values.Add(statut);
+            parameters.Add(":idLoc");values.Add(localisationId);
+
+            return _db.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO) VALUES (:epiid, : opid, :dateOp, :status, :idLoc)", Consts.HISTORIC_TABLE), parameters, values);
+
+
+        }
+
+
+
     }
 }
  
