@@ -13,6 +13,7 @@ namespace AccessApp
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            routes.Ignore("{resource}.axd/{*pathInfo}");
         }
     }
 }
