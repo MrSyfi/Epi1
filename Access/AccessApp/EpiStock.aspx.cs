@@ -110,10 +110,17 @@ namespace AccessApp
         {
             DataSet ds = DAL.SelectUser(TB_id_resp.Text);
 
-            if (ds.Tables[0].Rows.Count != 0)
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('ID de l'agent incorrect !')</SCRIPT>");
-            else
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                TB_id_resp.Text = string.Empty;
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('ID incorrect !')</SCRIPT>");
                 SetFocus();
+            }
+            else
+            {
+                SetFocus();
+            }
+
             
         }
 
