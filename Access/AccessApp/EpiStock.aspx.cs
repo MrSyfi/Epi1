@@ -21,10 +21,11 @@ namespace AccessApp
         {
             if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vide !')</SCRIPT>");
+                L_Body.Text = "<font color='#c03b44'><p>Champs vide !</p></font>";
             }
             else
             {
+                L_Body.Text = string.Empty;
 
             }
             // Get the localisation id;
@@ -45,26 +46,39 @@ namespace AccessApp
                 tmp = TB_id_materiel.Text;
 
             DataSet ds = DAL.GetProduct(tmp);
-
-            string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
-            if (statut == "STOCKED") {
-                string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
-                DDL_status.DataSource = tab_status;
-                DDL_status.DataBind();
-            }
-            else if (statut == "INSTALLED")
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
-                DDL_status.DataSource = tab_status;
-                DDL_status.DataBind();
+                B_apply.Enabled = true;
+                DDL_status.Enabled = true;
+                L_Body.Text = string.Empty;
+
+                string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
+                if (statut == "STOCKED")
+                {
+                    string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
+                    DDL_status.DataSource = tab_status;
+                    DDL_status.DataBind();
+                }
+                else if (statut == "INSTALLED")
+                {
+                    string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
+                    DDL_status.DataSource = tab_status;
+                    DDL_status.DataBind();
+                }
+                else
+                {
+                    string[] tab_status = new string[] { "STOCKED", "INSTALLED" };
+                    DDL_status.DataSource = tab_status;
+                    DDL_status.DataBind();
+                }
+                DDL_status.Enabled = true;
             }
             else
             {
-                string[] tab_status = new string[] { "STOCKED", "INSTALLED" };
-                DDL_status.DataSource = tab_status;
-                DDL_status.DataBind();
+                B_apply.Enabled = false;
+                DDL_status.Enabled = false;
+                L_Body.Text = "<font color='#c03b44'><p>EpiID incorrect !</p></font>";
             }
-            DDL_status.Enabled = true;
         }
 
         public void Reset()
