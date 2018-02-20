@@ -14,8 +14,9 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     
     <link rel="stylesheet" href="Content/style.css">
-    <script src="Scripts/Script.js"></script>
+    
     <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/Script.js"></script>
     <link rel="icon" href="EpiDESK_Ico_8.ico" />
 </head>
 

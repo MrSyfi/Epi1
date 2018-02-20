@@ -1,3 +1,6 @@
-﻿$('#bt').click(function () {
-    $('.navbar-toggle').toggle();
+﻿
+$(document).ready(function () {
+    $('#bt').click(function () {
+        $('.navbar-toggle').toggle();
+    });
 });
