@@ -39,6 +39,12 @@ namespace AccessApp
                 tmp = TB_id_materiel.Text;
 
             DataSet ds = DAL.GetProduct(tmp);
+            LoadStatus(ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString());
+        }
+
+        private void LoadStatus(string actualStatus)
+        {
+            switch(actualStatus)
         }
     }
 }
