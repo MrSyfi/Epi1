@@ -26,10 +26,10 @@ namespace AccessApp
             }
             else
             {
-                
+
                 // We get the room Id, between () in TB_ID_local
                 //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_id_local.Text.Split('(',')')[1]);
-
+                Reset();
             }
             // Get the localisation id;
             //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
