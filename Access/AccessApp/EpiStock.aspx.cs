@@ -40,13 +40,13 @@ namespace AccessApp
 
             string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
             if (statut == "STOCKED") {
-                string[] tab_status = new string[] { "INSTALLED", "REPARED" };
+                string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
                 DDL_status.DataSource = tab_status;
                 DDL_status.DataBind();
             }
             else if (statut == "INSTALLED")
             {
-                string[] tab_status = new string[] { "STOCKED", "REPARED" };
+                string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
                 DDL_status.DataSource = tab_status;
                 DDL_status.DataBind();
             }
