@@ -26,13 +26,9 @@ namespace AccessApp
             else
             {
                 L_Body.Text = string.Empty;
-
-                // Check the localisation before insert in historic..
                 
-                // Inserted -> Recheck LocId
-                //locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-                // And insert in historic
-                //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, locId, TB_Note.Text);
+            
+               // DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_id_local.Text, TB_Note.Text);
 
             }
             // Get the localisation id;
@@ -104,7 +100,13 @@ namespace AccessApp
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
         {
             // Checking if location exists
-            string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+            string locId = string.Empty;
+            try
+            {
+                locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+            } catch
+            { }
+
             if (locId == string.Empty)
             {
                 // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
