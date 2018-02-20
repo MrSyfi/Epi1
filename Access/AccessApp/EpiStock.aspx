@@ -26,6 +26,10 @@
     </p>
 
     <p>
+        <asp:TextBox ID="TB_L_ID" CssClass="form-control input-lg" runat="server" name="TB_id_local" AutoPostBack="true" Visible="false"></asp:TextBox>
+    </p>
+
+    <p>
         <label for="TB_note">Note (optionnel)</label>
         <asp:TextBox id="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" AutoPostBack="true" />
     </p>

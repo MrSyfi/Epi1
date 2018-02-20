@@ -192,6 +192,17 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT ID FROM {0} WHERE {0}.LOCALISATION_ID LIKE :loc", Consts.LOCALISATION_TABLE), parameters, values);
         }
 
+        public static DataSet SelectUsernameFromUsers(string id)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":id"); values.Add(id);
+
+            return _db.ExecuteQuery(string.Format("SELECT USERNAME FROM {0} WHERE {0}.CONTACT_ID LIKE :id", Consts.USERS_TABLE), parameters, values);
+
+        }
+
         /// <summary>
         /// Insert an unknown localisation in Database.
         /// </summary>
@@ -203,7 +214,7 @@ namespace AccessApp
             List<string> values = new List<string>();
 
             parameters.Add(":loc");values.Add(localisation);
-            parameters.Add(":sign");values.Add(SelectContact(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
+            parameters.Add(":sign");values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
 
             return _db.ExecuteNonQuery(string.Format("INSERT INTO {0}(LOCALISATION_ID, ORG_ID, WING, FLOOR, STATUS, ESIGN) VALUES (:loc,0,0,0,0,:sign)", Consts.LOCALISATION_TABLE), parameters, values);
         }
@@ -219,11 +230,22 @@ namespace AccessApp
             parameters.Add(":status");values.Add(statut);
             parameters.Add(":idLoc");values.Add(localisationId);
             parameters.Add(":note"); values.Add(note);
-            parameters.Add(":sign");values.Add(SelectContact(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
+            parameters.Add(":sign");values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
 
-            return _db.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES (:epiid, : opid, :dateOp, :status, :idLoc, 0, :note, 0, :sign)", Consts.HISTORIC_TABLE), parameters, values);
+            return _db.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES (:epiid, :opid, :dateOp, :status, :idLoc, 0, :note, 0, :sign)", Consts.HISTORIC_TABLE), parameters, values);
         }
 
+        public static bool UpdateStockStatus(string epiid, string statut)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+
+            parameters.Add(":statut"); values.Add(statut);
+            parameters.Add(":id");values.Add(epiid);
+
+            return _db.ExecuteNonQuery(string.Format("UPDATE {0} SET STOCK_STATUS = :statut WHERE {0}.EPIID LIKE :id",Consts.STOCK_TABLE), parameters, values);
+        }
 
         public static DataSet GetProduct(string EpiId)
         {
