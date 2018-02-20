@@ -23,7 +23,7 @@
     
 <body style="background-color: #ddd;">
     <form runat="server">
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager runat="server" EnableCdn="true">
             <Scripts>
                 <%--Pour en savoir plus sur le regroupement de scripts dans ScriptManager, consultez https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Scripts Framework--%>
