@@ -19,6 +19,14 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
+            if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
+            {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vide !')</SCRIPT>");
+            }
+            else
+            {
+
+            }
             // Get the localisation id;
             //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
             //if (locId == string.Empty)
