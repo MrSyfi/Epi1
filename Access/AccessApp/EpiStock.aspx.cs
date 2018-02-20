@@ -27,8 +27,8 @@ namespace AccessApp
             {
                 L_Body.Text = string.Empty;
                 
-            
-               // DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_id_local.Text, TB_Note.Text);
+                // We get the room Id, between () in TB_ID_local
+                //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_id_local.Text.Split('(',')')[1]);
 
             }
             // Get the localisation id;
@@ -112,7 +112,9 @@ namespace AccessApp
                 // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
                 DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
             }
-            TB_id_local.Text = locId;
+
+            // Change the text of id_local by its id
+            TB_id_local.Text += " (" + locId + ")";
             TB_id_local.Enabled = false;
             TB_note.Focus();
         }
