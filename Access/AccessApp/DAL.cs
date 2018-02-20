@@ -197,14 +197,15 @@ namespace AccessApp
         /// </summary>
         /// <param name="localisation"></param>
         /// <returns></returns>
-        public static bool InsertLocalisationId(string localisation)
+        public static bool InsertLocalisationId(string localisation, string idOp)
         {
             List<string> parameters = new List<string>();
             List<string> values = new List<string>();
 
-            parameters.Add(":loc"); values.Add(localisation);
+            parameters.Add(":loc");values.Add(localisation);
+            parameters.Add(":sign");values.Add(SelectContact(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
 
-            return _db.ExecuteNonQuery(string.Format("INSERT INTO {0}(LOCALISATION_ID) VALUES (:loc)", Consts.LOCALISATION_TABLE), parameters, values);
+            return _db.ExecuteNonQuery(string.Format("INSERT INTO {0}(LOCALISATION_ID, ORG_ID, WING, FLOOR, STATUS, ESIGN) VALUES (:loc,0,0,0,0,:sign)", Consts.LOCALISATION_TABLE), parameters, values);
         }
 
         public static bool InsertInHistoric(string idOp,string statut, string epiid, string localisationId,string note = "")
