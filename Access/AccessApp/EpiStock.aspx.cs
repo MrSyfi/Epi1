@@ -81,8 +81,9 @@ namespace AccessApp
             {
                 B_apply.Enabled = false;
                 DDL_status.Enabled = false;
+                
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('EpiID ("+ TB_id_materiel.Text+") incorrect !')</SCRIPT>");
                 TB_id_materiel.Text = string.Empty;
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('EpiID incorrect !')</SCRIPT>");
                 SetFocus();
             }
         }
