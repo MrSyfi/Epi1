@@ -113,7 +113,7 @@ namespace AccessApp
             if (ds.Tables[0].Rows.Count == 0)
             {
                 TB_id_resp.Text = string.Empty;
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('ID incorrect !')</SCRIPT>");
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Identifiant incorrect !')</SCRIPT>");
                 SetFocus();
             }
             else
