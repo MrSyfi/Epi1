@@ -234,6 +234,16 @@ namespace AccessApp
 
             return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID LIKE :id", Consts.STOCK_TABLE), parameters, values);
         }
+
+        public static DataSet SelectUser(string id)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            parameters.Add(":id"); values.Add(id);
+
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE :id", Consts.USERS_TABLE), parameters, values);
+        }
     }
 }
  

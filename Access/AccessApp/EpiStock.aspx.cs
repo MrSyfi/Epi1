@@ -108,7 +108,13 @@ namespace AccessApp
 
         protected void TB_id_resp_TextChanged(object sender, EventArgs e)
         {
-            SetFocus();
+            DataSet ds = DAL.SelectUser(TB_id_resp.Text);
+
+            if (ds.Tables[0].Rows.Count != 0)
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('ID de l'agent incorrect !')</SCRIPT>");
+            else
+                SetFocus();
+            
         }
 
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
