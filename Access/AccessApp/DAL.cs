@@ -219,12 +219,18 @@ namespace AccessApp
             parameters.Add(":idLoc");values.Add(localisationId);
 
             return _db.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO) VALUES (:epiid, : opid, :dateOp, :status, :idLoc)", Consts.HISTORIC_TABLE), parameters, values);
-
-
         }
 
 
+        public static DataSet GetProduct(string EpiId)
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
 
+            parameters.Add(":id"); values.Add(EpiId);
+
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID = :id", Consts.STOCK_TABLE), parameters, values);
+        }
     }
 }
  
