@@ -6,6 +6,16 @@
         <h2>EpiCMBD</h2>
     </div> 
 
-    <hr />
+    <label for="TB_id_resp">Id de l'opérateur</label>
+    <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp"></asp:TextBox>
+
+    <label for="TB_id_materiel">Id du matériel</label>
+    <asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel"></asp:TextBox>
+
+    <label for="TB_id_local">Localisation</label>
+    <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local"></asp:TextBox>
+
+    <label for="TB_id_local">Note (optionnel)</label>
+    <asp:TextBox id="TextArea1" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" />
 
 </asp:Content>
