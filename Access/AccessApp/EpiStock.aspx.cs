@@ -25,13 +25,25 @@ namespace AccessApp
             }
             else
             {
+                // Check the localisation before insert in historic..
+                string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+                if (locId == string.Empty)
+                {
+                    // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
+                    DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
+                }
+
+                // Inserted -> Recheck LocId
+                //locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+                // And insert in historic
+                //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, locId);
 
             }
             // Get the localisation id;
             //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
             //if (locId == string.Empty)
-                // Unknown Localisation..
-               // DAL.InsertLocalisationId(TB_id_local.Text);
+            // Unknown Localisation..
+            // DAL.InsertLocalisationId(TB_id_local.Text);
             //locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
             //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, locId);
         }
