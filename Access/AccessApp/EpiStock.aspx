@@ -10,7 +10,7 @@
     <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp"></asp:TextBox>
 
     <label for="TB_id_materiel">Id du matériel</label>
-    <asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel"></asp:TextBox>
+    <asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel" OnTextChanged="TB_id_materiel_TextChanged"></asp:TextBox>
 
     <label for="DDL_status">Statut</label>
     <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false"></asp:DropDownList>

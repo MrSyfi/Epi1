@@ -20,5 +20,10 @@ namespace AccessApp
         {
 
         }
+
+        protected void TB_id_materiel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
