@@ -26,10 +26,10 @@ namespace AccessApp
             }
             else
             {
-                
+
                 // We get the room Id, between () in TB_ID_local
-                DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_L_ID.Text);
-                DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
+                //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, TB_id_local.Text.Split('(',')')[1]);
+                Reset();
             }
             // Get the localisation id;
             //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
@@ -76,13 +76,14 @@ namespace AccessApp
                     DDL_status.DataBind();
                 }
                 DDL_status.Enabled = true;
-                SetFocus();
+                DDL_status.Focus();
             } else
             {
                 B_apply.Enabled = false;
                 DDL_status.Enabled = false;
-                TB_id_materiel.Text = string.Empty;
+                
                 System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('EpiID incorrect !')</SCRIPT>");
+                TB_id_materiel.Text = string.Empty;
                 SetFocus();
             }
         }
@@ -101,11 +102,26 @@ namespace AccessApp
                 TB_id_materiel.Focus();
             else if (TB_id_local.Text == string.Empty)
                 TB_id_local.Focus();
+            else if (TB_note.Text == string.Empty)
+                TB_note.Focus();
         }
 
         protected void TB_id_resp_TextChanged(object sender, EventArgs e)
         {
-            SetFocus();
+            DataSet ds = DAL.SelectUser(TB_id_resp.Text);
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                TB_id_resp.Text = string.Empty;
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Identifiant incorrect !')</SCRIPT>");
+                SetFocus();
+            }
+            else
+            {
+                SetFocus();
+            }
+
+            
         }
 
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
@@ -125,8 +141,14 @@ namespace AccessApp
             }
 
             // Change the text of id_local by its id
-            TB_L_ID.Text = locId;
+            TB_id_local.Text += " (" + locId + ")";
+            TB_id_local.Enabled = false;
 
+            SetFocus();
+        }
+
+        protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
             SetFocus();
         }
     }

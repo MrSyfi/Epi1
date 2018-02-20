@@ -17,7 +17,7 @@
     
     <p>
         <label for="DDL_status">Statut</label>
-        <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false"></asp:DropDownList>
+        <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false" OnSelectedIndexChanged="DDL_status_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
     </p>
     
     <p>
