@@ -58,5 +58,11 @@ namespace AccessApp
             }
             DDL_status.Enabled = true;
         }
+
+        public void Reset()
+        {
+            TB_id_materiel.Text = string.Empty;
+            TB_note.Text = string.Empty;
+        }
     }
 }
