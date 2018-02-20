@@ -31,8 +31,7 @@ namespace AccessApp
 
             // La version Development de Modernizr vous permet de développer et d’apprendre. Ensuite, lorsque vous êtes
             // prêt pour la production, utilisez l'outil de génération à l'adresse https://modernizr.com pour sélectionner uniquement les tests dont vous avez besoin
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                            "~/Scripts/modernizr-*"));
+           
 
             ScriptManager.ScriptResourceMapping.AddDefinition(
                 "respond",
