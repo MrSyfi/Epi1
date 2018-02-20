@@ -76,13 +76,13 @@ namespace AccessApp
                     DDL_status.DataBind();
                 }
                 DDL_status.Enabled = true;
-                SetFocus();
+                DDL_status.Focus();
             } else
             {
                 B_apply.Enabled = false;
                 DDL_status.Enabled = false;
                 
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('EpiID ("+ TB_id_materiel.Text+") incorrect !')</SCRIPT>");
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('EpiID incorrect !')</SCRIPT>");
                 TB_id_materiel.Text = string.Empty;
                 SetFocus();
             }
@@ -131,6 +131,11 @@ namespace AccessApp
             TB_id_local.Text += " (" + locId + ")";
             TB_id_local.Enabled = false;
 
+            SetFocus();
+        }
+
+        protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
             SetFocus();
         }
     }
