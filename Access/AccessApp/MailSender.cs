@@ -42,7 +42,7 @@ namespace AccessApp
                 "<p>Nous profitons également de la présente pour vous informer que nous mettons un support à votre disposition accessible via les informations suivantes de 7h15 à 16h30 :<p><br/>" +
                 "<div style='padding-left:50px;'><table><tr><td>Hornu</td><td> :</td><td> 065 71 39 05 </td></tr>" +
                 "<tr><td>Baudour/Ath/Beloeil</td><td> :</td><td> 065 76 81 95 </td></tr>" +
-                "<tr><td>Site internet</td><td> : </td><td><a href='http://support.epicura.lan/'>http://support.epicura.lan/</a>  </td></tr></table></div><br/>" +
+                "<tr><td>Site internet</td><td> : </td><td><a href='http://support.epicura.lan/'>http://support.epicura.lan/</a></td></tr></table></div><br/>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
                 "<p>Cordialement.</p><hr/></span>", DateTime.Now.ToString("dd/MM/yyyy"), userName, pwd, GetUserEmail(userName)));
@@ -74,7 +74,7 @@ namespace AccessApp
             _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, Modele, NumSerie, Agent));
 
             //_EMail.To.Add(RespMail);
-            _EMail.To.Add("sylvain.fissiaux@epicura.be");
+            _EMail.To.Add("yorick.lepape@epicura.be");
 
             _smtpServer.Send(_EMail);
 

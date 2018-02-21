@@ -37,7 +37,7 @@
         <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true" style="float: right;"/>
     </p>
 
-    <p> * Veuillez remplir ces champs.</p>
+    <p><i>* Veuillez remplir ces champs.</i></p>
 
 
     <p style="text-align: center;">
