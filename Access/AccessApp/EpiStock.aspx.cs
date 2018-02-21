@@ -179,6 +179,11 @@ namespace AccessApp
 
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
+            {
+                // An obsolete object don't have any location..
+                TB_id_local.Enabled = false;
+            }
             SetFocus();
         }
 
@@ -196,7 +201,7 @@ namespace AccessApp
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
             // Envoi Mail au responsable
-
+            // MailSender..
             // Modif DB
             //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
             //DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
