@@ -180,11 +180,9 @@ namespace AccessApp
 
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
-            {
-                // An obsolete object don't have any location..
-                TB_id_local.Enabled = false;
-            }
+            // An obsolete object don't have any location..
+            TB_id_local.Enabled = ((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE" ? false : true;
+
             SetFocus();
         }
 
@@ -201,24 +199,20 @@ namespace AccessApp
 
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
+            
 
-            // Modif DB..
-
+            // Envoi Mail au responsable
             DataSet ds = DAL.GetProductPerEpiId(TB_id_materiel.Text);
             string model = ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString();
             string numSerie = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
             ds = DAL.SelectContact(TB_id_resp.Text);
             string nameAgent = ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString();
-            string mailAgent = ds.Tables[0].Rows[0]["EMAIL"].ToString();
 
             MailSender.SendObsoleteEmail("resp", "yorick.lepape@epicura.be", TB_id_materiel.Text, model, numSerie, nameAgent);
 
-            // Envoi Mail au responsable
-            // MailSender..
-            // Modif DB
+            // Modif DB..
             //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
             //DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
-
         }
     }
 }
