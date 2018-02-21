@@ -67,7 +67,7 @@ namespace AccessApp
             _EMail.From = new System.Net.Mail.MailAddress(AgentMail, AgentMail);
             _EMail.Priority = System.Net.Mail.MailPriority.Normal;
 
-            _EMail.Subject = " Obsolescence : EPI" + EpiID;
+            _EMail.Subject = " Message automatique : Obsolescence de matériel ";
 
             _EMail.IsBodyHtml = true;
             _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, NumSerie, Agent));
