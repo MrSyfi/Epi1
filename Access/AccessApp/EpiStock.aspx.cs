@@ -138,6 +138,8 @@ namespace AccessApp
 
         public void Reset()
         {
+            L_obsolete.Text = string.Empty;
+            B_obsolete.Visible = false;
             DDL_status.Enabled = false;
             TB_id_materiel.Text = string.Empty;
             TB_note.Text = string.Empty;
@@ -222,6 +224,9 @@ namespace AccessApp
             string mailAgent = ds.Tables[0].Rows[0]["EMAIL"].ToString();
 
             MailSender.SendObsoleteEmail("resp", "yorick.lepape@epicura.be", TB_id_materiel.Text, model, numSerie, nameAgent);
+
+            Reset();
+            SetFocus();
 
             // Modif DB..
             //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
