@@ -48,6 +48,44 @@ namespace AccessApp
                 "<p>Cordialement.</p><hr/>", DateTime.Now.ToString("dd/MM/yyyy"), userName, pwd, GetUserEmail(userName)));
         }
 
+        public static string SendObsolete(string EpiID, string Marque, string NumSerie, string Agent)
+        {
+            return System.Net.WebUtility.HtmlEncode(string.Format(@"<table><tr><td>EpiId</td><td>{0}</td></tr>" +
+                "<tr><td>Marque et modèle</td><td>{1}</td></tr>" +
+                "<tr><td>Numéro de série</td><td>{2}</td></tr>" +
+                "<tr><td>Effectué par </td><td>{3}</td></tr></table>", EpiID, Marque, NumSerie, Agent));
+        }
+
+        public static void SendObsoleteEmail(string RespMail, string AgentMail, string EpiID, string Marque, string NumSerie, string Agent)
+        {
+
+            System.Net.Mail.MailMessage _EMail = new System.Net.Mail.MailMessage();
+            System.Net.Mail.SmtpClient _smtpServer = new System.Net.Mail.SmtpClient(Consts.CONST_EMAIL_SMTP_SERVER_HOST);
+
+            _EMail.BodyEncoding = System.Text.Encoding.Default;
+            _EMail.From = new System.Net.Mail.MailAddress(AgentMail, AgentMail);
+            _EMail.Priority = System.Net.Mail.MailPriority.Normal;
+
+            _EMail.Subject = " Obsolescence : EPI" + EpiID;
+
+            _EMail.IsBodyHtml = true;
+            _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, NumSerie, Agent));
+
+            //_EMail.To.Add(mailAgent);
+            //_EMail.To.Add(destResp);
+            _EMail.To.Add("yorick.lepape@epicura.be");
+
+            try
+            {
+                _smtpServer.Send(_EMail);
+               
+            }
+            catch
+            {
+               
+            }
+        }
+
         public static void SendPwdPerEmail(string pwd, string mailAgent, string destResp, string newUserName, string fullNameUser, string refTicket, out bool sended)
         {
 
