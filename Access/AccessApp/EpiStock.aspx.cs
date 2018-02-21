@@ -185,6 +185,9 @@ namespace AccessApp
             {
                 TB_id_local.Enabled = false;
                 L_obsolete.Visible = true;
+                B_obsolete.Visible = true;
+                // If the EpiID has been changed.
+                PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
             } else
             {
                 TB_id_local.Enabled = true;
