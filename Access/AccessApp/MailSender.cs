@@ -76,15 +76,8 @@ namespace AccessApp
             //_EMail.To.Add(destResp);
             _EMail.To.Add("yorick.lepape@epicura.be");
 
-            try
-            {
-                _smtpServer.Send(_EMail);
-               
-            }
-            catch
-            {
-               
-            }
+            _smtpServer.Send(_EMail);
+
         }
 
         public static void SendPwdPerEmail(string pwd, string mailAgent, string destResp, string newUserName, string fullNameUser, string refTicket, out bool sended)
