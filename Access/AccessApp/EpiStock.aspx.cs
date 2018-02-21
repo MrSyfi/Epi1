@@ -87,19 +87,19 @@ namespace AccessApp
                 {
                     if (statut == "STOCKED")
                     {
-                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
+                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR", "OBSOLETE" };
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
                     else if (statut == "INSTALLED")
                     {
-                        string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
+                        string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR", "OBSOLETE" };
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
                     else if (statut == "UNDER_REPAIR")
                     {
-                        string[] tab_status = new string[] { "STOCKED", "INSTALLED" };
+                        string[] tab_status = new string[] { "STOCKED", "INSTALLED", "OBSOLETE" };
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
