@@ -22,44 +22,33 @@ namespace AccessApp
 
             if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champ vide !')</SCRIPT>");
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides !')</SCRIPT>");
 
             }
             else
             {
-                if (DDL_status.SelectedValue != "OBSOLETE")
+                string locId = string.Empty;
+                try
                 {
-                    // Checking if location exists
-                    string locId = string.Empty;
-                    try
-                    {
-                        // NullReferenceException is throwed if there's no result.
-                        locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-                    }
-                    catch
-                    {
-                        // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
-                        DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
-                        locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-
-
-                    }
-                    Consts.ID_LOCALISATION = locId;
-
-
-                    // We get the room Id, between () in TB_ID_local 
-                    if (DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, Consts.ID_LOCALISATION) && DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString()))
-                    {
-                        System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Mise à jour effectuée.')</SCRIPT>");
-                    }
-
-
-                    Reset();
-                    SetFocus();
-                } else
-                {
-                    PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
+                    locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
                 }
+                catch
+                {
+                    // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
+                    DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
+                    locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+
+
+                }
+                Consts.ID_LOCALISATION = locId;
+
+
+                // We get the room Id, between () in TB_ID_local 
+                DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text,Consts.ID_LOCALISATION);
+                DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
+
+                Reset();
+                SetFocus();
             }
             // Get the localisation id;
             //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
@@ -88,26 +77,40 @@ namespace AccessApp
                 DDL_status.Enabled = true;
 
                 string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
-                if (statut == "STOCKED")
+
+                if (statut != "OBSOLETE")
                 {
-                    string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR","OBSOLETE" };
-                    DDL_status.DataSource = tab_status;
-                    DDL_status.DataBind();
-                }
-                else if (statut == "INSTALLED")
-                {
-                    string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR","OBSOLETE" };
-                    DDL_status.DataSource = tab_status;
-                    DDL_status.DataBind();
+                    if (statut == "STOCKED")
+                    {
+                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
+                        DDL_status.DataSource = tab_status;
+                        DDL_status.DataBind();
+                    }
+                    else if (statut == "INSTALLED")
+                    {
+                        string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
+                        DDL_status.DataSource = tab_status;
+                        DDL_status.DataBind();
+                    }
+                    else if (statut == "UNDER_REPAIR")
+                    {
+                        string[] tab_status = new string[] { "STOCKED", "INSTALLED" };
+                        DDL_status.DataSource = tab_status;
+                        DDL_status.DataBind();
+                    }
+
+                    DDL_status.Enabled = true;
+                    DDL_status.Focus();
                 }
                 else
                 {
-                    string[] tab_status = new string[] { "STOCKED", "INSTALLED","OBSOLETE" };
-                    DDL_status.DataSource = tab_status;
-                    DDL_status.DataBind();
+                    B_apply.Enabled = false;
+                    DDL_status.Enabled = false;
+                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Matériel obsolète !')</SCRIPT>");
+                    TB_id_materiel.Text = string.Empty;
+                    SetFocus();
                 }
-                DDL_status.Enabled = true;
-                DDL_status.Focus();
+                
             } else
             {
                 B_apply.Enabled = false;
@@ -158,7 +161,7 @@ namespace AccessApp
 
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
         {
-           
+            // Checking if location exists
            
             SetFocus();
 
@@ -168,15 +171,6 @@ namespace AccessApp
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetFocus();
-        }
-
-        private void PopulateObsolete(DataSet ds)
-        {
-            L_obsolete.Text = "";
-            L_obsolete.Text += "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
-                    "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
-                    "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
-                    "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr></tbody></table></div>";
         }
     }
 }
