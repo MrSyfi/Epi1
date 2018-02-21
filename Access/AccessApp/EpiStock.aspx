@@ -44,5 +44,5 @@
         <asp:Literal ID="L_obsolete" runat="server"></asp:Literal>
     </p>
 
-    <asp:Button ID="B_obsolete" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" style="float: right;" /> 
+    <asp:Button ID="B_obsolete" CssClass="btn btn-danger btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" style="float: right;" /> 
 </asp:Content>
