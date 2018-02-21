@@ -5,7 +5,6 @@
     <div class="page-header">
         <h2>EpiCMBD</h2>
     </div> 
-    
     <p>
         <label for="TB_id_resp">Id de l'opérateur *</label>
         <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" OnTextChanged="TB_id_resp_TextChanged" AutoPostBack="true"></asp:TextBox>

@@ -22,7 +22,7 @@ namespace AccessApp
 
             if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vide !')</SCRIPT>");
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides !')</SCRIPT>");
 
             }
             else
@@ -77,26 +77,40 @@ namespace AccessApp
                 DDL_status.Enabled = true;
 
                 string statut = ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString();
-                if (statut == "STOCKED")
+
+                if (statut != "OBSOLETE")
                 {
-                    string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
-                    DDL_status.DataSource = tab_status;
-                    DDL_status.DataBind();
-                }
-                else if (statut == "INSTALLED")
-                {
-                    string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
-                    DDL_status.DataSource = tab_status;
-                    DDL_status.DataBind();
+                    if (statut == "STOCKED")
+                    {
+                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR" };
+                        DDL_status.DataSource = tab_status;
+                        DDL_status.DataBind();
+                    }
+                    else if (statut == "INSTALLED")
+                    {
+                        string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR" };
+                        DDL_status.DataSource = tab_status;
+                        DDL_status.DataBind();
+                    }
+                    else if (statut == "UNDER_REPAIR")
+                    {
+                        string[] tab_status = new string[] { "STOCKED", "INSTALLED" };
+                        DDL_status.DataSource = tab_status;
+                        DDL_status.DataBind();
+                    }
+
+                    DDL_status.Enabled = true;
+                    DDL_status.Focus();
                 }
                 else
                 {
-                    string[] tab_status = new string[] { "STOCKED", "INSTALLED" };
-                    DDL_status.DataSource = tab_status;
-                    DDL_status.DataBind();
+                    B_apply.Enabled = false;
+                    DDL_status.Enabled = false;
+                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Matériel obsolète !')</SCRIPT>");
+                    TB_id_materiel.Text = string.Empty;
+                    SetFocus();
                 }
-                DDL_status.Enabled = true;
-                DDL_status.Focus();
+                
             } else
             {
                 B_apply.Enabled = false;
