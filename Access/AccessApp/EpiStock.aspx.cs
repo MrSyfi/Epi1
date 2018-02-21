@@ -60,14 +60,6 @@ namespace AccessApp
                 }
                 
             }
-
-            // Get the localisation id;
-            //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-            //if (locId == string.Empty)
-            // Unknown Localisation..
-            // DAL.InsertLocalisationId(TB_id_local.Text);
-            //locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-            //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, locId);
         }
 
         protected void TB_id_materiel_TextChanged(object sender, EventArgs e)
@@ -235,6 +227,7 @@ namespace AccessApp
             string respMail = ds.Tables[0].Rows[0]["VALUE"].ToString();
 
             MailSender.SendObsoleteEmail("resp", mailAgent, TB_id_materiel.Text, marque, model, numSerie, nameAgent);
+            //MailSender.SendObsoleteEmail(mailAgent, mailAgent, TB_id_materiel.Text, marque, model, numSerie, nameAgent);
 
             // Modif DB..
             DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
