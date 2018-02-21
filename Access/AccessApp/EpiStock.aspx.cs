@@ -27,9 +27,11 @@ namespace AccessApp
             }
             else
             {
+                // Checking if location exists
                 string locId = string.Empty;
                 try
                 {
+                    // NullReferenceException is throwed if there's no result.
                     locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
                 }
                 catch
@@ -150,7 +152,7 @@ namespace AccessApp
 
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
         {
-            // Checking if location exists
+           
            
             SetFocus();
 

@@ -39,7 +39,7 @@ namespace AccessApp
             DataSet ds = DAL.SelectAllFromTicketId(id);
             DataSet dsAgent = DAL.SelectAgentIdentity(id);
             DataSet dsCaller = DAL.SelectCallerIdentity(id);
-            DataSet dsBiosGuid = DAL.SelectBiopsGuid(epiId);
+            DataSet dsBiosGuid = DAL.SelectBiosGuid(epiId);
 
             string machineName = string.Empty;
             
