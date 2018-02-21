@@ -19,6 +19,7 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
+
             if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
                 System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vide !')</SCRIPT>");
@@ -26,6 +27,21 @@ namespace AccessApp
             }
             else
             {
+                string locId = string.Empty;
+                try
+                {
+                    locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+                }
+                catch
+                {
+                    // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
+                    DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
+                    locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
+
+
+                }
+                Consts.ID_LOCALISATION = locId;
+
 
                 // We get the room Id, between () in TB_ID_local 
                 DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text,Consts.ID_LOCALISATION);
@@ -131,19 +147,7 @@ namespace AccessApp
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
         {
             // Checking if location exists
-            string locId = string.Empty;
-            try
-            {
-                locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-            } catch
-            {
-                    // Unknown Localisation.. Insert it. (idOp: Who insert the localisation ? )
-                    DAL.InsertLocalisationId(TB_id_local.Text, TB_id_resp.Text);
-                    locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
-               
-
-            }
-            Consts.ID_LOCALISATION = locId;
+           
             SetFocus();
 
 
