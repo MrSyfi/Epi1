@@ -223,6 +223,7 @@ namespace AccessApp
             MailSender.SendObsoleteEmail("resp", "yorick.lepape@epicura.be", TB_id_materiel.Text, model, numSerie, nameAgent);
 
             Reset();
+            SetFocus();
 
             // Modif DB..
             //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
