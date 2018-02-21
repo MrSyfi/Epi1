@@ -30,7 +30,7 @@ namespace AccessApp
 
         public static string SendEmailToView(string pwd, string userName)
         {
-             return System.Net.WebUtility.HtmlEncode(string.Format(@"<p align='right'>Epicura, {0} </p>" +
+             return System.Net.WebUtility.HtmlEncode(string.Format(@"<span style='font-family:Verdana;font-size:14pt;font-style:italic;'><p align='right' style='font-family:Helvetica;'>Epicura, {0} </p>" +
                 "<p>Madame, Monsieur, </p> " +
                 "<p>Nous sommes heureux de vous accueillir  dans notre infrastructure informatique et nous vous communiquons ci-dessous les informations pratique concernant votre accès :</p> <br/>" +
                 "<div style='padding-left:50px;'><table><tr><td><b>Nom d'utilisateur</td><td>:</b></td><td> {1} </td></tr>" +
@@ -45,17 +45,17 @@ namespace AccessApp
                 "<tr><td>Site internet</td><td> : </td><td><a href='http://support.epicura.lan/'>http://support.epicura.lan/</a>  </td></tr></table></div><br/>" +
                 "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                 "<p align='right'>Le service informatique</p>" +
-                "<p>Cordialement.</p><hr/>", DateTime.Now.ToString("dd/MM/yyyy"), userName, pwd, GetUserEmail(userName)));
+                "<p>Cordialement.</p><hr/></span>", DateTime.Now.ToString("dd/MM/yyyy"), userName, pwd, GetUserEmail(userName)));
         }
 
         public static string SendObsolete(string EpiID, string Marque, string Modele, string NumSerie, string Agent)
         {
-            return System.Net.WebUtility.HtmlEncode(string.Format(@"<div class='font-family: 'Verdana';<h2>EpiDESK - Information</h2><p>Ceci est un mail pour signifier le déclassement de ce matériel :</p>" +
+            return System.Net.WebUtility.HtmlEncode(string.Format(@"<span style='font-family:Verdana;font-size:14pt;font-style:italic;'><p style='font-family:Helvetica;'><h2>EpiDESK - Information</h2><p>Ceci est un mail pour signifier le déclassement de ce matériel :</p>" +
                 "<div style='padding-left:50px;'><p style='color: rgb(67, 130, 195); font-weight: bold;'>EpiId</p><p>{0}</p><br/>" +
                 "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Marque</p><p> {1}</p><br/>" +
                  "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Modèle</p><p> {2}</p><br/>" +
                 "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Numéro de série</p><p> {3}</p></div><br/>" +
-                "<p>Effectué par <b>{4}</b></p></div>", EpiID, Marque, Modele, NumSerie, Agent));
+                "<p>Effectué par <b>{4}</b></p></p></span>", EpiID, Marque, Modele, NumSerie, Agent));
         }
 
         public static void SendObsoleteEmail(string RespMail, string AgentMail, string EpiID, string Marque, string Modele, string NumSerie, string Agent)
@@ -74,7 +74,7 @@ namespace AccessApp
             _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, Modele, NumSerie, Agent));
 
             //_EMail.To.Add(RespMail);
-            _EMail.To.Add("yorick.lepape@epicura.be");
+            _EMail.To.Add("sylvain.fissiaux@epicura.be");
 
             _smtpServer.Send(_EMail);
 
