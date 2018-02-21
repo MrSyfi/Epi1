@@ -93,19 +93,31 @@ namespace AccessApp
                 {
                     if (statut == "STOCKED")
                     {
+<<<<<<< HEAD
                         string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR","OBSOLETE" };
+=======
+                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR", "OBSOLETE" };
+>>>>>>> 807056f7f111647869a738bd421159c25e63b6e7
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
                     else if (statut == "INSTALLED")
                     {
+<<<<<<< HEAD
                         string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR","OBSOLETE" };
+=======
+                        string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR", "OBSOLETE" };
+>>>>>>> 807056f7f111647869a738bd421159c25e63b6e7
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
                     else if (statut == "UNDER_REPAIR")
                     {
+<<<<<<< HEAD
                         string[] tab_status = new string[] { "STOCKED", "INSTALLED","OBSOLETE" };
+=======
+                        string[] tab_status = new string[] { "STOCKED", "INSTALLED", "OBSOLETE" };
+>>>>>>> 807056f7f111647869a738bd421159c25e63b6e7
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
@@ -167,17 +179,12 @@ namespace AccessApp
             {
                 SetFocus();
             }
-
             
         }
 
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
         {
-            // Checking if location exists
-           
             SetFocus();
-
-
         }
 
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
