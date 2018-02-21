@@ -128,7 +128,8 @@ namespace AccessApp
                     SetFocus();
                 }
                 
-            } else
+            }
+            else
             {
                 B_apply.Enabled = false;
                 DDL_status.Enabled = false;
@@ -194,7 +195,8 @@ namespace AccessApp
                 B_obsolete.Visible = true;
                 // If the EpiID has been changed.
                 PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
-            } else
+            }
+            else
             {
                 TB_id_local.Enabled = true;
                 L_obsolete.Visible = false;
