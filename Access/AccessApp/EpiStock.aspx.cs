@@ -94,6 +94,7 @@ namespace AccessApp
 
         public void Reset()
         {
+            DDL_status.Enabled = false;
             TB_id_materiel.Text = string.Empty;
             TB_note.Text = string.Empty;
         }
