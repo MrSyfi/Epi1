@@ -183,7 +183,16 @@ namespace AccessApp
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
         {
             // An obsolete object don't have any location..
-            TB_id_local.Enabled = ((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE" ? false : true;
+            if(((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
+            {
+                TB_id_local.Enabled = false;
+                L_obsolete.Visible = true;
+            } else
+            {
+                TB_id_local.Enabled = true;
+                L_obsolete.Visible = false;
+                B_obsolete.Visible = false;
+            }
 
             SetFocus();
         }
