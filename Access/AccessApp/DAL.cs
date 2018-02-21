@@ -257,6 +257,14 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID LIKE :id", Consts.STOCK_TABLE), parameters, values);
         }
 
+        public static DataSet GetRespMail()
+        {
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
+
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE '3'", Consts.APP_PARAM_TABLE), parameters, values);
+        }
+
     }
 }
  

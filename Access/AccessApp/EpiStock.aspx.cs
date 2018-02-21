@@ -225,6 +225,8 @@ namespace AccessApp
             ds = DAL.SelectContact(TB_id_resp.Text);
             string nameAgent = ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString();
             string mailAgent = ds.Tables[0].Rows[0]["EMAIL"].ToString();
+            ds = DAL.GetRespMail();
+            string respMail = ds.Tables[0].Rows[0]["VALUE"].ToString();
 
             MailSender.SendObsoleteEmail("resp", mailAgent, TB_id_materiel.Text, model, numSerie, nameAgent);
 
