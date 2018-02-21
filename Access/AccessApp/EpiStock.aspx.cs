@@ -229,7 +229,7 @@ namespace AccessApp
             string nameAgent = ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString();
             string mailAgent = ds.Tables[0].Rows[0]["EMAIL"].ToString();
 
-            MailSender.SendObsoleteEmail("resp", "yorick.lepape@epicura.be", TB_id_materiel.Text, model, numSerie, nameAgent);
+            MailSender.SendObsoleteEmail("resp", mailAgent, TB_id_materiel.Text, model, numSerie, nameAgent);
 
             Reset();
             SetFocus();
