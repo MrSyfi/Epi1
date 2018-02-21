@@ -5,6 +5,7 @@
     <div class="page-header">
         <h2>EpiCMBD</h2>
     </div> 
+    <div style="float: left;margin:0;padding:0;">
     <p>
         <label for="TB_id_resp">Id de l'opérateur *</label>
         <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" OnTextChanged="TB_id_resp_TextChanged" AutoPostBack="true"></asp:TextBox>
@@ -35,8 +36,9 @@
     <p>
         <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true"/>
     </p>
+    </div>
 
-    <div style="text-align: right;">
+    <div style="float: right; margin:0; padding: 0;">
         <asp:Literal ID="L_obsolete" runat="server"></asp:Literal>
         <asp:Button ID="B_obsolete" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" />
     </div>
