@@ -122,7 +122,6 @@ namespace AccessApp
                     DDL_status.Enabled = false;
                     System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Matériel obsolète !')</SCRIPT>");
                     TB_id_materiel.Text = string.Empty;
-                    PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
                     SetFocus();
                 }
                 
