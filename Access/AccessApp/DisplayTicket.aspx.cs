@@ -39,7 +39,7 @@ namespace AccessApp
             DataSet ds = DAL.SelectAllFromTicketId(id);
             DataSet dsAgent = DAL.SelectAgentIdentity(id);
             DataSet dsCaller = DAL.SelectCallerIdentity(id);
-
+         
             //AFFICHAGE DU TABLEAU D'INFORMATIONS
             L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                 "<tr><td data-title='Référence'>" + ds.Tables[0].Rows[0]["REFERENCE"].ToString() + "</td></tr>" +
@@ -77,6 +77,6 @@ namespace AccessApp
             }
 
         }
-
+     
     }
 }
