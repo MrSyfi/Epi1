@@ -93,31 +93,22 @@ namespace AccessApp
                 {
                     if (statut == "STOCKED")
                     {
-<<<<<<< HEAD
                         string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR","OBSOLETE" };
-=======
-                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR", "OBSOLETE" };
->>>>>>> 807056f7f111647869a738bd421159c25e63b6e7
+
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
                     else if (statut == "INSTALLED")
                     {
-<<<<<<< HEAD
                         string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR","OBSOLETE" };
-=======
-                        string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR", "OBSOLETE" };
->>>>>>> 807056f7f111647869a738bd421159c25e63b6e7
+
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
                     else if (statut == "UNDER_REPAIR")
                     {
-<<<<<<< HEAD
                         string[] tab_status = new string[] { "STOCKED", "INSTALLED","OBSOLETE" };
-=======
-                        string[] tab_status = new string[] { "STOCKED", "INSTALLED", "OBSOLETE" };
->>>>>>> 807056f7f111647869a738bd421159c25e63b6e7
+
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
@@ -199,6 +190,13 @@ namespace AccessApp
                     "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr></tbody></table></div>";
+            B_obsolete.Visible = true;
+                    
+        }
+
+        protected void B_obsolete_Click(object sender, EventArgs e)
+        {
+            // Modif DB..
         }
     }
 }
