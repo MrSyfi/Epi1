@@ -199,9 +199,9 @@ namespace AccessApp
 
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            // Modif DB..
+            
 
+            // Envoi Mail au responsable
             DataSet ds = DAL.GetProductPerEpiId(TB_id_materiel.Text);
             string model = ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString();
             string numSerie = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
@@ -209,13 +209,10 @@ namespace AccessApp
             string nameAgent = ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString();
 
             MailSender.SendObsoleteEmail("resp", "yorick.lepape@epicura.be", TB_id_materiel.Text, model, numSerie, nameAgent);
-=======
-            // Envoi Mail au responsable
-            // MailSender..
-            // Modif DB
+
+            // Modif DB..
             //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
             //DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
->>>>>>> 5ea2db4a0a7ddf768658a489161a15794e0ec0aa
         }
     }
 }
