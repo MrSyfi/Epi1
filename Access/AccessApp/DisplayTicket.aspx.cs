@@ -16,16 +16,16 @@ namespace AccessApp
         {
            
             // Check if tId exists
-            if (Request.QueryString.AllKeys.Contains("tId") && Request.QueryString.AllKeys.Contains("epiId"))
+            if (Request.QueryString.AllKeys.Contains("tId"))
             {
                 // Check if tId is not null
-                if(Request.QueryString["tId"] == string.Empty || Request.QueryString["epiId"] == string.Empty)
+                if(Request.QueryString["tId"] == string.Empty)
                 {
                     Response.Redirect("GestionMateriel.aspx", true);
                 }
                 else
                 {
-                    LoadData(Request.QueryString["tId"], Request.QueryString["epiId"]);
+                    LoadData(Request.QueryString["tId"]);
                 }
             } else
             {
@@ -34,7 +34,7 @@ namespace AccessApp
 
         }
 
-        private void LoadData(string id, string epiId)
+        private void LoadData(string id)
         {
             DataSet ds = DAL.SelectAllFromTicketId(id);
             DataSet dsAgent = DAL.SelectAgentIdentity(id);
