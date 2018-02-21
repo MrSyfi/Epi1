@@ -122,7 +122,6 @@ namespace AccessApp
                     DDL_status.Enabled = false;
                     System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Matériel obsolète !')</SCRIPT>");
                     TB_id_materiel.Text = string.Empty;
-                    PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
                     SetFocus();
                 }
                 
@@ -142,6 +141,7 @@ namespace AccessApp
             DDL_status.Enabled = false;
             TB_id_materiel.Text = string.Empty;
             TB_note.Text = string.Empty;
+            TB_id_local.Enabled = true;
         }
 
         public void SetFocus()
@@ -180,6 +180,11 @@ namespace AccessApp
 
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
+            {
+                // An obsolete object don't have any location..
+                TB_id_local.Enabled = false;
+            }
             SetFocus();
         }
 
@@ -196,6 +201,7 @@ namespace AccessApp
 
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             // Modif DB..
 
             DataSet ds = DAL.GetProductPerEpiId(TB_id_materiel.Text);
@@ -205,6 +211,13 @@ namespace AccessApp
             string nameAgent = ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString();
 
             MailSender.SendObsoleteEmail("resp", "yorick.lepape@epicura.be", TB_id_materiel.Text, model, numSerie, nameAgent);
+=======
+            // Envoi Mail au responsable
+            // MailSender..
+            // Modif DB
+            //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
+            //DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
+>>>>>>> 5ea2db4a0a7ddf768658a489161a15794e0ec0aa
         }
     }
 }
