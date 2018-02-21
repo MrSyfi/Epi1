@@ -58,10 +58,7 @@ namespace AccessApp
                     Reset();
                     SetFocus();
                 }
-                else
-                {
-                    PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
-                }
+                
             }
 
             // Get the localisation id;
@@ -192,6 +189,7 @@ namespace AccessApp
             if(((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
             {
                 TB_id_local.Enabled = false;
+                B_apply.Enabled = false;
                 L_obsolete.Visible = true;
                 B_obsolete.Visible = true;
                 // If the EpiID has been changed.
@@ -201,6 +199,8 @@ namespace AccessApp
                 TB_id_local.Enabled = true;
                 L_obsolete.Visible = false;
                 B_obsolete.Visible = false;
+
+                B_apply.Enabled = true;
             }
 
             SetFocus();
