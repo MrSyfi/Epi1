@@ -216,6 +216,7 @@ namespace AccessApp
             string numSerie = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
             ds = DAL.SelectContact(TB_id_resp.Text);
             string nameAgent = ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString();
+            string mailAgent = ds.Tables[0].Rows[0]["EMAIL"].ToString();
 
             MailSender.SendObsoleteEmail("resp", "yorick.lepape@epicura.be", TB_id_materiel.Text, model, numSerie, nameAgent);
 

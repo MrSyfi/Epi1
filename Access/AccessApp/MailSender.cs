@@ -50,10 +50,10 @@ namespace AccessApp
 
         public static string SendObsolete(string EpiID, string Marque, string NumSerie, string Agent)
         {
-            return System.Net.WebUtility.HtmlEncode(string.Format(@"<table><tr><td>EpiId</td><td>{0}</td></tr>" +
-                "<tr><td>Marque et modèle</td><td>{1}</td></tr>" +
-                "<tr><td>Numéro de série</td><td>{2}</td></tr>" +
-                "<tr><td>Effectué par </td><td>{3}</td></tr></table>", EpiID, Marque, NumSerie, Agent));
+            return System.Net.WebUtility.HtmlEncode(string.Format(@"<table><tr><td><b><EpiId</b></td><td>: {0}</td></tr>" +
+                "<tr><td><b>Marque et modèle</b></td><td>: {1}</td></tr>" +
+                "<tr><td><b>Numéro de série</b></td><td>: {2}</td></tr>" +
+                "<tr><td><b>Effectué par </b></td><td>: {3}</td></tr></table>", EpiID, Marque, NumSerie, Agent));
         }
 
         public static void SendObsoleteEmail(string RespMail, string AgentMail, string EpiID, string Marque, string NumSerie, string Agent)
