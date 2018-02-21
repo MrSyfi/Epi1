@@ -30,7 +30,7 @@ namespace AccessApp
 
         public static string SendEmailToView(string pwd, string userName)
         {
-             return System.Net.WebUtility.HtmlEncode(string.Format(@"<span style='font-family:Verdana;font-size:14pt;font-style:italic;'><p align='right' style='font-family:Helvetica;'>Epicura, {0} </p>" +
+             return System.Net.WebUtility.HtmlEncode(string.Format(@"<span style='font-family:Verdana;font-size:14pt;'><p align='right' style='font-family:Helvetica;'>Epicura, {0} </p>" +
                 "<p>Madame, Monsieur, </p> " +
                 "<p>Nous sommes heureux de vous accueillir  dans notre infrastructure informatique et nous vous communiquons ci-dessous les informations pratique concernant votre accès :</p> <br/>" +
                 "<div style='padding-left:50px;'><table><tr><td><b>Nom d'utilisateur</td><td>:</b></td><td> {1} </td></tr>" +
@@ -50,7 +50,7 @@ namespace AccessApp
 
         public static string SendObsolete(string EpiID, string Marque, string Modele, string NumSerie, string Agent)
         {
-            return System.Net.WebUtility.HtmlEncode(string.Format(@"<span style='font-family:Verdana;font-size:14pt;font-style:italic;'><p style='font-family:Helvetica;'><h2>EpiDESK - Information</h2><p>Ceci est un mail pour signifier le déclassement de ce matériel :</p>" +
+            return System.Net.WebUtility.HtmlEncode(string.Format(@"<span style='font-family:Verdana;font-size:14pt;'><p style='font-family:Helvetica;'><h2>EpiDESK - Information</h2><p>Ceci est un mail pour signifier le déclassement de ce matériel :</p>" +
                 "<div style='padding-left:50px;'><p style='color: rgb(67, 130, 195); font-weight: bold;'>EpiId</p><p>{0}</p><br/>" +
                 "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Marque</p><p> {1}</p><br/>" +
                  "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Modèle</p><p> {2}</p><br/>" +
