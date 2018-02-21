@@ -105,6 +105,13 @@ namespace AccessApp
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
+                    else if (statut == "TRANSIT")
+                    {
+                        string[] tab_status = new string[] { "STOCKED", "INSTALLED", "UNDER_REPAIR", "OBSOLETE" };
+
+                        DDL_status.DataSource = tab_status;
+                        DDL_status.DataBind();
+                    }
 
                     DDL_status.Enabled = true;
                     DDL_status.Focus();
