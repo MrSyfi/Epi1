@@ -77,6 +77,9 @@ namespace AccessApp
         {
             
             string tmp = "";
+            // Reset the obsolete literal when the user change of epiid
+            L_obsolete.Text = "";
+            B_obsolete.Visible = false;
             if (TB_id_materiel.Text.Length > 3 && (TB_id_materiel.Text.ToUpper().StartsWith("EPI")))
                 tmp = TB_id_materiel.Text.Substring(3);
             else if (TB_id_materiel.Text.Length > 0)
