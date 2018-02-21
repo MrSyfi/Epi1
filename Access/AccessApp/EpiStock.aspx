@@ -37,6 +37,10 @@
         <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true"/>
     </p>
 
+    <div style="text-align: right;">
+        <asp:Literal ID="L_obsolete" runat="server"></asp:Literal>
+    </div>
+
     <div class="page-footer">
         <p> * Veuillez remplir ces champs.</p>
     </div> 

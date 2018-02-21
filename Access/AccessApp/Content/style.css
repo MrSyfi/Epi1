@@ -28,9 +28,6 @@ body {
     height: auto;
 }
 
-
-
-
 @media (min-width: 990px) {
 
     .navbar {
@@ -59,6 +56,7 @@ body {
     .sidebar-nav .navbar li {
         float: none;
         display: block;
+        text-align: center;
     }
 
     .sidebar-nav .navbar li a {
