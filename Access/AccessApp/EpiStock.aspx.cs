@@ -22,7 +22,7 @@ namespace AccessApp
 
             if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vide !')</SCRIPT>");
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champ vide !')</SCRIPT>");
 
             }
             else
@@ -44,8 +44,11 @@ namespace AccessApp
 
 
                 // We get the room Id, between () in TB_ID_local 
-                DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text,Consts.ID_LOCALISATION);
-                DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
+                if(DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, Consts.ID_LOCALISATION) && DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString()))
+                {
+                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Mise à jour effectuée.')</SCRIPT>");
+                }
+                
 
                 Reset();
                 SetFocus();
