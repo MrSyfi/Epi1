@@ -48,16 +48,17 @@ namespace AccessApp
                 "<p>Cordialement.</p><hr/>", DateTime.Now.ToString("dd/MM/yyyy"), userName, pwd, GetUserEmail(userName)));
         }
 
-        public static string SendObsolete(string EpiID, string Marque, string NumSerie, string Agent)
+        public static string SendObsolete(string EpiID, string Marque, string Modele, string NumSerie, string Agent)
         {
             return System.Net.WebUtility.HtmlEncode(string.Format(@"<h2>EpiDESK - Information</h2><p>Ceci est un mail pour signifier le déclassement de ce matériel :</p>" +
                 "<div style='padding-left:50px;'><p style='color: rgb(67, 130, 195); font-weight: bold;'>EpiId</p><p>{0}</p><br/>" +
-                "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Marque et modèle</p><p> {1}</p><br/>" +
-                "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Numéro de série</p><p> {2}</p></div><br/>" +
-                "<p>Effectué par <b>{3}</b></p>", EpiID, Marque, NumSerie, Agent));
+                "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Marque</p><p> {1}</p><br/>" +
+                 "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Modèle</p><p> {2}</p><br/>" +
+                "<p style='color: rgb(67, 130, 195); font-weight: bold;'>Numéro de série</p><p> {3}</p></div><br/>" +
+                "<p>Effectué par <b>{4}</b></p>", EpiID, Marque, Modele, NumSerie, Agent));
         }
 
-        public static void SendObsoleteEmail(string RespMail, string AgentMail, string EpiID, string Marque, string NumSerie, string Agent)
+        public static void SendObsoleteEmail(string RespMail, string AgentMail, string EpiID, string Marque, string Modele, string NumSerie, string Agent)
         {
 
             System.Net.Mail.MailMessage _EMail = new System.Net.Mail.MailMessage();
@@ -70,7 +71,7 @@ namespace AccessApp
             _EMail.Subject = " Message automatique : Obsolescence de matériel ";
 
             _EMail.IsBodyHtml = true;
-            _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, NumSerie, Agent));
+            _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, Modele, NumSerie, Agent));
 
             //_EMail.To.Add(RespMail);
             _EMail.To.Add("yorick.lepape@epicura.be");
