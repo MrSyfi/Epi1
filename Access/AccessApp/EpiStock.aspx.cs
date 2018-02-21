@@ -141,6 +141,7 @@ namespace AccessApp
             DDL_status.Enabled = false;
             TB_id_materiel.Text = string.Empty;
             TB_note.Text = string.Empty;
+            TB_id_local.Enabled = true;
         }
 
         public void SetFocus()
