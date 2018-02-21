@@ -196,7 +196,11 @@ namespace AccessApp
 
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
-            // Modif DB..
+            // Envoi Mail au responsable
+
+            // Modif DB
+            //DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
+            //DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString());
         }
     }
 }
