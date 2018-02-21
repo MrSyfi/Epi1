@@ -19,15 +19,16 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            if (DDL_status.SelectedValue.ToString() != "OBSOLETE")
+
+
+            if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides !')</SCRIPT>");
 
-                if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
-                {
-                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides !')</SCRIPT>");
-
-                }
-                else
+            }
+            else
+            {
+                if (DDL_status.SelectedValue.ToString() != "OBSOLETE")
                 {
                     string locId = string.Empty;
                     try
@@ -57,10 +58,12 @@ namespace AccessApp
                     Reset();
                     SetFocus();
                 }
-            } else
-            {
-                PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
+                else
+                {
+                    PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
+                }
             }
+
             // Get the localisation id;
             //string locId = DAL.SelectLocalisationId(TB_id_local.Text).Tables[0].Rows[0]["ID"].ToString();
             //if (locId == string.Empty)
