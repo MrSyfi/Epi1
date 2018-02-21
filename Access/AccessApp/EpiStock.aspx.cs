@@ -160,17 +160,12 @@ namespace AccessApp
             {
                 SetFocus();
             }
-
             
         }
 
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
         {
-            // Checking if location exists
-           
             SetFocus();
-
-
         }
 
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
