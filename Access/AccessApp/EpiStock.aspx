@@ -34,19 +34,15 @@
     </p>
 
     <p>
-        <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true"/>
+        <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true" style="float: right;"/>
     </p>
 
-        <p> * Veuillez remplir ces champs.</p>
+    <p> * Veuillez remplir ces champs.</p>
 
 
     <p style="text-align: center;">
         <asp:Literal ID="L_obsolete" runat="server"></asp:Literal>
-        </p>
-        <asp:Button ID="B_obsolete" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" style="float: right;" />
-    
+    </p>
 
-    <div class="page-footer">
-        
-    </div> 
+    <asp:Button ID="B_obsolete" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" style="float: right;" /> 
 </asp:Content>
