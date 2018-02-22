@@ -47,19 +47,27 @@ namespace AccessApp
                 savePath += FileUploader.FileName;
                 FileUploader.SaveAs(savePath);
             }
-            
-            foreach (string line in File.ReadLines(savePath))
-            {
-                string[] parts = line.Split(';');
-                listQr.Add(parts[0]);
-                listInfo.Add(parts[1]);
-            }
 
-            File.Delete(savePath);
-
-            for (int i = 0; i < listQr.Count; i++)
+            try
             {
-                PopulateZPL(listQr.ElementAt(i), listInfo.ElementAt(i));
+                // Exceptions can be thrown from here.
+                foreach (string line in File.ReadLines(savePath))
+                {
+                    string[] parts = line.Split(';');
+                    listQr.Add(parts[0]);
+                    listInfo.Add(parts[1]);
+                }
+
+                File.Delete(savePath);
+
+                for (int i = 0; i < listQr.Count; i++)
+                {
+                    L_result.Text += "</br>";
+                    PopulateZPL(listQr.ElementAt(i), listInfo.ElementAt(i));
+                }
+            } catch
+            {
+
             }
         }
 
