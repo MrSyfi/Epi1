@@ -265,6 +265,7 @@
     <Content Include="EpiACCESS_Close.aspx" />
     <Content Include="Epicura.png" />
     <Content Include="EpiDESK_Ico_8.ico" />
+    <Content Include="EpiLabel.aspx" />
     <Content Include="EpiStock.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Gestion_EpiACCESS.aspx" />
@@ -338,6 +339,13 @@
     </Compile>
     <Compile Include="EpiACCESS_Close.aspx.designer.cs">
       <DependentUpon>EpiACCESS_Close.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EpiLabel.aspx.cs">
+      <DependentUpon>EpiLabel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EpiLabel.aspx.designer.cs">
+      <DependentUpon>EpiLabel.aspx</DependentUpon>
     </Compile>
     <Compile Include="EpiStock.aspx.cs">
       <DependentUpon>EpiStock.aspx</DependentUpon>

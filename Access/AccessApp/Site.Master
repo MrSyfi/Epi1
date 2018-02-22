@@ -62,6 +62,7 @@
                   <ul class="nav navbar-nav">
                     <li><a runat="server" href="~/EpiStock" >EpiStock</a></li>
                     <li><a runat="server" href="~/GestionMateriel" >EpiCMBD</a></li>
+                    <li><a runat="server" href="~/EpiLabel" >EpiLabel</a></li>
                     <li><a runat="server" href="~/Gestion_EpiACCESS">Gestion EpiACCESS</a></li>
                     <li><a runat="server" href="~/EpiACCESS_Close" >EpiACCESS Close</a></li>
                   </ul>
