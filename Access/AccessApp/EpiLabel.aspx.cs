@@ -67,7 +67,7 @@ namespace AccessApp
             }
         }
 
-        private void Print()
+        private void Print(string text)
         {
             using (TcpClient client = new TcpClient()) {
                 try
@@ -76,7 +76,7 @@ namespace AccessApp
 
                     using (StreamWriter writer = new StreamWriter(client.GetStream()))
                     {
-                        writer.Write(L_result.Text);
+                        writer.Write(text);
                         writer.Flush();
                     }
                 } catch
