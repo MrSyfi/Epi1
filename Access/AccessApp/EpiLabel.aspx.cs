@@ -31,14 +31,13 @@ namespace AccessApp
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
             string txt ="^XA^FO150,25^BXN,10,200^FD" + code + "^FS^CFA,25^FO110,150^FD" + info + "^FS^XZ";
+ 
             //Print(txt);
 
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
         {
-            List<String> listQr = new List<String>();
-            List<String> listInfo = new List<String>();
 
             String savePath = Server.MapPath("~/");
 
@@ -50,19 +49,13 @@ namespace AccessApp
 
           
                
-                foreach (string line in File.ReadLines(savePath))
-                {
-                    string[] parts = line.Split(';');
-                    listQr.Add(parts[0]);
-                    listInfo.Add(parts[1]);
-                }
+            foreach (string line in File.ReadLines(savePath))
+            {
+                string[] parts = line.Split(';');
+                PopulateZPL(parts[0], parts[1]);
+            }
 
-                File.Delete(savePath);
-
-                for (int i = 0; i < listQr.Count; i++)
-                {
-                    PopulateZPL(listQr.ElementAt(i), listInfo.ElementAt(i));
-                }
+            File.Delete(savePath);
             
         }
 
