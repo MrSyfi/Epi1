@@ -36,12 +36,10 @@ namespace AccessApp
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
         {
-            L_result.Text += TB_fichier.Text;
-            /*
             List<String> listQr = new List<String>();
             List<String> listInfo = new List<String>();
 
-            foreach (string line in File.ReadLines(""))
+            foreach (string line in File.ReadLines(TB_fichier.Text))
             {
                 string[] parts = line.Split(';');
                 listQr.Add(parts[0]);
@@ -52,7 +50,7 @@ namespace AccessApp
             {
                 L_result.Text += "<br/>"+listQr.ElementAt(i).ToString();
                 L_result.Text += "<br/>" + listInfo.ElementAt(i).ToString();
-            }*/
+            }
         }
     }
 }
