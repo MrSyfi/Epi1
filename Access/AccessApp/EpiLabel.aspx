@@ -16,7 +16,11 @@
         <asp:TextBox ID="TB_info" CssClass="form-control input-lg" runat="server" name="TB_info"></asp:TextBox>
     </p>
 
-    <asp:Button ID="B_afficher" CssClass="btn btn-danger btn-lg" runat="server" OnClick="B_afficher_Click" Text="Afficher"/> 
+    <asp:Button ID="B_afficher" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_afficher_Click" Text="Afficher"/> 
+
+    <p>
+        <asp:Literal ID="L_result" runat="server"></asp:Literal>
+    </p>
 </asp:Content>
 
 
