@@ -23,15 +23,14 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-
-            PopulateZPL(TB_code.Text, TB_info.Text);
+            if (TB_code.Text != string.Empty && TB_info.Text != string.Empty)
+                PopulateZPL(TB_code.Text, TB_info.Text);
         }
 
         private void PopulateZPL(string code, string info)
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
-            L_result.Text = "";
-            L_result.Text = "^XA";
+            L_result.Text += "^XA";
             L_result.Text += "^FO50,100^BXN,10,200^FD" + code + "^FS";
             L_result.Text += "^CFA,40";
             L_result.Text += "^FO50,250^FD" + info + "^FS";
@@ -45,7 +44,6 @@ namespace AccessApp
             List<String> listInfo = new List<String>();
 
             String savePath = Server.MapPath("~/");
-            L_result.Text += savePath;
 
             if (FileUploader.HasFile)
             {

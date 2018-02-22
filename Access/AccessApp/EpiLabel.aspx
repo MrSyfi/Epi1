@@ -29,7 +29,7 @@
 
     <hr />
 
-    <asp:FileUpload ID="FileUploader" runat="server"  AllowMultiple="false"/><br />
+    <asp:FileUpload ID="FileUploader" runat="server" AllowMultiple="false"/><br />
     <br/>
 
     <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Générer"/> 
