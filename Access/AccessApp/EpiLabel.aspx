@@ -25,20 +25,14 @@
         <asp:TextBox ID="TB_info" CssClass="form-control" runat="server" name="TB_info"></asp:TextBox>
     </p>
 
-    <asp:Button ID="B_afficher" CssClass="btn btn-primary" runat="server" OnClick="B_afficher_Click" Text="Générer"/> 
-
-    <hr />
+    
 
     <asp:FileUpload ID="FileUploader" runat="server" AllowMultiple="false"/><br />
-    <br/>
-
-    <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Générer"/> 
 
     <hr />
 
-    <p>
-        <asp:Literal ID="L_result" runat="server" ></asp:Literal>
-    </p>
+    <asp:Button ID="B_afficher" CssClass="btn btn-primary" runat="server" OnClick="B_afficher_Click" Text="Imprimer"/> 
+    <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer fichier"/> 
 
 </asp:Content>
 

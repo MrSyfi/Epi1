@@ -31,7 +31,7 @@ namespace AccessApp
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
             string txt ="^XA^FO150,25^BXN,10,200^FD" + code + "^FS^CFA,25^FO110,150^FD" + info + "^FS^XZ";
-            Print(txt);
+            //Print(txt);
 
         }
 
@@ -59,7 +59,6 @@ namespace AccessApp
 
             for (int i = 0; i < listQr.Count; i++)
             {
-                L_result.Text += "</br>";
                 PopulateZPL(listQr.ElementAt(i), listInfo.ElementAt(i));
             }
         }
