@@ -28,7 +28,7 @@
     <div class="input-group">
         <span class="input-group-btn">
             <span class="btn btn-primary btn-file">
-                Browse&hellip; <input type="file" single>
+                Browse&hellip; <input type="file" id="tbf" single>
             </span>
         </span>
         <asp:TextBox ID="TB_fichier" CssClass="form-control" runat="server" name="TB_fichier" Enabled="false"></asp:TextBox>
