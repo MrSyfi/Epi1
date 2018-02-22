@@ -62,7 +62,6 @@ namespace AccessApp
 
                 for (int i = 0; i < listQr.Count; i++)
                 {
-                    L_result.Text += "</br>";
                     PopulateZPL(listQr.ElementAt(i), listInfo.ElementAt(i));
                 }
             } catch

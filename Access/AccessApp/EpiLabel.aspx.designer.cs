@@ -40,15 +40,6 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.TextBox TB_info;
         
         /// <summary>
-        /// Contrôle B_afficher.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button B_afficher;
-        
-        /// <summary>
         /// Contrôle FileUploader.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,15 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.FileUpload FileUploader;
         
         /// <summary>
+        /// Contrôle B_afficher.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button B_afficher;
+        
+        /// <summary>
         /// Contrôle B_generer_fichier.
         /// </summary>
         /// <remarks>
@@ -65,14 +65,5 @@ namespace AccessApp {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button B_generer_fichier;
-        
-        /// <summary>
-        /// Contrôle L_result.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal L_result;
     }
 }
