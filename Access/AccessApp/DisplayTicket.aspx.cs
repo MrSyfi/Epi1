@@ -54,7 +54,7 @@ namespace AccessApp
             L_Body.Text += "<tr><td data-title='Appelant'> " + dsCaller.Tables[0].Rows[0]["FIRST_NAME"].ToString() + " " + dsCaller.Tables[0].Rows[0]["LAST_NAME"].ToString() + " </td></tr>" +
                 "<tr><td data-title='Agent'> " + dsAgent.Tables[0].Rows[0]["FIRST_NAME"].ToString() + " " + dsAgent.Tables[0].Rows[0]["LAST_NAME"].ToString() + "</td></tr>"+
                 "<tr><td data-title='Titre'>" + ds.Tables[0].Rows[0]["TITLE"].ToString() + "</td></tr>" +
-                "<tr><td data-title='Nom de la machine'>"+ ds.Tables[0].Rows[0]["PRODUCT"].ToString() + " </td></tr>" +
+                "<tr><td data-title='Nom de la machine'>"+ ds.Tables[0].Rows[0]["PRODUCT"].ToString() + "</td></tr>" +
                 "<tr><td data-title='Description'><p align='justify'>" + ds.Tables[0].Rows[0]["DESCRIPTION"].ToString() + "</p></td></tr>";
 
             if (ds.Tables[0].Rows[0]["RESOLUTION"].ToString() == string.Empty)
