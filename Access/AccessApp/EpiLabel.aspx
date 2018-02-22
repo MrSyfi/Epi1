@@ -29,7 +29,11 @@
 
     <hr />
 
-    <asp:FileUpload ID="FileUploader" runat="server"  AllowMultiple="false"/><br />
+    <div class="filestyle">
+        <span class="filestyle" data-btnClass="btn-primary">
+    <asp:FileUpload ID="FileUploader"  runat="server"  AllowMultiple="false" /><br />
+         </span>
+        
     <br/>
 
     <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Générer"/> 
@@ -37,7 +41,7 @@
     <hr />
 
     <p>
-        <asp:Literal ID="L_result" runat="server" ></asp:Literal>
+        <asp:Literal ID="L_result" runat="server"  ></asp:Literal>
     </p>
 
 </asp:Content>

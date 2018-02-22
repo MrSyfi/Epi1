@@ -82,5 +82,6 @@
     </form>
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/Script.js"></script>
+    <script src="Scripts/bootstrap-filestyle.min.js"></script>
 </body>
 </html>

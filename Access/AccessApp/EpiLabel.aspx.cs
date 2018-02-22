@@ -31,9 +31,9 @@ namespace AccessApp
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
             L_result.Text += "^XA";
-            L_result.Text += "^FO50,100^BXN,10,200^FD" + code + "^FS";
-            L_result.Text += "^CFA,40";
-            L_result.Text += "^FO50,250^FD" + info + "^FS";
+            L_result.Text += "^FO150,25^BXN,10,200^FD" + code + "^FS";
+            L_result.Text += "^CFA,25";
+            L_result.Text += "^FO110,150^FD" + info + "^FS";
             L_result.Text += "^XZ";
 
         }
