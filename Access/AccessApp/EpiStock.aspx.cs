@@ -218,8 +218,7 @@ namespace AccessApp
 
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
-            
-
+ 
             // Envoi Mail au responsable
             DataSet ds = DAL.GetProductPerEpiId(TB_id_materiel.Text);
             string model = ds.Tables[0].Rows[0]["MODELE"].ToString();
