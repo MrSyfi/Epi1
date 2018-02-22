@@ -249,16 +249,20 @@ namespace AccessApp
 
         public static DataSet GetRespMail()
         {
-            List<string> parameters = new List<string>();
-            List<string> values = new List<string>();
-
-            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE '3'", Consts.APP_PARAM_TABLE), parameters, values);
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE '3'", Consts.APP_PARAM_TABLE));
         }
 
         /* EPILABEL */
         public static DataSet SelectAllSites()
         {
             return _db.ExecuteQuery(string.Format("SELECT ABBREVIATION FROM {0}", Consts.SITES_TABLE));
+        }
+
+        public static DataSet SelectPrinterIP(string siteAbb)
+        {
+            string variable = siteAbb + "_TAG_PRN_IP"; 
+
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE VARIABLE LIKE {1}", Consts.APP_PARAM_TABLE, variable));
         }
 
     }
