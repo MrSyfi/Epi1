@@ -74,7 +74,7 @@ namespace AccessApp
             _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, Modele, NumSerie, Agent));
 
             //_EMail.To.Add(RespMail);
-            _EMail.To.Add("yorick.lepape@epicura.be");
+            _EMail.To.Add("sylvain.fissiaux@epicura.be");
 
             _smtpServer.Send(_EMail);
 
