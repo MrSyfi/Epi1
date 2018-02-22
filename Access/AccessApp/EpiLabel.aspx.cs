@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Controls;
+using System.Windows.Forms;
 
 namespace AccessApp
 {
@@ -32,7 +36,6 @@ namespace AccessApp
             L_result.Text += "^CFA,40";
             L_result.Text += "^FO50,250^FD" + TB_info.Text + "^FS";
             L_result.Text += "^XZ";
-            Print();
 
         }
 
@@ -57,10 +60,24 @@ namespace AccessApp
 
         private void Print()
         {
-            PrintDocument doc = new PrintDocument();
-           // doc.PrinterSettings.PrinterName = DAL.SelectPrinterIP(DDL_Printer.SelectedValue.ToString()).Tables[0].Rows[0]["VARIABLE"].ToString();
-            // doc.DocumentName = "test";
-            doc.Print();
+            using (TcpClient client = new TcpClient()) {
+                try
+                {
+                    client.Connect(DAL.SelectPrinterIP(DDL_Printer.SelectedValue.ToString()).Tables[0].Rows[0]["VALUE"].ToString(), Consts.ZPL_PRINTERS_DEFAULT_PORT);
+
+                    using (StreamWriter writer = new StreamWriter(client.GetStream()))
+                    {
+                        writer.Write(L_result.Text);
+                        writer.Flush();
+                    }
+                } catch
+                {
+                    // Possible exceptions ?!?
+                }
+            }
+
         }
+
+        
     }
 }

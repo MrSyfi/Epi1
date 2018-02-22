@@ -260,9 +260,12 @@ namespace AccessApp
 
         public static DataSet SelectPrinterIP(string siteAbb)
         {
-            string variable = siteAbb + "_TAG_PRN_IP"; 
+            List<string> parameters = new List<string>();
+            List<string> values = new List<string>();
 
-            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE VARIABLE LIKE {1}", Consts.APP_PARAM_TABLE, variable));
+            parameters.Add(":variable");values.Add(siteAbb + "_TAG_PRN_IP");
+
+            return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE VARIABLE LIKE :variable", Consts.APP_PARAM_TABLE), parameters, values);
         }
 
     }
