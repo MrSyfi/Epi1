@@ -13,11 +13,7 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet ds = DAL.SelectAllSites();
-            DDL_Printer.DataTextField = "ABBREVIATION";
-            DDL_Printer.DataValueField = "ABBREVIATION";
-            DDL_Printer.DataSource = ds.Tables[0];
-            DDL_Printer.DataBind();
+           
         }
 
         protected void B_afficher_Click(object sender, EventArgs e)
