@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,9 +10,16 @@ namespace AccessApp
 {
     public partial class EpiLabel : System.Web.UI.Page
     {
+
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            DataSet ds = DAL.SelectAllSites();
+            DDL_Printer.DataTextField = "ABBREVIATION";
+            DDL_Printer.DataValueField = "ABBREVIATION";
+            DDL_Printer.DataSource = ds.Tables[0];
+            DDL_Printer.DataBind();
         }
 
         protected void B_afficher_Click(object sender, EventArgs e)
