@@ -34,6 +34,8 @@
     <asp:Button ID="B_afficher" CssClass="btn btn-primary" runat="server" OnClick="B_afficher_Click" Text="Imprimer"/> 
     <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer fichier"/> 
 
+     <asp:Literal ID="L_result" runat="server" ></asp:Literal>
+
 </asp:Content>
 
 
