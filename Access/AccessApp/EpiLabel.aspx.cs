@@ -13,5 +13,10 @@ namespace AccessApp
         {
 
         }
+
+        protected void B_afficher_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
