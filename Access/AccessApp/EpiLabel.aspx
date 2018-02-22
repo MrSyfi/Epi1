@@ -18,6 +18,8 @@
 
     <asp:Button ID="B_afficher" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_afficher_Click" Text="Afficher"/> 
 
+    <input type="file" id="file" name="file">
+
     <p>
         <asp:Literal ID="L_result" runat="server"></asp:Literal>
     </p>
