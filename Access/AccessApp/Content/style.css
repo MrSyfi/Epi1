@@ -624,3 +624,17 @@ Main components
         overflow: auto;
     }
 }
+
+
+/* EPILABEL */
+.left{
+    display: inline;
+    float: left;
+    width: 49%;
+    border-right: 1px solid #D3D3D3
+}
+
+.right{
+    float: right;
+    width: 49%;
+}
