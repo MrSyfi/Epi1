@@ -23,8 +23,8 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-
-            PopulateZPL(TB_code.Text, TB_info.Text);
+            if (TB_code.Text != string.Empty && TB_info.Text != string.Empty)
+                PopulateZPL(TB_code.Text, TB_info.Text);
         }
 
         private void PopulateZPL(string code, string info)
@@ -44,7 +44,6 @@ namespace AccessApp
             List<String> listInfo = new List<String>();
 
             String savePath = Server.MapPath("~/");
-            L_result.Text += savePath;
 
             if (FileUploader.HasFile)
             {
@@ -68,7 +67,7 @@ namespace AccessApp
             }
         }
 
-        private void Print()
+        private void Print(string text)
         {
             using (TcpClient client = new TcpClient()) {
                 try
@@ -77,7 +76,7 @@ namespace AccessApp
 
                     using (StreamWriter writer = new StreamWriter(client.GetStream()))
                     {
-                        writer.Write(L_result.Text);
+                        writer.Write(text);
                         writer.Flush();
                     }
                 } catch
