@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Controls;
+using System.Windows.Forms;
 
 namespace AccessApp
 {
@@ -26,12 +30,12 @@ namespace AccessApp
         private void PopulateZPL(string code, string info)
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
-            L_result.Text += "^XA";
+            L_result.Text = "";
+            L_result.Text = "^XA";
             L_result.Text += "^FO50,100^BXN,10,200^FD" + code + "^FS";
             L_result.Text += "^CFA,40";
             L_result.Text += "^FO50,250^FD" + info + "^FS";
             L_result.Text += "^XZ";
-            //Print();
 
         }
 
@@ -67,10 +71,24 @@ namespace AccessApp
 
         private void Print()
         {
-            PrintDocument doc = new PrintDocument();
-           // doc.PrinterSettings.PrinterName = DAL.SelectPrinterIP(DDL_Printer.SelectedValue.ToString()).Tables[0].Rows[0]["VARIABLE"].ToString();
-            // doc.DocumentName = "test";
-            doc.Print();
+            using (TcpClient client = new TcpClient()) {
+                try
+                {
+                    client.Connect(DAL.SelectPrinterIP(DDL_Printer.SelectedValue.ToString()).Tables[0].Rows[0]["VALUE"].ToString(), Consts.ZPL_PRINTERS_DEFAULT_PORT);
+
+                    using (StreamWriter writer = new StreamWriter(client.GetStream()))
+                    {
+                        writer.Write(L_result.Text);
+                        writer.Flush();
+                    }
+                } catch
+                {
+                    // Possible exceptions ?!?
+                }
+            }
+
         }
+
+        
     }
 }

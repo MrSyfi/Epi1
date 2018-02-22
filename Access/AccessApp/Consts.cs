@@ -10,6 +10,7 @@ namespace AccessApp
         public static bool isAffiche = false;
         public static string MOT_DE_PASSE;
         public static string ID_LOCALISATION;
+
         // DATABASE TABLE OR VIEW
         public static readonly string ACCESS_REQUEST_TABLE = "EPIDESK.ACCESS_REQUEST";
         public static readonly string CONTACTS_TABLE = "EPIDESK.CONTACTS";
@@ -24,13 +25,14 @@ namespace AccessApp
         public static readonly string BIOS_GUID_TABLE = "EPIDESK.BIOS_GUID";
         public static readonly string APP_PARAM_TABLE = "EPIDESK.APP_PARAM";
         public static readonly string SITES_TABLE = "EPIDESK.SITES";
-
-
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
         public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
 
+        /* Default Ports or Values */
+        public static readonly int ZPL_PRINTERS_DEFAULT_PORT = 9100;
         public static readonly string CONST_EMAIL_SMTP_SERVER_HOST = "mail.epicura.be";
 
+        // Interface
         public static readonly string EMPTY_STRING = " - ";
 
         
