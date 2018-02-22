@@ -29,21 +29,14 @@
 
     <hr />
 
-    <div class="input-group">
-        <span class="input-group-btn">
-            <span class="btn btn-primary btn-file">
-                Browse&hellip; <input type="file" id="tbf" single>
-            </span>
-        </span>
-        <asp:TextBox ID="TB_fichier" CssClass="form-control" runat="server" name="TB_fichier" Enabled="false"></asp:TextBox>
-    </div>
+    <asp:FileUpload ID="FileUploader" runat="server"  AllowMultiple="false"/><br />
     <br/>
 
     <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Générer"/> 
 
 
     <p>
-        <asp:Literal ID="L_result" runat="server"></asp:Literal>
+        <asp:Literal ID="L_result" runat="server" ></asp:Literal>
     </p>
 
 </asp:Content>
