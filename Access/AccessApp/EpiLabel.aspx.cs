@@ -16,7 +16,8 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-
+            string result = "^XA ^FO50,100 ^BXN,20,200 ^" + TB_code.Text + " ^FS ^XZ";
+                
         }
     }
 }
