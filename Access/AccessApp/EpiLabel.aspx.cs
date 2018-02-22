@@ -48,8 +48,9 @@ namespace AccessApp
                 FileUploader.SaveAs(savePath);
             }
 
-          
-               
+
+            try // Exceptions possible
+            {
                 foreach (string line in File.ReadLines(savePath))
                 {
                     string[] parts = line.Split(';');
@@ -64,6 +65,10 @@ namespace AccessApp
                     L_result.Text += "</br>";
                     PopulateZPL(listQr.ElementAt(i), listInfo.ElementAt(i));
                 }
+            } catch
+            {
+                //
+            }
             
         }
 
