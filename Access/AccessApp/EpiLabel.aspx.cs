@@ -26,8 +26,8 @@ namespace AccessApp
             L_result.Text = "";
             L_result.Text = "^XA";
             L_result.Text += "^FO50,100^BXN,10,200^FD" + TB_code.Text+"^FS";
-            L_result.Text += "CFA,30";
-            L_result.Text += "^FO350,500^FD" + TB_info.Text + "^FS";
+            L_result.Text += "^CFA,40";
+            L_result.Text += "^FO50,250^FD" + TB_info.Text + "^FS";
 
 
             L_result.Text += "^XZ";
