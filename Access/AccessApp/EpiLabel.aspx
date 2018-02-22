@@ -23,11 +23,19 @@
 
     <asp:Button ID="B_afficher" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_afficher_Click" Text="Afficher"/> 
 
-    <input type="file" id="file" name="file">
-
     <p>
         <asp:Literal ID="L_result" runat="server"></asp:Literal>
     </p>
+
+
+    <div class="input-group">
+        <span class="input-group-btn">
+            <span class="btn btn-primary btn-file">
+                Browse&hellip; <input type="file" single>
+            </span>
+        </span>
+        <input type="text" class="form-control" readonly>
+    </div>
 
 </asp:Content>
 
