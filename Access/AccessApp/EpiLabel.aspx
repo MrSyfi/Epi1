@@ -29,6 +29,12 @@
 
     <hr />
 
+    <p>
+        <span class="btn btn-primary btn-file">
+        <asp:FileUpload runat="server" ID="file"/>
+        </span>
+    </p>
+
     <div class="input-group">
         <span class="input-group-btn">
             <span class="btn btn-primary btn-file">

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -31,6 +32,7 @@ namespace AccessApp
             L_result.Text += "^CFA,40";
             L_result.Text += "^FO50,250^FD" + TB_info.Text + "^FS";
             L_result.Text += "^XZ";
+            Print();
 
         }
 
@@ -51,6 +53,14 @@ namespace AccessApp
                 L_result.Text += "<br/>"+listQr.ElementAt(i).ToString();
                 L_result.Text += "<br/>" + listInfo.ElementAt(i).ToString();
             }
+        }
+
+        private void Print()
+        {
+            PrintDocument doc = new PrintDocument();
+           // doc.PrinterSettings.PrinterName = DAL.SelectPrinterIP(DDL_Printer.SelectedValue.ToString()).Tables[0].Rows[0]["VARIABLE"].ToString();
+            // doc.DocumentName = "test";
+            doc.Print();
         }
     }
 }
