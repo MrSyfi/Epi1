@@ -56,6 +56,9 @@ namespace AccessApp
             }*/
         }
 
+        protected void B_generer_fichier_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

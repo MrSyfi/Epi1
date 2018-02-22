@@ -13,20 +13,17 @@
 
     <p>
         <label for="TB_code">Code QR</label>
-        <asp:TextBox ID="TB_code" CssClass="form-control input-lg" runat="server" name="TB_code"></asp:TextBox>
+        <asp:TextBox ID="TB_code" CssClass="form-control" runat="server" name="TB_code"></asp:TextBox>
     </p>
     
     <p>
         <label for="TB_info">Info</label>
-        <asp:TextBox ID="TB_info" CssClass="form-control input-lg" runat="server" name="TB_info"></asp:TextBox>
+        <asp:TextBox ID="TB_info" CssClass="form-control" runat="server" name="TB_info"></asp:TextBox>
     </p>
 
-    <asp:Button ID="B_afficher" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_afficher_Click" Text="Afficher"/> 
+    <asp:Button ID="B_afficher" CssClass="btn btn-primary" runat="server" OnClick="B_afficher_Click" Text="Générer"/> 
 
-    <p>
-        <asp:Literal ID="L_result" runat="server"></asp:Literal>
-    </p>
-
+    <hr />
 
     <div class="input-group">
         <span class="input-group-btn">
@@ -36,6 +33,14 @@
         </span>
         <input type="text" class="form-control" readonly>
     </div>
+    <br/>
+
+    <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Générer"/> 
+
+
+    <p>
+        <asp:Literal ID="L_result" runat="server"></asp:Literal>
+    </p>
 
 </asp:Content>
 
