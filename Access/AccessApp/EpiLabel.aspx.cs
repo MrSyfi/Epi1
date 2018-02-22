@@ -37,25 +37,29 @@ namespace AccessApp
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
         {
-
-            String savePath = Server.MapPath("~/");
-
-            if (FileUploader.HasFile)
+            try
             {
-                savePath += FileUploader.FileName;
-                FileUploader.SaveAs(savePath);
-            }
+                String savePath = Server.MapPath("~/");
 
-          
-               
-            foreach (string line in File.ReadLines(savePath))
+                if (FileUploader.HasFile)
+                {
+                    savePath += FileUploader.FileName;
+                    FileUploader.SaveAs(savePath);
+                }
+
+
+
+                foreach (string line in File.ReadLines(savePath))
+                {
+                    string[] parts = line.Split(';');
+                    PopulateZPL(parts[0], parts[1]);
+                }
+
+                File.Delete(savePath);
+            } catch
             {
-                string[] parts = line.Split(';');
-                PopulateZPL(parts[0], parts[1]);
-            }
 
-            File.Delete(savePath);
-            
+            }
         }
 
         private void Print(string text)
