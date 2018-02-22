@@ -34,6 +34,7 @@
 
     <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Générer"/> 
 
+    <hr />
 
     <p>
         <asp:Literal ID="L_result" runat="server" ></asp:Literal>
