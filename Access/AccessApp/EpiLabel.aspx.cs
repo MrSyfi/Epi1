@@ -39,7 +39,7 @@ namespace AccessApp
 
 
             //Lecture
-            List<String> listQr = new List<String>();
+            /*List<String> listQr = new List<String>();
             List<String> listInfo = new List<String>();
 
             foreach (string line in File.ReadLines("//brfas01/epidesktop$/LepaY0301/Desktop/test.csv"))
@@ -53,7 +53,7 @@ namespace AccessApp
             {
                 L_result.Text += "<br/>"+listQr.ElementAt(i).ToString();
                 L_result.Text += "<br/>" + listInfo.ElementAt(i).ToString();
-            }
+            }*/
         }
 
 
