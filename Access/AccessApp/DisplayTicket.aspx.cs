@@ -64,7 +64,7 @@ namespace AccessApp
 
             L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaire</h3><hr/>";
 
-
+            
             //AFFICHAGE DES COMMENTAIRES
             ds = DAL.SelectAllFromCommentaire(id);
             DataTable dt = ds.Tables[0];
