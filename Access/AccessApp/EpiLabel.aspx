@@ -31,7 +31,7 @@
                 Browse&hellip; <input type="file" single>
             </span>
         </span>
-        <input type="text" class="form-control" readonly>
+        <asp:TextBox ID="TB_fichier" CssClass="form-control" runat="server" name="TB_fichier" Enabled="false"></asp:TextBox>
     </div>
     <br/>
 

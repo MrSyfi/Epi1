@@ -36,13 +36,14 @@ namespace AccessApp
             L_result.Text += "^FO50,250^FD" + TB_info.Text + "^FS";
             L_result.Text += "^XZ";
 
+        }
 
-
-            //Lecture
-            /*List<String> listQr = new List<String>();
+        protected void B_generer_fichier_Click(object sender, EventArgs e)
+        {
+            List<String> listQr = new List<String>();
             List<String> listInfo = new List<String>();
 
-            foreach (string line in File.ReadLines("//brfas01/epidesktop$/LepaY0301/Desktop/test.csv"))
+            foreach (string line in File.ReadLines(TB_fichier.Text))
             {
                 string[] parts = line.Split(';');
                 listQr.Add(parts[0]);
@@ -53,12 +54,7 @@ namespace AccessApp
             {
                 L_result.Text += "<br/>"+listQr.ElementAt(i).ToString();
                 L_result.Text += "<br/>" + listInfo.ElementAt(i).ToString();
-            }*/
-        }
-
-        protected void B_generer_fichier_Click(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }
