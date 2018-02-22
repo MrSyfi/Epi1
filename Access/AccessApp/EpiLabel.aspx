@@ -28,6 +28,7 @@
     <p>
         <asp:Literal ID="L_result" runat="server"></asp:Literal>
     </p>
+
 </asp:Content>
 
 
