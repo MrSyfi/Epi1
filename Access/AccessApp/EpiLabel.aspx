@@ -9,9 +9,9 @@
     <p>
         <label for="DDL_Printer">Site</label>
         <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_Printer">
+            <asp:ListItem Text="HU"></asp:ListItem>
             <asp:ListItem Text="AH"></asp:ListItem>
             <asp:ListItem Text="BR"></asp:ListItem>
-            <asp:ListItem Text="HU"></asp:ListItem>
         </asp:DropDownList>
     </p>
 
