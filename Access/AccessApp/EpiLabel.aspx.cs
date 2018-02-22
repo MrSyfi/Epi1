@@ -30,11 +30,7 @@ namespace AccessApp
         private void PopulateZPL(string code, string info)
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
-            L_result.Text += "^XA";
-            L_result.Text += "^FO150,25^BXN,10,200^FD" + code + "^FS";
-            L_result.Text += "^CFA,25";
-            L_result.Text += "^FO110,150^FD" + info + "^FS";
-            L_result.Text += "^XZ";
+            string txt ="^XA^FO150,25^BXN,10,200^FD" + code + "^FS^CFA,25^FO110,150^FD" + info + "^FS^XZ";
 
         }
 
