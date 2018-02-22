@@ -16,7 +16,7 @@
     </p>
 
     <div class="left">
-    <h2> Manuellement </h2>
+    <h2> Manuellement </h2><hr />
     <p>
         <label for="TB_code">Code QR</label>
         <asp:TextBox ID="TB_code" CssClass="form-control" runat="server" name="TB_code"></asp:TextBox>
@@ -26,14 +26,17 @@
         <label for="TB_info">Info</label>
         <asp:TextBox ID="TB_info" CssClass="form-control" runat="server" name="TB_info"></asp:TextBox>
     </p>
-    <asp:Button ID="B_afficher" CssClass="btn btn-primary" runat="server" OnClick="B_afficher_Click" Text="Imprimer"/> 
+    <br />
+    <asp:Button ID="B_afficher" CssClass="btn btn-primary sub" runat="server" OnClick="B_afficher_Click" Text="Imprimer"/> 
     </div>
 
     <div class="right">
         
-    <h2> Depuis un fichier </h2>
+    <h2> Depuis un fichier </h2> <hr />
+        <p>
     <asp:FileUpload ID="FileUploader" runat="server" AllowMultiple="false"/><br />
-    <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary" runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer fichier"/> 
+            </p>
+    <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary sub" runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer fichier"/> 
     </div>
     <hr />
 
