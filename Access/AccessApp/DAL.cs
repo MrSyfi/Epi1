@@ -255,6 +255,12 @@ namespace AccessApp
             return _db.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE '3'", Consts.APP_PARAM_TABLE), parameters, values);
         }
 
+        /* EPILABEL */
+        public static DataSet SelectAllSites()
+        {
+            return _db.ExecuteQuery(string.Format("SELECT ABBREVIATION FROM {0}", Consts.SITES_TABLE));
+        }
+
     }
 }
  

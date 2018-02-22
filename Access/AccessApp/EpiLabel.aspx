@@ -7,6 +7,11 @@
     </div> 
 
     <p>
+        <label for="DDL_Printer">Site</label>
+        <asp:DropDownList runat="server" ID="DDL_Printer" />
+    </p>
+
+    <p>
         <label for="TB_code">Code QR</label>
         <asp:TextBox ID="TB_code" CssClass="form-control input-lg" runat="server" name="TB_code"></asp:TextBox>
     </p>
