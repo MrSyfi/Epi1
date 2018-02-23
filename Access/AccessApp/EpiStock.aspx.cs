@@ -45,7 +45,7 @@ namespace AccessApp
                     }
                     Consts.ID_LOCALISATION = locId;
 
-                    // We get the room Id, between () in TB_ID_local 
+                   
                     if (DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, Consts.ID_LOCALISATION) && DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString()))
                     {
                         System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Mise à jour effectuée.')</SCRIPT>");
