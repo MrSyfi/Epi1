@@ -34,6 +34,7 @@ namespace AccessApp
 
         // Interface
         public static readonly string EMPTY_STRING = " - ";
+        public static readonly int LABEL_STRING_LENGHT_LIMIT = 30;
 
         
     }
