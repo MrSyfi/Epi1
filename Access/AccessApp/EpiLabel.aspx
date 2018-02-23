@@ -39,8 +39,7 @@
         <p>
         <asp:FileUpload ID="FileUploader" runat="server" AllowMultiple="false"/><br />
         </p>
-        <BR /><BR /><BR /><BR /><BR />
-         
+
     </div>
 
     <table width="100%">
