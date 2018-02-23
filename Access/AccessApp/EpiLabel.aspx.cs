@@ -6,6 +6,7 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -29,7 +30,7 @@ namespace AccessApp
             }
             else
             {
-                if (TB_code.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT)
+                if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT )
                 {
                     PopulateZPL(TB_code.Text, TB_info.Text);
                     TB_code.Text = string.Empty;
