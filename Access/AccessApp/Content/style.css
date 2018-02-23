@@ -4,31 +4,6 @@ Primary style
 
 -------------------------------- */
 
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-    .btn-file input[type=file] {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        font-size: 100px;
-        text-align: right;
-        filter: alpha(opacity=0);
-        opacity: 0;
-        background: red;
-        cursor: inherit;
-        display: block;
-    }
-
-input[readonly] {
-    background-color: white !important;
-    cursor: text !important;
-}
-
 html * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -633,6 +608,7 @@ Main components
     width: 49%;
     border-right: 1px solid #D3D3D3;
     position: relative;
+    padding-right: 10px;
 }
 
 .right{
@@ -641,3 +617,11 @@ Main components
     position: relative;
 }
 
+.sub{
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
