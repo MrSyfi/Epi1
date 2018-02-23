@@ -4034,6 +4034,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar:after {
   display: table;
   content: " ";
+
 }
 
 .navbar:after {

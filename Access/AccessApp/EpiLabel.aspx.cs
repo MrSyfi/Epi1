@@ -33,6 +33,7 @@ namespace AccessApp
             string txt = "^XA^FO150,25^BQN,10,5^FD" + code + "^FS^CFA,25^FO110,150^FD" + info + "^FS^XZ";
 
             //Print("^XA^FO250,25^BQN,10,3^FDffffffffppppp^FS^CFA,10^FO250,100^FDppppppp^FS^XZ");
+            //Print(txt);
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
