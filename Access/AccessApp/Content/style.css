@@ -625,3 +625,21 @@ Main components
     margin-top: 10px;
     margin-right: 10px;
 }
+
+@media screen and (max-width: 580px){
+    .left{
+        display: block;
+        float: none;
+        width: 100%;
+        border-right: none;
+    }
+
+    .right{
+        float: none;
+        width: 100%;
+    }
+
+    .sub{
+        position: static;
+    }
+}
