@@ -26,7 +26,7 @@
         </p>
     
         <p>
-            <label for="TB_info">Info</label>
+            <label for="TB_info">Information</label>
             <asp:TextBox ID="TB_info" CssClass="form-control" runat="server" name="TB_info"></asp:TextBox><br />
         </p>
         <asp:Button ID="B_afficher" CssClass="btn btn-primary sub" runat="server" OnClick="B_afficher_Click" Text="Imprimer"/> 
