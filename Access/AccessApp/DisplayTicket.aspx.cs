@@ -46,7 +46,7 @@ namespace AccessApp
                 "<tr><td data-title='Référence'>" + Consts.EMPTY_STRING + "</td></tr>" +
                 "<tr><td data-title='Création de ticket'>" + Consts.EMPTY_STRING + "</td></tr>" +
                 "<tr><td data-title='Dernière mise à jour'>" + Consts.EMPTY_STRING + "</td></tr>" +
-                "<tr><td data-title = 'cloture du ticket' >" + Consts.EMPTY_STRING + "</td></tr> " +
+                "<tr><td data-title ='Cloture du ticket' >" + Consts.EMPTY_STRING + "</td></tr> " +
                 "<tr><td data-title='Appelant'> " + Consts.EMPTY_STRING + " </td></tr>" +
                 "<tr><td data-title='Agent'> " + Consts.EMPTY_STRING + "</td></tr>" +
                 "<tr><td data-title='Titre'>" + Consts.EMPTY_STRING + "</td></tr>" +

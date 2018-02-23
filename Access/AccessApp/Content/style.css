@@ -634,9 +634,10 @@ Main components
         border-right: none;
     }
 
-    .right{
+    .right {
         float: none;
         width: 100%;
+        border-top: 1px solid #D3D3D3;
     }
 
     .sub{
