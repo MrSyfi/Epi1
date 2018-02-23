@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="page-header">
+    <div class="page-header" style="text-align:center;">
         <h2>EpiLabel</h2>
     </div> 
 
@@ -14,6 +14,7 @@
             <asp:ListItem Text="BR"></asp:ListItem>
         </asp:DropDownList>
     </p>
+    <hr />
 
     <div class="left">
         <BR />
