@@ -4,7 +4,7 @@ $(document).ready(function () {
         $('.navbar-toggle').toggle();
     });
 
-    $("#fileUploader").filestyle({ placeholder: "No file" });
+    
 });
 
 
