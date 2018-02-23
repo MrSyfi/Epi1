@@ -6,7 +6,6 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
-using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -30,23 +29,18 @@ namespace AccessApp
             }
             else
             {
-                if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT)
-                {
-                    PopulateZPL(TB_code.Text, TB_info.Text);
-                    TB_code.Text = string.Empty;
-                    TB_info.Text = string.Empty;
-                } else
-                {
-                    TB_info.Text = "Trop long !";
-                }
+                PopulateZPL(TB_code.Text, TB_info.Text);
+                TB_code.Text = string.Empty;
+                TB_info.Text = string.Empty;
             }
         }
 
         private void PopulateZPL(string code, string info)
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
-            string txt = "^XA^FO150,25^BQN,10,5^FD" + code + "^FS^CFA,25^FO110,150^FD" + info + "^FS^XZ";
-            //Print("^XA^FO250,25^BQN,10,3^FDffffffffppppp^FS^CFA,10^FO250,100^FDppppppp^FS^XZ");
+            string txt = "^XA^FO220,25^BQN,10,4^FD" + code + "^^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + info + "^FS^XZ";
+
+            //Print("^XA^FO220,25^BQN,10,4^FDQA1 30012^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
             //Print(txt);
         }
 
