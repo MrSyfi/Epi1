@@ -29,9 +29,15 @@ namespace AccessApp
             }
             else
             {
-                PopulateZPL(TB_code.Text, TB_info.Text);
-                TB_code.Text = string.Empty;
-                TB_info.Text = string.Empty;
+                if (TB_code.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT)
+                {
+                    PopulateZPL(TB_code.Text, TB_info.Text);
+                    TB_code.Text = string.Empty;
+                    TB_info.Text = string.Empty;
+                } else
+                {
+                    TB_info.Text = "Trop long !";
+                }
             }
         }
 
