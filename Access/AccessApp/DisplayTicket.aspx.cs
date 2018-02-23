@@ -25,12 +25,34 @@ namespace AccessApp
                 }
                 else
                 {
-                    LoadData(Request.QueryString["tId"]);
+                    try
+                    {
+                        LoadData(Request.QueryString["tId"]);
+                    } catch
+                    {
+                        EmptyTable();
+                    }
                 }
             } else
             {
                 Response.Redirect("GestionMateriel.aspx", true);
             }
+
+        }
+
+        private void EmptyTable()
+        {
+                L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
+                "<tr><td data-title='Référence'>" + Consts.EMPTY_STRING + "</td></tr>" +
+                "<tr><td data-title='Création de ticket'>" + Consts.EMPTY_STRING + "</td></tr>" +
+                "<tr><td data-title='Dernière mise à jour'>" + Consts.EMPTY_STRING + "</td></tr>" +
+                "<tr><td data-title = 'cloture du ticket' >" + Consts.EMPTY_STRING + "</td></tr> " +
+                "<tr><td data-title='Appelant'> " + Consts.EMPTY_STRING + " </td></tr>" +
+                "<tr><td data-title='Agent'> " + Consts.EMPTY_STRING + "</td></tr>" +
+                "<tr><td data-title='Titre'>" + Consts.EMPTY_STRING + "</td></tr>" +
+                "<tr><td data-title='Nom de la machine'>" + Consts.EMPTY_STRING + "</td></tr>" +
+                "<tr><td data-title='Description'>" + Consts.EMPTY_STRING + "</td></tr>" +
+                "<tr><td data-title='Solution'>" + Consts.EMPTY_STRING + "</td></tr></tbody></table></div>";
 
         }
 
