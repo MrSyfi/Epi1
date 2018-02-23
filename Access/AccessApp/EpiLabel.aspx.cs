@@ -24,9 +24,15 @@ namespace AccessApp
         protected void B_afficher_Click(object sender, EventArgs e)
         {
             if (TB_code.Text == string.Empty || TB_info.Text == string.Empty)
+            {
                 System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides !')</SCRIPT>");
+            }
             else
+            {
                 PopulateZPL(TB_code.Text, TB_info.Text);
+                TB_code.Text = string.Empty;
+                TB_info.Text = string.Empty;
+            }
         }
 
         private void PopulateZPL(string code, string info)
@@ -48,17 +54,20 @@ namespace AccessApp
                 {
                     savePath += FileUploader.FileName;
                     FileUploader.SaveAs(savePath);
+
+                    foreach (string line in File.ReadLines(savePath))
+                    {
+                        string[] parts = line.Split(';');
+                        PopulateZPL(parts[0], parts[1]);
+                    }
+
+                    File.Delete(savePath);
                 }
-
-
-
-                foreach (string line in File.ReadLines(savePath))
+                else
                 {
-                    string[] parts = line.Split(';');
-                    PopulateZPL(parts[0], parts[1]);
+                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Pas de fichier !')</SCRIPT>");
                 }
-
-                File.Delete(savePath);
+                
             } catch
             {
 
