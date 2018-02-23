@@ -17,7 +17,7 @@
     <hr />
 
     <div class="left">
-        <BR />
+
         <h2> Manuellement </h2>
         <HR />
         <p>
@@ -34,7 +34,6 @@
 
     <div class="right">
   
-        <BR />
         <h2> Depuis un fichier </h2>
         <HR />
         <p>
