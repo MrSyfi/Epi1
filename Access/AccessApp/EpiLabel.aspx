@@ -29,7 +29,7 @@
             <label for="TB_info">Information</label>
             <asp:TextBox ID="TB_info" CssClass="form-control" runat="server" name="TB_info"></asp:TextBox><br />
         </p>
-        <asp:Button ID="B_afficher" CssClass="btn btn-primary sub" runat="server" OnClick="B_afficher_Click" Text="Imprimer"/> 
+         
     </div>
 
     <div class="right">
@@ -41,12 +41,19 @@
         <asp:FileUpload ID="FileUploader" runat="server" AllowMultiple="false"/><br />
         </p>
         <BR /><BR /><BR /><BR /><BR />
-        <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary sub" runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer fichier"/> 
+         
     </div>
 
-    
-    
-
+    <table width="100%">
+        <tr>
+            <td width="45%" align='right'>
+                <asp:Button ID="B_afficher" CssClass="btn btn-primary " runat="server" OnClick="B_afficher_Click" Text="Imprimer"/>
+            </td>
+            <td width="50%" align='right'>
+                <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary " runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer fichier"/>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
 
 
