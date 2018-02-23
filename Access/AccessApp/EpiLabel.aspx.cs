@@ -30,14 +30,14 @@ namespace AccessApp
             }
             else
             {
-                if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT )
+                if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT && Regex.IsMatch(TB_code.Text, "[a-zA-Z0-9]{1} ? [a-zA-Z0-9]{3} ? [a-zA-Z0-9]{2}"))
                 {
                     PopulateZPL(TB_code.Text, TB_info.Text);
                     TB_code.Text = string.Empty;
                     TB_info.Text = string.Empty;
                 } else
                 {
-                    TB_info.Text = "Trop long !";
+                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('L'un des champs ne correspond pas au format demandé.')</SCRIPT>");
                 }
             }
         }
