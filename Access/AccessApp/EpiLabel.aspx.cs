@@ -23,7 +23,9 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-            if (TB_code.Text != string.Empty && TB_info.Text != string.Empty)
+            if (TB_code.Text == string.Empty || TB_info.Text == string.Empty)
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides !')</SCRIPT>");
+            else
                 PopulateZPL(TB_code.Text, TB_info.Text);
         }
 

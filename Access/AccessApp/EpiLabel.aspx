@@ -50,7 +50,7 @@
                 <asp:Button ID="B_afficher" CssClass="btn btn-primary " runat="server" OnClick="B_afficher_Click" Text="Imprimer"/>
             </td>
             <td width="50%" align='right'>
-                <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary " runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer fichier"/>
+                <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary " runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer"/>
             </td>
         </tr>
     </table>
