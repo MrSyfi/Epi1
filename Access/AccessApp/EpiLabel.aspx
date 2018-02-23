@@ -40,6 +40,7 @@
         <p>
         <asp:FileUpload ID="FileUploader" runat="server" AllowMultiple="false"/><br />
         </p>
+        <BR /><BR /><BR /><BR /><BR />
         <asp:Button ID="B_generer_fichier" CssClass="btn btn-primary sub" runat="server" OnClick="B_generer_fichier_Click" Text="Imprimer fichier"/> 
     </div>
 
