@@ -36,6 +36,10 @@ namespace AccessApp
         public static readonly string EMPTY_STRING = " - ";
         public static readonly int LABEL_STRING_LENGHT_LIMIT = 30;
 
+        public static readonly string CONST_NETWORK_EDUC_SERVER  = "VMHUINFORV02.epicura.lan";
+        public static readonly int CONST_NETWORK_EDUC_PORT = 2607;
         
+
+
     }
 }
