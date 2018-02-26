@@ -77,7 +77,7 @@ namespace AccessApp
                 
             } catch
             {
-
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Le fichier ne respecte pas le bon format ! ')</SCRIPT>");
             }
         }
 
