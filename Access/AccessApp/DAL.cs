@@ -10,6 +10,15 @@ namespace AccessApp
     {
         private static Database _db = new Database();
 
+       
+
+        public static void Init()
+        {
+            RemoteDBConnection _rdb = new RemoteDBConnection();
+            _rdb.Connect();
+            _rdb.database.EpiDESKUConnectorLib(Consts.CONST_ORACLE_CONNECTION_STRING);
+            Database = _rdb.database;
+        }
         /* GESTION EPIACCESS */
 
         public static DataSet SelectFromSearchRequest(string search)
