@@ -9,13 +9,12 @@ namespace AccessApp
 {
     public class Database
     {
-        public static readonly string _connectionstring = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID=epidesk";
         public static OracleConnection _connection;
         
 
-        public Database()
+        public Database(string connectionString)
         {
-            _connection = new OracleConnection(_connectionstring);
+            _connection = new OracleConnection(connectionString);
             OpenConnection();
 
             // Insuficient Privileges
