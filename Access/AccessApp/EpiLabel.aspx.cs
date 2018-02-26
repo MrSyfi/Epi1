@@ -83,7 +83,8 @@ namespace AccessApp
 
         private void Print(string text)
         {
-            using (TcpClient client = new TcpClient()) {
+            using (TcpClient client = new TcpClient())
+            {
                 try
                 {
                     client.Connect(DAL.SelectPrinterIP(DDL_Printer.SelectedValue.ToString()).Tables[0].Rows[0]["VALUE"].ToString(), Consts.ZPL_PRINTERS_DEFAULT_PORT);
@@ -93,7 +94,8 @@ namespace AccessApp
                         writer.Write(text);
                         writer.Flush();
                     }
-                } catch
+                }
+                catch
                 {
                     // Possible exceptions ?!?
                 }
