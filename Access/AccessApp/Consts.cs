@@ -38,7 +38,8 @@ namespace AccessApp
 
         public static readonly string CONST_NETWORK_EDUC_SERVER  = "VMHUINFORV02.epicura.lan";
         public static readonly int CONST_NETWORK_EDUC_PORT = 2607;
-        
+        public const string CONST_NETWORK_EDUC_SERVICE_NAME = "EDSOCK";
+
 
 
     }
