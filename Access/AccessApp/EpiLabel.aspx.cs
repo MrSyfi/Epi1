@@ -45,7 +45,7 @@ namespace AccessApp
         private void PopulateZPL(string code, string info)
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
-            string txt = "^XA^FO350,25^BQN,10,4^FD" + code + "^^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + info + "^FS^XZ";
+            string txt = "^XA^FO350,25^BQN,10,4^FDQA" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + info + "^FS^XZ";
 
             //Print("^XA^FO350,25^BQN,10,4^FDQA1 30012^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
             //Print(txt);
