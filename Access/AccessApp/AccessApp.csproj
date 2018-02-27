@@ -56,7 +56,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Oracle.DataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Epi12\Access\AccessApp\Oracle.DataAccess.dll</HintPath>
+      <HintPath>.\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

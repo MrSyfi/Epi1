@@ -27,7 +27,7 @@ namespace AccessApp
         public static readonly string SITES_TABLE = "EPIDESK.SITES";
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
         public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
-        public const string CONST_ORACLE_CONNECTION_STRING = "DATA SOURCE=VMHUINFORV01.epicura.lan:1521/XEXDB;PASSWORD=TL19xPo53;USER ID=EPIDESK";
+        public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID = epidesk";
 
         /* Default Ports or Values */
         public static readonly int ZPL_PRINTERS_DEFAULT_PORT = 9100;
