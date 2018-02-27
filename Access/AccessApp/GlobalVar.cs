@@ -1,4 +1,4 @@
-﻿//using EpiDESKUConnectorLib;
+﻿using EpiDESKUConnectorLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +9,17 @@ namespace AccessApp
     public class GlobalVar
     {
 
-        //public static ED_UCDBConnection _db;
-        public static Database _db;
+        public static ED_UCDBConnection _db;
+        //public static Database _db;
 
         public static void Init()
         {
-            _db = new Database(Consts.CONST_ORACLE_CONNECTION_STRING);
-            /*
+            //_db = new Database(Consts.CONST_ORACLE_CONNECTION_STRING);
+            
             RemoteDBConnection _rdb = new RemoteDBConnection();
             _rdb.Connect();
             _rdb.EDUC.EpiDESKUConnectorLib(Consts.CONST_ORACLE_CONNECTION_STRING);
-            _db = _rdb.EDUC;*/
+            _db = _rdb.EDUC;
         }
     }
 }
