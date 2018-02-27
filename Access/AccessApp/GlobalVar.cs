@@ -12,14 +12,21 @@ namespace AccessApp
         public static ED_UCDBConnection _db;
         //public static Database _db;
 
-        public static void Init()
+        public static ED_UCDBConnection Instance
         {
-            //_db = new Database(Consts.CONST_ORACLE_CONNECTION_STRING);
-            
-            RemoteDBConnection _rdb = new RemoteDBConnection();
-            _rdb.Connect();
-            _rdb.EDUC.EpiDESKUConnectorLib(Consts.CONST_ORACLE_CONNECTION_STRING);
-            _db = _rdb.EDUC;
+            get
+            {
+                if (_db == null)
+                {
+                    RemoteDBConnection _rdb = new RemoteDBConnection();
+                    _rdb.Connect();
+                    _rdb.EDUC.EpiDESKUConnectorLib(Consts.CONST_ORACLE_CONNECTION_STRING);
+                    _db = _rdb.EDUC;
+                }
+                return _db;
+            }
         }
+
+
     }
 }
