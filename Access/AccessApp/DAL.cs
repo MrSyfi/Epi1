@@ -26,7 +26,7 @@ namespace AccessApp
                 search = "%" + search.ToUpper();
 
 
-            return GlobalVar.Instance.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE '{1}' OR UPPER(FIRST_NAME) LIKE '{2}' OR UPPER(USERNAME) LIKE '{1}' OR UPPER(SERVICE) LIKE '{1}'  OR UPPER(AR_STATUS) LIKE '{1}' OR UPPER(TICKET_ID) LIKE '{1}') AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE, search));
+            return GlobalVar.Instance.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE '{1}' OR UPPER(FIRST_NAME) LIKE '{1}' OR UPPER(USERNAME) LIKE '{1}' OR UPPER(SERVICE) LIKE '{1}'  OR UPPER(AR_STATUS) LIKE '{1}' OR UPPER(TICKET_ID) LIKE '{1}') AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE, search));
         }
 
         public static bool UpdateRequestStatus(string id, string status)
@@ -127,7 +127,7 @@ namespace AccessApp
         {
 
 
-            return GlobalVar.Instance.ExecuteQuery(string.Format("SELECT FIRST_NAME, LAST_NAME FROM {0} INNER JOIN {1} ON {0}.ID = {1}.CALLER_ID WHERE {1}.ID = :id ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, ticketID));
+            return GlobalVar.Instance.ExecuteQuery(string.Format("SELECT FIRST_NAME, LAST_NAME FROM {0} INNER JOIN {1} ON {0}.ID = {1}.CALLER_ID WHERE {1}.ID = {2} ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, ticketID));
 
         }
 
@@ -136,7 +136,7 @@ namespace AccessApp
 
 
 
-            return GlobalVar.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.TICKET_ID LIKE '1' ORDER BY {0}.TIMESTAMP DESC", Consts.COMMENTAIRE_TABLE, ticketID));
+            return GlobalVar.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.TICKET_ID LIKE '{1}' ORDER BY {0}.TIMESTAMP DESC", Consts.COMMENTAIRE_TABLE, ticketID));
         }
 
         public static DataSet SelectContact(string id)
