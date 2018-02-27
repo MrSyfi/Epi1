@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-//using EpiDESKUConnectorLib;
+using EpiDESKUConnectorLib;
 using System.Web;
 
 namespace AccessApp
 {
     public class RemoteDBConnection
-    {/*
+    {
         public ED_UCDBConnection EDUC;
         public TcpChannel ClientChannel;
         public bool Connect()
@@ -34,6 +34,6 @@ namespace AccessApp
             ChannelServices.UnregisterChannel(ClientChannel);
             ClientChannel = null;
             return true;
-        }*/
+        }
     }
 }
