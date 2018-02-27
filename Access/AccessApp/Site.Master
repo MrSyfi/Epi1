@@ -4,20 +4,20 @@
 
 <html lang="fr">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %></title>
-        
-    <webopt:bundlereference runat="server" path="~/Content/css" />
 
-	<link rel="stylesheet" href="Content/style.css">
-    
-    
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+
+    <link rel="stylesheet" href="Content/style.css">
+
+
     <link rel="icon" href="EpiDESK_Ico_8.ico" />
 </head>
 
-    
+
 <body style="background-color: #ddd;">
     <form runat="server">
         <asp:ScriptManager runat="server" EnableCdn="true">
@@ -40,43 +40,44 @@
                 <%--Scripts de site--%>
             </Scripts>
         </asp:ScriptManager>
-    
+
         <div class="row">
             <!-- NAVBAR -->
-          <div class="col-md-2 col-lg-2">
-            <div class="sidebar-nav">
-              <div class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                    <button id ="bt" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <span class="visible-xs navbar-brand">EpiDESK</span>
+            <div class="col-md-2 col-lg-2">
+                <div class="sidebar-nav">
+                    <div class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button id="bt" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="visible-xs navbar-brand">EpiDESK</span>
+                        </div>
+                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                            <img class="visible-lg visible-md" src="Epicura.png">
+                            <ul class="nav navbar-nav">
+                                <li><a runat="server" href="~/EpiStock">EpiStock</a></li>
+                                <li><a runat="server" href="~/GestionMateriel">EpiCMBD</a></li>
+                                <li><a runat="server" href="~/EpiLabel">EpiLabel</a></li>
+                                <li><a runat="server" href="~/Gestion_EpiACCESS">Gestion EpiACCESS</a></li>
+                                <li><a runat="server" href="~/EpiACCESS_Close">EpiACCESS Close</a></li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
                 </div>
-                <div class="navbar-collapse collapse sidebar-navbar-collapse">
-                  <img class="visible-lg visible-md" src="Epicura.png">
-                  <ul class="nav navbar-nav">
-                    <li><a runat="server" href="~/EpiStock" >EpiStock</a></li>
-                    <li><a runat="server" href="~/GestionMateriel" >EpiCMBD</a></li>
-                    <li><a runat="server" href="~/EpiLabel" >EpiLabel</a></li>
-                    <li><a runat="server" href="~/Gestion_EpiACCESS">Gestion EpiACCESS</a></li>
-                    <li><a runat="server" href="~/EpiACCESS_Close" >EpiACCESS Close</a></li>
-                  </ul>
-                </div><!--/.nav-collapse -->
-              </div>
             </div>
-          </div>
             <!-- PAGE / BODY -->
-          <div class="col-md-10 col-lg-10">
-            <div class="container body-content" style="background-color:#ffffff; padding: 20px; padding-top:0px;">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
+            <div class="col-md-10 col-lg-10">
+                <div class="container body-content" style="background-color: #ffffff; padding: 20px; padding-top: 0px;">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
-          </div>
         </div>
-        
+
     </form>
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/Script.js"></script>

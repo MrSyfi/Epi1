@@ -12,7 +12,7 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         //Récupére les données de la base de données
@@ -25,7 +25,7 @@ namespace AccessApp
         //Charge les données du tableau
         public void LoadTable()
         {
-            
+
             DataTable dt = null;
             if (TB_recherche.Text != string.Empty)
             {
@@ -54,7 +54,7 @@ namespace AccessApp
                 GridView1.DataBind();
 
             }
-            
+
             B_apply.Enabled = false;
             TB_resp_mail.Enabled = false;
             Reset();
@@ -97,7 +97,7 @@ namespace AccessApp
                 B_apply.Enabled = true;
 
                 Consts.MOT_DE_PASSE = PasswordGenerator.Generate();
-                
+
                 // get the text from sendemail
                 L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text));
                 B_apply.Visible = true;
@@ -117,7 +117,7 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            
+
             string username = TB_username.Text;
             string mailresp = TB_resp_mail.Text;
             string fullUserName = TB_first_name.Text + " " + TB_last_name.Text;
@@ -131,11 +131,11 @@ namespace AccessApp
             //MAIL TO AGENT / RESP
             MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff, out bool sended);
 
-            
+
             if (sended)
             {
-           
-               // ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+
+                // ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
                 // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
 
@@ -162,9 +162,8 @@ namespace AccessApp
             TB_resp_mail.Text = string.Empty;
             TB_ticket.Text = string.Empty;
             L_mail.Text = string.Empty;
-            L_preview.Visible = false;  
+            L_preview.Visible = false;
         }
 
     }
 }
- 
