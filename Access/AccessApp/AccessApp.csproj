@@ -336,7 +336,6 @@
     </Compile>
     <Compile Include="Consts.cs" />
     <Compile Include="DAL.cs" />
-    <Compile Include="Database.cs" />
     <Compile Include="DisplayTicket.aspx.cs">
       <DependentUpon>DisplayTicket.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
