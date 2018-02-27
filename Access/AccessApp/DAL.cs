@@ -177,6 +177,8 @@ namespace AccessApp
 
         public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = "")
         {
+            note = note ?? string.Empty;
+
             ArrayList parameters = new ArrayList();
             ArrayList values = new ArrayList();
 
