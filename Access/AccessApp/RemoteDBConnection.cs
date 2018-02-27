@@ -5,6 +5,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using EpiDESKUConnectorLib;
 using System.Web;
+using System.Runtime.Remoting;
 
 namespace AccessApp
 {

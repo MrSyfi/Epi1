@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Windows;
 using EpiDESKUConnectorLib;
 
 namespace AccessApp
@@ -38,7 +39,7 @@ namespace AccessApp
             parameters.Add(":status"); values.Add(status);
             parameters.Add(":id"); values.Add(id);
 
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = :status WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = '{1}' WHERE ID = {2}", Consts.ACCESS_REQUEST_TABLE, status, id));
         }
 
         public static bool UpdateRespEmail(string id, string email)
@@ -49,7 +50,7 @@ namespace AccessApp
             parameters.Add(":email"); values.Add(email);
             parameters.Add(":id"); values.Add(id);
 
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET RESP_EMAIL = :email WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET RESP_EMAIL = :email WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), values, parameters);
         }
 
         /* EPIACCESS_CLOSE */
@@ -87,7 +88,7 @@ namespace AccessApp
             parameters.Add(":lastUpdate"); values.Add(DateTime.Now.ToString());
             parameters.Add(":id"); values.Add(ticketID);
 
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = :res, LAST_UPDATE_TS = :lastUpdate WHERE ID = :id", Consts.TICKETS_TABLE), parameters, values);
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = :res, LAST_UPDATE_TS = :lastUpdate WHERE ID = :id", Consts.TICKETS_TABLE), values, parameters);
         }
 
         /* EPI_CMDB */
@@ -168,29 +169,26 @@ namespace AccessApp
         /// <returns></returns>
         public static bool InsertLocalisationId(string localisation, string idOp)
         {
-            ArrayList parameters = new ArrayList();
-            ArrayList values = new ArrayList();
-
-            parameters.Add(":loc"); values.Add(localisation);
-            parameters.Add(":sign"); values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
-
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(LOCALISATION_ID, ORG_ID, WING, FLOOR, STATUS, ESIGN) VALUES (:loc,0,0,0,0,:sign)", Consts.LOCALISATION_TABLE), parameters, values);
+          
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0} VALUES (null, '{1}',0,0,0,0,'{2}')", Consts.LOCALISATION_TABLE, localisation, SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString()));
         }
 
-        public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = "")
+        public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = null)
         {
-            ArrayList parameters = new ArrayList();
-            ArrayList values = new ArrayList();
 
-            parameters.Add(":epiid"); values.Add(epiid);
-            parameters.Add(":opid"); values.Add(idOp);
-            parameters.Add(":dateOp"); values.Add(DateTime.Now.ToString());
-            parameters.Add(":status"); values.Add(statut);
-            parameters.Add(":idLoc"); values.Add(localisationId);
-            parameters.Add(":note"); values.Add(note);
-            parameters.Add(":sign"); values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
-
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES (:epiid, :opid, :dateOp, :status, :idLoc, 0, :note, 0, :sign)", Consts.HISTORIC_TABLE), parameters, values);
+            note = note ?? string.Empty;
+            
+            string msg = string.Format("INSERT INTO {0} VALUES(null, {1},{2},'{3}','{4}',{5},0,'{6}',0,'{7}')", Consts.HISTORIC_TABLE, epiid, idOp, DateTime.Now.ToString(), statut, localisationId, note, SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
+            MessageBox.Show(msg);
+            //INSERT INTO HISTORIC VALUES(null,3822,177,'27/02/2018 13:46:33','STOCKED',181,0,'TEST',0,'Marid2607');
+            try
+            {
+                return GlobalVar.Instance.ExecuteNonQuery(msg);
+            } catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+                return false;
+            }
         }
 
         public static bool UpdateStockStatus(string epiid, string statut)
@@ -202,7 +200,8 @@ namespace AccessApp
             parameters.Add(":statut"); values.Add(statut);
             parameters.Add(":id"); values.Add(epiid);
 
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET {0}.STOCK_STATUS = :statut WHERE {0}.EPIID LIKE :id", Consts.STOCK_TABLE), parameters, values);
+            
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET {0}.STOCK_STATUS = :statut WHERE {0}.EPIID LIKE {1}", Consts.STOCK_TABLE, epiid), values, parameters);
         }
 
         public static DataSet GetProduct(string EpiId)
