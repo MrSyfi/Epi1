@@ -36,9 +36,9 @@ namespace AccessApp
             ArrayList values = new ArrayList();
 
             parameters.Add(":status"); values.Add(status);
-            parameters.Add(":id"); values.Add(id);
+   
 
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = :status WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET AR_STATUS = :status WHERE ID = {1}", Consts.ACCESS_REQUEST_TABLE, id), parameters, values);
         }
 
         public static bool UpdateRespEmail(string id, string email)
@@ -47,9 +47,8 @@ namespace AccessApp
             ArrayList values = new ArrayList();
 
             parameters.Add(":email"); values.Add(email);
-            parameters.Add(":id"); values.Add(id);
 
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET RESP_EMAIL = :email WHERE ID = :id", Consts.ACCESS_REQUEST_TABLE), parameters, values);
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET RESP_EMAIL = :email WHERE ID = {1}", Consts.ACCESS_REQUEST_TABLE, id), parameters, values);
         }
 
         /* EPIACCESS_CLOSE */
@@ -85,9 +84,8 @@ namespace AccessApp
             parameters.Add(":gen"); values.Add(gen);
             parameters.Add(":res"); values.Add(DateTime.Now.ToString());
             parameters.Add(":lastUpdate"); values.Add(DateTime.Now.ToString());
-            parameters.Add(":id"); values.Add(ticketID);
 
-            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = :res, LAST_UPDATE_TS = :lastUpdate WHERE ID = :id", Consts.TICKETS_TABLE), parameters, values);
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = :res, LAST_UPDATE_TS = :lastUpdate WHERE ID = {1}", Consts.TICKETS_TABLE, ticketID), parameters, values);
         }
 
         /* EPI_CMDB */
