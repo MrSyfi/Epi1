@@ -1,12 +1,12 @@
-﻿<%@ Page Title="EpiACCESS Close" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiACCESS_Close.aspx.cs" Inherits="AccessApp.EpiACCESS_Close" enableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="EpiACCESS Close" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiACCESS_Close.aspx.cs" Inherits="AccessApp.EpiACCESS_Close" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-   
-    <div class="page-header" style="text-align:center;">
+
+    <div class="page-header" style="text-align: center;">
         <h2>Fermeture EpiACCESS</h2>
-    </div>  
-        
+    </div>
+
     <br />
     <table>
         <tr>
@@ -28,8 +28,9 @@
         </tr>
     </table>
 
-     <hr />
-    <h4><i><asp:Label runat="server" ID="L_result">Pas de résultat...</asp:Label></i></h4>
+    <hr />
+    <h4><i>
+        <asp:Label runat="server" ID="L_result">Pas de résultat...</asp:Label></i></h4>
     <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnPageIndexChanging="OnPaging" runat="server" AllowPaging="true" PageSize="10" OnRowCreated="GridView1_RowCreated" OnRowCommand="GridView1_RowCommand" AutoPostBack="false">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="ID" />
@@ -41,7 +42,7 @@
             <asp:BoundField DataField="AR_STATUS" HeaderText="Statut" />
             <asp:BoundField DataField="RESP_EMAIL" HeaderText="Email Resp." />
             <asp:BoundField DataField="TICKET_ID" HeaderText="ID Ticket" />
-         </Columns>
+        </Columns>
 
     </asp:GridView>
 
@@ -55,39 +56,40 @@
             <th>Service</th>
         </tr>
         <tr>
-            <td> 
-                <asp:TextBox ID="TB_id" CssClass="form-control input-lg" runat="server"  Enabled="false" name="TB_id"></asp:TextBox>
+            <td>
+                <asp:TextBox ID="TB_id" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_id"></asp:TextBox>
             </td>
-            <td> 
+            <td>
                 <asp:TextBox ID="TB_last_name" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_last_name"></asp:TextBox>
             </td>
-            <td> 
+            <td>
                 <asp:TextBox ID="TB_first_name" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_first_name"></asp:TextBox>
             </td>
-            <td> 
+            <td>
                 <asp:TextBox ID="TB_username" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_username"></asp:TextBox>
             </td>
-            <td> 
+            <td>
                 <asp:TextBox ID="TB_service" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_service"></asp:TextBox>
             </td>
         </tr>
-        <tr>    
-            <td> 
+        <tr>
+            <td>
                 <label for="TB_ticket">ID Ticket</label>
                 <asp:TextBox ID="TB_ticket" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_ticket"></asp:TextBox>
             </td>
-             <td colspan="2"> 
+            <td colspan="2">
                 <label for="TB_resp_mail">Mail du responsable</label>
                 <asp:TextBox ID="TB_resp_mail" CssClass="form-control input-lg" runat="server" Enabled="false" name="TB_resp_mail" TextMode="Email"></asp:TextBox>
             </td>
         </tr>
     </table>
     <hr />
-    <h4><asp:Label runat="server" Text="Preview de l'émail généré : " ID="L_preview" Visible="false"></asp:Label></h4>
+    <h4>
+        <asp:Label runat="server" Text="Preview de l'émail généré : " ID="L_preview" Visible="false"></asp:Label></h4>
     <br />
     <asp:Literal runat="server" ID="L_mail" Mode="Transform"></asp:Literal>
 
-    <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Fermer la demande d'accès"  Visible="false" style="float: right;"/>
+    <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Fermer la demande d'accès" Visible="false" Style="float: right;" />
 
 
 </asp:Content>

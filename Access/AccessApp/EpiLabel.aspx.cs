@@ -35,7 +35,8 @@ namespace AccessApp
                     PopulateZPL(TB_code.Text, TB_info.Text);
                     TB_code.Text = string.Empty;
                     TB_info.Text = string.Empty;
-                } else
+                }
+                else
                 {
                     System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('L'un des champs ne correspond pas au format demandé.')</SCRIPT>");
                 }
@@ -74,8 +75,9 @@ namespace AccessApp
                 {
                     System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Pas de fichier !')</SCRIPT>");
                 }
-                
-            } catch
+
+            }
+            catch
             {
                 System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Le fichier ne respecte pas le bon format ! ')</SCRIPT>");
             }
@@ -103,6 +105,6 @@ namespace AccessApp
 
         }
 
-        
+
     }
 }

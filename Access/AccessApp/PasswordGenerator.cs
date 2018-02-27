@@ -17,7 +17,7 @@ namespace AccessApp
             char[] voyellesArray = "aeuioAEUO".ToCharArray();
             char[] consonneArray = "bcdfghjkmnpqrstvzBCDFGHJKLMNPQRSTVZ".ToCharArray();
             char[] password = new char[lenght];
-            
+
 
             Random rnd = new Random();
 
@@ -41,8 +41,8 @@ namespace AccessApp
             }
             return new string(password);
         }
-  
-       
+
+
 
     }
 }

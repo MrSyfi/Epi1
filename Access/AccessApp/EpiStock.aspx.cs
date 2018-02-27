@@ -45,24 +45,24 @@ namespace AccessApp
                     }
                     Consts.ID_LOCALISATION = locId;
 
-                   
+
                     if (DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, Consts.ID_LOCALISATION) && DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString()))
                     {
                         System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Mise à jour effectuée.')</SCRIPT>");
                     }
 
-                  
+
 
                     Reset();
                     SetFocus();
                 }
-                
+
             }
         }
 
         protected void TB_id_materiel_TextChanged(object sender, EventArgs e)
         {
-            
+
             string tmp = "";
             // Reset the obsolete literal when the user change of epiid
             L_obsolete.Text = "";
@@ -86,21 +86,21 @@ namespace AccessApp
                 {
                     if (statut == "STOCKED")
                     {
-                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR","OBSOLETE" };
+                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR", "OBSOLETE" };
 
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
                     else if (statut == "INSTALLED")
                     {
-                        string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR","OBSOLETE" };
+                        string[] tab_status = new string[] { "STOCKED", "UNDER_REPAIR", "OBSOLETE" };
 
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
                     }
                     else if (statut == "UNDER_REPAIR")
                     {
-                        string[] tab_status = new string[] { "STOCKED", "INSTALLED","OBSOLETE" };
+                        string[] tab_status = new string[] { "STOCKED", "INSTALLED", "OBSOLETE" };
 
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
@@ -124,13 +124,13 @@ namespace AccessApp
                     TB_id_materiel.Text = string.Empty;
                     SetFocus();
                 }
-                
+
             }
             else
             {
                 B_apply.Enabled = false;
                 DDL_status.Enabled = false;
-                
+
                 System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('EpiID incorrect !')</SCRIPT>");
                 TB_id_materiel.Text = string.Empty;
                 SetFocus();
@@ -173,7 +173,7 @@ namespace AccessApp
             {
                 SetFocus();
             }
-            
+
         }
 
         protected void TB_id_local_TextChanged(object sender, EventArgs e)
@@ -184,7 +184,7 @@ namespace AccessApp
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
         {
             // An obsolete object don't have any location..
-            if(((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
+            if (((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
             {
                 TB_id_local.Enabled = false;
                 B_apply.Enabled = false;
@@ -213,12 +213,12 @@ namespace AccessApp
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr></tbody></table></div>";
             B_obsolete.Visible = true;
-                    
+
         }
 
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
- 
+
             // Envoi Mail au responsable
             DataSet ds = DAL.GetProductPerEpiId(TB_id_materiel.Text);
             string model = ds.Tables[0].Rows[0]["MODELE"].ToString();
@@ -240,7 +240,7 @@ namespace AccessApp
             Reset();
             SetFocus();
 
-            
+
         }
     }
 }
