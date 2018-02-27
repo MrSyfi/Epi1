@@ -175,7 +175,7 @@ namespace AccessApp
             return GlobalVar.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(LOCALISATION_ID, ORG_ID, WING, FLOOR, STATUS, ESIGN) VALUES (:loc,0,0,0,0,:sign)", Consts.LOCALISATION_TABLE), parameters, values);
         }
 
-        public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = "")
+        public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = null)
         {
             note = note ?? string.Empty;
 
