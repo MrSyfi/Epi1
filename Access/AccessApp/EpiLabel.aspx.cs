@@ -24,6 +24,26 @@ namespace AccessApp
 
         }
 
+        static string RemoveDiacritics(string info)
+        {
+    
+            string nchaine = "";
+            for (int i = 0; i < info.Length; i++)
+            {
+                byte k = (byte)info[i];
+                if (k == 32) nchaine += " ";
+                else if (k > 223 && k < 231) nchaine += "a";
+                else if(k > 231 && k < 236) nchaine += "e";
+                else if(k > 235 && k < 240) nchaine += "i";
+                else if(k > 241 && k < 247) nchaine += "o";
+                else if(k > 248 && k < 253) nchaine += "u";
+                else if(k == 231) nchaine += "c";
+                else nchaine += info[i];
+            }
+          
+            return nchaine;
+        }
+
         protected void B_afficher_Click(object sender, EventArgs e)
         {
             if (TB_code.Text == string.Empty || TB_info.Text == string.Empty)
@@ -47,14 +67,13 @@ namespace AccessApp
 
         private void PopulateZPL(string code, string info)
         {
+            
+
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
-            string txt = "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + info + "^FS^XZ";
-            byte[] tmp;
-            tmp = Encoding.GetEncoding("ISO-8859-8").GetBytes(txt);
-            string str2 = Encoding.UTF8.GetString(tmp);
-            MessageBox.Show(str2);
+            string txt = "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + RemoveDiacritics(info) + "^FS^XZ";
+          
             //Print("^XA^FO350,25^BQN,10,4^FDHM,A 3-001-2^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
-           // Print(str2);
+            Print(txt);
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
@@ -68,9 +87,11 @@ namespace AccessApp
                     savePath += FileUploader.FileName;
                     FileUploader.SaveAs(savePath);
 
-                    foreach (string line in File.ReadLines(savePath, Encoding.UTF8))
+                    foreach (string line in File.ReadLines(savePath, Encoding.UTF7))
                     {
+                      
                         string[] parts = line.Split(';');
+                        
                         PopulateZPL(parts[0], parts[1]);
                     }
 
