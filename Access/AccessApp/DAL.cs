@@ -176,24 +176,10 @@ namespace AccessApp
             return GlobalVar.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(LOCALISATION_ID, ORG_ID, WING, FLOOR, STATUS, ESIGN) VALUES (:loc,0,0,0,0,:sign)", Consts.LOCALISATION_TABLE), values, parameters);
         }
 
-        public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = null)
+        public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = "")
         {
-            note = note ?? string.Empty;
 
-            ArrayList parameters = new ArrayList();
-            ArrayList values = new ArrayList();
-
-            parameters.Add(":epiid"); values.Add(epiid);
-            parameters.Add(":opid"); values.Add(idOp);
-            parameters.Add(":dateOp"); values.Add(DateTime.Now.ToString());
-            parameters.Add(":status"); values.Add(statut);
-            parameters.Add(":idLoc"); values.Add(localisationId);
-            parameters.Add(":note"); values.Add(note);
-            parameters.Add(":sign"); values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
-
-            string query = string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES (:epiid, :opid, :dateOp, :status, :idLoc, 0, :note, 0, :sign)", Consts.HISTORIC_TABLE);
-            MessageBox.Show(query);
-            return GlobalVar.Instance.ExecuteNonQuery(query, values, parameters);
+            return GlobalVar.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES ({1}, {2}, SYSDATE, '{3}', {4}, 0, '{5}', 0, '{6}')", Consts.HISTORIC_TABLE, epiid, idOp, statut, localisationId, note, SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString()));
         }
 
         public static bool UpdateStockStatus(string epiid, string statut)
