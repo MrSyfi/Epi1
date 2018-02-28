@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
@@ -46,11 +48,11 @@ namespace AccessApp
         private void PopulateZPL(string code, string info)
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
-            string txt = "^XA^FO350,25^BQN,10,4^FDQA1" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + info + "^FS^XZ";
+            string txt = "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + info + "^FS^XZ";
 
-            //Print("^XA^FO350,25^BQN,10,4^FDQA1 30012^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
+            //Print("^XA^FO350,25^BQN,10,4^FDHM,A 3-001-2^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
             MessageBox.Show(txt);
-           // Print(txt);
+            Print(txt);
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace AccessApp
                     savePath += FileUploader.FileName;
                     FileUploader.SaveAs(savePath);
 
-                    foreach (string line in File.ReadLines(savePath))
+                    foreach (string line in File.ReadLines(savePath, Encoding.UTF8))
                     {
                         string[] parts = line.Split(';');
                         PopulateZPL(parts[0], parts[1]);
@@ -92,7 +94,7 @@ namespace AccessApp
                 {
                     client.Connect(DAL.SelectPrinterIP(DDL_Printer.SelectedValue.ToString()).Tables[0].Rows[0]["VALUE"].ToString(), Consts.ZPL_PRINTERS_DEFAULT_PORT);
 
-                    using (StreamWriter writer = new StreamWriter(client.GetStream(), System.Text.Encoding.UTF8))
+                    using (StreamWriter writer = new StreamWriter(client.GetStream()))
                     {
                         
                         writer.Write(text);
