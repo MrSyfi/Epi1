@@ -27,7 +27,7 @@ namespace AccessApp
         static string RemoveDiacritics(string info)
         {
     
-            string nchaine = "";
+            string nchaine = string.Empty;
             for (int i = 0; i < info.Length; i++)
             {
                 byte k = (byte)info[i];
