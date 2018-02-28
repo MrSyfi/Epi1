@@ -73,7 +73,7 @@ namespace AccessApp
             string txt = "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + RemoveDiacritics(info) + "^FS^XZ";
           
             //Print("^XA^FO350,25^BQN,10,4^FDHM,A 3-001-2^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
-            Print(txt);
+            //Print(txt);
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
