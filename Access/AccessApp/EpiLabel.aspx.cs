@@ -49,7 +49,8 @@ namespace AccessApp
             string txt = "^XA^FO350,25^BQN,10,4^FDQA1" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + info + "^FS^XZ";
 
             //Print("^XA^FO350,25^BQN,10,4^FDQA1 30012^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
-            //Print(txt);
+            MessageBox.Show(txt);
+           // Print(txt);
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
@@ -91,8 +92,9 @@ namespace AccessApp
                 {
                     client.Connect(DAL.SelectPrinterIP(DDL_Printer.SelectedValue.ToString()).Tables[0].Rows[0]["VALUE"].ToString(), Consts.ZPL_PRINTERS_DEFAULT_PORT);
 
-                    using (StreamWriter writer = new StreamWriter(client.GetStream()))
+                    using (StreamWriter writer = new StreamWriter(client.GetStream(), System.Text.Encoding.UTF8))
                     {
+                        
                         writer.Write(text);
                         writer.Flush();
                     }
