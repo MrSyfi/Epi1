@@ -10,15 +10,16 @@ Développement de l'outil effectué en ASP.NET WebForms, impliquant l'utilisatio
 Le préfixe « EPI » n'est pas nécessaire pour le bon fonctionnement de l'interface.
 
 
-
-
-
-
-
 Après encodage de l'Epi Id, l'interface affiche l'état actuel de l'objet ainsi que son historique. Si l'objet est actuellement en transit, il est possible d'afficher le ticket lié au déplacement de ce matériel en appuyant simplement sur le numéro de celui-ci. (cf. DisplayTicket).
 Back End
 Utilisation des langages C#, SQL.
 Méthode permettant de rechercher l'historique et les informations d'un produit par son Epi Id. 
+
+
+
+
+
+
 
 
 Display Ticket
@@ -34,6 +35,11 @@ Back End
 
 Utilisation des langages C# et SQL.
 Méthode permettant de récupérer les détails du ticket, de l'appelant, de l'agent et les commentaires liés à ce ticket.
+
+
+
+
+
 
 
 
