@@ -49,10 +49,12 @@ namespace AccessApp
         {
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
             string txt = "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + info + "^FS^XZ";
-
+            byte[] tmp;
+            tmp = Encoding.GetEncoding("ISO-8859-8").GetBytes(txt);
+            string str2 = Encoding.UTF8.GetString(tmp);
+            MessageBox.Show(str2);
             //Print("^XA^FO350,25^BQN,10,4^FDHM,A 3-001-2^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
-            MessageBox.Show(txt);
-            Print(txt);
+           // Print(str2);
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
