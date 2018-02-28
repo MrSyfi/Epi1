@@ -57,9 +57,9 @@ namespace AccessApp
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
         {
+            String savePath = Server.MapPath("~/");
             try
             {
-                String savePath = Server.MapPath("~/");
 
                 if (FileUploader.HasFile)
                 {
@@ -82,6 +82,7 @@ namespace AccessApp
             }
             catch
             {
+                File.Delete(savePath);
                 System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Le fichier ne respecte pas le bon format ! ')</SCRIPT>");
             }
         }
