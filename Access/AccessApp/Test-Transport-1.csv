@@ -1,0 +1,65 @@
+8-139-01;EPI Call-center IN
+1-020-01;BAU Economat IN
+1-014-01;BAU Salle OP BQO1 IN 
+1-022-01;BAU Infographie IN
+1-021-01;BAU Pharma IN
+1-028-01;BAU Labo frigo  IN
+1-030-01;BAU Labo encodage  IN
+1-032-01;BAU Labo prélèv Hor-Bau IN
+1-034-01;BAU Labo prélèv Ath-Bau IN
+1-035-01;BAU Labo prélèv Bel-Bau IN
+1-066-01;BAU Call-center IN
+1-018-01;BAU Stérili IN
+2-092-01;ATH Labo prélèv IN
+2-093-01;ATH Labo frigo  IN
+2-095-01;ATH Labo prélèv Hor-Ath IN
+2-097-01;ATH Labo prélèv Bau-Ath IN
+2-098-01;ATH Labo anapath IN
+2-100-01;ATH Quais déchargement IN
+2-066-01;ATH Call-center IN
+2-105-01;ATH Valise cardio Ath-Bel IN 
+2-106-01;ATH Valise local IN 
+2-021-01;ATH Pharma IN
+2-018-01;ATH Stérili IN
+2-077-01;ATH Bac anapath IN
+2-063-01;ATH Cuisine IN
+2-014-01;ATH Salle OP AQO1 IN
+3-113-01;BEL Local courrier IN
+3-111-01;BEL Biomed IN
+3-063-01;BEL Cuisine IN
+3-106-01;BEL Valise local IN
+3-105-01;BEL Valise cardio Ath-Bel IN
+3-108-01;BEL Pharma bac revali IN
+3-112-01;BEL Frigo p de sang IN
+8-139-02;EPI Call-center OUT
+1-020-02;BAU Economat OUT
+1-014-02;BAU Salle OP BQO1 OUT 
+1-022-02;BAU Infographie OUT
+1-021-02;BAU Pharma OUT
+1-028-02;BAU Labo frigo OUT
+1-029-02;BAU Labo transfusion OUT
+1-030-02;BAU Labo encodage OUT
+1-031-02;BAU Labo prélèv Bau-Hor OUT
+1-033-02;BAU Labo prélèv Bau-Ath OUT
+1-066-02;BAU Call-center OUT
+1-018-02;BAU Stérili OUT
+2-093-02;ATH Labo frigo OUT
+2-094-02;ATH Labo prélèv Ath-Hor OUT
+2-096-02;ATH Labo prélèv Ath-Bau OUT
+2-098-02;ATH Labo anapath OUT
+2-100-02;ATH Quais déchargement OUT
+2-066-02;ATH Call-center OUT
+2-105-02;ATH Valise cardio Ath-Bel OUT 
+2-106-02;ATH Valise local OUT 
+2-021-02;ATH Pharma OUT
+2-018-02;ATH Stérili OUT
+2-077-02;ATH Bac anapath OUT
+2-063-02;ATH Cuisine OUT
+2-014-02;ATH Salle OP AQO1 OUT
+3-113-02;BEL Local courrier OUT
+3-111-02;BEL Biomed OUT
+3-063-02;BEL Cuisine OUT
+3-106-02;BEL Valise local OUT
+3-105-02;BEL Valise cardio Ath-Bel OUT
+3-108-02;BEL Pharma bac revali OUT
+3-112-02;BEL Frigo p de sang OUT

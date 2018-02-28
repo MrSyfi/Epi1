@@ -65,20 +65,21 @@ namespace AccessApp
             }
         }
 
-        private void PopulateZPL(string code, string info)
+        private string PopulateZPL(string code, string info)
         {
             
 
             // Code QR en ZPL : ^XA^FO100,100^BQN,2,10^FDYourTextHere^FS^XZ
-            string txt = "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + RemoveDiacritics(info) + "^FS^XZ";
-          
-            //Print("^XA^FO350,25^BQN,10,4^FDHM,A 3-001-2^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
+            return "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + RemoveDiacritics(info) + "^FS^XZ";
+  
+            //Print("^XA^FO350,25^BQN,10,4^FDHM,A 3-001-2^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ^XA^FO350,25^BQN,10,4^FDHM,A 3-001-2^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FDAZERTYUIOPAZERTYUIOPAZERTYUIOP^FS^XZ");
             //Print(txt);
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
         {
             String savePath = Server.MapPath("~/");
+            
             try
             {
 
@@ -86,15 +87,16 @@ namespace AccessApp
                 {
                     savePath += FileUploader.FileName;
                     FileUploader.SaveAs(savePath);
+                    string result = string.Empty;
 
                     foreach (string line in File.ReadLines(savePath, Encoding.UTF7))
                     {
                       
                         string[] parts = line.Split(';');
                         
-                        PopulateZPL(parts[0], parts[1]);
+                        result += PopulateZPL(parts[0], parts[1]);
                     }
-
+                    Print(result);
                     File.Delete(savePath);
                 }
                 else
