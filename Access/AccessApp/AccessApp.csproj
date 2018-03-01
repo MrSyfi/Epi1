@@ -330,8 +330,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Consts.cs" />
-    <Compile Include="DAL.cs" />
+    <Compile Include="Utils\Consts.cs" />
+    <Compile Include="Utils\DAL.cs" />
     <Compile Include="DisplayTicket.aspx.cs">
       <DependentUpon>DisplayTicket.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,11 +377,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="DBConnection.cs" />
-    <Compile Include="MailSender.cs" />
-    <Compile Include="PasswordGenerator.cs" />
+    <Compile Include="Utils\DBConnection.cs" />
+    <Compile Include="Utils\MailSender.cs" />
+    <Compile Include="Utils\PasswordGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemoteDBConnection.cs" />
+    <Compile Include="Utils\RemoteDBConnection.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
