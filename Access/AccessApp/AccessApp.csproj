@@ -269,6 +269,7 @@
     <Content Include="Content\style.css" />
     <Content Include="DisplayTicket.aspx" />
     <Content Include="EpiACCESS_Close.aspx" />
+    <Content Include="Image\deleteobsolete.png" />
     <Content Include="Image\Epicura.png" />
     <Content Include="Image\EpiDESK_Ico_8.ico" />
     <Content Include="EpiLabel.aspx" />
@@ -286,6 +287,11 @@
     <None Include="Connected Services\EpiService\MyServices.wsdl" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Image\installed.png" />
+    <Content Include="Image\instock.png" />
+    <Content Include="Image\label.png" />
+    <Content Include="Image\outstock.png" />
+    <Content Include="Image\repair.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
