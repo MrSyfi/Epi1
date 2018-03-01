@@ -44,7 +44,7 @@ namespace AccessApp
                 if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT && TB_code.Text.Length <= Consts.LABEL_QR_LENGHT_LIMIT)
                 {
                     string txt = PopulateZPL(TB_code.Text, TB_info.Text);
-                    //Print(txt);
+                    Print(txt);
                     TB_code.Text = string.Empty;
                     TB_info.Text = string.Empty;
                 }
