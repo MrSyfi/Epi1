@@ -8,8 +8,8 @@ namespace AccessApp
         public static string Generate(int lenght = 8)
         {
             // Certaines lettres ont été retirées car pouvant rendre le mot de passe difficile à prononcer ou pouvant être confondues (l et I)
-            char[] voyellesArray = "aeuioAEUO".ToCharArray();
-            char[] consonneArray = "bcdfghjkmnpqrstvzBCDFGHJKLMNPQRSTVZ".ToCharArray();
+            char[] voyellesArray = "aeuio".ToCharArray();
+            char[] consonneArray = "bcdfghjkmnpqrstvz".ToCharArray();
             char[] password = new char[lenght];
 
 
@@ -23,12 +23,12 @@ namespace AccessApp
             {
                 if (voyelle)
                 {
-                    int voyelNumber = rnd.Next(0, 9);
+                    int voyelNumber = rnd.Next(0, 5);
                     password[i] = voyellesArray[voyelNumber];
                 }
                 else
                 {
-                    int consonneNumber = rnd.Next(0, 33);
+                    int consonneNumber = rnd.Next(0, 17);
                     password[i] = consonneArray[consonneNumber];
                 }
                 voyelle = !voyelle;
