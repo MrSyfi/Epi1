@@ -154,8 +154,6 @@ namespace AccessApp
                 TB_id_materiel.Focus();
             else if (TB_id_local.Text == string.Empty)
                 TB_id_local.Focus();
-            else if (TB_note.Text == string.Empty)
-                TB_note.Focus();
         }
 
         protected void TB_id_resp_TextChanged(object sender, EventArgs e)

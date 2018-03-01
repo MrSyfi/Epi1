@@ -49,7 +49,7 @@ namespace AccessApp
                 {
                     if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT && TB_code.Text.Length <= Consts.LABEL_QR_LENGHT_LIMIT)
                     {
-                        //Print(PopulateZPL(TB_code.Text, TB_info.Text));
+                        Print(PopulateZPL(TB_code.Text, TB_info.Text));
                         TB_code.Text = string.Empty;
                         TB_info.Text = string.Empty;
                     }
@@ -89,7 +89,7 @@ namespace AccessApp
 
                             result += PopulateZPL(parts[0], parts[1]);
                         }
-                        //Print(result);
+                        Print(result);
                         File.Delete(savePath);
                     }
                     else
