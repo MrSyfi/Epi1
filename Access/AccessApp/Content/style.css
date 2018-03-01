@@ -26,6 +26,7 @@ body {
 }
 
 .navbar-brand {
+    margin: auto;
     width: 25%;
     height: auto;
 }
