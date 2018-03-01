@@ -4,7 +4,7 @@
     {
         // OTHERS
 
-        public static bool isAffiche = false;
+        
         public static string MOT_DE_PASSE;
         public static string ID_LOCALISATION;
 
