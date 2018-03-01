@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="EpiLabel" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiLabel.aspx.cs" Inherits="AccessApp.EpiLabel" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
-
+<a href="Content/">Content/</a>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-header" style="text-align: center;">
@@ -19,7 +19,8 @@
 
     <div class="left">
 
-        <h2>Manuellement </h2>
+        <h2>Manuellement</h2>
+
         <hr />
         <p>
             <label for="TB_code">Code QR</label>
