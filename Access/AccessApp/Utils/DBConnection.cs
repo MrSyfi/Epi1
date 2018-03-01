@@ -5,7 +5,7 @@ namespace AccessApp
     public class DBConnection
     {
 
-        private static ED_UCDBConnection _db;
+        private static ED_UCDBConnection _db = null;
 
         public static ED_UCDBConnection Instance
         {
