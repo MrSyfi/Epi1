@@ -12,7 +12,7 @@ namespace AccessApp
 
         }
 
-        static string RemoveDiacritics(string info)
+        static string RemoveAccent(string info)
         {
     
             string nchaine = string.Empty;
@@ -56,13 +56,13 @@ namespace AccessApp
         private string PopulateZPL(string code, string info)
         {
 
-            return "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + RemoveDiacritics(info) + "^FS^XZ";
+            return "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + RemoveAccent(info) + "^FS^XZ";
 
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
         {
-            String savePath = Server.MapPath("~/");
+            string savePath = Server.MapPath("~/");
             
             try
             {
