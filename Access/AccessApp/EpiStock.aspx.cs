@@ -6,7 +6,6 @@ namespace AccessApp
 {
     public partial class EpiStock : System.Web.UI.Page
     {
-        //http://support.epicura.lan/epicmdb/main.php
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -59,14 +58,18 @@ namespace AccessApp
         protected void TB_id_materiel_TextChanged(object sender, EventArgs e)
         {
 
-            string tmp = "";
+            string tmp = string.Empty;
             // Reset the obsolete literal when the user change of epiid
-            L_obsolete.Text = "";
+            L_obsolete.Text = string.Empty;
             B_obsolete.Visible = false;
+
+
             if (TB_id_materiel.Text.Length > 3 && (TB_id_materiel.Text.ToUpper().StartsWith("EPI")))
                 tmp = TB_id_materiel.Text.Substring(3);
             else if (TB_id_materiel.Text.Length > 0)
                 tmp = TB_id_materiel.Text;
+
+
 
             DataSet ds = DAL.GetProduct(tmp);
 
@@ -203,7 +206,7 @@ namespace AccessApp
 
         private void PopulateObsolete(DataSet ds)
         {
-            L_obsolete.Text = "";
+            L_obsolete.Text = string.Empty;
             L_obsolete.Text += "<br/><hr/><div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                     "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
