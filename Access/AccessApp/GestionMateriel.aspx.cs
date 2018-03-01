@@ -58,12 +58,12 @@ namespace AccessApp
                 L_Histo.Text += "<div class='cd-timeline-block'>";
                 switch (row["STATUS_TO"].ToString())
                 {
-                    case "STOCKED": L_Histo.Text += "<div class='cd-timeline-img cd-stocked'><img src='instock.png' alt='stocked'></div>"; break;
-                    case "TRANSIT": L_Histo.Text += "<div class='cd-timeline-img cd-transit'><img src='outstock.png' alt='transit'></div>"; break;
-                    case "INSTALLED": L_Histo.Text += "<div class='cd-timeline-img cd-installed'><img src='installed.png' alt='installed'></div>"; break;
-                    case "UNDER_REPAIR": L_Histo.Text += "<div class='cd-timeline-img cd-repairing'><img src='repair.png' alt='repairing'></div>"; break;
-                    case "OBSOLETE": L_Histo.Text += "<div class='cd-timeline-img cd-obsolete'><img src='deleteobsolete.png' alt='obsolete'></div>"; break;
-                    case "COPY_LBL": L_Histo.Text += "<div class='cd-timeline-img cd-label'><img src='label.png' alt='label'></div>"; break;
+                    case "STOCKED": L_Histo.Text += "<div class='cd-timeline-img cd-stocked'><img src='Image/instock.png' alt='stocked'></div>"; break;
+                    case "TRANSIT": L_Histo.Text += "<div class='cd-timeline-img cd-transit'><img src='Image/outstock.png' alt='transit'></div>"; break;
+                    case "INSTALLED": L_Histo.Text += "<div class='cd-timeline-img cd-installed'><img src='Image/installed.png' alt='installed'></div>"; break;
+                    case "UNDER_REPAIR": L_Histo.Text += "<div class='cd-timeline-img cd-repairing'><img src='Image/repair.png' alt='repairing'></div>"; break;
+                    case "OBSOLETE": L_Histo.Text += "<div class='cd-timeline-img cd-obsolete'><img src='Image/deleteobsolete.png' alt='obsolete'></div>"; break;
+                    case "COPY_LBL": L_Histo.Text += "<div class='cd-timeline-img cd-label'><img src='Image/label.png' alt='label'></div>"; break;
                 }
 
 
