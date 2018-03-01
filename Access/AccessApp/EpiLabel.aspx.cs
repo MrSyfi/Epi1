@@ -41,9 +41,10 @@ namespace AccessApp
             }
             else
             {
-                if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT && Regex.IsMatch(TB_code.Text, "[a-zA-Z0-9]{1} ? [a-zA-Z0-9]{3} ? [a-zA-Z0-9]{2}"))
+                if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT && TB_code.Text.Length <= Consts.LABEL_QR_LENGHT_LIMIT)
                 {
-                    PopulateZPL(TB_code.Text, TB_info.Text);
+                    string txt = PopulateZPL(TB_code.Text, TB_info.Text);
+                    //Print(txt);
                     TB_code.Text = string.Empty;
                     TB_info.Text = string.Empty;
                 }
