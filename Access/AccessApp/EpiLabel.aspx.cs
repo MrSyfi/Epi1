@@ -34,23 +34,31 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-            if (TB_code.Text == string.Empty || TB_info.Text == string.Empty)
+            if (DDL_Printer.SelectedIndex == 0)
             {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides !')</SCRIPT>");
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Vous devez choisir un site !')</SCRIPT>");
+
             }
             else
             {
-                if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT && TB_code.Text.Length <= Consts.LABEL_QR_LENGHT_LIMIT)
+                if (TB_code.Text == string.Empty || TB_info.Text == string.Empty)
                 {
-                    Print(PopulateZPL(TB_code.Text, TB_info.Text));
-                    TB_code.Text = string.Empty;
-                    TB_info.Text = string.Empty;
+                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides !')</SCRIPT>");
                 }
                 else
                 {
-                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('L'un des champs ne correspond pas au format demandé.')</SCRIPT>");
+                    if (TB_info.Text.Length <= Consts.LABEL_STRING_LENGHT_LIMIT && TB_code.Text.Length <= Consts.LABEL_QR_LENGHT_LIMIT)
+                    {
+                        //Print(PopulateZPL(TB_code.Text, TB_info.Text));
+                        TB_code.Text = string.Empty;
+                        TB_info.Text = string.Empty;
+                    }
+                    else
+                    {
+                        System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('L'un des champs ne correspond pas au format demandé.')</SCRIPT>");
+                    }
                 }
-            }
+            }  
         }
 
         private string PopulateZPL(string code, string info)
@@ -63,36 +71,44 @@ namespace AccessApp
         protected void B_generer_fichier_Click(object sender, EventArgs e)
         {
             string savePath = Server.MapPath("~/");
-            
-            try
-            {
 
-                if (FileUploader.HasFile)
+            if (DDL_Printer.SelectedIndex != 0)
+            {
+                try
                 {
-                    savePath += FileUploader.FileName;
-                    FileUploader.SaveAs(savePath);
-                    string result = string.Empty;
-                    foreach (string line in File.ReadLines(savePath, Encoding.UTF7))
+
+                    if (FileUploader.HasFile)
                     {
-                      
-                        string[] parts = line.Split(';');
-                        
-                        result += PopulateZPL(parts[0], parts[1]);
-                    }
-                    Print(result);
-                    File.Delete(savePath);
-                }
-                else
-                {
-                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Pas de fichier !')</SCRIPT>");
-                }
+                        savePath += FileUploader.FileName;
+                        FileUploader.SaveAs(savePath);
+                        string result = string.Empty;
+                        foreach (string line in File.ReadLines(savePath, Encoding.UTF7))
+                        {
 
+                            string[] parts = line.Split(';');
+
+                            result += PopulateZPL(parts[0], parts[1]);
+                        }
+                        //Print(result);
+                        File.Delete(savePath);
+                    }
+                    else
+                    {
+                        System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Pas de fichier !')</SCRIPT>");
+                    }
+
+                }
+                catch
+                {
+                    File.Delete(savePath);
+                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Le fichier ne respecte pas le bon format ! ')</SCRIPT>");
+                }
             }
-            catch
+            else
             {
-                File.Delete(savePath);
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Le fichier ne respecte pas le bon format ! ')</SCRIPT>");
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Vous devez choisir un site !')</SCRIPT>");
             }
+            
         }
 
         private void Print(string text)
