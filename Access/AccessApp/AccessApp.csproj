@@ -269,8 +269,8 @@
     <Content Include="Content\style.css" />
     <Content Include="DisplayTicket.aspx" />
     <Content Include="EpiACCESS_Close.aspx" />
-    <Content Include="Epicura.png" />
-    <Content Include="EpiDESK_Ico_8.ico" />
+    <Content Include="Image\Epicura.png" />
+    <Content Include="Image\EpiDESK_Ico_8.ico" />
     <Content Include="EpiLabel.aspx" />
     <Content Include="EpiStock.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

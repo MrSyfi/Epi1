@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="Content/style.css">
 
 
-    <link rel="icon" href="EpiDESK_Ico_8.ico" />
+    <link rel="icon" href="Image/EpiDESK_Ico_8.ico" />
 </head>
 
 
@@ -56,7 +56,7 @@
                             <span class="visible-xs navbar-brand">EpiDESK</span>
                         </div>
                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
-                            <img class="visible-lg visible-md" src="Epicura.png">
+                            <img class="visible-lg visible-md" src="Image/Epicura.png">
                             <ul class="nav navbar-nav">
                                 <li><a runat="server" href="~/EpiStock">EpiStock</a></li>
                                 <li><a runat="server" href="~/GestionMateriel">EpiCMBD</a></li>
