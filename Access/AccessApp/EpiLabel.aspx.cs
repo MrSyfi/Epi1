@@ -72,7 +72,6 @@ namespace AccessApp
                     savePath += FileUploader.FileName;
                     FileUploader.SaveAs(savePath);
                     string result = string.Empty;
-
                     foreach (string line in File.ReadLines(savePath, Encoding.UTF7))
                     {
                       
