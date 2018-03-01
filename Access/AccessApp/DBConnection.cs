@@ -21,7 +21,5 @@ namespace AccessApp
                 return _db;
             }
         }
-
-
     }
 }
