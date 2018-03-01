@@ -2,11 +2,10 @@
 
 namespace AccessApp
 {
-    public class GlobalVar
+    public class DBConnection
     {
 
         public static ED_UCDBConnection _db;
-        //public static Database _db;
 
         public static ED_UCDBConnection Instance
         {
