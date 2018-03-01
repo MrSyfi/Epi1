@@ -2,6 +2,7 @@
 {
     public class Consts
     {
+        // OTHERS
         public static bool isAffiche = false;
         public static string MOT_DE_PASSE;
         public static string ID_LOCALISATION;
@@ -23,16 +24,17 @@
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
         public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
         public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID = epidesk";
+        
 
-        /* Default Ports or Values */
-        public static readonly int ZPL_PRINTERS_DEFAULT_PORT = 9100;
-        public static readonly string CONST_EMAIL_SMTP_SERVER_HOST = "mail.epicura.be";
-
-        // Interface
+        // INTERFACE
+        
         public static readonly string EMPTY_STRING = " - ";
         public static readonly int LABEL_STRING_LENGHT_LIMIT = 30;
         public static readonly int LABEL_QR_LENGHT_LIMIT = 15;
 
+        // NETWORK
+        public static readonly int ZPL_PRINTERS_DEFAULT_PORT = 9100;
+        public static readonly string CONST_EMAIL_SMTP_SERVER_HOST = "mail.epicura.be";
         public static readonly string CONST_NETWORK_EDUC_SERVER = "VMHUINFORV02.epicura.lan";
         public static readonly int CONST_NETWORK_EDUC_PORT = 2607;
         public const string CONST_NETWORK_EDUC_SERVICE_NAME = "EDSOCK";
