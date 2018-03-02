@@ -56,17 +56,11 @@ namespace AccessApp
 
         public static DataSet SelectAgentEmail(string ticketID)
         {
-            ArrayList parameters = new ArrayList();
-            ArrayList values = new ArrayList();
-
-            parameters.Add(":id"); values.Add(ticketID);
-
             return DBConnection.Instance.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID INNER JOIN {2} ON {2}.TICKET_ID = {1}.ID WHERE {2}.TICKET_ID LIKE '{3}' ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, Consts.ACCESS_REQUEST_TABLE, ticketID));
         }
 
         public static DataSet SelectRef(string ticketID)
         {
-
             return DBConnection.Instance.ExecuteQuery(string.Format("SELECT DISTINCT({0}.REFERENCE) FROM {0}  WHERE {0}.ID LIKE '{1}'", Consts.TICKETS_TABLE, ticketID));
         }
 
@@ -189,11 +183,6 @@ namespace AccessApp
 
         public static DataSet GetProduct(string EpiId)
         {
-            ArrayList parameters = new ArrayList();
-            ArrayList values = new ArrayList();
-
-            parameters.Add(":id"); values.Add(EpiId);
-
             return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID LIKE '{1}'", Consts.STOCK_TABLE, EpiId));
         }
 
