@@ -228,7 +228,7 @@ namespace AccessApp
             string respMail = ds.Tables[0].Rows[0]["VALUE"].ToString();
 
             //MailSender.SendObsoleteEmail("resp", mailAgent, TB_id_materiel.Text, marque, model, numSerie, nameAgent);
-            MailSender.SendObsoleteEmail(mailAgent, mailAgent, TB_id_materiel.Text, marque, model, numSerie, nameAgent);
+            MailSender.SendObsoleteEmail(respMail, mailAgent, TB_id_materiel.Text, marque, model, numSerie, nameAgent);
 
             // Modif DB..
             DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, "0");
