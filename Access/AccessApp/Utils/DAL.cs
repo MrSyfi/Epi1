@@ -7,8 +7,6 @@ namespace AccessApp
     public class DAL
     {
 
-
-
         /* GESTION EPIACCESS */
 
         public static DataSet SelectFromSearchRequest(string search)

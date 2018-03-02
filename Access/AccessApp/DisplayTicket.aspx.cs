@@ -82,12 +82,27 @@ namespace AccessApp
             else
                 L_Body.Text += "<tr><td data-title='Solution'><p align='justify'><font color='#1A7F09'><b>" + ds.Tables[0].Rows[0]["RESOLUTION"].ToString() + "</b></font></p></td></tr>";
 
-            L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaire</h3><hr/>";
+           
 
 
             //AFFICHAGE DES COMMENTAIRES
             ds = DAL.SelectAllFromCommentaire(id);
             DataTable dt = ds.Tables[0];
+
+           
+            if(dt == null || dt.Rows.Count == 0)
+            {
+                L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Pas de commentaires</h3><hr/>";
+            } else
+            {
+                if(dt.Rows.Count > 1)
+                {
+                    L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaires</h3><hr/>";
+                } else
+                {
+                    L_Body.Text += "</tbody></table></div><hr/><h3 style='text-align:center;'>Commentaire</h3><hr/>";
+                }
+            }
 
             foreach (DataRow row in dt.Rows)
             {
