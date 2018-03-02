@@ -42,7 +42,7 @@
         </asp:ScriptManager>
 
         <div>
-            <div class="col-md-2 col-lg-2"  style="padding-left: 00px; padding-right: 0px;">
+            <div class="col-md-2 col-lg-2"  style="padding-left: 0px; padding-right: 0px;">
                 <div class="sidebar-nav">
                     <div class="navbar navbar-default" role="navigation">
                         <div class="navbar-header">
