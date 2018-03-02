@@ -1,9 +1,9 @@
-﻿<%@ Page Title="EpiCMBD" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiStock.aspx.cs" Inherits="AccessApp.EpiStock" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="EpiCMDB" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiStock.aspx.cs" Inherits="AccessApp.EpiStock" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-header">
-        <h2>EpiCMBD</h2>
+        <h2>EpiCMDB</h2>
     </div>
 
     <p>
@@ -23,14 +23,14 @@
 
     <p>
         <label for="TB_id_local">Localisation *</label>
-        <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local" OnTextChanged="TB_id_local_TextChanged" AutoPostBack="true"></asp:TextBox>
+        <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local"></asp:TextBox>
     </p>
 
 
 
     <p>
         <label for="TB_note">Note</label>
-        <asp:TextBox ID="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" AutoPostBack="true" />
+        <asp:TextBox ID="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" />
     </p>
 
     <p>

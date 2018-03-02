@@ -145,7 +145,7 @@ namespace AccessApp
             TB_note.Text = string.Empty;
             TB_id_local.Enabled = true;
         }
-
+        
         public void SetFocus()
         {
             if (TB_id_resp.Text == string.Empty)
@@ -171,11 +171,6 @@ namespace AccessApp
                 SetFocus();
             }
 
-        }
-
-        protected void TB_id_local_TextChanged(object sender, EventArgs e)
-        {
-            SetFocus();
         }
 
         protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)

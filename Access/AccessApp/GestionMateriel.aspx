@@ -1,4 +1,4 @@
-﻿<%@ Page Title="EpiCMBD" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="GestionMateriel.aspx.cs" Inherits="AccessApp.GestionMateriel" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="EpiCMDB" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="GestionMateriel.aspx.cs" Inherits="AccessApp.GestionMateriel" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
