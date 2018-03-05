@@ -89,7 +89,7 @@
     <br />
     <asp:Literal runat="server" ID="L_mail" Mode="Transform"></asp:Literal>
 
-    <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Fermer la demande d'accès" Visible="false" Style="float: right;" />
+    <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Clôturer la demande d'accès" Visible="false" Style="float: right;" />
 
 
 </asp:Content>
