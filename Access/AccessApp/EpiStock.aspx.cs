@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace AccessApp
 {
@@ -238,26 +240,31 @@ namespace AccessApp
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
 
-            // Envoi Mail au responsable
-            DataSet ds = DAL.GetProductPerEpiId(CheckEpi());
-            string model = ds.Tables[0].Rows[0]["MODELE"].ToString();
-            string marque = ds.Tables[0].Rows[0]["NAME"].ToString();
-            string numSerie = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
-            ds = DAL.SelectContact(TB_id_resp.Text);
-            string nameAgent = ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString();
-            string mailAgent = ds.Tables[0].Rows[0]["EMAIL"].ToString();
-            ds = DAL.GetRespMail();
-            string respMail = ds.Tables[0].Rows[0]["VALUE"].ToString();
+            // Confirmation.
+            if (System.Windows.Forms.MessageBox.Show("Voulez-vous vraiment déclasser cet objet ?", "Déclassement",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
 
-            //MailSender.SendObsoleteEmail("resp", mailAgent, TB_id_materiel.Text, marque, model, numSerie, nameAgent);
-            MailSender.SendObsoleteEmail(respMail, mailAgent, CheckEpi(), marque, model, numSerie, nameAgent);
+                // Envoi Mail au responsable
+                DataSet ds = DAL.GetProductPerEpiId(CheckEpi());
+                string model = ds.Tables[0].Rows[0]["MODELE"].ToString();
+                string marque = ds.Tables[0].Rows[0]["NAME"].ToString();
+                string numSerie = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
+                ds = DAL.SelectContact(TB_id_resp.Text);
+                string nameAgent = ds.Tables[0].Rows[0]["LAST_NAME"].ToString() + " " + ds.Tables[0].Rows[0]["FIRST_NAME"].ToString();
+                string mailAgent = ds.Tables[0].Rows[0]["EMAIL"].ToString();
+                ds = DAL.GetRespMail();
+                string respMail = ds.Tables[0].Rows[0]["VALUE"].ToString();
 
-            // Modif DB..
-            DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), CheckEpi(), "0");
-            DAL.UpdateStockStatus(CheckEpi(), DDL_status.SelectedValue.ToString());
+                //MailSender.SendObsoleteEmail("resp", mailAgent, TB_id_materiel.Text, marque, model, numSerie, nameAgent);
+                MailSender.SendObsoleteEmail(respMail, mailAgent, CheckEpi(), marque, model, numSerie, nameAgent);
 
-            Reset();
-            SetFocus();
+                // Modif DB..
+                DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), CheckEpi(), "0");
+                DAL.UpdateStockStatus(CheckEpi(), DDL_status.SelectedValue.ToString());
+
+                Reset();
+                SetFocus();
+            }
 
 
         }
