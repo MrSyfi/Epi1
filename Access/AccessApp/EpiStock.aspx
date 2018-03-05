@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="page-header">
+    <div class="page-header" style="text-align: center;">
         <h2>EpiCMDB</h2>
     </div>
 

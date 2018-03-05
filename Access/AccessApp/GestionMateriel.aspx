@@ -9,7 +9,12 @@
         <h2>EpiCMBD</h2>
     </div>
 
-    <asp:TextBox ID="TB_recherche" CssClass="form-control" runat="server" OnTextChanged="TB_recherche_TextChanged" placeholder="EpiID..." name="Recherche" AutoPostBack="true" TextMode="Search" Style="margin: auto"></asp:TextBox>
+    <table>
+         <tr>
+             <td><asp:TextBox ID="TB_recherche" CssClass="form-control input-lg" runat="server" name="TB_recherche" placeholder="EpiID"></asp:TextBox></td>
+             <td><asp:Button runat="server" ID="B_afficher" CssClass="btn btn-primary btn-lg" Text="Afficher" OnClick="B_afficher_Click"/></td>
+         </tr>
+    </table>
 
     <hr />
 

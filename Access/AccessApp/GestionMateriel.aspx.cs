@@ -93,7 +93,14 @@ namespace AccessApp
             L_Histo.Text += "</div>";
         }
 
-
-
+        protected void B_afficher_Click(object sender, EventArgs e)
+        {
+            string tmp = "";
+            if (TB_recherche.Text.Length > 3 && (TB_recherche.Text.ToUpper().StartsWith("EPI")))
+                tmp = TB_recherche.Text.Substring(3);
+            else if (TB_recherche.Text.Length > 0)
+                tmp = TB_recherche.Text;
+            LoadData(tmp);
+        }
     }
 }
