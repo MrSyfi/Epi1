@@ -208,12 +208,12 @@ namespace AccessApp
 
             TB_id_materiel.Enabled = !isVisible;
 
-            L_obsolete.Visible = isVisible;
             IdOperateur.Visible = isVisible;
             statut.Visible = isVisible;
             info.Visible = isVisible;
             localisation.Visible = isVisible;
             note.Visible = isVisible;
+            B_modifier.Visible = isVisible;
             B_apply.Visible = isVisible;
             B_obsolete.Visible = !isVisible;
             TB_id_local.Visible = isVisible;
@@ -252,10 +252,19 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-            
+            B_afficher.Visible = false;
             SetVisible(true);
             PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
             CheckEpiID();
+
+        }
+
+        protected void B_modifier_Click(object sender, EventArgs e)
+        {
+            TB_id_materiel.Enabled = true;
+            SetVisible(false);
+            B_afficher.Visible = true;
+
 
         }
     }
