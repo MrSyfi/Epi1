@@ -58,8 +58,8 @@
                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                             <img class="visible-lg visible-md navbar-brand" src="Image/Epicura.png">
                             <ul class="nav navbar-nav">
-                                <li><a runat="server" href="~/EpiStock">Statut CMDB</a></li>
-                                <li><a runat="server" href="~/GestionMateriel">EpiCMDB</a></li>
+                                <li><a runat="server" href="~/EpiStock">Gestion de la CMDB</a></li>
+                                <li><a runat="server" href="~/GestionMateriel">Timeline</a></li>
                                 <li><a runat="server" href="~/EpiLabel">EpiLabel</a></li>
                                 <li><a runat="server" href="~/Gestion_EpiACCESS">Gestion EpiACCESS</a></li>
                                 <li><a runat="server" href="~/EpiACCESS_Close">Clôture EpiACCESS</a></li>
