@@ -12,24 +12,24 @@
     </p>
 
     <p>
-        <b><asp:Label runat="server">Id de l'opérateur *</asp:Label></b>
+        <b><asp:Label runat="server" Visible="false">Id de l'opérateur *</asp:Label></b>
         <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" OnTextChanged="TB_id_resp_TextChanged" AutoPostBack="true" Visible="false"></asp:TextBox>
     </p>
 
     <p>
-        <b><asp:Label runat="server">Statut *</asp:Label></b>
+        <b><asp:Label runat="server" Visible="false">Statut *</asp:Label></b>
         <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false" OnSelectedIndexChanged="DDL_status_SelectedIndexChanged" AutoPostBack="true" Visible="false"></asp:DropDownList>
     </p>
 
     <p>
-        <b><asp:Label runat="server">Localisation *</asp:Label></b>
+        <b><asp:Label runat="server" Visible="false">Localisation *</asp:Label></b>
         <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local" Visible="false"></asp:TextBox>
     </p>
 
 
 
     <p>
-       <b><asp:Label runat="server">Note</asp:Label></b>
+       <b><asp:Label runat="server" Visible="false">Note</asp:Label></b>
         <asp:TextBox ID="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" Visible="false"/>
     </p>
 
@@ -37,7 +37,7 @@
         <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true" Style="float: right;" Visible="false"/>
     </p>
 
-    <p><i><asp:Label runat="server">* Veuillez remplir ces champs.</asp:Label></i></p>
+    <p><i><asp:Label runat="server" Visible="false">* Veuillez remplir ces champs.</asp:Label></i></p>
 
 
     <p style="text-align: center;">
