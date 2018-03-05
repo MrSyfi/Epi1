@@ -212,6 +212,7 @@ namespace AccessApp
 
             TB_id_materiel.Enabled = !isVisible;
 
+
             IdOperateur.Visible = isVisible;
             statut.Visible = isVisible;
             info.Visible = isVisible;
