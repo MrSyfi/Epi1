@@ -6,7 +6,7 @@
         <h2>EpiCMDB</h2>
     </div>
 
-     <table>
+     <table  style="margin:auto;">
          <tr>
              <td><asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel" placeholder="EpiID"></asp:TextBox></td>
              <td><asp:Button runat="server" ID="B_afficher" CssClass="btn btn-primary btn-lg" Text="Afficher" OnClick="B_afficher_Click"/></td>
