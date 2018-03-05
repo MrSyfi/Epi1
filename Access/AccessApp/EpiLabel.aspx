@@ -23,7 +23,7 @@
 
         <hr />
         <p>
-            <label for="TB_code">Données du code QR</label>
+            <label for="TB_code">Données du code QR <i>(ex : 1-020-01)</i></label>
             <asp:TextBox ID="TB_code" CssClass="form-control" runat="server" MaxLength="15" name="TB_code"></asp:TextBox>
         </p>
 
