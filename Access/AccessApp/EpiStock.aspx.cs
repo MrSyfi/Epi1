@@ -190,7 +190,8 @@ namespace AccessApp
             L_obsolete.Text += "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                     "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
-                    "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr></tbody></table></div><hr/>";
+                    "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td>" +
+                    "<tr><td data-title='Statut actuel'>" + ds.Tables[0].Rows[0]["STATUS_TO"].ToString() + "</td></tr></tbody></table></div><hr/>";
 
         }
 
