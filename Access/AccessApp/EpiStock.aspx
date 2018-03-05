@@ -6,42 +6,42 @@
         <h2>EpiCMDB</h2>
     </div>
 
-    <p>
-        <label for="TB_id_resp">Id de l'opérateur *</label>
-        <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" OnTextChanged="TB_id_resp_TextChanged" AutoPostBack="true"></asp:TextBox>
+     <p>
+        <b><asp:Label runat="server">Id du matériel *</asp:Label></b>
+        <asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel"  OnTextChanged="TB_id_materiel_TextChanged" AutoPostBack="true" placeholder="EpiID"></asp:TextBox>
     </p>
 
     <p>
-        <label for="TB_id_materiel">Id du matériel *</label>
-        <asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel" OnTextChanged="TB_id_materiel_TextChanged" AutoPostBack="true"></asp:TextBox>
+        <b><asp:Label runat="server">Id de l'opérateur *</asp:Label></b>
+        <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" OnTextChanged="TB_id_resp_TextChanged" AutoPostBack="true" Visible="false"></asp:TextBox>
     </p>
 
     <p>
-        <label for="DDL_status">Statut *</label>
-        <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false" OnSelectedIndexChanged="DDL_status_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+        <b><asp:Label runat="server">Statut *</asp:Label></b>
+        <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false" OnSelectedIndexChanged="DDL_status_SelectedIndexChanged" AutoPostBack="true" Visible="false"></asp:DropDownList>
     </p>
 
     <p>
-        <label for="TB_id_local">Localisation *</label>
-        <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local"></asp:TextBox>
+        <b><asp:Label runat="server">Localisation *</asp:Label></b>
+        <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local" Visible="false"></asp:TextBox>
     </p>
 
 
 
     <p>
-        <label for="TB_note">Note</label>
-        <asp:TextBox ID="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" />
+       <b><asp:Label runat="server">Note</asp:Label></b>
+        <asp:TextBox ID="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" Visible="false"/>
     </p>
 
     <p>
-        <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true" Style="float: right;" />
+        <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true" Style="float: right;" Visible="false"/>
     </p>
 
-    <p><i>* Veuillez remplir ces champs.</i></p>
+    <p><i><asp:Label runat="server">* Veuillez remplir ces champs.</asp:Label></i></p>
 
 
     <p style="text-align: center;">
-        <asp:Literal ID="L_obsolete" runat="server"></asp:Literal>
+        <asp:Literal ID="L_obsolete" runat="server" Visible="false"></asp:Literal>
     </p>
 
     <asp:Button ID="B_obsolete" CssClass="btn btn-danger btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" Style="float: right;" />

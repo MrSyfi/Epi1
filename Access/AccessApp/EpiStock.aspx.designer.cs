@@ -13,15 +13,6 @@ namespace AccessApp {
     public partial class EpiStock {
         
         /// <summary>
-        /// Contrôle TB_id_resp.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_id_resp;
-        
-        /// <summary>
         /// Contrôle TB_id_materiel.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace AccessApp {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TB_id_materiel;
+        
+        /// <summary>
+        /// Contrôle TB_id_resp.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_id_resp;
         
         /// <summary>
         /// Contrôle DDL_status.
