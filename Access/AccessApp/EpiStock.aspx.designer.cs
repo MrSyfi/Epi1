@@ -31,6 +31,15 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.Button B_afficher;
         
         /// <summary>
+        /// Contrôle L_obsolete.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal L_obsolete;
+        
+        /// <summary>
         /// Contrôle IdOperateur.
         /// </summary>
         /// <remarks>
@@ -119,15 +128,6 @@ namespace AccessApp {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label info;
-        
-        /// <summary>
-        /// Contrôle L_obsolete.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal L_obsolete;
         
         /// <summary>
         /// Contrôle B_obsolete.

@@ -12,6 +12,11 @@
              <td><asp:Button runat="server" ID="B_afficher" OnClick="B_afficher_Click" CssClass="btn btn-primary btn-lg" Text="Afficher"/></td>
          </tr>
     </table>
+    <hr />
+
+    <p style="text-align: center;">
+        <asp:Literal ID="L_obsolete" runat="server" Visible="true"></asp:Literal>
+    </p>
 
     <p>
         <b><asp:Label ID="IdOperateur" runat="server" Visible="false">Id de l'opérateur *</asp:Label></b>
@@ -40,11 +45,6 @@
     </p>
 
     <p><i><asp:Label ID="info" runat="server" Visible="false">* Veuillez remplir ces champs.</asp:Label></i></p>
-
-
-    <p style="text-align: center;">
-        <asp:Literal ID="L_obsolete" runat="server" Visible="false"></asp:Literal>
-    </p>
 
     <asp:Button ID="B_obsolete" CssClass="btn btn-danger btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" Style="float: right;" />
 </asp:Content>
