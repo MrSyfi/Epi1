@@ -176,7 +176,7 @@ namespace AccessApp
 
                     B_afficher.Visible = false;
                     SetVisible(true);
-                    Populate(DAL.GetProductPerEpiId(TB_id_materiel.Text));
+                    Populate(DAL.GetProductPerEpiId(tmp));
                     B_modifier.Visible = true;
                 }
                 else
