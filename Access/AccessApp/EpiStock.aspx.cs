@@ -240,7 +240,7 @@ namespace AccessApp
                 if (System.Windows.Forms.MessageBox.Show("Voulez-vous vraiment déclasser cet objet ?", "Déclassement", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
 
-                    // Envoi Mail au responsable
+                    /*// Envoi Mail au responsable
                     DataSet ds = DAL.GetProductPerEpiId(CheckEpi());
                     string model = ds.Tables[0].Rows[0]["MODELE"].ToString();
                     string marque = ds.Tables[0].Rows[0]["NAME"].ToString();
@@ -259,7 +259,7 @@ namespace AccessApp
                     DAL.UpdateStockStatus(CheckEpi(), DDL_status.SelectedValue.ToString());
 
                     Reset();
-                    SetFocus();
+                    SetFocus();*/
                 }
                 else
                 {
