@@ -14,7 +14,7 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-
+            string tmp = string.Empty;
 
             if (TB_id_local.Text == string.Empty || TB_id_materiel.Text == string.Empty || TB_id_resp.Text == string.Empty)
             {
@@ -41,18 +41,23 @@ namespace AccessApp
                     Consts.ID_LOCALISATION = locId;
 
 
-                    if (DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, Consts.ID_LOCALISATION, TB_note.Text) && DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString()))
+                    if (TB_id_materiel.Text.Length > 3 && (TB_id_materiel.Text.ToUpper().StartsWith("EPI")))
+                        tmp = TB_id_materiel.Text.Substring(3);
+                    else if (TB_id_materiel.Text.Length > 0)
+                        tmp = TB_id_materiel.Text;
+
+                    if (DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), tmp, Consts.ID_LOCALISATION, TB_note.Text) && DAL.UpdateStockStatus(tmp, DDL_status.SelectedValue.ToString()))
                     {
                         System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Mise à jour effectuée.')</SCRIPT>");
-
+                        Reset();
+                        SetFocus();
                         SetVisible(false);
                         B_afficher.Visible = true;
                     }
 
 
 
-                    Reset();
-                    SetFocus();
+                    
                 }
 
             }
