@@ -208,6 +208,18 @@ namespace AccessApp
 
         }
 
+        private void setVisible(bool isVisible)
+        {
+            IdOperateur.Visible = isVisible;
+            statut.Visible = isVisible;
+            info.Visible = isVisible;
+            localisation.Visible = isVisible;
+            TB_id_local.Visible = isVisible;
+            TB_id_resp.Visible = isVisible;
+            TB_note.Visible = isVisible;
+            TB_id_local.Visible = isVisible;
+        }
+
         protected void B_obsolete_Click(object sender, EventArgs e)
         {
 

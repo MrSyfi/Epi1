@@ -13,6 +13,15 @@ namespace AccessApp {
     public partial class EpiStock {
         
         /// <summary>
+        /// Contrôle IdMateriel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label IdMateriel;
+        
+        /// <summary>
         /// Contrôle TB_id_materiel.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace AccessApp {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TB_id_materiel;
+        
+        /// <summary>
+        /// Contrôle IdOperateur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label IdOperateur;
         
         /// <summary>
         /// Contrôle TB_id_resp.
@@ -31,6 +49,15 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.TextBox TB_id_resp;
         
         /// <summary>
+        /// Contrôle statut.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label statut;
+        
+        /// <summary>
         /// Contrôle DDL_status.
         /// </summary>
         /// <remarks>
@@ -40,6 +67,15 @@ namespace AccessApp {
         protected global::System.Web.UI.WebControls.DropDownList DDL_status;
         
         /// <summary>
+        /// Contrôle localisation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label localisation;
+        
+        /// <summary>
         /// Contrôle TB_id_local.
         /// </summary>
         /// <remarks>
@@ -47,6 +83,15 @@ namespace AccessApp {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TB_id_local;
+        
+        /// <summary>
+        /// Contrôle note.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label note;
         
         /// <summary>
         /// Contrôle TB_note.
@@ -65,6 +110,15 @@ namespace AccessApp {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button B_apply;
+        
+        /// <summary>
+        /// Contrôle info.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label info;
         
         /// <summary>
         /// Contrôle L_obsolete.
