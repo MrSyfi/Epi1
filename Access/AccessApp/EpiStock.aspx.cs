@@ -48,11 +48,7 @@ namespace AccessApp
                         SetFocus();
                         SetVisible(false);
                         B_afficher.Visible = true;
-                    }
-
-
-
-                    
+                    }  
                 }
 
             }
