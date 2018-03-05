@@ -40,7 +40,8 @@ namespace AccessApp
 
         private void EmptyTable()
         {
-            L_Body.Text = "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
+            L_Body.Text = 
+            "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
             "<tr><td data-title='Référence'>" + Consts.EMPTY_STRING + "</td></tr>" +
             "<tr><td data-title='Création de ticket'>" + Consts.EMPTY_STRING + "</td></tr>" +
             "<tr><td data-title='Dernière mise à jour'>" + Consts.EMPTY_STRING + "</td></tr>" +
