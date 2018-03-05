@@ -15,6 +15,12 @@
     </table>
     <hr />
 
+    <div class="right">
+    <p style="text-align: center;">
+        <asp:Literal ID="L_obsolete" runat="server" Visible="true"></asp:Literal>
+    </p>
+    </div>
+
     <div class="left">
     <p>
         <b><asp:Label ID="IdOperateur" runat="server" Visible="false">Id de l'opérateur *</asp:Label></b>
@@ -37,11 +43,7 @@
     </p>
     </div>
 
-    <div class="right">
-    <p style="text-align: center;">
-        <asp:Literal ID="L_obsolete" runat="server" Visible="true"></asp:Literal>
-    </p>
-    </div>
+    
 
    
     <table width="100%">
