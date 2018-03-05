@@ -7,12 +7,12 @@
     </div>
 
     <p>
-        <label for="DDL_Printer">Site</label>
+        <label for="DDL_Printer">Où imprimer ?</label>
         <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_Printer">
-            <asp:ListItem Text=""></asp:ListItem>
-            <asp:ListItem Text="HU"></asp:ListItem>
-            <asp:ListItem Text="AH"></asp:ListItem>
-            <asp:ListItem Text="BR"></asp:ListItem>
+            <asp:ListItem Text="" value=""></asp:ListItem>
+            <asp:ListItem Text="Hornu" value="HU"></asp:ListItem>
+            <asp:ListItem Text="Ath" value="AH"></asp:ListItem>
+            <asp:ListItem Text="Baudour" value="BR"></asp:ListItem>
         </asp:DropDownList>
     </p>
     <hr />
