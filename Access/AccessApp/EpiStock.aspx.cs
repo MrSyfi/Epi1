@@ -70,10 +70,10 @@ namespace AccessApp
         
         public void SetFocus()
         {
-            if (TB_id_resp.Text == string.Empty)
-                TB_id_resp.Focus();
-            else if (TB_id_materiel.Text == string.Empty)
+            if (TB_id_materiel.Text == string.Empty)
                 TB_id_materiel.Focus();
+            else if (TB_id_resp.Text == string.Empty)
+                TB_id_resp.Focus();
             else if (TB_id_local.Text == string.Empty)
                 TB_id_local.Focus();
         }
