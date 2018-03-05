@@ -52,7 +52,26 @@ L'interface utilise également le WebService ChgPwdWindows impliquant une modifi
 Front End
 Développement de l'outil effectué en ASP.NET WebForms, impliquant l'utilisation de HTML, CSS et jQUERY. L'interface permet d'afficher les demandes d'accès actuellement en OP_READY et donc en attente de fermeture par l'opérateur dans le but de les fermer automatiquement en générant un mot de passe aléatoire et prévenant le responsable de l'utilisateur concerné.
 
+L'affichage des résultat dépend d'une recherche, encodée par l'utilisateur.
+Quelques mots clés sont prévus pour l'affichage des résultats (veuillez noter que ces mots clés sont sensibles à la casse) : 
+- Si l'utilisateur recherche "ALL", l'interface affichera toutes les demandes d'accès qui ne sont pas fermées.
+- .. ? 
+
 Back End
 Utilisation des langages C# et SQL
 Méthode permettant de charger les requêtes OP_READY.
 Méthode permettant de générer un mot de passe aléatoire mais prononçable, via la classe PasswordGenerator, d'envoyer un email via la classe MailSender et de fermer la demande d'accès au niveau de la base de données. 
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+Gestion EpiACCESS
+
+
+Front End 
+
+L'affichage des résultat dépend d'une recherche, encodée par l'utilisateur.
+Quelques mots clés sont prévus pour l'affichage des résultats (veuillez noter que ces mots clés sont sensibles à la casse) : 
+- Si l'utilisateur recherche "ALL", l'interface affichera toutes les demandes d'accès qui ne sont pas fermées.
+- .. ? 
