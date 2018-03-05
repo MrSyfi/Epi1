@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace AccessApp
 {
@@ -215,6 +216,7 @@ namespace AccessApp
             info.Visible = isVisible;
             localisation.Visible = isVisible;
             note.Visible = isVisible;
+            B_modifier.Visible = isVisible;
             B_apply.Visible = isVisible;
             B_obsolete.Visible = !isVisible;
             TB_id_local.Visible = isVisible;
@@ -222,6 +224,8 @@ namespace AccessApp
             TB_note.Visible = isVisible;
             TB_id_local.Visible = isVisible;
             DDL_status.Visible = isVisible;
+
+            
         }
 
         protected void B_obsolete_Click(object sender, EventArgs e)
@@ -251,11 +255,22 @@ namespace AccessApp
 
         }
 
+       
+
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-
+            B_afficher.Visible = false;
             SetVisible(true);
             CheckEpiID();
+           
+        }
+
+        protected void B_modifier_Click(object sender, EventArgs e)
+        {
+            TB_id_materiel.Enabled = true;
+            SetVisible(false);
+            B_afficher.Visible = true;
+
 
         }
     }

@@ -9,7 +9,8 @@
      <table>
          <tr>
              <td><asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel" placeholder="EpiID"></asp:TextBox></td>
-             <td><asp:Button runat="server" ID="B_afficher" OnClick="B_afficher_Click" CssClass="btn btn-primary btn-lg" Text="Afficher"/></td>
+             <td><asp:Button runat="server" ID="B_afficher" CssClass="btn btn-primary btn-lg" Text="Afficher" OnClick="B_afficher_Click"/></td>
+             <td><asp:Button runat="server" ID="B_modifier" CssClass="btn btn-primary btn-lg" Text="Modifier" Visible="false" OnClick="B_modifier_Click"/></td>
          </tr>
     </table>
 
