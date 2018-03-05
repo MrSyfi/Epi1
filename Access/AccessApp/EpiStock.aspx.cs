@@ -60,7 +60,6 @@ namespace AccessApp
 
             string tmp = string.Empty;
             // Reset the obsolete literal when the user change of epiid
-            L_obsolete.Text = string.Empty;
             B_obsolete.Visible = false;
 
 
@@ -112,6 +111,8 @@ namespace AccessApp
                         DDL_status.DataBind();
                     }
 
+                    L_obsolete.Visible = true;
+                    PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
                     DDL_status.Enabled = true;
                     DDL_status.Focus();
                 }
@@ -179,19 +180,17 @@ namespace AccessApp
             if (((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
             {
                 TB_id_local.Enabled = false;
-                B_apply.Enabled = false;
-                L_obsolete.Visible = true;
                 B_obsolete.Visible = true;
+                B_apply.Visible = false;
                 // If the EpiID has been changed.
                 PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
             }
             else
             {
                 TB_id_local.Enabled = true;
-                L_obsolete.Visible = false;
                 B_obsolete.Visible = false;
-
-                B_apply.Enabled = true;
+                B_apply.Visible = true;
+                PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
             }
 
             SetFocus();
@@ -215,6 +214,8 @@ namespace AccessApp
             info.Visible = isVisible;
             localisation.Visible = isVisible;
             note.Visible = isVisible;
+            B_apply.Visible = isVisible;
+            B_obsolete.Visible = !isVisible;
             TB_id_local.Visible = isVisible;
             TB_id_resp.Visible = isVisible;
             TB_note.Visible = isVisible;
@@ -246,12 +247,12 @@ namespace AccessApp
             Reset();
             SetFocus();
 
-
         }
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
             setVisible(true);
+            
         }
     }
 }
