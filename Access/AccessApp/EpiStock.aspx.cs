@@ -214,10 +214,12 @@ namespace AccessApp
             statut.Visible = isVisible;
             info.Visible = isVisible;
             localisation.Visible = isVisible;
+            note.Visible = isVisible;
             TB_id_local.Visible = isVisible;
             TB_id_resp.Visible = isVisible;
             TB_note.Visible = isVisible;
             TB_id_local.Visible = isVisible;
+            DDL_status.Visible = isVisible;
         }
 
         protected void B_obsolete_Click(object sender, EventArgs e)
@@ -245,6 +247,11 @@ namespace AccessApp
             SetFocus();
 
 
+        }
+
+        protected void B_afficher_Click(object sender, EventArgs e)
+        {
+            setVisible(true);
         }
     }
 }
