@@ -17,7 +17,7 @@ namespace AccessApp
             }
             catch
             {
-                return zimbra.FirstName + "." + zimbra.LastName + "@epicura.be".Replace("'", "");
+                return "";
             }
 
 
