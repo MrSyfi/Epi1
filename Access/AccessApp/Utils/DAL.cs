@@ -11,16 +11,22 @@ namespace AccessApp
 
         public static DataSet SelectFromSearchRequest(string search)
         {
+            if (search != "ALL")
+            {
+                // %search% in request for the LIKE Condition
+                if (search.ToUpper() != "OP_READY")
+                    search = "%" + search.ToUpper() + "%";
+                else
+                    // By doing this, we only take the OP_READY (and not OP_READYF) REQUESTS.
+                    search = "%" + search.ToUpper();
 
-            // %search% in request for the LIKE Condition
-            if (search.ToUpper() != "OP_READY")
-                search = "%" + search.ToUpper() + "%";
-            else
-                // By doing this, we only take the OP_READY (and not OP_READYF) REQUESTS.
-                search = "%" + search.ToUpper();
 
+                return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE '{1}' OR UPPER(FIRST_NAME) LIKE '{1}' OR UPPER(USERNAME) LIKE '{1}' OR UPPER(SERVICE) LIKE '{1}'  OR UPPER(AR_STATUS) LIKE '{1}' OR UPPER(TICKET_ID) LIKE '{1}') AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE, search));
+            } else
+            {
+                return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED' ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE));
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE '{1}' OR UPPER(FIRST_NAME) LIKE '{1}' OR UPPER(USERNAME) LIKE '{1}' OR UPPER(SERVICE) LIKE '{1}'  OR UPPER(AR_STATUS) LIKE '{1}' OR UPPER(TICKET_ID) LIKE '{1}') AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS NOT LIKE 'ERROR' AND AR_STATUS NOT LIKE 'UNKNOWN' AND AR_STATUS NOT LIKE 'APPROVED')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE, search));
+            }
         }
 
         public static bool UpdateRequestStatus(string id, string status)
@@ -49,9 +55,15 @@ namespace AccessApp
 
         public static DataSet SelectOPReadyFromSearchRequest(string search)
         {
-            search = "%" + search.ToUpper() + "%";
+            if (search != "ALL")
+            {
+                search = "%" + search.ToUpper() + "%";
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE '{1}' OR UPPER(FIRST_NAME) LIKE '{1}' OR UPPER(USERNAME) LIKE '{1}' OR UPPER(SERVICE) LIKE '{1}'  OR UPPER(AR_STATUS) LIKE '{1}' OR UPPER(TICKET_ID) LIKE '{1}') AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS LIKE 'OP_READY')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE, search));
+                return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE ((UPPER(LAST_NAME) LIKE '{1}' OR UPPER(FIRST_NAME) LIKE '{1}' OR UPPER(USERNAME) LIKE '{1}' OR UPPER(SERVICE) LIKE '{1}'  OR UPPER(AR_STATUS) LIKE '{1}' OR UPPER(TICKET_ID) LIKE '{1}') AND (AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS LIKE 'OP_READY')) ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE, search));
+            } else
+            {
+                return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID, LAST_NAME, FIRST_NAME , USERNAME , PHONE_NBR , SERVICE  , AR_STATUS , RESP_EMAIL, TICKET_ID FROM {0} WHERE AR_STATUS NOT LIKE 'CLOSED' AND AR_STATUS NOT LIKE 'REFUSED' AND AR_STATUS LIKE 'OP_READY' ORDER BY ID DESC", Consts.ACCESS_REQUEST_TABLE, search));
+            }
         }
 
         public static DataSet SelectAgentEmail(string ticketID)
