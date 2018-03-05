@@ -23,13 +23,13 @@
 
         <hr />
         <p>
-            <label for="TB_code">Données du code QR <i>(ex : 1-020-01)</i></label>
-            <asp:TextBox ID="TB_code" CssClass="form-control" runat="server" MaxLength="15" name="TB_code"></asp:TextBox>
+            <label for="TB_code">Données du code QR</label>
+            <asp:TextBox ID="TB_code" CssClass="form-control" runat="server" MaxLength="15" name="TB_code" placeholder="ex: 1-020-01"></asp:TextBox>
         </p>
 
         <p>
             <label for="TB_info">Titre de l'étiquette</label>
-            <asp:TextBox ID="TB_info" CssClass="form-control" runat="server" name="TB_info" MaxLength="30"></asp:TextBox><br />
+            <asp:TextBox ID="TB_info" CssClass="form-control" runat="server" name="TB_info" MaxLength="30" placeholder="ex: BAU Economat IN"></asp:TextBox><br />
         </p>
 
     </div>
