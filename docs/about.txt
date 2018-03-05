@@ -52,7 +52,8 @@ L'interface utilise également le WebService ChgPwdWindows impliquant une modifi
 Front End
 Développement de l'outil effectué en ASP.NET WebForms, impliquant l'utilisation de HTML, CSS et jQUERY. L'interface permet d'afficher les demandes d'accès actuellement en OP_READY et donc en attente de fermeture par l'opérateur dans le but de les fermer automatiquement en générant un mot de passe aléatoire et prévenant le responsable de l'utilisateur concerné.
 
-L’utilisateur doit remplir le champ « Recherche » afin d’obtenir un résultat. Il est possible de rechercher des mots clés pour effectuer une requête particulière. Il est cependant important de noter que ceux-ci sont sensibles à la casse. Liste des mots clés : 
+L’utilisateur doit remplir le champ « Recherche » afin d’obtenir un résultat. Il est possible de rechercher des mots clés pour effectuer une requête particulière. Il est cependant important de noter que ceux-ci sont sensibles à la casse.
+Liste des mots clés : 
 * ALL : Permet d'afficher toutes les demandes d'accès qui ne sont pas fermées.
 
 Au clic sur un élément du tableau, le programme génère un email, contenant le nom d'utilisateur ainsi qu'un mot de passe généré aléatoirement. Si l'opérateur clique sur le bouton, la demande d'accès est cloturée et l'email envoyé.
@@ -119,7 +120,8 @@ Gestion EpiACCESS
 
 
 
-L’utilisateur doit remplir le champ « Recherche » afin d’avoir un résultat. Il est possible de rechercher des mots clés pour effectuer une requête particulière. Il est cependant important de noter que ceux-ci sont sensibles à la casse. Liste des mots clés : 
+L’utilisateur doit remplir le champ « Recherche » afin d’avoir un résultat. Il est possible de rechercher des mots clés pour effectuer une requête particulière. Il est cependant important de noter que ceux-ci sont sensibles à la casse.
+Liste des mots clés : 
 * ALL : Permet d'afficher toutes les demandes d'accès qui ne sont pas fermées.
 
 Si il y a un résultat, l’utilisateur doit cliquer sur l’un des éléments du tableau afin de remplir les champs ce trouvant en dessous de celui-ci.
