@@ -28,7 +28,7 @@
         </p>
 
         <p>
-            <label for="TB_info">Titre</label>
+            <label for="TB_info">Titre de l'étiquette</label>
             <asp:TextBox ID="TB_info" CssClass="form-control" runat="server" name="TB_info" MaxLength="30"></asp:TextBox><br />
         </p>
 
