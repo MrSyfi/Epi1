@@ -8,11 +8,11 @@
 
      <table>
          <tr>
-             <td><asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel"  OnTextChanged="TB_id_materiel_TextChanged" AutoPostBack="true" placeholder="EpiID"></asp:TextBox></td>
+             <td><asp:TextBox ID="TB_id_materiel" CssClass="form-control input-lg" runat="server" name="TB_id_materiel" placeholder="EpiID"></asp:TextBox></td>
              <td><asp:Button runat="server" ID="B_afficher" OnClick="B_afficher_Click" CssClass="btn btn-primary btn-lg" Text="Afficher"/></td>
          </tr>
     </table>
-
+    <hr />
     <p>
         <b><asp:Label ID="IdOperateur" runat="server" Visible="false">Id de l'opérateur *</asp:Label></b>
         <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" OnTextChanged="TB_id_resp_TextChanged" AutoPostBack="true" Visible="false"></asp:TextBox>
