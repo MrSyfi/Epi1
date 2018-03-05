@@ -106,7 +106,7 @@ namespace AccessApp
             }
             else
             {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Vous devez choisir un site !')</SCRIPT>");
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Vous devez choisir une imprimante !')</SCRIPT>");
             }
             
         }
