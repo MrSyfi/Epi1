@@ -239,7 +239,7 @@ namespace AccessApp
         {
 
             // Envoi Mail au responsable
-            DataSet ds = DAL.GetProductPerEpiId(TB_id_materiel.Text);
+            DataSet ds = DAL.GetProductPerEpiId(CheckEpi());
             string model = ds.Tables[0].Rows[0]["MODELE"].ToString();
             string marque = ds.Tables[0].Rows[0]["NAME"].ToString();
             string numSerie = ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString();
