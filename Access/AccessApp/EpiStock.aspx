@@ -43,13 +43,16 @@
     </p>
     </div>
 
-    
+   
     <table width="100%">
         <tr>
-            <td width="100%" align='right'>
+            <td width="40%" align="left">
+                 <p><i><asp:Label ID="info" runat="server" Visible="false">* Veuillez remplir ces champs.</asp:Label></i></p>
+            </td>
+            <td width="60%" align='right'>
                 <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true" Style="float: right;" Visible="false"/>
                 <asp:Button ID="B_obsolete" CssClass="btn btn-danger btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" Style="float: right;" />
-                <p><i><asp:Label ID="info" runat="server" Visible="false">* Veuillez remplir ces champs.</asp:Label></i></p>
+                
             </td>
         </tr>
     </table>
