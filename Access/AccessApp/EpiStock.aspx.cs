@@ -265,6 +265,13 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+            B_afficher.Visible = false;
+            L_obsolete.Visible = true;
+            SetVisible(true);
+            PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
+>>>>>>> cbe7c4789e487862cc4ffa0b4977b0e13d7b869e
             CheckEpiID();
 
            
@@ -275,7 +282,14 @@ namespace AccessApp
             TB_id_materiel.Enabled = true;
             SetVisible(false);
             B_afficher.Visible = true;
+<<<<<<< HEAD
             B_modifier.Visible = false;
+=======
+            L_obsolete.Visible = false;
+            B_obsolete.Visible = false;
+
+
+>>>>>>> cbe7c4789e487862cc4ffa0b4977b0e13d7b869e
         }
     }
 }
