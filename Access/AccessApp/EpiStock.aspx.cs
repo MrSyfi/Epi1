@@ -209,6 +209,9 @@ namespace AccessApp
 
         private void SetVisible(bool isVisible)
         {
+
+            TB_id_materiel.Enabled = !isVisible;
+
             IdOperateur.Visible = isVisible;
             statut.Visible = isVisible;
             info.Visible = isVisible;
