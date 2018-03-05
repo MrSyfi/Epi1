@@ -44,6 +44,9 @@ namespace AccessApp
                     if (DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), TB_id_materiel.Text, Consts.ID_LOCALISATION, TB_note.Text) && DAL.UpdateStockStatus(TB_id_materiel.Text, DDL_status.SelectedValue.ToString()))
                     {
                         System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Mise à jour effectuée.')</SCRIPT>");
+
+                        SetVisible(false);
+                        B_afficher.Visible = true;
                     }
 
 
@@ -170,6 +173,11 @@ namespace AccessApp
                     }
 
                     DDL_status.Enabled = true;
+
+                    B_afficher.Visible = false;
+                    SetVisible(true);
+                    Populate(DAL.GetProductPerEpiId(TB_id_materiel.Text));
+                    B_modifier.Visible = true;
                 }
                 else
                 {
@@ -192,14 +200,13 @@ namespace AccessApp
             }
         }
 
-        private void PopulateObsolete(DataSet ds)
+        private void Populate(DataSet ds)
         {
             L_obsolete.Text = string.Empty;
             L_obsolete.Text += "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                     "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr></tbody></table></div><hr/>";
-            B_obsolete.Visible = true;
 
         }
 
@@ -208,6 +215,7 @@ namespace AccessApp
 
             TB_id_materiel.Enabled = !isVisible;
 
+            L_obsolete.Visible = isVisible;
             IdOperateur.Visible = isVisible;
             statut.Visible = isVisible;
             info.Visible = isVisible;
@@ -215,12 +223,17 @@ namespace AccessApp
             note.Visible = isVisible;
             B_modifier.Visible = isVisible;
             B_apply.Visible = isVisible;
-            B_obsolete.Visible = !isVisible;
             TB_id_local.Visible = isVisible;
             TB_id_resp.Visible = isVisible;
             TB_note.Visible = isVisible;
             TB_id_local.Visible = isVisible;
             DDL_status.Visible = isVisible;
+
+            if (!isVisible)
+            {
+                B_apply.Visible = false;
+                B_obsolete.Visible = false;
+            }
         }
 
         protected void B_obsolete_Click(object sender, EventArgs e)
@@ -252,11 +265,9 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-            B_afficher.Visible = false;
-            SetVisible(true);
-            PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
             CheckEpiID();
 
+           
         }
 
         protected void B_modifier_Click(object sender, EventArgs e)
@@ -264,8 +275,7 @@ namespace AccessApp
             TB_id_materiel.Enabled = true;
             SetVisible(false);
             B_afficher.Visible = true;
-
-
+            B_modifier.Visible = false;
         }
     }
 }
