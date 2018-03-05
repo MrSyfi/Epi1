@@ -24,7 +24,7 @@
         <hr />
         <p>
             <label for="TB_code">Données du code QR</label>
-            <asp:TextBox ID="TB_code" CssClass="form-control" runat="server" MaxLength="15" name="TB_code" placeholder="ex : 1-020-01"></asp:TextBox>
+            <asp:TextBox ID="TB_code" CssClass="form-control" runat="server" MaxLength="15" name="TB_code" placeholder="ex: 1-020-01"></asp:TextBox>
         </p>
 
         <p>
