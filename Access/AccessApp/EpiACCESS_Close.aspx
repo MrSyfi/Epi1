@@ -4,7 +4,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-header" style="text-align: center;">
-        <h2>Clôture EpiACCESS</h2>
+        <h2>Clôture des demandes d'accès | EpiACCESS</h2>
     </div>
 
     <br />
