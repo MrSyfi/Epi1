@@ -117,7 +117,7 @@ Localisation : Localisation de l'équipement.
   -	Personne : Nom complet de la personne (ex : Dino Mariano)
   -	Service : format SS-XXXXXX (S : site, X : Service) (ex : AH-COMPTA)
 Note : Note liée au changement de statut. Ce champ ne doit pas être obligatoirement rempli. 
-Cliquer sur « Confirmer » pour valider le formulaire.
+Cliquer sur « Confirmer » afin valider le formulaire.
 Les champs « Id de l’opérateur » et « Id du matériel » sont vérifiés automatiquement. Si l’un des champs est incorrect, il sera automatiquement vidé et il devra être à nouveau rempli.
  
  
