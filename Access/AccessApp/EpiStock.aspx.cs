@@ -53,13 +53,74 @@ namespace AccessApp
                 }
 
             }
+        }   
+
+        public void Reset()
+        {
+            L_obsolete.Text = string.Empty;
+            B_obsolete.Visible = false;
+            DDL_status.Enabled = false;
+            TB_id_materiel.Text = string.Empty;
+            TB_note.Text = string.Empty;
+            TB_id_local.Enabled = true;
+        }
+        
+        public void SetFocus()
+        {
+            if (TB_id_resp.Text == string.Empty)
+                TB_id_resp.Focus();
+            else if (TB_id_materiel.Text == string.Empty)
+                TB_id_materiel.Focus();
+            else if (TB_id_local.Text == string.Empty)
+                TB_id_local.Focus();
         }
 
-        protected void TB_id_materiel_TextChanged(object sender, EventArgs e)
+        protected void TB_id_resp_TextChanged(object sender, EventArgs e)
         {
+            DataSet ds = DAL.SelectUsernameFromUsers(TB_id_resp.Text);
 
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                TB_id_resp.Text = string.Empty;
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Identifiant incorrect !')</SCRIPT>");
+                SetFocus();
+            }
+            else
+            {
+                SetFocus();
+            }
+
+        }
+
+        protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // An obsolete object don't have any location..
+            if (((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
+            {
+                TB_id_local.Enabled = false;
+                B_apply.Enabled = false;
+                L_obsolete.Visible = true;
+                B_obsolete.Visible = true;
+                // If the EpiID has been changed.
+                PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
+            }
+            else
+            {
+                TB_id_local.Enabled = true;
+                L_obsolete.Visible = false;
+                B_obsolete.Visible = false;
+
+                B_apply.Enabled = true;
+            }
+
+            SetFocus();
+        }
+
+        public void CheckEpiID()
+        {
             string tmp = string.Empty;
             // Reset the obsolete literal when the user change of epiid
+            L_obsolete.Text = string.Empty;
             B_obsolete.Visible = false;
 
 
@@ -111,8 +172,6 @@ namespace AccessApp
                         DDL_status.DataBind();
                     }
 
-                    L_obsolete.Visible = true;
-                    PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
                     DDL_status.Enabled = true;
                     DDL_status.Focus();
                 }
@@ -137,65 +196,6 @@ namespace AccessApp
             }
         }
 
-        public void Reset()
-        {
-            L_obsolete.Text = string.Empty;
-            B_obsolete.Visible = false;
-            DDL_status.Enabled = false;
-            TB_id_materiel.Text = string.Empty;
-            TB_note.Text = string.Empty;
-            TB_id_local.Enabled = true;
-        }
-        
-        public void SetFocus()
-        {
-            if (TB_id_resp.Text == string.Empty)
-                TB_id_resp.Focus();
-            else if (TB_id_materiel.Text == string.Empty)
-                TB_id_materiel.Focus();
-            else if (TB_id_local.Text == string.Empty)
-                TB_id_local.Focus();
-        }
-
-        protected void TB_id_resp_TextChanged(object sender, EventArgs e)
-        {
-            DataSet ds = DAL.SelectUsernameFromUsers(TB_id_resp.Text);
-
-            if (ds.Tables[0].Rows.Count == 0)
-            {
-                TB_id_resp.Text = string.Empty;
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Identifiant incorrect !')</SCRIPT>");
-                SetFocus();
-            }
-            else
-            {
-                SetFocus();
-            }
-
-        }
-
-        protected void DDL_status_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // An obsolete object don't have any location..
-            if (((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
-            {
-                TB_id_local.Enabled = false;
-                B_obsolete.Visible = true;
-                B_apply.Visible = false;
-                // If the EpiID has been changed.
-                PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
-            }
-            else
-            {
-                TB_id_local.Enabled = true;
-                B_obsolete.Visible = false;
-                B_apply.Visible = true;
-                PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
-            }
-
-            SetFocus();
-        }
-
         private void PopulateObsolete(DataSet ds)
         {
             L_obsolete.Text = string.Empty;
@@ -207,15 +207,16 @@ namespace AccessApp
 
         }
 
-        private void setVisible(bool isVisible)
+        private void SetVisible(bool isVisible)
         {
+
+            TB_id_materiel.Enabled = !isVisible;
+
             IdOperateur.Visible = isVisible;
             statut.Visible = isVisible;
             info.Visible = isVisible;
             localisation.Visible = isVisible;
             note.Visible = isVisible;
-            B_apply.Visible = isVisible;
-            B_obsolete.Visible = !isVisible;
             TB_id_local.Visible = isVisible;
             TB_id_resp.Visible = isVisible;
             TB_note.Visible = isVisible;
@@ -247,12 +248,15 @@ namespace AccessApp
             Reset();
             SetFocus();
 
+
         }
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-            setVisible(true);
-            
+
+            SetVisible(true);
+            CheckEpiID();
+
         }
     }
 }
