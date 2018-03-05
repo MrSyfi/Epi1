@@ -6,7 +6,7 @@
 
 
     <div class="page-header" style="text-align: center;">
-        <h2>EpiCMBD</h2>
+        <h2>EpiCMDB</h2>
     </div>
 
     <table style="margin:auto;">
