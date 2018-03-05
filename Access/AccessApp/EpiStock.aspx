@@ -22,12 +22,12 @@
     </p>
 
     <p>
-        <b><asp:Label ID="statut" runat="server" Visible="false">Statut à affecter*</asp:Label></b>
+        <b><asp:Label ID="statut" runat="server" Visible="false">Statut à affecter *</asp:Label></b>
         <asp:DropDownList runat="server" CssClass="form-control" ID="DDL_status" Enabled="false" OnSelectedIndexChanged="DDL_status_SelectedIndexChanged" AutoPostBack="true" Visible="false"></asp:DropDownList>
     </p>
 
     <p>
-        <b><asp:Label ID="localisation" runat="server" Visible="false">Localisation du matériel*</asp:Label></b>
+        <b><asp:Label ID="localisation" runat="server" Visible="false">Localisation du matériel *</asp:Label></b>
         <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local" Visible="false"></asp:TextBox>
     </p>
 
