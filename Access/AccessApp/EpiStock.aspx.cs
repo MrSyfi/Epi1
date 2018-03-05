@@ -270,6 +270,8 @@ namespace AccessApp
         protected void B_modifier_Click(object sender, EventArgs e)
         {
             TB_id_materiel.Enabled = true;
+            TB_id_materiel.Text = string.Empty;
+            SetFocus();
             SetVisible(false);
             B_afficher.Visible = true;
             B_modifier.Visible = false;
