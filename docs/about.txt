@@ -75,3 +75,71 @@ L'affichage des résultat dépend d'une recherche, encodée par l'utilisateur.
 Quelques mots clés sont prévus pour l'affichage des résultats (veuillez noter que ces mots clés sont sensibles à la casse) : 
 - Si l'utilisateur recherche "ALL", l'interface affichera toutes les demandes d'accès qui ne sont pas fermées.
 - .. ? 
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+Impression d’étiquette
+
+L’utilisateur doit choisir le site sur lequel les étiquettes seront imprimées via la liste déroulante. Ensuite, l’utilisateur peut soit imprimer via un fichier source ou manuellement.
+Manuellement :
+  Deux champs doivent être obligatoirement remplis : 
+    •	Code QR : information qui sera stockée dans le code QR (maximum 15 caractères)
+    •	Information : Texte qui sera affiché en dessous du code QR (maximum 30 caractères)
+
+  Depuis un fichier :
+    Un fichier doit être obligatoirement sélectionné grâce à l’explorateur. (fichier d'extension .csv)
+
+Lors de la validation, l'étiquette sortira de l'imprimante du site spécifié. 
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Gestion du stock
+
+
+L’utilisateur doit introduire l’EpiID et confirmer la sélection. Ensuite, différentes informations doivent être introduites :
+Id de l’opérateur : Identifiant de l'opérateur au sein d'EpiDESK (Étiquette se trouvant sur le badge)
+Id du matériel : Identifiant de matériel (EpiID).
+Statut : L’utilisateur doit choisir parmi la sélection ci-dessous. Cette sélection varie selon l’état actuel du matériel.
+  •	INSTALLED : Affectation à une personne ou installation dans un local
+  •	STOCKED : Remise en stock
+  •	UNDER_REPAIR : Mise en réparation
+  •	OBSOLETE : Déclassement du matériel
+Localisation : Localisation de l'équipement. 
+  -	Local : se référer à l’étiquette présente en haut de la porte du local. 
+  -	Personne : Nom complet de la personne (ex : Dino Mariano)
+  -	Service : format SS-XXXXXX (S : site, X : Service) (ex : AH-COMPTA)
+Note : Note liée au changement de statut. Ce champ ne doit pas être obligatoirement rempli. 
+Cliquer sur « Confirmer » pour valider le formulaire.
+Les champs « Id de l’opérateur » et « Id du matériel » sont vérifiés automatiquement. Si l’un des champs est incorrect, il sera automatiquement vidé et il devra être à nouveau rempli.
+ 
+ 
+ 
+ 
+ --------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Gestion EpiACCESS
+
+
+
+
+L’utilisateur doit remplir le champ « Recherche » afin d’avoir un résultat. Si il y a un résultat, l’utilisateur doit cliquer sur l’un des éléments du tableau afin de remplir les champs ce trouvant en dessous de celui-ci.
+Action possible en fonction de l’état de la demande d’accès :
+  •	RESP_MAILED 
+    L’état peut être remis à l’état président (USER_READY).
+  •	RESP_MAILED
+    L’état peut être remis à l’état président (UNAPPROUVED).
+    L’email du responsable peut être modifié.
+Cliquer sur « Confirmer » afin de valider les modifications.
+L’utilisateur peut également choisir le nombre d’élément qui sera affiché par page.
+
