@@ -15,10 +15,7 @@
     </table>
     <hr />
 
-    <p style="text-align: center;">
-        <asp:Literal ID="L_obsolete" runat="server" Visible="true"></asp:Literal>
-    </p>
-
+    <div class="left">
     <p>
         <b><asp:Label ID="IdOperateur" runat="server" Visible="false">Id de l'opérateur *</asp:Label></b>
         <asp:TextBox ID="TB_id_resp" CssClass="form-control input-lg" runat="server" name="TB_id_resp" OnTextChanged="TB_id_resp_TextChanged" AutoPostBack="true" Visible="false"></asp:TextBox>
@@ -34,21 +31,37 @@
         <asp:TextBox ID="TB_id_local" CssClass="form-control input-lg" runat="server" name="TB_id_local" Visible="false"></asp:TextBox>
     </p>
 
-
-
     <p>
        <b><asp:Label id="note" runat="server" Visible="false">Note</asp:Label></b>
         <asp:TextBox ID="TB_note" CssClass="form-control input-lg" TextMode="multiline" Columns="50" Rows="5" runat="server" Visible="false"/>
     </p>
+    </div>
 
+    <div class="right">
+    <p style="text-align: center;">
+        <asp:Literal ID="L_obsolete" runat="server" Visible="true"></asp:Literal>
+    </p>
+    </div>
+
+    
+    <table width="100%">
+        <tr>
+            <td width="100%" align='right'>
+                <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true" Style="float: right;" Visible="false"/>
+                <asp:Button ID="B_obsolete" CssClass="btn btn-danger btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" Style="float: right;" />
+                <p><i><asp:Label ID="info" runat="server" Visible="false">* Veuillez remplir ces champs.</asp:Label></i></p>
+            </td>
+        </tr>
+    </table>
+    
     <p>
-        <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true" Style="float: right;" Visible="false"/>
+        
     </p>
     <p>
-        <asp:Button ID="B_obsolete" CssClass="btn btn-danger btn-lg" runat="server" OnClick="B_obsolete_Click" Text="Rendre obsolète" Visible="false" Style="float: right;" />
+        
     </p>
 
-    <p><i><asp:Label ID="info" runat="server" Visible="false">* Veuillez remplir ces champs.</asp:Label></i></p>
+    
 
     
 </asp:Content>

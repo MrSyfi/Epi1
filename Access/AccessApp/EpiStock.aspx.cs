@@ -253,6 +253,7 @@ namespace AccessApp
         protected void B_afficher_Click(object sender, EventArgs e)
         {
             B_afficher.Visible = false;
+            L_obsolete.Visible = true;
             SetVisible(true);
             PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
             CheckEpiID();
@@ -264,6 +265,8 @@ namespace AccessApp
             TB_id_materiel.Enabled = true;
             SetVisible(false);
             B_afficher.Visible = true;
+            L_obsolete.Visible = false;
+            B_obsolete.Visible = false;
 
 
         }
