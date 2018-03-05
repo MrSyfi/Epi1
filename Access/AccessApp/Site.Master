@@ -71,7 +71,7 @@
             </div>
             <!-- PAGE / BODY -->
             <div class="col-md-10 col-lg-10">
-                <div class="container body-content" style="background-color: #ffffff; padding: 20px; padding-top: 0px;">
+                <div class="container body-content" style="background-color: #ffffff; padding: 20px; padding-top: 0px; padding-bottom: 40px;">
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
