@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using System.Windows;
 
 namespace AccessApp
 {
@@ -99,16 +98,14 @@ namespace AccessApp
             if (((DropDownList)sender).SelectedValue.ToString() == "OBSOLETE")
             {
                 TB_id_local.Enabled = false;
-                L_obsolete.Visible = true;
+
                 B_obsolete.Visible = true;
                 B_apply.Visible = false;
-                // If the EpiID has been changed.
-                PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
             }
             else
             {
+
                 TB_id_local.Enabled = true;
-                L_obsolete.Visible = false;
                 B_obsolete.Visible = false;
                 B_apply.Visible = true;
             }
@@ -120,7 +117,7 @@ namespace AccessApp
         {
             string tmp = string.Empty;
             // Reset the obsolete literal when the user change of epiid
-            L_obsolete.Text = string.Empty;
+           
             B_obsolete.Visible = false;
 
 
@@ -198,10 +195,10 @@ namespace AccessApp
         private void PopulateObsolete(DataSet ds)
         {
             L_obsolete.Text = string.Empty;
-            L_obsolete.Text += "<br/><hr/><div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
+            L_obsolete.Text += "<div class='responsive-table-line' style='margin:0px auto;max-width:700px;'><table class='table table-bordered table-condensed table-body-center' ><tbody>" +
                     "<tr><td data-title='EpiID'>" + ds.Tables[0].Rows[0]["EPIID"].ToString() + "</td></tr>" +
                     "<tr><td data-title='Marque et modèle'>" + ds.Tables[0].Rows[0]["NAME"].ToString() + " " + ds.Tables[0].Rows[0]["MODELE"].ToString() + "</td></tr>" +
-                    "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr></tbody></table></div>";
+                    "<tr><td data-title='Numéro de série'>" + ds.Tables[0].Rows[0]["SERIAL_NUMBER"].ToString() + "</td></tr></tbody></table></div><hr/>";
             B_obsolete.Visible = true;
 
         }
@@ -211,12 +208,12 @@ namespace AccessApp
 
             TB_id_materiel.Enabled = !isVisible;
 
+            L_obsolete.Visible = isVisible;
             IdOperateur.Visible = isVisible;
             statut.Visible = isVisible;
             info.Visible = isVisible;
             localisation.Visible = isVisible;
             note.Visible = isVisible;
-            B_modifier.Visible = isVisible;
             B_apply.Visible = isVisible;
             B_obsolete.Visible = !isVisible;
             TB_id_local.Visible = isVisible;
@@ -224,8 +221,6 @@ namespace AccessApp
             TB_note.Visible = isVisible;
             TB_id_local.Visible = isVisible;
             DDL_status.Visible = isVisible;
-
-            
         }
 
         protected void B_obsolete_Click(object sender, EventArgs e)
@@ -255,22 +250,12 @@ namespace AccessApp
 
         }
 
-       
-
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-            B_afficher.Visible = false;
+            
             SetVisible(true);
+            PopulateObsolete(DAL.GetProductPerEpiId(TB_id_materiel.Text));
             CheckEpiID();
-           
-        }
-
-        protected void B_modifier_Click(object sender, EventArgs e)
-        {
-            TB_id_materiel.Enabled = true;
-            SetVisible(false);
-            B_afficher.Visible = true;
-
 
         }
     }
