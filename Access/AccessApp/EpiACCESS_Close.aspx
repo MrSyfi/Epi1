@@ -1,10 +1,10 @@
-﻿<%@ Page Title="EpiACCESS Close" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiACCESS_Close.aspx.cs" Inherits="AccessApp.EpiACCESS_Close" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="Clôture EpiACCESS" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="EpiACCESS_Close.aspx.cs" Inherits="AccessApp.EpiACCESS_Close" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-header" style="text-align: center;">
-        <h2>Fermeture EpiACCESS</h2>
+        <h2>Clôture EpiACCESS</h2>
     </div>
 
     <br />
