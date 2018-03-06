@@ -3,7 +3,7 @@ using System.Data;
 
 namespace AccessApp
 {
-    public partial class GestionMateriel : System.Web.UI.Page
+    public partial class Timeline : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)

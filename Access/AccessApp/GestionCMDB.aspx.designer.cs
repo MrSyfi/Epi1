@@ -10,7 +10,7 @@
 namespace AccessApp {
     
     
-    public partial class EpiStock {
+    public partial class GestionCMDB {
         
         /// <summary>
         /// Contrôle TB_id_materiel.

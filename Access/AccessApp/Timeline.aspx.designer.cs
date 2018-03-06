@@ -10,7 +10,7 @@
 namespace AccessApp {
     
     
-    public partial class GestionMateriel {
+    public partial class Timeline {
         
         /// <summary>
         /// Contrôle TB_recherche.

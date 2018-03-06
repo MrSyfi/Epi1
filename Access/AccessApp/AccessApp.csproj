@@ -273,10 +273,10 @@
     <Content Include="Image\Epicura.png" />
     <Content Include="Image\EpiDESK_Ico_8.ico" />
     <Content Include="EpiLabel.aspx" />
-    <Content Include="EpiStock.aspx" />
+    <Content Include="GestionCMDB.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Gestion_EpiACCESS.aspx" />
-    <Content Include="GestionMateriel.aspx" />
+    <Content Include="Timeline.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -359,12 +359,12 @@
     <Compile Include="EpiLabel.aspx.designer.cs">
       <DependentUpon>EpiLabel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EpiStock.aspx.cs">
-      <DependentUpon>EpiStock.aspx</DependentUpon>
+    <Compile Include="GestionCMDB.aspx.cs">
+      <DependentUpon>GestionCMDB.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EpiStock.aspx.designer.cs">
-      <DependentUpon>EpiStock.aspx</DependentUpon>
+    <Compile Include="GestionCMDB.aspx.designer.cs">
+      <DependentUpon>GestionCMDB.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gestion_EpiACCESS.aspx.cs">
       <DependentUpon>Gestion_EpiACCESS.aspx</DependentUpon>
@@ -373,12 +373,12 @@
     <Compile Include="Gestion_EpiACCESS.aspx.designer.cs">
       <DependentUpon>Gestion_EpiACCESS.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GestionMateriel.aspx.cs">
-      <DependentUpon>GestionMateriel.aspx</DependentUpon>
+    <Compile Include="Timeline.aspx.cs">
+      <DependentUpon>Timeline.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GestionMateriel.aspx.designer.cs">
-      <DependentUpon>GestionMateriel.aspx</DependentUpon>
+    <Compile Include="Timeline.aspx.designer.cs">
+      <DependentUpon>Timeline.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

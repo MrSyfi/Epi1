@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Timeline" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="GestionMateriel.aspx.cs" Inherits="AccessApp.GestionMateriel" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="Timeline" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Timeline.aspx.cs" Inherits="AccessApp.Timeline" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
