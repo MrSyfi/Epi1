@@ -1,11 +1,12 @@
-EpiCMDB
+Timeline
 Bases de données
 
 Utilisation des tables existantes (BRAND, CONTACTS, HISTORIC, LOCALISATION, MODEl, STOCK) sans modification de celles-ci.
 
 Front End
 
-Développement de l'outil effectué en ASP.NET WebForms, impliquant l'utilisation de HTML, CSS et jQUERY. Après scan ou encodage de l'Epi ID, l'interface permet d'afficher le parcours du matériel, son historique.
+Développement de l'outil effectué en ASP.NET WebForms, impliquant l'utilisation de HTML, CSS et jQUERY.
+Après scan ou encodage de l'Epi ID, l'interface permet d'afficher le parcours du matériel, son historique.
 
 Le préfixe « EPI » n'est pas nécessaire pour le bon fonctionnement de l'interface.
 
@@ -29,7 +30,8 @@ Utilisation des tables TICKET, CONTACTS et TICKETS_COMMENT sans modifications de
 
 Front End
 
-Développement de l'outil effectué en ASP.NET WebForms, impliquant l'utilisation de HTML, CSS et jQUERY. L'interface permet d'afficher les détails du ticket lié au déplacement de matériel. L'interface affiche également les commentaires liés à ce ticket.
+Développement de l'outil effectué en ASP.NET WebForms, impliquant l'utilisation de HTML, CSS et jQUERY.
+L'interface permet d'afficher les détails du ticket lié au déplacement de matériel. L'interface affiche également les commentaires liés à ce ticket.
 
 Back End
 
@@ -88,12 +90,12 @@ Lors de la validation, l'étiquette sortira de l'imprimante du site spécifié.
 
 
 
-Gestion du stock
+Gestion de la CMDB
 
 
 L’utilisateur doit introduire l’EpiID et confirmer la sélection. Ensuite, différentes informations doivent être introduites :
-Id de l’opérateur : Identifiant de l'opérateur au sein d'EpiDESK (Étiquette se trouvant sur le badge)
-Id du matériel : Identifiant de matériel (EpiID).
+Id de l’opérateur : Identifiant de l'opérateur au sein d'EpiDESK (Étiquette se trouvant sur le badge) 
+Id du matériel : Identifiant de matériel (EpiID, le préfixe "EPI" n'est pas nécessaire au bon fonctionnement de l'application.)
 Statut : L’utilisateur doit choisir parmi la sélection ci-dessous. Cette sélection varie selon l’état actuel du matériel.
   •	INSTALLED : Affectation à une personne ou installation dans un local
   •	STOCKED : Remise en stock
