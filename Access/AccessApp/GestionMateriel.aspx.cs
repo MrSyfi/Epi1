@@ -13,7 +13,7 @@ namespace AccessApp
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
         {
-            string tmp = "";
+            string tmp = string.Empty;
             if (TB_recherche.Text.Length > 3 && (TB_recherche.Text.ToUpper().StartsWith("EPI")))
                 tmp = TB_recherche.Text.Substring(3);
             else if (TB_recherche.Text.Length > 0)
@@ -50,7 +50,7 @@ namespace AccessApp
         private void PopulateHisto(DataTable dt)
         {
 
-            L_Histo.Text = "";
+            L_Histo.Text = string.Empty;
             L_Histo.Text += "<h2 style='text-align:center;'>HISTORIQUE</h2><hr/>";
             L_Histo.Text += "<section id = 'cd-timeline' class='cd-container'>";
             foreach (DataRow row in dt.Rows)
@@ -95,7 +95,7 @@ namespace AccessApp
 
         protected void B_afficher_Click(object sender, EventArgs e)
         {
-            string tmp = "";
+            string tmp = string.Empty;
             if (TB_recherche.Text.Length > 3 && (TB_recherche.Text.ToUpper().StartsWith("EPI")))
                 tmp = TB_recherche.Text.Substring(3);
             else if (TB_recherche.Text.Length > 0)
