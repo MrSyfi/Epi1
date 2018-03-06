@@ -17,7 +17,7 @@ namespace AccessApp
                 // Check if tId is not null
                 if (Request.QueryString["tId"] == string.Empty)
                 {
-                    Response.Redirect("GestionMateriel.aspx", true);
+                    Response.Redirect("Timeline.aspx", true);
                 }
                 else
                 {
@@ -33,7 +33,7 @@ namespace AccessApp
             }
             else
             {
-                Response.Redirect("GestionMateriel.aspx", true);
+                Response.Redirect("Timeline.aspx", true);
             }
 
         }
