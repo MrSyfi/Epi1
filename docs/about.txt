@@ -75,8 +75,8 @@ Impression d’étiquette
 L’utilisateur doit choisir le site sur lequel les étiquettes seront imprimées via la liste déroulante. Ensuite, l’utilisateur peut soit imprimer via un fichier source ou manuellement.
 Manuellement :
   Deux champs doivent être obligatoirement remplis : 
-    •	Code QR : information qui sera stockée dans le code QR (maximum 15 caractères)
-    •	Information : Texte qui sera affiché en dessous du code QR (maximum 30 caractères)
+    •	Données du code QR : information qui sera stockée dans le code QR (maximum 15 caractères)
+    •	Titre de l'étiquette : Texte qui sera affiché en dessous du code QR (maximum 30 caractères)
 
   Depuis un fichier :
     Un fichier doit être obligatoirement sélectionné grâce à l’explorateur. (fichier d'extension .csv)
