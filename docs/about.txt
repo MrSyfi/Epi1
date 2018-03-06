@@ -96,12 +96,12 @@ Gestion de la CMDB
 L’utilisateur doit introduire l’EpiID et confirmer la sélection. Ensuite, différentes informations doivent être introduites :
 Id de l’opérateur : Identifiant de l'opérateur au sein d'EpiDESK (Étiquette se trouvant sur le badge) 
 Id du matériel : Identifiant de matériel (EpiID, le préfixe "EPI" n'est pas nécessaire au bon fonctionnement de l'application.)
-Statut : L’utilisateur doit choisir parmi la sélection ci-dessous. Cette sélection varie selon l’état actuel du matériel.
+Statut à affecter : L’utilisateur doit choisir parmi la sélection ci-dessous. Cette sélection varie selon l’état actuel du matériel.
   •	INSTALLED : Affectation à une personne ou installation dans un local
   •	STOCKED : Remise en stock
   •	UNDER_REPAIR : Mise en réparation
   •	OBSOLETE : Déclassement du matériel
-Localisation : Localisation de l'équipement. 
+Localisation du matériel : 
   -	Local : se référer à l’étiquette présente en haut de la porte du local. 
   -	Personne : Nom complet de la personne (ex : Dino Mariano)
   -	Service : format SS-XXXXXX (S : site, X : Service) (ex : AH-COMPTA)
