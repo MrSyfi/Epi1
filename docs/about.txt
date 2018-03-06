@@ -128,7 +128,7 @@ Liste des mots clés :
 
 Si il y a un résultat, l’utilisateur doit cliquer sur l’un des éléments du tableau afin de remplir les champs ce trouvant en dessous de celui-ci.
 Action possible en fonction de l’état de la demande d’accès :
-  •	RESP_MAILED 
+  •	USER_MAILED 
     L’état peut être remis à l’état président (USER_READY).
   •	RESP_MAILED
     L’état peut être remis à l’état président (UNAPPROUVED).
