@@ -149,13 +149,14 @@ namespace AccessApp
         public static DataSet SelectLocalisationId(string localisation)
         {
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID FROM {0} WHERE {0}.LOCALISATION_ID LIKE '{1}'", Consts.LOCALISATION_TABLE, localisation));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID FROM {0} WHERE {0}.LOCALISATION_ID LIKE :loc", Consts.LOCALISATION_TABLE),localisation,":loc");
         }
 
         public static DataSet SelectUsernameFromUsers(string id)
         {
+            
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT USERNAME FROM {0} WHERE {0}.CONTACT_ID LIKE '{1}'", Consts.USERS_TABLE, id));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT USERNAME FROM {0} WHERE {0}.CONTACT_ID LIKE :id", Consts.USERS_TABLE),id,":id");
 
         }
 
@@ -177,8 +178,17 @@ namespace AccessApp
 
         public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = "")
         {
+            ArrayList parameters = new ArrayList();
+            ArrayList values = new ArrayList();
 
-            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES ({1}, {2}, SYSDATE, '{3}', {4}, 0, '{5}', 0, '{6}')", Consts.HISTORIC_TABLE, epiid, idOp, statut, localisationId, note, SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString()));
+            parameters.Add(":note"); values.Add(note);
+
+
+            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES ({1}, {2}, SYSDATE, '{3}', {4}, 0, :note , 0, '{5}')", Consts.HISTORIC_TABLE, epiid, idOp, statut, localisationId, SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString()), values, parameters);
+
+
+           // ED_GlobalVars.DBConnection.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = '{1}',  SERVICE_SUB_CATEG_ID = :ServiceSubCategID, RESOLUTION = :ResolutionData, RESOLUTION_TS = SYSDATE, LAST_UPDATE_TS = SYSDATE, ESIGN = :ESIGN WHERE ID = :TicketID", ED_Constants.CONST_DATABASE_TICKETS, TicketStatusType.CLOSED), Values, Parameters);
+
         }
 
         public static bool UpdateStockStatus(string epiid, string statut)

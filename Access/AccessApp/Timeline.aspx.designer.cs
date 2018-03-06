@@ -11,7 +11,7 @@ namespace AccessApp {
     
     
     public partial class Timeline {
-        
+
         /// <summary>
         /// Contrôle TB_recherche.
         /// </summary>
@@ -20,7 +20,7 @@ namespace AccessApp {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TB_recherche;
-        
+
         /// <summary>
         /// Contrôle B_afficher.
         /// </summary>

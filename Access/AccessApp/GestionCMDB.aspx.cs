@@ -39,7 +39,7 @@ namespace AccessApp
                     }
                     Consts.ID_LOCALISATION = locId;
 
-                    if (DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), CheckEpi(), Consts.ID_LOCALISATION, TB_note.Text) && DAL.UpdateStockStatus(CheckEpi(), DDL_status.SelectedValue.ToString()))
+                    if (DAL.InsertInHistoric(TB_id_resp.Text, DDL_status.SelectedValue.ToString(), CheckEpi(), Consts.ID_LOCALISATION, TB_note.Text.ToString()) && DAL.UpdateStockStatus(CheckEpi(), DDL_status.SelectedValue.ToString()))
                     {
                         System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Mise à jour effectuée.')</SCRIPT>");
                         Reset();
