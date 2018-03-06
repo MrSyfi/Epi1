@@ -129,9 +129,9 @@ Liste des mots clés :
 Si il y a un résultat, l’utilisateur doit cliquer sur l’un des éléments du tableau afin de remplir les champs ce trouvant en dessous de celui-ci.
 Action possible en fonction de l’état de la demande d’accès :
   •	USER_MAILED 
-    L’état peut être remis à l’état président (USER_READY).
+    L’état peut être remis à l’état précédent (USER_READY).
   •	RESP_MAILED
-    L’état peut être remis à l’état président (UNAPPROUVED).
+    L’état peut être remis à l’état précédent (UNAPPROUVED).
     L’email du responsable peut être modifié.
 Cliquer sur « Confirmer » afin de valider les modifications.
 L’utilisateur peut également choisir le nombre d’élément qui sera affiché par page.
