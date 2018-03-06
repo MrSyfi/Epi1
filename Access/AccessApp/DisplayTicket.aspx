@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DisplayTicket.aspx.cs" Inherits="AccessApp.DisplayTicket" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="Informations ticket" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DisplayTicket.aspx.cs" Inherits="AccessApp.DisplayTicket" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
