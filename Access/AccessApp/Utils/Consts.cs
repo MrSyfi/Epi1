@@ -11,6 +11,7 @@
         // DATABASE TABLE OR VIEW
 
         public static readonly string ACCESS_REQUEST_TABLE = "EPIDESK.ACCESS_REQUEST";
+        public static readonly string TICKETS_COMMENTS = "EPIDESK.TICKETS_COMMENTS";
         public static readonly string CONTACTS_TABLE = "EPIDESK.CONTACTS";
         public static readonly string TICKETS_TABLE = "EPIDESK.TICKETS";
         public static readonly string USERS_TABLE = "EPIDESK.USERS";
