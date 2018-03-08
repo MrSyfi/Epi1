@@ -125,20 +125,20 @@ namespace AccessApp
             string reff = (string)ds.Tables[0].Rows[0]["REFERENCE"];
 
             //MAIL TO AGENT / RESP
-            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff, out bool sended);
+            //MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff, out bool sended);
 
 
-            if (sended)
-            {
+            //if (sended)
+            //{
 
                 //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
                // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
-                DAL.InsertTicketComment(TB_ticket.Text, "1", "Clôture de la demande d'accès et email envoyé le " + DateTime.Now.ToString("dd/MM/yyyy") + "avec les identifiants : \n\t Username : "+TB_username.Text+"\n\tPassword : "+Consts.MOT_DE_PASSE;
+                DAL.InsertTicketsComment(TB_ticket.Text, "1", "Clôture de la demande d'accès et email envoyé le " + DateTime.Now.ToString("dd/MM/yyyy") + "avec les identifiants : \n\t Username : "+TB_username.Text+"\n\tPassword : "+Consts.MOT_DE_PASSE, "1");
                // DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
                 // Refresh the table
                 LoadTable();
-            }
+            //}
         }
 
         //Permet de changer un mot de passe 
