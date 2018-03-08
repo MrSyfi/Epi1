@@ -82,10 +82,8 @@ namespace AccessApp
             ArrayList values = new ArrayList();
 
             parameters.Add(":gen"); values.Add(gen);
-            parameters.Add(":res"); values.Add(DateTime.Now.ToString());
-            parameters.Add(":lastUpdate"); values.Add(DateTime.Now.ToString());
 
-            return DBConnection.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = :res, LAST_UPDATE_TS = :lastUpdate WHERE ID = {1}", Consts.TICKETS_TABLE, ticketID), values, parameters);
+            return DBConnection.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = SYSDATE, LAST_UPDATE_TS = SYSDATE WHERE ID = {1}", Consts.TICKETS_TABLE, ticketID), values, parameters);
         }
 
         /* EPI_CMDB */

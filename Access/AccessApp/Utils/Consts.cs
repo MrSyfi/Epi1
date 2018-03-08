@@ -26,9 +26,10 @@
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
         public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
         public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=VMHUINFORV01.epicura.lan:1521/XEXDB;PASSWORD=TL19xPo53;USER ID=EPIDESK";
-        
+        //public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID = epidesk";
+
         // INTERFACE
-        
+
         public static readonly string EMPTY_STRING = " - ";
         public static readonly int LABEL_STRING_LENGHT_LIMIT = 30;
         public static readonly int LABEL_QR_LENGHT_LIMIT = 15;
