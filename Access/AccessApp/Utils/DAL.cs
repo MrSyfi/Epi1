@@ -7,6 +7,9 @@ namespace AccessApp
     public class DAL
     {
 
+        /* Generic */
+
+
         /* GESTION EPIACCESS */
 
         public static DataSet SelectFromSearchRequest(string search)
@@ -85,6 +88,8 @@ namespace AccessApp
 
             return DBConnection.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = SYSDATE, LAST_UPDATE_TS = SYSDATE WHERE ID = {1}", Consts.TICKETS_TABLE, ticketID), values, parameters);
         }
+
+        
 
         /* EPI_CMDB */
 

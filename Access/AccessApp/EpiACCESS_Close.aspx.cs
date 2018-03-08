@@ -131,11 +131,11 @@ namespace AccessApp
             if (sended)
             {
 
-                ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+                //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
-                DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
-
-                DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
+               // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
+                DAL.InsertTicketComment(TB_ticket.Text, "1", "Clôture de la demande d'accès et email envoyé le " + DateTime.Now.ToString("dd/MM/yyyy") + "avec les identifiants : \n\t Username : "+TB_username.Text+"\n\tPassword : "+Consts.MOT_DE_PASSE;
+               // DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
                 // Refresh the table
                 LoadTable();
             }
