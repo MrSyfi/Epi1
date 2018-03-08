@@ -186,6 +186,19 @@ namespace AccessApp
 
         }
 
+        public static bool InsertTicketsComment(string ticketId, string contactId, string text, string idOp)
+        {
+            ArrayList parameters = new ArrayList();
+            ArrayList values = new ArrayList();
+
+            parameters.Add(":ticketid"); values.Add(ticketId);
+            parameters.Add(":contactId"); values.Add(contactId);
+            parameters.Add(":log"); values.Add(text);
+            parameters.Add(":sign"); values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
+
+            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(TICKET_ID, CONTACT_ID, LOG, TIMESTAMP, STATUS, ESIGN) VALUES (:ticketid, :contactId, :log, SYSDATE, 0, :sign) ", Consts.TICKETS_COMMENTS), values, parameters);
+        }
+
         public static bool UpdateStockStatus(string epiid, string statut)
         {
             ArrayList parameters = new ArrayList();
