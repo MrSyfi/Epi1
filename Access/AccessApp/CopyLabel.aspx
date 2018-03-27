@@ -18,11 +18,11 @@
     <br />
     <p>
         <b><asp:Label ID="L_id_op" runat="server">Id de l'opérateur *</asp:Label></b>
-        <asp:TextBox ID="TB_id_op" CssClass="form-control input-lg" runat="server" name="TB_id_op" AutoPostBack="true"></asp:TextBox>
+        <asp:TextBox ID="TB_id_op" CssClass="form-control input-lg" runat="server" name="TB_id_op"></asp:TextBox>
     </p>
     <p>
         <b><asp:Label ID="L_EpiID" runat="server">EpiID</asp:Label></b>
-        <asp:TextBox ID="TB_EpiID" CssClass="form-control input-lg" runat="server" name="TB_EpiID" AutoPostBack="true"></asp:TextBox>
+        <asp:TextBox ID="TB_EpiID" CssClass="form-control input-lg" runat="server" name="TB_EpiID"></asp:TextBox>
     </p>
     <p>
         <asp:Button ID="B_apply" CssClass="btn btn-primary btn-lg" runat="server" OnClick="B_apply_Click" Text="Confirmer" Enabled="true"/>
