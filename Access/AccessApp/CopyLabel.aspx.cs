@@ -16,7 +16,7 @@ namespace AccessApp
 
         }
 
-        // ZPL a imprimer : "^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", label.Text
+        
         private void Print(string zpl)
         {
             using (TcpClient client = new TcpClient())
@@ -43,7 +43,13 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-
+            // ZPL a imprimer : "^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", label.Text
+            if (DAL.GetProductPerEpiId(TB_EpiID.Text).Tables[0].Rows.Count != 0 && DAL.SelectUsernameFromUsers(TB_id_op.Text).Tables[0].Rows.Count != 0)
+            {
+                DAL.InsertInHistoric(TB_id_op.Text, "COPY_LBL", TB_EpiID.Text, "0");
+                Print(string.Format("^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", L_EpiID.Text));
+            }
+           
         }
     }
 }
