@@ -267,6 +267,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="CopyLabel.aspx" />
     <Content Include="DisplayTicket.aspx" />
     <Content Include="EpiACCESS_Close.aspx" />
     <Content Include="Image\deleteobsolete.png" />
@@ -335,6 +336,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CopyLabel.aspx.cs">
+      <DependentUpon>CopyLabel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CopyLabel.aspx.designer.cs">
+      <DependentUpon>CopyLabel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utils\Consts.cs" />
     <Compile Include="Utils\DAL.cs" />
