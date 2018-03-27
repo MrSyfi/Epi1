@@ -43,15 +43,21 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
+            string tmp = string.Empty;
+            if (TB_EpiID.Text.Length > 3 && (TB_EpiID.Text.ToUpper().StartsWith("EPI")))
+                tmp = TB_EpiID.Text.Substring(3);
+            else if (TB_EpiID.Text.Length > 0)
+                tmp = TB_EpiID.Text;
+
             // ZPL a imprimer : "^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", label.Text
-            if (DAL.GetProductPerEpiId(TB_EpiID.Text).Tables[0].Rows.Count != 0)
+            if (DAL.GetProductPerEpiId(tmp).Tables[0].Rows.Count != 0)
             {
                 if (DAL.SelectUsernameFromUsers(TB_id_op.Text).Tables[0].Rows.Count != 0)
                 {
                     if (DDL_Printer.SelectedIndex != 0)
                     {
-                        DAL.InsertInHistoric(TB_id_op.Text, "COPY_LBL", TB_EpiID.Text, "0");
-                        Print(string.Format("^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", TB_EpiID.Text));
+                        DAL.InsertInHistoric(TB_id_op.Text, "COPY_LBL", tmp, "0");
+                        Print(string.Format("^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", "EPI"+tmp));
                     }
                     else
                     {
