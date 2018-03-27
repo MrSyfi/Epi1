@@ -27,7 +27,7 @@ namespace AccessApp
 
                     using (StreamWriter writer = new StreamWriter(client.GetStream()))
                     {
-
+                        System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Impression...')</SCRIPT>");
                         writer.Write(zpl);
                         writer.Flush();
                     }
@@ -44,10 +44,14 @@ namespace AccessApp
         protected void B_apply_Click(object sender, EventArgs e)
         {
             // ZPL a imprimer : "^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", label.Text
-            if (DAL.GetProductPerEpiId(TB_EpiID.Text).Tables[0].Rows.Count != 0 && DAL.SelectUsernameFromUsers(TB_id_op.Text).Tables[0].Rows.Count != 0)
+            if (DAL.GetProductPerEpiId(TB_EpiID.Text).Tables[0].Rows.Count != 0 && DAL.SelectUsernameFromUsers(TB_id_op.Text).Tables[0].Rows.Count != 0 )
             {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Test1.')</SCRIPT>");
                 DAL.InsertInHistoric(TB_id_op.Text, "COPY_LBL", TB_EpiID.Text, "0");
-                Print(string.Format("^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", L_EpiID.Text));
+                Print(string.Format("^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", TB_EpiID.Text));
+            } else
+            {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Test2.')</SCRIPT>");
             }
            
         }
