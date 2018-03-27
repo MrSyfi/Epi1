@@ -16,6 +16,7 @@ namespace AccessApp
 
         }
 
+        // ZPL a imprimer : "^XA^FO215,25^BY2^BCN,100,Y,N,N^FD{0}^FS^XZ", label.Text
         private void Print(string zpl)
         {
             using (TcpClient client = new TcpClient())
