@@ -24,6 +24,7 @@
         public static readonly string BIOS_GUID_TABLE = "EPIDESK.BIOS_GUID";
         public static readonly string APP_PARAM_TABLE = "EPIDESK.APP_PARAM";
         public static readonly string SITES_TABLE = "EPIDESK.SITES";
+        public static readonly string TICKET_OBJECTS_TABLE = "EPIDESK.TICKETS_OBJECTS";
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
         public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
         public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=VMHUINFORV01.epicura.lan:1521/XEXDB;PASSWORD=TL19xPo53;USER ID=EPIDESK";
