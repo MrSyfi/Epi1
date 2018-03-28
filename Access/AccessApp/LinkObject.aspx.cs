@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace AccessApp
 {
@@ -22,11 +23,15 @@ namespace AccessApp
                 DataSet _Ds = DAL.GetProduct(TB_EpiID.Text);
                 if (_Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "STOCKED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "INSTALLED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "UNDER_REPAIR")
                 {
-                    if (DAL.SelectFromTicketObjects(TB_EpiID.Text).Tables[0].Rows.Count > 0)
+                    _Ds = DAL.SelectFromTicketObjects(TB_id_ticket.Text);
+                    List<string> listEpiID = GetListFromXml(_Ds.Tables[0].Rows[0]["SVALUE"].ToString());
+
+                    if (listEpiID.Contains(TB_EpiID.Text))
                     {
+                        listEpiID.Add(TB_EpiID.Text);
                         DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0");
                         DAL.UpdateStockStatus(TB_EpiID.Text, "TRANSIT");
-                        DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE","", TB_id_op.Text);
+                        DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE",GetXmlFromList(listEpiID), TB_id_op.Text);
                     }
                     else
                     {
@@ -95,6 +100,38 @@ namespace AccessApp
                 TB_id_op.Focus();
             else if (TB_EpiID.Text == string.Empty)
                 TB_EpiID.Focus();
+        }
+
+        public string GetXmlFromList(List<string>Liste)
+        {
+            string _tmp = "<ITEMS>\n";
+            if (Liste != null)
+            {
+                foreach (string l in Liste)
+                {
+                    _tmp += "\t<EPIID>" + l + "</EPIID>\n";
+                }
+            }
+            _tmp += "</ITEMS>";
+            return _tmp;
+
+        }
+
+        public List<string> GetListFromXml(string _Xml, int bit = 0)
+        {
+            List<string> _Ids = new List<string>();
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(_Xml);
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                switch (node.Name)
+                {
+                    case "EPIID":
+                        _Ids.Add(node.InnerText);
+                        break;
+                }
+            }
+            return _Ids;
         }
     }
 }
