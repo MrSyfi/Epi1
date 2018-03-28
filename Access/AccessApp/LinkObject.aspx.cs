@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Xml;
 
 namespace AccessApp
@@ -24,39 +20,33 @@ namespace AccessApp
                 {
                     if (DAL.SelectAllFromTicketId(TB_id_ticket.Text).Tables[0].Rows.Count != 0)
                     {
-                        if (TB_EpiID.Text != string.Empty && TB_id_op.Text != string.Empty && TB_id_ticket.Text != string.Empty)
+
+                        DataSet _Ds = DAL.GetProduct(TB_EpiID.Text);
+                        if (_Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "STOCKED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "INSTALLED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "UNDER_REPAIR")
                         {
-                            DataSet _Ds = DAL.GetProduct(TB_EpiID.Text);
-                            if (_Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "STOCKED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "INSTALLED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "UNDER_REPAIR")
+                            _Ds = DAL.SelectFromTicketObjects(TB_id_ticket.Text);
+
+                            List<string> listEpiID = new List<string>();
+                            if (_Ds.Tables[0].Rows.Count > 0)
                             {
-                                _Ds = DAL.SelectFromTicketObjects(TB_id_ticket.Text);
+                                listEpiID = GetListFromXml(_Ds.Tables[0].Rows[0]["SVALUE"].ToString());
+                            }
 
-                                List<string> listEpiID = new List<string>();
-                                if (_Ds.Tables[0].Rows.Count > 0)
-                                {
-                                    listEpiID = GetListFromXml(_Ds.Tables[0].Rows[0]["SVALUE"].ToString());
-                                }
-
-                                if (!listEpiID.Contains(TB_EpiID.Text))
-                                {
-                                    listEpiID.Add(TB_EpiID.Text);
-                                    DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0", TB_id_ticket.Text);
-                                    DAL.UpdateStockStatus(TB_EpiID.Text, "TRANSIT");
-                                    DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE", GetXmlFromList(listEpiID), TB_id_op.Text);
-                                }
-                                else
-                                {
-                                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Ce matériel a déjà été ajouté')</SCRIPT>");
-                                }
+                            if (!listEpiID.Contains(TB_EpiID.Text))
+                            {
+                                listEpiID.Add(TB_EpiID.Text);
+                                DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0", TB_id_ticket.Text);
+                                DAL.UpdateStockStatus(TB_EpiID.Text, "TRANSIT");
+                                DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE", GetXmlFromList(listEpiID), TB_id_op.Text);
                             }
                             else
                             {
-                                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Ce matériel n'est pas dans le stock.')</SCRIPT>");
+                                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Ce matériel a déjà été ajouté')</SCRIPT>");
                             }
                         }
                         else
                         {
-                            System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides.')</SCRIPT>");
+                            System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Ce matériel n'est pas dans le stock.')</SCRIPT>");
                         }
                     }
                     else
