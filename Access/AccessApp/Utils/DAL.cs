@@ -179,7 +179,7 @@ namespace AccessApp
             return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(LOCALISATION_ID, ORG_ID, WING, FLOOR, STATUS, ESIGN) VALUES (:loc,0,0,0,0,:sign)", Consts.LOCALISATION_TABLE), values, parameters);
         }
 
-        public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string note = "")
+        public static bool InsertInHistoric(string idOp, string statut, string epiid, string localisationId, string ticketId="0", string note = "")
         {
             ArrayList parameters = new ArrayList();
             ArrayList values = new ArrayList();
@@ -187,7 +187,7 @@ namespace AccessApp
             parameters.Add(":note"); values.Add(note);
 
 
-            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES ({1}, {2}, SYSDATE, '{3}', {4}, 0, :note , 0, '{5}')", Consts.HISTORIC_TABLE, epiid, idOp, statut, localisationId, SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString()), values, parameters);
+            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES ({1}, {2}, SYSDATE, '{3}', {4}, {5}, :note , 0, '{6}')", Consts.HISTORIC_TABLE, epiid, idOp, statut, localisationId,ticketId,SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString()), values, parameters);
 
         }
 
