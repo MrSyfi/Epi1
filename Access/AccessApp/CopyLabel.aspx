@@ -19,7 +19,7 @@
                 </p>
                 <br />
                 <p>
-                    <b><asp:Label ID="L_id_op" runat="server">Id de l'opérateur *</asp:Label></b>
+                    <b><asp:Label ID="L_id_op" runat="server">Id de l'opérateur</asp:Label></b>
                     <asp:TextBox ID="TB_id_op" CssClass="form-control input-lg" runat="server" name="TB_id_op"></asp:TextBox>
                 </p>
                 <p>
