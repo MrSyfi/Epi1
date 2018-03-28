@@ -17,7 +17,10 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
+            if(TB_id_ticket.Text != string.Empty && TB_id_op.Text != string.Empty && TB_EpiID.Text != string.Empty)
+            {
 
+            }
         }
 
         protected void TB_id_ticket_TextChanged(object sender, EventArgs e)
