@@ -252,7 +252,7 @@ namespace AccessApp
             public static DataSet SelectFromTicketObjects(string ticketId)
         {
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE TICKET_ID = :ticket", Consts.TICKET_OBJECTS_TABLE),ticketId, ":ticket");
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE TICKET_ID = :ticket AND TYPE LIKE 'DEVICE'", Consts.TICKET_OBJECTS_TABLE),ticketId, ":ticket");
         }
 
         public static bool InsertInTicketObject(string ticket_id, string type, string sValue, string idOp)
