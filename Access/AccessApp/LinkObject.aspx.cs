@@ -17,9 +17,30 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
-            if(TB_id_ticket.Text != string.Empty && TB_id_op.Text != string.Empty && TB_EpiID.Text != string.Empty)
+            if (TB_EpiID.Text != string.Empty && TB_id_op.Text != string.Empty && TB_id_ticket.Text != string.Empty)
             {
-
+                DataSet _Ds = DAL.GetProduct(TB_EpiID.Text);
+                if (_Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "STOCKED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "INSTALLED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "UNDER_REPAIR")
+                {
+                    if (true)
+                    {
+                        DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0");
+                        DAL.UpdateStockStatus(TB_EpiID.Text, "TRANSIT");
+                        DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE","", TB_id_op.Text);
+                    }
+                    else
+                    {
+                        System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Ce matériel a déjà été ajouté')</SCRIPT>");
+                    }
+                }
+                else
+                {
+                    System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Ce matériel n'est pas dans le stock.')</SCRIPT>");
+                }
+            }
+            else
+            {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Champs vides.')</SCRIPT>");
             }
         }
 
