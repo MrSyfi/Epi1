@@ -277,6 +277,7 @@
     <Content Include="GestionCMDB.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Gestion_EpiACCESS.aspx" />
+    <Content Include="LinkObject.aspx" />
     <Content Include="Timeline.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -343,6 +344,13 @@
     </Compile>
     <Compile Include="CopyLabel.aspx.designer.cs">
       <DependentUpon>CopyLabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LinkObject.aspx.cs">
+      <DependentUpon>LinkObject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinkObject.aspx.designer.cs">
+      <DependentUpon>LinkObject.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utils\Consts.cs" />
     <Compile Include="Utils\DAL.cs" />
