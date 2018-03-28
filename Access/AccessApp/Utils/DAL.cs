@@ -249,9 +249,10 @@ namespace AccessApp
 
         /* LinkObject */
 
-            public static DataSet SelectFromTicketObjects()
+            public static DataSet SelectFromTicketObjects(string ticketId)
         {
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0}", Consts.TICKET_OBJECTS_TABLE));
+
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE TICKET_ID = :ticket", Consts.TICKET_OBJECTS_TABLE),ticketId, ":ticket");
         }
 
         public static bool InsertInTicketObject(string ticket_id, string type, string sValue, string idOp)
@@ -263,7 +264,7 @@ namespace AccessApp
             parameters.Add(":ticket"); values.Add(ticket_id);
             parameters.Add(":type"); values.Add(type);
             parameters.Add(":value"); values.Add(sValue);
-            parameters.Add(":Status");values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
+            parameters.Add(":ESIGN");values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
 
             return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0} VALUES (null, :ticket, :type, :value, null, 0, :ESIGN)",Consts.TICKET_OBJECTS_TABLE),values, parameters);
         }
