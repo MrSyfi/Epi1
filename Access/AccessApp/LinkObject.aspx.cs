@@ -22,7 +22,7 @@ namespace AccessApp
                 DataSet _Ds = DAL.GetProduct(TB_EpiID.Text);
                 if (_Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "STOCKED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "INSTALLED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "UNDER_REPAIR")
                 {
-                    if (true)
+                    if (DAL.SelectFromTicketObjects(TB_EpiID.Text).Tables[0].Rows.Count > 0)
                     {
                         DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0");
                         DAL.UpdateStockStatus(TB_EpiID.Text, "TRANSIT");
