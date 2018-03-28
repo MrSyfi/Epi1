@@ -183,11 +183,11 @@ namespace AccessApp
         {
             ArrayList parameters = new ArrayList();
             ArrayList values = new ArrayList();
-
+            parameters.Add(":tId");values.Add(ticketId);
             parameters.Add(":note"); values.Add(note);
 
 
-            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES ({1}, {2}, SYSDATE, '{3}', {4}, {5}, :note , 0, '{6}')", Consts.HISTORIC_TABLE, epiid, idOp, statut, localisationId,ticketId,SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString()), values, parameters);
+            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0}(EPIID, CONTACT_ID, OPERATION_DATE, STATUS_TO, ID_LOCALISATION_TO, TICKET_ID, NOTE, STATUS, ESIGN) VALUES ({1}, {2}, SYSDATE, '{3}', {4}, :tId, :note , 0, '{6}')", Consts.HISTORIC_TABLE, epiid, idOp, statut, localisationId,ticketId,SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString()), values, parameters);
 
         }
 

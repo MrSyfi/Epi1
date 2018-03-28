@@ -34,7 +34,7 @@ namespace AccessApp
                     if (!listEpiID.Contains(TB_EpiID.Text))
                     {
                         listEpiID.Add(TB_EpiID.Text);
-                        DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0");
+                        DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0",TB_id_ticket.Text);
                         DAL.UpdateStockStatus(TB_EpiID.Text, "TRANSIT");
                         DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE",GetXmlFromList(listEpiID), TB_id_op.Text);
                     }
