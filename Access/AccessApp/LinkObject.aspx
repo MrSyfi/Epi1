@@ -5,7 +5,7 @@
     <div class="page-header" style="text-align: center;">
         <h2>Lier un matériel</h2>
     </div>
-    <table>
+    <table width="100%">
         <tr>
             <td>
                 <p>
