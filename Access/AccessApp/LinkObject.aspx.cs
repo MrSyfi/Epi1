@@ -24,8 +24,13 @@ namespace AccessApp
                 if (_Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "STOCKED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "INSTALLED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "UNDER_REPAIR")
                 {
                     _Ds = DAL.SelectFromTicketObjects(TB_id_ticket.Text);
-                    List<string> listEpiID = GetListFromXml(_Ds.Tables[0].Rows[0]["SVALUE"].ToString());
 
+                    List<string> listEpiID = new List<string>();
+                    if (_Ds.Tables[0].Rows.Count > 0)
+                    {
+                        listEpiID = GetListFromXml(_Ds.Tables[0].Rows[0]["SVALUE"].ToString());
+                    }
+                    
                     if (listEpiID.Contains(TB_EpiID.Text))
                     {
                         listEpiID.Add(TB_EpiID.Text);
