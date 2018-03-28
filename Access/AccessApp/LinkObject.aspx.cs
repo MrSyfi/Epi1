@@ -31,7 +31,7 @@ namespace AccessApp
                         listEpiID = GetListFromXml(_Ds.Tables[0].Rows[0]["SVALUE"].ToString());
                     }
                     
-                    if (listEpiID.Contains(TB_EpiID.Text))
+                    if (!listEpiID.Contains(TB_EpiID.Text))
                     {
                         listEpiID.Add(TB_EpiID.Text);
                         DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0");
