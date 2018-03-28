@@ -10,15 +10,15 @@
             <td>
                 <p>
                     <b><asp:Label ID="L_id_ticket" runat="server">Id du ticket</asp:Label></b>
-                    <asp:TextBox ID="TB_id_ticket" CssClass="form-control input-lg" runat="server" name="TB_id_ticket" AutoPostBack="true" OnTextChanged="TB_id_ticket_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TB_id_ticket" CssClass="form-control input-lg" runat="server" name="TB_id_ticket"></asp:TextBox>
                 </p>
                 <p>
                     <b><asp:Label ID="L_id_op" runat="server">Id de l'opérateur</asp:Label></b>
-                    <asp:TextBox ID="TB_id_op" CssClass="form-control input-lg" runat="server" name="TB_id_op" AutoPostBack="true" OnTextChanged="TB_id_op_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TB_id_op" CssClass="form-control input-lg" runat="server" name="TB_id_op"></asp:TextBox>
                 </p>
                 <p>
                     <b><asp:Label ID="L_EpiID" runat="server">EpiID</asp:Label></b>
-                    <asp:TextBox ID="TB_EpiID" CssClass="form-control input-lg" runat="server" name="TB_EpiID" AutoPostBack="true" OnTextChanged="TB_EpiID_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TB_EpiID" CssClass="form-control input-lg" runat="server" name="TB_EpiID"></asp:TextBox>
                 </p>
             </td>
         </tr>
