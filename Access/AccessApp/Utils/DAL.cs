@@ -247,5 +247,25 @@ namespace AccessApp
             return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE VARIABLE LIKE '{1}'", Consts.APP_PARAM_TABLE, site));
         }
 
+        /* LinkObject */
+
+            public static DataSet SelectFromTicketObjects()
+        {
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0}", Consts.TICKET_OBJECTS_TABLE));
+        }
+
+        public static bool InsertInTicketObject(string ticket_id, string type, string sValue)
+        {
+            ArrayList parameters = new ArrayList();
+            ArrayList values = new ArrayList();
+
+
+            parameters.Add(":ticket"); values.Add(ticket_id);
+            parameters.Add(":type"); values.Add(type);
+            parameters.Add(":value"); values.Add(sValue);
+
+            return DBConnection.Instance.ExecuteNonQuery("");
+        }
+
     }
 }
