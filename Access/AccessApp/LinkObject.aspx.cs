@@ -24,7 +24,9 @@ namespace AccessApp
                 {
                     if (true)
                     {
-
+                        DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0");
+                        DAL.UpdateStockStatus(TB_EpiID.Text, "TRANSIT");
+                        DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE","", TB_id_op.Text);
                     }
                     else
                     {
