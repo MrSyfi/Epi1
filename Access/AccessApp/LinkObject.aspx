@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-header" style="text-align: center;">
-        <h2>Lier un matériel</h2>
+        <h2>Lier un matériel a un ticket</h2>
     </div>
     <table width="100%">
         <tr>
