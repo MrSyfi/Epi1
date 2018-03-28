@@ -254,7 +254,7 @@ namespace AccessApp
             return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0}", Consts.TICKET_OBJECTS_TABLE));
         }
 
-        public static bool InsertInTicketObject(string ticket_id, string type, string sValue)
+        public static bool InsertInTicketObject(string ticket_id, string type, string sValue, string idOp)
         {
             ArrayList parameters = new ArrayList();
             ArrayList values = new ArrayList();
@@ -263,8 +263,9 @@ namespace AccessApp
             parameters.Add(":ticket"); values.Add(ticket_id);
             parameters.Add(":type"); values.Add(type);
             parameters.Add(":value"); values.Add(sValue);
+            parameters.Add(":Status");values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
 
-            return DBConnection.Instance.ExecuteNonQuery("");
+            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0} VALUES (null, :ticket, :type, :value, null, 0, :ESIGN)",Consts.TICKET_OBJECTS_TABLE),values, parameters);
         }
 
     }
