@@ -14,14 +14,20 @@ namespace AccessApp
 
         protected void B_apply_Click(object sender, EventArgs e)
         {
+            string tmp = string.Empty;
+            if (TB_EpiID.Text.Length > 3 && (TB_EpiID.Text.ToUpper().StartsWith("EPI")))
+                tmp = TB_EpiID.Text.Substring(3);
+            else if (TB_EpiID.Text.Length > 0)
+                tmp = TB_EpiID.Text;
+
             if (DAL.SelectContact(TB_id_op.Text).Tables[0].Rows.Count != 0)
             {
-                if (DAL.GetProduct(TB_EpiID.Text).Tables[0].Rows.Count != 0)
+                if (DAL.GetProduct(tmp).Tables[0].Rows.Count != 0)
                 {
                     if (DAL.SelectAllFromTicketId(TB_id_ticket.Text).Tables[0].Rows.Count != 0)
                     {
-                        
-                        DataSet _Ds = DAL.GetProduct(TB_EpiID.Text);
+
+                        DataSet _Ds = DAL.GetProduct(tmp);
                         if (_Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "STOCKED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "INSTALLED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "UNDER_REPAIR")
                         {
                             _Ds = DAL.SelectFromTicketObjects(TB_id_ticket.Text);
@@ -32,11 +38,11 @@ namespace AccessApp
                                 listEpiID = GetListFromXml(_Ds.Tables[0].Rows[0]["SVALUE"].ToString());
                             }
 
-                            if (!listEpiID.Contains(TB_EpiID.Text))
+                            if (!listEpiID.Contains(tmp))
                             {
-                                listEpiID.Add(TB_EpiID.Text);
-                                DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", TB_EpiID.Text, "0", TB_id_ticket.Text);
-                                DAL.UpdateStockStatus(TB_EpiID.Text, "TRANSIT");
+                                listEpiID.Add(tmp);
+                                DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", tmp, "0", TB_id_ticket.Text);
+                                DAL.UpdateStockStatus(tmp, "TRANSIT");
                                 DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE", GetXmlFromList(listEpiID), TB_id_op.Text);
                             }
                             else
