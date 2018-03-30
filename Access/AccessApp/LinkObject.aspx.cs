@@ -20,7 +20,7 @@ namespace AccessApp
                 {
                     if (DAL.SelectAllFromTicketId(TB_id_ticket.Text).Tables[0].Rows.Count != 0)
                     {
-
+                        
                         DataSet _Ds = DAL.GetProduct(TB_EpiID.Text);
                         if (_Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "STOCKED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "INSTALLED" || _Ds.Tables[0].Rows[0]["STOCK_STATUS"].ToString() == "UNDER_REPAIR")
                         {

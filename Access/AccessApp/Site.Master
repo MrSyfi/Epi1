@@ -58,11 +58,14 @@
                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                             <img class="visible-lg visible-md navbar-brand" src="Image/Epicura.png">
                             <ul class="nav navbar-nav">
+                                <li class="section">CMDB</li>
                                 <li><a runat="server" href="~/GestionCMDB">Gestion de la CMDB</a></li>
                                 <li><a runat="server" href="~/Timeline">Timeline</a></li>
-                                <li><a runat="server" href="~/LinkObject">Lier un matériel</a></li>
                                 <li><a runat="server" href="~/CopyLabel">Copie d'étiquette</a></li>
+                                <li><a runat="server" href="~/LinkObject">Lier un matériel</a></li>
                                 <li><a runat="server" href="~/EpiLabel">EpiLabel</a></li>
+                                
+                                <li class="section">Demandes d'accès</li>
                                 <li><a runat="server" href="~/Gestion_EpiACCESS">Gestion EpiACCESS</a></li>
                                 <li><a runat="server" href="~/EpiACCESS_Close">Clôture EpiACCESS</a></li>
                             </ul>
