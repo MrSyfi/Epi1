@@ -108,7 +108,7 @@ namespace AccessApp
                 {5} Stock
             */
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("select {0}.EPIID, {0}.OPERATION_DATE,{0}.TICKET_ID, {1}.LAST_NAME, {1}.FIRST_NAME,{1}.ID, {2}.LOCALISATION_ID,{3}.NAME, {4}.NAME AS MODELE ,{5}.SERIAL_NUMBER, {0}.STATUS_TO FROM {0} LEFT OUTER JOIN {1} ON {0}.CONTACT_ID = {1}.ID LEFT OUTER JOIN {2} ON {0}.ID_LOCALISATION_TO = {2}.ID LEFT OUTER JOIN {5} ON {0}.EPIID = {5}.EPIID LEFT OUTER JOIN {3} ON {5}.BRAND_ID = {3}.BRAND_ID LEFT OUTER JOIN {4} ON {5}.MODEL_ID = {4}.MODEL_ID WHERE {0}.EPIID like :id AND {0}.STATUS_TO IN ('STOCKED','INSTALLED','OBSOLETE','TRANSIT','UNDER_REPAIR','COPY_LBL') ORDER BY {0}.OPERATION_DATE DESC", Consts.HISTORIC_TABLE, Consts.CONTACTS_TABLE, Consts.LOCALISATION_TABLE, Consts.BRAND_TABLE, Consts.MODEL_TABLE, Consts.STOCK_TABLE),EpiId,":id");
+            return DBConnection.Instance.ExecuteQuery(string.Format("select {0}.EPIID, {0}.OPERATION_DATE,{0}.TICKET_ID, {1}.LAST_NAME, {1}.FIRST_NAME,{1}.ID, {2}.LOCALISATION_ID,{3}.NAME, {4}.NAME AS MODELE ,{5}.SERIAL_NUMBER, {0}.STATUS_TO FROM {0} LEFT OUTER JOIN {1} ON {0}.CONTACT_ID = {1}.ID LEFT OUTER JOIN {2} ON {0}.ID_LOCALISATION_TO = {2}.ID LEFT OUTER JOIN {5} ON {0}.EPIID = {5}.EPIID LEFT OUTER JOIN {3} ON {5}.BRAND_ID = {3}.BRAND_ID LEFT OUTER JOIN {4} ON {5}.MODEL_ID = {4}.MODEL_ID WHERE {0}.EPIID like :id AND {0}.STATUS_TO IN ('STOCKED','INSTALLED','OBSOLETE','TRANSIT','UNDER_REPAIR','COPY_LBL') AND {4}.STATUS = 0 AND {5}.STATUS = 0 ORDER BY {0}.OPERATION_DATE DESC", Consts.HISTORIC_TABLE, Consts.CONTACTS_TABLE, Consts.LOCALISATION_TABLE, Consts.BRAND_TABLE, Consts.MODEL_TABLE, Consts.STOCK_TABLE),EpiId,":id");
         }
 
         public static DataSet SelectAllFromTicketId(string ticketID)
@@ -159,7 +159,7 @@ namespace AccessApp
         {
             
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT USERNAME FROM {0} WHERE {0}.CONTACT_ID LIKE :id", Consts.USERS_TABLE),id,":id");
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT USERNAME FROM {0} WHERE {0}.CONTACT_ID LIKE :id AND {0}.STATUS = 0", Consts.USERS_TABLE),id,":id");
 
         }
 
@@ -226,7 +226,7 @@ namespace AccessApp
 
         public static DataSet GetProduct(string EpiId)
         {
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID LIKE :id", Consts.STOCK_TABLE),EpiId,":id");
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.EPIID LIKE :id AND {0}.STATUS = 0", Consts.STOCK_TABLE),EpiId,":id");
         }
 
         public static DataSet GetRespMail()
@@ -237,7 +237,7 @@ namespace AccessApp
         /* EPILABEL */
         public static DataSet SelectAllSites()
         {
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ABBREVIATION FROM {0}", Consts.SITES_TABLE));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ABBREVIATION FROM {0} WHERE {0}.STATUS = 0", Consts.SITES_TABLE));
         }
 
         public static DataSet SelectPrinterIP(string siteAbb)
