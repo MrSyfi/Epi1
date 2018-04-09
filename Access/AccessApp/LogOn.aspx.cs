@@ -62,13 +62,9 @@ namespace AccessApp
         {
             if (ValidateUser(txtUserName.Text, txtUserPass.Text))
             {
-                    
-                    FormsAuthentication.SetAuthCookie(txtUserName.Text, false);
-                    FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
-                    // variable de session
-                    Session["Username"] = txtUserName.Text;
 
-                    /*FormsAuthenticationTicket tkt;
+                // FormsAuthentication.SetAuthCookie(txtUserName.Text, false);
+                    FormsAuthenticationTicket tkt;
                     string cookiestr;
                     HttpCookie ck;
                     tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "your custom data");
@@ -78,6 +74,10 @@ namespace AccessApp
                     ck.Path = FormsAuthentication.FormsCookiePath;
                     Response.Cookies.Add(ck);
                     FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
+                    // variable de session
+                    Session["Username"] = txtUserName.Text;
+
+                   
                     /*
                     string strRedirect;
                     strRedirect = Request["ReturnUrl"];
