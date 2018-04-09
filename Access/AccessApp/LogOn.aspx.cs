@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace AccessApp
 {
@@ -17,8 +20,22 @@ namespace AccessApp
 
         private bool ValidateUser(string userName, string passWord)
         {
+            //DataSet _ds = DAL.SelectCredentialsFromAppParam();
             string Password = "ok";
             string UserName = "ok";
+
+            /*foreach (DataRow dr in _ds.Tables[0].Rows)
+            {
+                if(dr["VARIABLE"].ToString() == "...PASSWORD")
+                {
+                    Password = dr["VALUE"].ToString();
+                } else
+                {
+                    UserName = dr["VALUE"].ToString();
+                }
+            }*/
+
+           
 
             if ((null == userName) || (0 == userName.Length))
             {    
