@@ -20,7 +20,7 @@ namespace AccessApp
 
         private bool ValidateUser(string userName, string passWord)
         {
-            DataSet _ds = DAL.SelectCredentialsFromAppParam();
+            //DataSet _ds = DAL.SelectCredentialsFromAppParam();
             string Password = "ok";
             string UserName = "ok";
 
