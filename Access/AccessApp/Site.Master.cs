@@ -13,7 +13,10 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RemotingConfiguration.CustomErrorsEnabled(true);
+            if (HttpContext.Current.User.Identity.Name != string.Empty)
+            {
+                RemotingConfiguration.CustomErrorsEnabled(true);
+            }
         }
     }
 }
