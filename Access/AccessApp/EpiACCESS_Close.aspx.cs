@@ -95,7 +95,7 @@ namespace AccessApp
                 Consts.MOT_DE_PASSE = PasswordGenerator.Generate();
 
                 // get the text from sendemail
-                L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text));
+                L_mail.Text = Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text, TB_first_name.Text, TB_last_name.Text));
                 B_apply.Visible = true;
 
                 L_preview.Visible = true;
@@ -125,20 +125,20 @@ namespace AccessApp
             string reff = (string)ds.Tables[0].Rows[0]["REFERENCE"];
 
             //MAIL TO AGENT / RESP
-            //MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, fullUserName, reff, out bool sended);
+            MailSender.SendPwdPerEmail(Consts.MOT_DE_PASSE, mailAgent, mailresp, username, TB_first_name.Text,TB_last_name.Text, reff, out bool sended);
 
 
-            //if (sended)
-            //{
+            if (sended)
+            {
 
-                //ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
+                ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
-               // DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
+                DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
                 DAL.InsertTicketsComment(TB_ticket.Text, "1", "Clôture de la demande d'accès et email envoyé le " + DateTime.Now.ToString("dd/MM/yyyy") + "avec les identifiants : \n\t Username : "+TB_username.Text+"\n\tPassword : "+Consts.MOT_DE_PASSE, "1");
-               // DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text)));
+                DAL.CloseTicket(TB_ticket.Text, Server.HtmlDecode(MailSender.SendEmailToView(Consts.MOT_DE_PASSE, TB_username.Text, TB_first_name.Text, TB_last_name.Text)));
                 // Refresh the table
                 LoadTable();
-            //}
+            }
         }
 
         //Permet de changer un mot de passe 

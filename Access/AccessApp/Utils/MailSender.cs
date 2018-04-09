@@ -6,7 +6,7 @@ namespace AccessApp
     {
 
         // Utilisation du WebService.
-        public static string GetUserEmail(string username)
+        public static string GetUserEmail(string username, string firstName="", string lastName="")
         {
             EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
             EpiService.UsrZimbra zimbra = new EpiService.UsrZimbra();
@@ -17,13 +17,37 @@ namespace AccessApp
             }
             catch
             {
-                return "";
+                // Si l'utilisateur n'existe pas dans le web service rtvurZimbra (et qu'il n'a donc pas encore d'adresse mail (?))
+                // On en génère une, purement visuelle.
+                string tmp =  firstName+"."+lastName+"@epicura.be";
+                return RemoveAccent(tmp.ToLower().Replace(" ", ""));
+                
             }
 
 
         }
 
-        public static string SendEmailToView(string pwd, string userName)
+        static string RemoveAccent(string info)
+        {
+
+            string nchaine = string.Empty;
+            for (int i = 0; i < info.Length; i++)
+            {
+                byte k = (byte)info[i];
+                if (k == 32) nchaine += " ";
+                else if (k > 223 && k < 231) nchaine += "a";
+                else if (k > 231 && k < 236) nchaine += "e";
+                else if (k > 235 && k < 240) nchaine += "i";
+                else if (k > 241 && k < 247) nchaine += "o";
+                else if (k > 248 && k < 253) nchaine += "u";
+                else if (k == 231) nchaine += "c";
+                else nchaine += info[i];
+            }
+
+            return nchaine;
+        }
+
+        public static string SendEmailToView(string pwd, string userName, string firstName, string lastName)
         {
             return System.Net.WebUtility.HtmlEncode(string.Format(@"<span style='font-family:Verdana;font-size:14pt;'><p align='right' style='font-family:Helvetica;'>Epicura, {0} </p>" +
                "<p>Madame, Monsieur, </p> " +
@@ -39,7 +63,7 @@ namespace AccessApp
                "<tr><td>Site internet</td><td> : </td><td><a href='http://support.epicura.lan/'>http://support.epicura.lan/</a></td></tr></table></div><br/>" +
                "<p>Nous restons à votre disposition pour tout complément d'information.</p>" +
                "<p align='right'>Le service informatique</p>" +
-               "<p>Cordialement.</p><hr/></span>", DateTime.Now.ToString("dd/MM/yyyy"), userName, pwd, GetUserEmail(userName)));
+               "<p>Cordialement.</p><hr/></span>", DateTime.Now.ToString("dd/MM/yyyy"), userName, pwd, GetUserEmail(userName,firstName,lastName)));
         }
 
         public static string SendObsolete(string EpiID, string Marque, string Modele, string NumSerie, string Agent)
@@ -74,7 +98,7 @@ namespace AccessApp
 
         }
 
-        public static void SendPwdPerEmail(string pwd, string mailAgent, string destResp, string newUserName, string fullNameUser, string refTicket, out bool sended)
+        public static void SendPwdPerEmail(string pwd, string mailAgent, string destResp, string newUserName, string firstName, string lastName, string refTicket, out bool sended)
         {
 
             System.Net.Mail.MailMessage _EMail = new System.Net.Mail.MailMessage();
@@ -84,10 +108,10 @@ namespace AccessApp
             _EMail.From = new System.Net.Mail.MailAddress(mailAgent, mailAgent);
             _EMail.Priority = System.Net.Mail.MailPriority.Normal;
 
-            _EMail.Subject = refTicket + " - Information de compte : " + fullNameUser;
+            _EMail.Subject = refTicket + " - Information de compte : " + firstName + " " + lastName;
 
             _EMail.IsBodyHtml = true;
-            _EMail.Body = System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName));
+            _EMail.Body = System.Net.WebUtility.HtmlDecode(SendEmailToView(pwd, newUserName, firstName, lastName));
 
             _EMail.To.Add(mailAgent);
             _EMail.To.Add(destResp);
