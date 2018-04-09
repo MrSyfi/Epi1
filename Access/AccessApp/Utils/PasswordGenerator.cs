@@ -33,6 +33,7 @@ namespace AccessApp
                 }
                 voyelle = !voyelle;
             }
+            
             return new string(password);
         }
 
