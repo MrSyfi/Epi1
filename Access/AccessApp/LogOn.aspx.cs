@@ -73,7 +73,7 @@ namespace AccessApp
                 string strRedirect;
                 strRedirect = Request["ReturnUrl"];
                 if (strRedirect == null)
-                    strRedirect = "CopyLabel.aspx";
+                    strRedirect = "~/GestionCMDB";
                 Response.Redirect(strRedirect, true);
             }
             else
