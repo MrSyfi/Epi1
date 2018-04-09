@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Web.Security;
 
 namespace AccessApp
 {
@@ -8,11 +9,20 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            TB_recherche.Focus();
+            if (Request.IsAuthenticated && Session["Username"] != null)
+            {
+
+                TB_recherche.Focus();
+            }
+            else
+            {
+                Response.Redirect("LogOn.aspx");
+            }
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
         {
+            
             string tmp = string.Empty;
             if (TB_recherche.Text.Length > 3 && (TB_recherche.Text.ToUpper().StartsWith("EPI")))
                 tmp = TB_recherche.Text.Substring(3);

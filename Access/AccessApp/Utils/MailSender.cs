@@ -20,7 +20,7 @@ namespace AccessApp
                 // Si l'utilisateur n'existe pas dans le web service rtvurZimbra (et qu'il n'a donc pas encore d'adresse mail (?))
                 // On en génère une, purement visuelle.
                 string tmp =  firstName+"."+lastName+"@epicura.be";
-                return RemoveAccent(tmp.ToLower().Replace(" ", "").Replace("'","")) + "(\n/!\\ AUCUN COMPTE RETROUVÉ PAR LE SERVICE RTVUSRZIMBRA /!\\)";
+                return RemoveAccent(tmp.ToLower().Replace(" ", "").Replace("'","")) + "(\n/!\\ EMAIL PAS ENCORE CRÉE /!\\)";
                 
             }
 

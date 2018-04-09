@@ -21,11 +21,13 @@ namespace AccessApp
         private bool ValidateUser(string userName, string passWord)
         {
             //DataSet _ds = DAL.SelectCredentialsFromAppParam();
+
             string Password = "ok";
             string UserName = "ok";
 
             /*foreach (DataRow dr in _ds.Tables[0].Rows)
             {
+                // _ds contains two rows : password and username
                 if(dr["VARIABLE"].ToString() == "...PASSWORD")
                 {
                     Password = dr["VALUE"].ToString();
@@ -60,21 +62,29 @@ namespace AccessApp
         {
             if (ValidateUser(txtUserName.Text, txtUserPass.Text))
             {
-                FormsAuthenticationTicket tkt;
-                string cookiestr;
-                HttpCookie ck;
-                tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "your custom data");
-                cookiestr = FormsAuthentication.Encrypt(tkt);
-                ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
-                ck.Expires = tkt.Expiration;
-                ck.Path = FormsAuthentication.FormsCookiePath;
-                Response.Cookies.Add(ck);
+                    
+                    FormsAuthentication.SetAuthCookie(txtUserName.Text, false);
+                    FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
+                    // variable de session
+                    Session["Username"] = txtUserName.Text;
 
-                string strRedirect;
-                strRedirect = Request["ReturnUrl"];
-                if (strRedirect == null)
-                    strRedirect = "~/GestionCMDB";
-                Response.Redirect(strRedirect, true);
+                    /*FormsAuthenticationTicket tkt;
+                    string cookiestr;
+                    HttpCookie ck;
+                    tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "your custom data");
+                    cookiestr = FormsAuthentication.Encrypt(tkt);
+                    ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
+                    ck.Expires = tkt.Expiration;
+                    ck.Path = FormsAuthentication.FormsCookiePath;
+                    Response.Cookies.Add(ck);
+                    FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
+                    /*
+                    string strRedirect;
+                    strRedirect = Request["ReturnUrl"];
+                    if (strRedirect == null)
+                        strRedirect = "~/GestionCMDB";
+                    Response.Redirect(strRedirect, true);*/
+                
             }
             else
                 Response.Redirect("LogOn.aspx", true);

@@ -16,7 +16,14 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.IsAuthenticated && Session["Username"] != null)
+            {
+                // do nothing
+            }
+            else
+            {
+                Response.Redirect("LogOn.aspx");
+            }
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
