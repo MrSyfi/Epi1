@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccessApp.Utils;
+using System;
 using System.Data;
 using System.Web.Security;
 
@@ -9,14 +10,17 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.IsAuthenticated && Session["Username"] != null)
+            if (!MobileDeviceChecker.fBrowserIsMobile())
             {
+                if (Request.IsAuthenticated && Session["Username"] != null)
+                {
 
-                TB_recherche.Focus();
-            }
-            else
-            {
-                Response.Redirect("LogOn.aspx");
+                    TB_recherche.Focus();
+                }
+                else
+                {
+                    Response.Redirect("LogOn.aspx");
+                }
             }
         }
 

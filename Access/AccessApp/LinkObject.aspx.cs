@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccessApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Xml;
@@ -9,13 +10,16 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.IsAuthenticated && Session["Username"] != null)
+            if (!MobileDeviceChecker.fBrowserIsMobile())
             {
-                // do nothing
-            }
-            else
-            {
-                Response.Redirect("LogOn.aspx");
+                if (Request.IsAuthenticated && Session["Username"] != null)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    Response.Redirect("LogOn.aspx");
+                }
             }
         }
 
