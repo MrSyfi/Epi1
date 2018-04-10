@@ -20,22 +20,22 @@ namespace AccessApp
 
         private bool ValidateUser(string userName, string passWord)
         {
-            //DataSet _ds = DAL.SelectCredentialsFromAppParam();
+            DataSet _ds = DAL.SelectCredentialsFromAppParam();
 
-            string Password = "ok";
-            string UserName = "ok";
+            string Password = "";
+            string UserName = "";
 
-            /*foreach (DataRow dr in _ds.Tables[0].Rows)
+            foreach (DataRow dr in _ds.Tables[0].Rows)
             {
                 // _ds contains two rows : password and username
-                if(dr["VARIABLE"].ToString() == "...PASSWORD")
-                {
-                    Password = dr["VALUE"].ToString();
-                } else
+                if(dr["VARIABLE"].ToString() == Consts.CONST_PARAM_EPITOOLS_USR)
                 {
                     UserName = dr["VALUE"].ToString();
+                } else
+                {
+                    Password = dr["VALUE"].ToString();
                 }
-            }*/
+            }
 
            
 

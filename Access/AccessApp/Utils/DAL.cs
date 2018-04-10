@@ -272,7 +272,7 @@ namespace AccessApp
         /* Log On */
         public static DataSet SelectCredentialsFromAppParam()
         {
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE VARIABLE LIKE '{1}' OR VARIABLE LIKE '{2}'",Consts.APP_PARAM_TABLE,"login", "password"));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE ID = 22 OR ID = 23",Consts.APP_PARAM_TABLE));
         }
 
     }

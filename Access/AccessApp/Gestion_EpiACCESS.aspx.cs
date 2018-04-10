@@ -40,6 +40,7 @@ namespace AccessApp
                 dt = LoadData(TB_recherche.Text);
             }
 
+
             if (dt == null || dt.Rows.Count == 0)
             {
                 L_result.Text = "Pas de résultat...";
