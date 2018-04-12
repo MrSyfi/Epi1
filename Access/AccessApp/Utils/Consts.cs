@@ -37,6 +37,8 @@
         public static readonly int LABEL_STRING_LENGHT_LIMIT = 30;
         public static readonly int LABEL_QR_LENGHT_LIMIT = 15;
         public static readonly int CONST_DB_FIELDS_ACTIVE_STATUS = 0;
+        public static readonly string CONST_PARAM_EPITOOLS_USR = "EPITOOLS_USR";
+        public static readonly string EPIID_PREFIX = "EPI";
 
         // NETWORK
         public static readonly int ZPL_PRINTERS_DEFAULT_PORT = 9100;
