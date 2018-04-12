@@ -22,9 +22,9 @@ namespace AccessApp
         {
             DataSet _ds = DAL.SelectCredentialsFromAppParam();
 
-            string Password = "ok";
-            string UserName = "ok";
-            /*
+            string Password = "";
+            string UserName = "";
+            
             foreach (DataRow dr in _ds.Tables[0].Rows)
             {
                 // _ds contains two rows : password and username
@@ -35,7 +35,7 @@ namespace AccessApp
                 {
                     Password = dr["VALUE"].ToString();
                 }
-            }*/
+            }
 
            
 
