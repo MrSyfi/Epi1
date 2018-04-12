@@ -62,33 +62,24 @@ namespace AccessApp
         {
             if (ValidateUser(txtUserName.Text, txtUserPass.Text))
             {
+                FormsAuthenticationTicket tkt;
+                string cookiestr;
+                HttpCookie ck;
 
-                // FormsAuthentication.SetAuthCookie(txtUserName.Text, false);
-                    FormsAuthenticationTicket tkt;
-                    string cookiestr;
-                    HttpCookie ck;
-                    tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "your custom data");
-                    cookiestr = FormsAuthentication.Encrypt(tkt);
-                    ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
-                    ck.Expires = tkt.Expiration;
-                    ck.Path = FormsAuthentication.FormsCookiePath;
-                    Response.Cookies.Add(ck);
-                    FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
-                    // variable de session
-                    Session["Username"] = txtUserName.Text;
-
-                   
-                    /*
-                    string strRedirect;
-                    strRedirect = Request["ReturnUrl"];
-                    if (strRedirect == null)
-                        strRedirect = "~/GestionCMDB";
-                    Response.Redirect(strRedirect, true);*/
-                
+                tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "your custom data");
+                cookiestr = FormsAuthentication.Encrypt(tkt);
+                ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
+                ck.Expires = tkt.Expiration;
+                ck.Path = FormsAuthentication.FormsCookiePath;
+                Response.Cookies.Add(ck);
+                FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
+                //Variable de session
+                Session["Username"] = txtUserName.Text;
             }
             else
+            {
                 Response.Redirect("LogOn.aspx", true);
+            }
         }
-
     }
 }

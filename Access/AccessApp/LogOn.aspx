@@ -12,7 +12,6 @@
                     <p>
                         <label for="txtUserName">Nom d'utilisateur</label>
                         <asp:TextBox ID="txtUserName" type="text" CssClass="form-control" runat="server" name="txtUserName"></asp:TextBox>
-                        <asp:RequiredFieldValidator ControlToValidate="txtUserName" Display="Static" ErrorMessage="*" runat="server" ID="vUserName" />
                     </p>
                 </td>
             </tr>
@@ -20,8 +19,7 @@
                 <td>
                     <p>
                         <label for="txtUserPass">Mot de passe</label>
-                        <asp:TextBox ID="txtUserPass" type="password" CssClass="form-control" runat="server" name="txtUserPass"></asp:TextBox>
-                        <ASP:RequiredFieldValidator ControlToValidate="txtUserPass" Display="Static" ErrorMessage="*" runat="server" ID="vUserPass" />
+                        <asp:TextBox ID="txtUserPass" type="password" CssClass="form-control" runat="server" name="txtUserPass"></asp:TextBox> 
                     </p>
                 </td>
             </tr>
