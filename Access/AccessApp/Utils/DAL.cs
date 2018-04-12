@@ -98,7 +98,7 @@ namespace AccessApp
             Parameters.Add(":FromS"); Values.Add(From);
             Parameters.Add(":ActionT"); Values.Add(Action.ToString());
             Parameters.Add(":ToS"); Values.Add(To);
-            Parameters.Add(":ESIGN"); Values.Add(Environment.UserDomainName);
+            Parameters.Add(":ESIGN"); Values.Add(Environment.UserDomainName + @"\" + Environment.UserName);
             return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0} VALUES (null,:TicketID,SYSDATE,:FromS,:ActionT,:ToS,{1},:ESIGN)", Consts.TICKETS_LOG_TABLE, Consts.CONST_DB_FIELDS_ACTIVE_STATUS), Values, Parameters);
         }
 
