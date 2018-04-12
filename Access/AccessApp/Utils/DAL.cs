@@ -89,7 +89,18 @@ namespace AccessApp
             return DBConnection.Instance.ExecuteNonQuery(string.Format("UPDATE {0} SET TICKET_STATUS = 'CLOSED', RESOLUTION = :gen, RESOLUTION_TS = SYSDATE, LAST_UPDATE_TS = SYSDATE WHERE ID = {1}", Consts.TICKETS_TABLE, ticketID), values, parameters);
         }
 
-        
+        public static bool InsertInTicketLog(long TicketID, string From, string Action, string To)
+        {
+            ArrayList Parameters = new ArrayList();
+            ArrayList Values = new ArrayList();
+
+            Parameters.Add(":TicketID"); Values.Add(TicketID);
+            Parameters.Add(":FromS"); Values.Add(From);
+            Parameters.Add(":ActionT"); Values.Add(Action.ToString());
+            Parameters.Add(":ToS"); Values.Add(To);
+            Parameters.Add(":ESIGN"); Values.Add(Environment.UserDomainName);
+            return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0} VALUES (null,:TicketID,SYSDATE,:FromS,:ActionT,:ToS,{1},:ESIGN)", Consts.TICKETS_LOG_TABLE, Consts.CONST_DB_FIELDS_ACTIVE_STATUS), Values, Parameters);
+        }
 
         /* EPI_CMDB */
 

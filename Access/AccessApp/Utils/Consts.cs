@@ -27,14 +27,16 @@
         public static readonly string TICKET_OBJECTS_TABLE = "EPIDESK.TICKETS_OBJECTS";
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
         public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
-        public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=VMHUINFORV01.epicura.lan:1521/XEXDB;PASSWORD=TL19xPo53;USER ID=EPIDESK";
-        //public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID = epidesk";
+        public static readonly string TICKETS_LOG_TABLE = "EPIDESK.TICKETS_LOG";
+        //public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=VMHUINFORV01.epicura.lan:1521/XEXDB;PASSWORD=TL19xPo53;USER ID=EPIDESK";
+        public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID = epidesk";
 
         // INTERFACE
 
         public static readonly string EMPTY_STRING = " - ";
         public static readonly int LABEL_STRING_LENGHT_LIMIT = 30;
         public static readonly int LABEL_QR_LENGHT_LIMIT = 15;
+        public static readonly int CONST_DB_FIELDS_ACTIVE_STATUS = 0;
 
         // NETWORK
         public static readonly int ZPL_PRINTERS_DEFAULT_PORT = 9100;
@@ -42,8 +44,6 @@
         public static readonly string CONST_NETWORK_EDUC_SERVER = "VMHUINFORV02.epicura.lan";
         public static readonly int CONST_NETWORK_EDUC_PORT = 2607;
         public const string CONST_NETWORK_EDUC_SERVICE_NAME = "EDSOCK";
-
-
-
+        
     }
 }
