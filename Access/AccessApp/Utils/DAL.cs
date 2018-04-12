@@ -280,5 +280,11 @@ namespace AccessApp
             return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0} VALUES (null, :ticket, :type, :value, null, 0, :ESIGN)",Consts.TICKET_OBJECTS_TABLE),values, parameters);
         }
 
+        /* Log On */
+        public static DataSet SelectCredentialsFromAppParam()
+        {
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE ID = 22 OR ID = 23",Consts.APP_PARAM_TABLE));
+        }
+
     }
 }

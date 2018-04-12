@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccessApp.Utils;
+using System;
 using System.Data;
 using System.Web.UI.WebControls;
 
@@ -9,7 +10,17 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetFocus();
+            if (!MobileDeviceChecker.fBrowserIsMobile())
+            {
+                if (Request.IsAuthenticated && Session["Username"] != null)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    Response.Redirect("LogOn.aspx");
+                }
+            }
         }
 
         protected void B_apply_Click(object sender, EventArgs e)

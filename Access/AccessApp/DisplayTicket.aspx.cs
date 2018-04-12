@@ -10,31 +10,38 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            // Check if tId exists
-            if (Request.QueryString.AllKeys.Contains("tId"))
+            if (Request.IsAuthenticated && Session["Username"] != null)
             {
-                // Check if tId is not null
-                if (Request.QueryString["tId"] == string.Empty)
+                // Check if tId exists
+                if (Request.QueryString.AllKeys.Contains("tId"))
                 {
-                    Response.Redirect("Timeline.aspx", true);
+                    // Check if tId is not null
+                    if (Request.QueryString["tId"] == string.Empty)
+                    {
+                        Response.Redirect("Timeline.aspx", true);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            LoadData(Request.QueryString["tId"]);
+                        }
+                        catch
+                        {
+                            EmptyTable();
+                        }
+                    }
                 }
                 else
                 {
-                    try
-                    {
-                        LoadData(Request.QueryString["tId"]);
-                    }
-                    catch
-                    {
-                        EmptyTable();
-                    }
+                    Response.Redirect("Timeline.aspx", true);
                 }
             }
             else
             {
-                Response.Redirect("Timeline.aspx", true);
+                Response.Redirect("LogOn.aspx");
             }
+            
 
         }
 

@@ -18,8 +18,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -278,6 +278,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Gestion_EpiACCESS.aspx" />
     <Content Include="LinkObject.aspx" />
+    <Content Include="LogOn.aspx" />
     <Content Include="Timeline.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -352,6 +353,13 @@
     <Compile Include="LinkObject.aspx.designer.cs">
       <DependentUpon>LinkObject.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LogOn.aspx.cs">
+      <DependentUpon>LogOn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOn.aspx.designer.cs">
+      <DependentUpon>LogOn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Consts.cs" />
     <Compile Include="Utils\DAL.cs" />
     <Compile Include="DisplayTicket.aspx.cs">
@@ -401,6 +409,7 @@
     </Compile>
     <Compile Include="Utils\DBConnection.cs" />
     <Compile Include="Utils\MailSender.cs" />
+    <Compile Include="Utils\MobileDeviceChecker.cs" />
     <Compile Include="Utils\PasswordGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\RemoteDBConnection.cs" />

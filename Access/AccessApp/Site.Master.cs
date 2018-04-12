@@ -13,7 +13,13 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RemotingConfiguration.CustomErrorsEnabled(true);
+            if (Request.IsAuthenticated && Session["Username"] != null)
+            {
+                RemotingConfiguration.CustomErrorsEnabled(true);
+            } else
+            {
+                Response.Redirect("LogOn.aspx");
+            }
         }
     }
 }

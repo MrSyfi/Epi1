@@ -1,9 +1,11 @@
-﻿using System;
+﻿using AccessApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,7 +15,18 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!MobileDeviceChecker.fBrowserIsMobile())
+            {
+                // If w
+                if (Request.IsAuthenticated && Session["Username"] != null)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    Response.Redirect("LogOn.aspx");
+                }
+            }
         }
 
         
@@ -44,8 +57,8 @@ namespace AccessApp
         protected void B_apply_Click(object sender, EventArgs e)
         {
             string tmp = string.Empty;
-            if (TB_EpiID.Text.Length > 3 && (TB_EpiID.Text.ToUpper().StartsWith("EPI")))
-                tmp = TB_EpiID.Text.Substring(3);
+            if (TB_EpiID.Text.Length > Consts.EPIID_PREFIX.Length && (TB_EpiID.Text.ToUpper().StartsWith(Consts.EPIID_PREFIX)))
+                tmp = TB_EpiID.Text.Substring(Consts.EPIID_PREFIX.Length);
             else if (TB_EpiID.Text.Length > 0)
                 tmp = TB_EpiID.Text;
 
