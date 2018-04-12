@@ -140,7 +140,7 @@ namespace AccessApp
                 {
                     if (statut == "STOCKED")
                     {
-                        string[] tab_status = new string[] { "INSTALLED", "UNDER_REPAIR", "OBSOLETE" };
+                        string[] tab_status = new string[] {"STOCKED", "INSTALLED", "UNDER_REPAIR", "OBSOLETE" };
 
                         DDL_status.DataSource = tab_status;
                         DDL_status.DataBind();
