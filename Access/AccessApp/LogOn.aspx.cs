@@ -59,6 +59,11 @@ namespace AccessApp
 
         }
 
+        /// <summary>
+        /// Evenement déclenché quand il y a un click sur le bouton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdLogin_ServerClick(object sender, System.EventArgs e)
         {
             //Vérifie les indentifiants sont correctes.
