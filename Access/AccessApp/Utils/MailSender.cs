@@ -56,7 +56,7 @@ namespace AccessApp
                "<div style='padding-left:50px;'><table><tr><td><b>Nom d'utilisateur</td><td>:</b></td><td> {1} </td></tr>" +
                "<tr><td><b>Mot de passe </td><td>:</td></b><td> {2} </td></tr>" +
                "<tr><td><b>Adresse mail   </td><td>   : </b></td><td> {3} </td></tr></table></div><br/>" +
-               "<p>Lors de votre première entrèe  en session, le système vous invitera à changer immédiatement votre mot de passe, ceci afin de garantir la confidentialité de celui-ci ainsi que vos documents. Votre nouveau mot de passe doit comporter au minimum 8 caractères.</p>" +
+               "<p>Lors de votre première entrée  en session, le système vous invitera à changer immédiatement votre mot de passe, ceci afin de garantir la confidentialité de celui-ci ainsi que vos documents. Votre nouveau mot de passe doit comporter au minimum 8 caractères.</p>" +
                "<p style='color:red;'><b><i>N'oubliez pas de valider la charte en cliquant sur le lien reçu dans votre nouvelle boite mail EpiCURA pour finaliser votre demande d'accès.</b></i></p>" +
                "<p><u>Gardez votre mot de passe secret et n'autorisez personne à travailler sous votre identité.</u></p>" +
                "<p>Nous profitons également de la présente pour vous informer que nous mettons un support à votre disposition accessible via les informations suivantes de 7h15 à 17h30 :<p><br/>" +

@@ -71,12 +71,12 @@ namespace AccessApp
 
         public static DataSet SelectAgentEmail(string ticketID)
         {
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID INNER JOIN {2} ON {2}.TICKET_ID = {1}.ID WHERE {2}.TICKET_ID LIKE '{3}' ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, Consts.ACCESS_REQUEST_TABLE, ticketID));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT DISTINCT(EMAIL) FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID INNER JOIN {2} ON {2}.TICKET_ID = {1}.ID WHERE {2}.TICKET_ID LIKE '{3}' AND {0}.STATUS = 0 ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, Consts.ACCESS_REQUEST_TABLE, ticketID));
         }
 
         public static DataSet SelectRef(string ticketID)
         {
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT DISTINCT({0}.REFERENCE) FROM {0}  WHERE {0}.ID LIKE '{1}'", Consts.TICKETS_TABLE, ticketID));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT DISTINCT({0}.REFERENCE) FROM {0}  WHERE {0}.ID LIKE '{1}' AND STATUS = 0", Consts.TICKETS_TABLE, ticketID));
         }
 
         public static bool CloseTicket(string ticketID, string gen)
@@ -110,7 +110,6 @@ namespace AccessApp
         {
 
             /*
-             * 
                 {0} Historic
                 {1} Contacts
                 {2} Localisation
@@ -125,37 +124,34 @@ namespace AccessApp
         public static DataSet SelectAllFromTicketId(string ticketID)
         {
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE '{1}'", Consts.TICKETS_TABLE, ticketID));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE '{1}' AND STATUS = 0", Consts.TICKETS_TABLE, ticketID));
         }
 
         public static DataSet SelectAgentIdentity(string ticketID)
         {
 
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT FIRST_NAME, LAST_NAME FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID WHERE {1}.ID = '{2}' ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, ticketID));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT FIRST_NAME, LAST_NAME FROM {0} INNER JOIN {1} ON {0}.ID = {1}.AGENT_ID WHERE {1}.ID = '{2}' AND {0}.STATUS = 0 ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, ticketID));
         }
 
         public static DataSet SelectCallerIdentity(string ticketID)
         {
 
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT FIRST_NAME, LAST_NAME FROM {0} INNER JOIN {1} ON {0}.ID = {1}.CALLER_ID WHERE {1}.ID = {2} ", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, ticketID));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT FIRST_NAME, LAST_NAME FROM {0} INNER JOIN {1} ON {0}.ID = {1}.CALLER_ID WHERE {1}.ID = {2} AND {0}.STATUS = 0", Consts.CONTACTS_TABLE, Consts.TICKETS_TABLE, ticketID));
 
         }
 
         public static DataSet SelectAllFromCommentaire(string ticketID)
         {
-
-
-
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.TICKET_ID LIKE '{1}' ORDER BY {0}.TIMESTAMP DESC", Consts.COMMENTAIRE_TABLE, ticketID));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.TICKET_ID LIKE '{1}' AND STATUS = 0 ORDER BY {0}.TIMESTAMP DESC", Consts.COMMENTAIRE_TABLE, ticketID));
         }
 
         public static DataSet SelectContact(string id)
         {
 
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE '{1}'", Consts.CONTACTS_TABLE, id));
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE {0}.ID LIKE '{1}' AND STATUS = 0", Consts.CONTACTS_TABLE, id));
         }
 
         /* EPISTOCK */
@@ -163,7 +159,7 @@ namespace AccessApp
         public static DataSet SelectLocalisationId(string localisation)
         {
 
-            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID FROM {0} WHERE {0}.LOCALISATION_ID LIKE :loc", Consts.LOCALISATION_TABLE),localisation,":loc");
+            return DBConnection.Instance.ExecuteQuery(string.Format("SELECT ID FROM {0} WHERE {0}.LOCALISATION_ID LIKE :loc AND STATUS = 0" , Consts.LOCALISATION_TABLE),localisation,":loc");
         }
 
         public static DataSet SelectUsernameFromUsers(string id)
