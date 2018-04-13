@@ -58,26 +58,34 @@ namespace AccessApp
             return (0 == string.Compare(Password, passWord, false) && 0 == string.Compare(UserName, userName, false));
 
         }
+
         private void cmdLogin_ServerClick(object sender, System.EventArgs e)
         {
+            //Vérifie les indentifiants sont correctes
             if (ValidateUser(txtUserName.Text, txtUserPass.Text))
             {
                 FormsAuthenticationTicket tkt;
                 string cookiestr;
                 HttpCookie ck;
 
-                tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "your custom data");
+                tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "Authentification");
+                //Crée une chaîne contenant un ticket d’authentification chiffré utilisable dans un cookie HTTP.
                 cookiestr = FormsAuthentication.Encrypt(tkt);
                 ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
+                //Définit la date et l'heure d'expiration du cookie.
                 ck.Expires = tkt.Expiration;
+                //Définit le chemin d'accès du cookie.
                 ck.Path = FormsAuthentication.FormsCookiePath;
+                //Ajoute le cookie.
                 Response.Cookies.Add(ck);
+                //Redirige vers la page demandée.
                 FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
                 //Variable de session
                 Session["Username"] = txtUserName.Text;
             }
             else
             {
+                //Redirige vers la page d'authentification.
                 Response.Redirect("LogOn.aspx", true);
             }
         }
