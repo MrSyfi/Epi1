@@ -60,7 +60,7 @@ namespace AccessApp
         }
 
         /// <summary>
-        /// Evenement déclenché quand il y a un click sur le bouton
+        /// Evenement déclenché quand il y a un click sur le bouton.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

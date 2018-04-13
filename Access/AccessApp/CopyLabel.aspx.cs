@@ -15,15 +15,13 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Détermine si l'appareil utilisé est un mobile
             if (!MobileDeviceChecker.fBrowserIsMobile())
             {
-                // If w
-                if (Request.IsAuthenticated && Session["Username"] != null)
+                //Détermine si l'utlisateur est déjà authentifié
+                if (!Request.IsAuthenticated || Session["Username"] == null)
                 {
-                    // do nothing
-                }
-                else
-                {
+                    //Redirige vers la page d'authentification
                     Response.Redirect("LogOn.aspx");
                 }
             }
