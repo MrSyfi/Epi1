@@ -61,16 +61,18 @@ namespace AccessApp
 
         private void cmdLogin_ServerClick(object sender, System.EventArgs e)
         {
-            //Vérifie les indentifiants sont correctes
+            //Vérifie les indentifiants sont correctes.
             if (ValidateUser(txtUserName.Text, txtUserPass.Text))
             {
                 FormsAuthenticationTicket tkt;
                 string cookiestr;
                 HttpCookie ck;
 
+                //Création d'une instance contenant la structure du ticket.
                 tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "Authentification");
                 //Crée une chaîne contenant un ticket d’authentification chiffré utilisable dans un cookie HTTP.
                 cookiestr = FormsAuthentication.Encrypt(tkt);
+                //Création d'une instance contenant le cookie à partir du ticket.
                 ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
                 //Définit la date et l'heure d'expiration du cookie.
                 ck.Expires = tkt.Expiration;
