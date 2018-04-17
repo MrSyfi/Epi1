@@ -74,7 +74,7 @@ namespace AccessApp
                 HttpCookie ck;
 
                 //Création d'une instance contenant la structure du ticket.
-                tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(1), true, "Authentification");
+                tkt = new FormsAuthenticationTicket(1, txtUserName.Text, DateTime.Now, DateTime.Now.AddMinutes(120), true, "Authentification");
                 //Crée une chaîne contenant un ticket d’authentification chiffré utilisable dans un cookie HTTP.
                 cookiestr = FormsAuthentication.Encrypt(tkt);
                 //Création d'une instance contenant le cookie à partir du ticket.

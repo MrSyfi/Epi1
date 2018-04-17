@@ -16,12 +16,14 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             //Détermine si l'utlisateur est déjà authentifié
             if (!Request.IsAuthenticated || Session["Username"] == null)
             {
                 //Redirige vers la page d'authentification
                 Response.Redirect("LogOn.aspx");
             }
+
         }
 
         protected void TB_recherche_TextChanged(object sender, EventArgs e)
