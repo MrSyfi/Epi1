@@ -68,9 +68,7 @@ namespace AccessApp
 
         private string PopulateZPL(string code, string info)
         {
-
             return "^XA^FO350,25^BQN,10,4^FDHM,A" + code + "^FS^FO220,150^A@N,15,10,E:ARI000.FNT^FD" + RemoveAccent(info) + "^FS^XZ";
-
         }
 
         protected void B_generer_fichier_Click(object sender, EventArgs e)
@@ -80,28 +78,34 @@ namespace AccessApp
             if (DDL_Printer.SelectedIndex != 0)
             {
                 try
-                {
-
+                {                   
                     if (FileUploader.HasFile)
                     {
                         savePath += FileUploader.FileName;
+                        //Sauvegarde le ficjier sur le serveur.
                         FileUploader.SaveAs(savePath);
                         string result = string.Empty;
+
+                        //Parcourt du fichier afin d'en récupérer chaque ligne
                         foreach (string line in File.ReadLines(savePath, Encoding.UTF7))
                         {
-
+                            //Chaque ligne est séparée en 2 afin de délimiter les 2 informations
+                            //qui sont séparées par une virgule.
                             string[] parts = line.Split(';');
 
+                            //Reçoit le code ZPL générer celui contient les informations récupérées.	
                             result += PopulateZPL(parts[0], parts[1]);
                         }
+
+                        //Impression des étiquettes
                         Print(result);
+                        //Suppression du fichier 
                         File.Delete(savePath);
                     }
                     else
                     {
                         System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Pas de fichier !')</SCRIPT>");
                     }
-
                 }
                 catch
                 {
@@ -137,9 +141,6 @@ namespace AccessApp
                     // Possible exceptions ?!?
                 }
             }
-
         }
-
-
     }
 }

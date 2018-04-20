@@ -250,7 +250,6 @@ namespace AccessApp
         public static DataSet SelectPrinterIP(string siteAbb)
         {
             string site = siteAbb + "_TAG_PRN_IP";
-
             return DBConnection.Instance.ExecuteQuery(string.Format("SELECT * FROM {0} WHERE VARIABLE LIKE '{1}'", Consts.APP_PARAM_TABLE, site));
         }
 

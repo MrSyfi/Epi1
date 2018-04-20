@@ -27,29 +27,35 @@ namespace AccessApp
             }
         }
 
-        
+        /// <summary>
+        /// Permet la communication avec une imprimante afin d'imprimer des étiquettes.
+        /// </summary>
+        /// <param name="zpl"></param>
         private void Print(string zpl)
         {
             using (TcpClient client = new TcpClient())
             {
                 try
                 {
+                    //Connecte le client à un hôte TCP distant en utilisant l'adresse IP et le numéro de port spécifiés.
                     client.Connect(DAL.SelectPrinterIP(DDL_Printer.SelectedValue).Tables[0].Rows[0]["VALUE"].ToString(), Consts.ZPL_PRINTERS_DEFAULT_PORT);
 
                     using (StreamWriter writer = new StreamWriter(client.GetStream()))
                     {
+                        //Message indiquant l'impression à l'utilisateur.
                         System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Impression...')</SCRIPT>");
+
+                        //Écrit une chaîne de caractères dans le flux.
                         writer.Write(zpl);
-                        writer.Flush();
+                        // Efface toutes les mémoires tampons pour le writer et provoque l'écriture des données mises en mémoire tampon dans le flux sous-jacent.
+                        writer.Flush(); 
                     }
                 }
                 catch
                 {
                     System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Il y a eu une erreur lors de l'impression.')</SCRIPT>");
-                    // Possible exceptions ?!?
                 }
             }
-
         }
 
         protected void B_apply_Click(object sender, EventArgs e)

@@ -4,7 +4,6 @@ namespace AccessApp
 {
     public class DBConnection
     {
-
         private static ED_UCDBConnection _db = null;
         private static readonly object padlock = new object();
 
