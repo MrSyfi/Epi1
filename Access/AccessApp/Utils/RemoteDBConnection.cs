@@ -9,19 +9,25 @@ namespace AccessApp
     {
         public ED_UCDBConnection EDUC;
         public TcpChannel ClientChannel;
+
         public bool Connect()
         {
             try
             {
+                //Créer un canal de communication entre l'application et l'objet distante
                 ClientChannel = new TcpChannel();
                 ChannelServices.RegisterChannel(ClientChannel, false);
-                EDUC = (ED_UCDBConnection)Activator.GetObject(typeof(ED_UCDBConnection), string.Format("tcp://{0}:{1}/{2}", Consts.CONST_NETWORK_EDUC_SERVER, Consts.CONST_NETWORK_EDUC_PORT.ToString(), Consts.CONST_NETWORK_EDUC_SERVICE_NAME));
+                //Permet d'obtenir l'objet distant.
+                EDUC = (ED_UCDBConnection)Activator.GetObject(typeof(ED_UCDBConnection), string.Format("tcp://{0}:{1}/{2}", 
+                    Consts.CONST_NETWORK_EDUC_SERVER, 
+                    Consts.CONST_NETWORK_EDUC_PORT.ToString(), 
+                    Consts.CONST_NETWORK_EDUC_SERVICE_NAME));
 
-                return true;
+                return true;//Connexion réussie
             }
             catch
             {
-                return false;
+                return false;//Connexion ratée
             }
         }
 

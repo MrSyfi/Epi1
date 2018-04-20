@@ -7,7 +7,8 @@ namespace AccessApp
 
         public static string Generate(int lenght = 8)
         {
-            // Certaines lettres ont été retirées car pouvant rendre le mot de passe difficile à prononcer ou pouvant être confondues (l et I)
+            // Certaines lettres ont été retirées car pouvant rendre le mot de passe 
+            //difficile à prononcer ou pouvant être confondues (l et I)
             char[] voyellesArray = "aeuio".ToCharArray();
             char[] consonneArray = "bcdfghjkmnpqrstvz".ToCharArray();
             char[] password = new char[lenght];
@@ -15,7 +16,7 @@ namespace AccessApp
 
             Random rnd = new Random();
 
-            // La premiere lettre sera elle une voyelle ?
+            // La premiere lettre sera une voyelle ?
             bool voyelle = rnd.Next(2) == 0;
 
             // Pour chaque caractere souhaité
@@ -36,8 +37,5 @@ namespace AccessApp
             
             return new string(password);
         }
-
-
-
     }
 }
