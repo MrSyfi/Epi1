@@ -28,7 +28,7 @@
         public static readonly string ACCESS_REQUEST_VIEW = "ACCESS_REQUESTS_VIEW";
         public static readonly string ACCESS_REQUEST_STATUS = "ACCESS_REQUESTS_STATUS_VIEW";
         public static readonly string TICKETS_LOG_TABLE = "EPIDESK.TICKETS_LOG";
-        public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=VMHUINFORV01.epicura.lan:1521/XEXDB;PASSWORD=TL19xPo53;USER ID=EPIDESK";
+       public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=VMHUINFORV01.epicura.lan:1521/XEXDB;PASSWORD=TL19xPo53;USER ID=EPIDESK";
         //public const string CONST_ORACLE_CONNECTION_STRING = @"DATA SOURCE=HUINFORC17.epicura.lan:1521/XE;PASSWORD=epidesk;USER ID = epidesk";
 
         // INTERFACE
@@ -45,6 +45,8 @@
         public static readonly string CONST_EMAIL_SMTP_SERVER_HOST = "mail.epicura.be";
         public static readonly string CONST_NETWORK_EDUC_SERVER = "VMHUINFORV02.epicura.lan";
         public static readonly int CONST_NETWORK_EDUC_PORT = 2607;
+        public static readonly string VARIABLE_USR = "EPITOOLS_USR";
+        public static readonly string VARIABLE_PWD = "EPITOOLS_PWD";
         public const string CONST_NETWORK_EDUC_SERVICE_NAME = "EDSOCK";
         
     }
