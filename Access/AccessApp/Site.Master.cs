@@ -13,12 +13,16 @@ namespace AccessApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.IsAuthenticated && Session["Username"] != null)
+            if (!Utils.MobileDeviceChecker.fBrowserIsMobile())
             {
-                RemotingConfiguration.CustomErrorsEnabled(true);
-            } else
-            {
-                Response.Redirect("LogOn.aspx");
+                if (Request.IsAuthenticated && Session["Username"] != null)
+                {
+                    RemotingConfiguration.CustomErrorsEnabled(true);
+                }
+                else
+                {
+                    Response.Redirect("LogOn.aspx");
+                }
             }
         }
     }
