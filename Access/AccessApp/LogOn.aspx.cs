@@ -87,8 +87,6 @@ namespace AccessApp
                 Response.Cookies.Add(ck);
                 //Redirige vers la page demandée.
                 FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, true);
-                //Variable de session
-                Session["Username"] = txtUserName.Text;
             }
             else
             {
