@@ -10,7 +10,7 @@ namespace AccessApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.IsAuthenticated && Session["Username"] != null)
+            if (Request.IsAuthenticated)
             {
                 // Check if tId exists
                 if (Request.QueryString.AllKeys.Contains("tId"))

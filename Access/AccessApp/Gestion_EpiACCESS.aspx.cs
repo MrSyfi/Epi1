@@ -18,7 +18,7 @@ namespace AccessApp
         {
 
             //Détermine si l'utlisateur est déjà authentifié
-            if (!Request.IsAuthenticated || Session["Username"] == null)
+            if (!Request.IsAuthenticated)
             {
                 //Redirige vers la page d'authentification
                 Response.Redirect("LogOn.aspx");

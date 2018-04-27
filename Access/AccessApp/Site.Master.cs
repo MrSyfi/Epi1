@@ -15,7 +15,7 @@ namespace AccessApp
         {
             if (!Utils.MobileDeviceChecker.fBrowserIsMobile())
             {
-                if (Request.IsAuthenticated && Session["Username"] != null)
+                if (Request.IsAuthenticated)
                 {
                     RemotingConfiguration.CustomErrorsEnabled(true);
                 }
