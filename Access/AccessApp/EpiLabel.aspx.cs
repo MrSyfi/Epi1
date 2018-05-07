@@ -140,6 +140,7 @@ namespace AccessApp
                     System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Il y a eu une erreur lors de l'impression.')</SCRIPT>");
                     // Possible exceptions ?!?
                 }
+                
             }
         }
     }
