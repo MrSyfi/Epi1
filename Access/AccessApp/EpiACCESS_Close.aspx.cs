@@ -138,7 +138,7 @@ namespace AccessApp
                 
                 ChangePassword(TB_username.Text, Consts.MOT_DE_PASSE);
 
-                DAL.UpdateRequestStatus(TB_id.Text, "CLOSED");
+                DAL.UpdateRequestStatus(TB_id.Text, "USER_READY");
                 DAL.InsertTicketsComment(TB_ticket.Text, "1", "Clôture de la demande d'accès et email envoyé le " + DateTime.Now.ToString("dd/MM/yyyy") + "avec les identifiants : \n\t Username : "+TB_username.Text+"\n\tPassword : "+Consts.MOT_DE_PASSE, "1");
                 DataSet _ds = DAL.SelectAgentIdentity(TB_ticket.Text);
                 
