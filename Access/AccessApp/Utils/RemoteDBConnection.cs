@@ -14,7 +14,7 @@ namespace AccessApp
         {
             try
             {
-                //Créer un canal de communication entre l'application et l'objet distante
+                //Créer un canal de communication entre l'application et l'objet distant
                 ClientChannel = new TcpChannel();
                 ChannelServices.RegisterChannel(ClientChannel, false);
                 //Permet d'obtenir l'objet distant.
