@@ -79,24 +79,19 @@ namespace AccessApp
 
         public static void SendObsoleteEmail(string RespMail, string AgentMail, string EpiID, string Marque, string Modele, string NumSerie, string Agent)
         {
-
+            //Objet qui représente un mail électronique
             System.Net.Mail.MailMessage _EMail = new System.Net.Mail.MailMessage();
+            //Objet qui permet d'envoyer des courriers électroniques grâce au protocole SMTP
             System.Net.Mail.SmtpClient _smtpServer = new System.Net.Mail.SmtpClient(Consts.CONST_EMAIL_SMTP_SERVER_HOST);
 
-            _EMail.BodyEncoding = System.Text.Encoding.Default;
-            _EMail.From = new System.Net.Mail.MailAddress(AgentMail, AgentMail);
-            _EMail.Priority = System.Net.Mail.MailPriority.Normal;
-
-            _EMail.Subject = " Message automatique : Obsolescence de matériel ";
-
-            _EMail.IsBodyHtml = true;
-            _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, Modele, NumSerie, Agent));
-
-            _EMail.To.Add(RespMail);
-            
-
-            _smtpServer.Send(_EMail);
-
+            _EMail.BodyEncoding = System.Text.Encoding.Default; //Définit le type d'encodage pour le corps du message
+            _EMail.From = new System.Net.Mail.MailAddress(AgentMail, AgentMail); //Ajoute l'adresse mail de l'expéditeur
+            _EMail.Priority = System.Net.Mail.MailPriority.Normal; //Définit la priorité
+            _EMail.Subject = " Message automatique : Obsolescence de matériel "; //Sujet du mail
+            _EMail.IsBodyHtml = true; //Indique si le corps est au format HTML
+            _EMail.Body = System.Net.WebUtility.HtmlDecode(SendObsolete(EpiID, Marque, Modele, NumSerie, Agent)); //Corps du message 
+            _EMail.To.Add(RespMail); //Ajoute l'adresse mail d'un destinataire
+            _smtpServer.Send(_EMail); //Envoie le message sur un serveur SMTP
         }
 
         public static void SendPwdPerEmail(string pwd, string mailAgent, string destResp, string newUserName, string firstName, string lastName, string refTicket, out bool sended)

@@ -82,7 +82,7 @@ namespace AccessApp
                     if (FileUploader.HasFile)
                     {
                         savePath += FileUploader.FileName;
-                        //Sauvegarde le ficjier sur le serveur.
+                        //Sauvegarde le fichier sur le serveur.
                         FileUploader.SaveAs(savePath);
                         string result = string.Empty;
 
