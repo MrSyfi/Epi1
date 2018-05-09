@@ -151,10 +151,11 @@ namespace AccessApp
             }
         }
 
-        //Permet de changer un mot de passe 
+        //Permet de changer un mot de passe via un service
         public void ChangePassword(string username, string motDePasse, bool resetPassword = true, bool restreint = true)
         {
             EpiService.MyServicesSoapClient client = new EpiService.MyServicesSoapClient();
+            //Utilisation du service spécifique 
             client.ChgPwdWindows("EPICURA", username, String.Empty, motDePasse, motDePasse, resetPassword, restreint);
         }
 
