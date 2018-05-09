@@ -12,29 +12,28 @@ namespace AccessApp
             char[] voyellesArray = "aeuio".ToCharArray();
             char[] consonneArray = "bcdfghjkmnpqrstvz".ToCharArray();
             char[] password = new char[lenght];
-
-
             Random rnd = new Random();
 
-            // La premiere lettre sera une voyelle ?
+            //La premiere lettre sera une voyelle ?
             bool voyelle = rnd.Next(2) == 0;
 
-            // Pour chaque caractere souhaité
+            //Pour chaque caractere souhaité
             for (int i = 0; i < lenght; i++)
             {
-                if (voyelle)
+                if (voyelle)//Si voyelle
                 {
-                    int voyelNumber = rnd.Next(0, 5);
-                    password[i] = voyellesArray[voyelNumber];
+                    int voyelNumber = rnd.Next(0, 5);//Génère un chiffre aléatoire
+                    //Ajoute la lettre au mot de passe en fonction du chiffre généré
+                    password[i] = voyellesArray[voyelNumber]; 
                 }
-                else
+                else//Si consonne
                 {
-                    int consonneNumber = rnd.Next(0, 17);
+                    int consonneNumber = rnd.Next(0, 17);//Génère un chiffre aléatoire
+                    //Ajoute la lettre au mot de passe en fonction du chiffre généré
                     password[i] = consonneArray[consonneNumber];
                 }
                 voyelle = !voyelle;
-            }
-            
+            }     
             return new string(password);
         }
     }
