@@ -272,6 +272,8 @@ namespace AccessApp
             parameters.Add(":value"); values.Add(sValue);
             parameters.Add(":ESIGN");values.Add(SelectUsernameFromUsers(idOp).Tables[0].Rows[0]["USERNAME"].ToString());
 
+
+
             return DBConnection.Instance.ExecuteNonQuery(string.Format("INSERT INTO {0} VALUES (null, :ticket, :type, :value, null, 0, :ESIGN)",Consts.TICKET_OBJECTS_TABLE),values, parameters);
         }
 

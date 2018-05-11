@@ -55,6 +55,7 @@ namespace AccessApp
                                 DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", tmp, "0", TB_id_ticket.Text);
                                 DAL.UpdateStockStatus(tmp, "TRANSIT");
                                 DAL.InsertInTicketObject(TB_id_ticket.Text, "DEVICE", GetXmlFromList(listEpiID), TB_id_op.Text);
+                                Reset();
                             }
                             else
                             {
@@ -83,6 +84,13 @@ namespace AccessApp
                 TB_id_op.Text = string.Empty;
                 System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Identifiant de l'opérateur incorrect !')</SCRIPT>");
             }
+        }
+
+        public void Reset()
+        {
+            TB_id_op.Text = string.Empty;
+            TB_EpiID.Text = string.Empty;
+            TB_id_ticket.Text = string.Empty;
         }
 
         public string GetXmlFromList(List<string>Liste)
