@@ -59,7 +59,8 @@ namespace AccessApp
                             }
                             else
                             {
-                                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Ce matériel a déjà été ajouté')</SCRIPT>");
+                                DAL.InsertInHistoric(TB_id_op.Text, "TRANSIT", tmp, "0", TB_id_ticket.Text);
+                                DAL.UpdateStockStatus(tmp, "TRANSIT");
                             }
                         }
                         else
